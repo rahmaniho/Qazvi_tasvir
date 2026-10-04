@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  لوگوی متنی (Text-based Wordmark) برند اسکانیا — طراحی اختصاصی قزوین تصویر
+  توجه: این فایل یک وردمارک متنی جهت نمایش در بخش «برندهای همکار» است و
+  بازتولید نشان رسمی تجاری شرکت سازنده نمی‌باشد. برای جایگزینی با لوگوی رسمی
+  کافی است همین فایل با همان نام بازنویسی شود.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110" width="200" height="110" role="img" aria-label="اسکانیا">
+  <title>اسکانیا (Scania)</title>
+  <!-- نشان اختصاصی: سه نوار موازی نماد سه محور خودرو سنگین -->
+  <g fill="#FCD34D" opacity="0.9">
+    <rect x="76" y="16" width="48" height="5" rx="2.5"></rect>
+    <rect x="66" y="27" width="68" height="5" rx="2.5" opacity="0.75"></rect>
+    <rect x="56" y="38" width="88" height="5" rx="2.5" opacity="0.5"></rect>
+  </g>
+  <!-- نام برند -->
+  <text x="100" y="80" text-anchor="middle"
+        font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="34" font-weight="800" letter-spacing="3" fill="#FFFFFF">SCANIA</text>
+  <text x="100" y="98" text-anchor="middle"
+        font-family="Vazirmatn, Tahoma, sans-serif"
+        font-size="13" font-weight="600" fill="#94A3B8">اسکانیا • سوئد</text>
+</svg>

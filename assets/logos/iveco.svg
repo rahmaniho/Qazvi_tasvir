@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  لوگوی متنی (Text-based Wordmark) برند ایویکو — طراحی اختصاصی قزوین تصویر
+  توجه: بازتولید نشان رسمی تجاری شرکت سازنده نیست؛ وردمارک متنی جایگزین است.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110" width="200" height="110" role="img" aria-label="ایویکو">
+  <title>ایویکو (Iveco)</title>
+  <!-- نشان اختصاصی: نوار مورب دینامیک نماد حرکت و سرعت -->
+  <g>
+    <rect x="62" y="16" width="76" height="10" rx="5" fill="#0EA5E9" opacity="0.85"></rect>
+    <rect x="74" y="32" width="52" height="10" rx="5" fill="#FCD34D" opacity="0.9"></rect>
+  </g>
+  <!-- نام برند -->
+  <text x="100" y="82" text-anchor="middle"
+        font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="34" font-weight="800" letter-spacing="4" fill="#FFFFFF">IVECO</text>
+  <text x="100" y="99" text-anchor="middle"
+        font-family="Vazirmatn, Tahoma, sans-serif"
+        font-size="13" font-weight="600" fill="#94A3B8">ایویکو • ایتالیا</text>
+</svg>

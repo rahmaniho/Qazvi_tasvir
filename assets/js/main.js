@@ -59,12 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isOpen) {
       hamburgerBtn.classList.add('is-active');
       hamburgerBtn.setAttribute('aria-expanded', 'true');
+      hamburgerBtn.setAttribute('aria-label', 'بستن منوی موبایل');
       mobileDrawer.classList.add('is-open');
+      mobileDrawer.setAttribute('aria-hidden', 'false'); // اعلام وضعیت باز به صفحه‌خوان‌ها
       document.body.style.overflow = 'hidden';
+
+      // انتقال فوکوس به اولین لینک منو برای ناوبری کامل با کیبورد
+      const firstLink = mobileDrawer.querySelector('.mobile-drawer__link');
+      if (firstLink) firstLink.focus({ preventScroll: true });
     } else {
       hamburgerBtn.classList.remove('is-active');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
+      hamburgerBtn.setAttribute('aria-label', 'باز کردن منوی موبایل');
       mobileDrawer.classList.remove('is-open');
+      mobileDrawer.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
   }
@@ -76,10 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => toggleMobileMenu(false));
     });
 
-    // بستن منو با دکمه Escape
+    // بستن منو با دکمه Escape و بازگرداندن فوکوس به دکمه منو
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
         toggleMobileMenu(false);
+        hamburgerBtn.focus({ preventScroll: true });
       }
     });
   }
@@ -324,7 +333,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ۹. اعتبارسنجی فرم مدال مشاوره
+  // ۹. اسکلتون لودینگ تصاویر ناوگان (Image Skeleton Loading)
+  //    تا پیش از آماده شدن تصویر، پس‌زمینه شیمر نمایش داده می‌شود و پس از
+  //    بارگذاری، تصویر با محو شدن ملایم ظاهر می‌شود.
+  const fleetImages = document.querySelectorAll('.fleet-card__img');
+  fleetImages.forEach(img => {
+    const media = img.closest('.fleet-card__media');
+    if (!media) return;
+
+    const markLoaded = () => media.classList.add('is-loaded');
+
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();                       // تصویر از کش مرورگر آماده است
+    } else {
+      img.addEventListener('load', markLoaded, { once: true });
+      img.addEventListener('error', markLoaded, { once: true }); // جلوگیری از گیر کردن اسکلتون
+    }
+  });
+
+  // ۱۰. اعتبارسنجی فرم مدال مشاوره
   const modalForm = document.getElementById('modal-form');
   if (modalForm) {
     modalForm.addEventListener('submit', (e) => {

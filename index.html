@@ -7,7 +7,7 @@
   
   <!-- سئو و متادیتا (SEO & Meta) -->
   <meta name="description" content="شرکت قزوین تصویر (شناسه ملی ۱۰۸۶۱۴۱۵۲۱۵)، با مدیریت سعید امین‌زاده، ارائه‌دهنده خدمات بازرگانی، واردات و صادرات و سرویس ایاب و ذهاب پرسنل کارخانه‌ها. تأسیس ۱۳۷۴. تماس: ۰۹۱۲ ۲۸۱ ۵۱۸۹">
-  <meta name="keywords" content="قزوین تصویر, سعید امین‌زاده, بازرگانی قزوین, واردات و صادرات, ترخیص گمرکی, ترابری کارخانجات قزوین, سرویس ایاب و ذهاب پرسنل, شهرک صنعتی کاسپین, شهرک صنعتی البرز">
+  <meta name="keywords" content="قزوین تصویر, سعید امین‌زاده, بازرگانی قزوین, واردات و صادرات, ترخیص گمرکی, ترابری کارخانجات قزوین, سرویس ایاب و ذهاب پرسنل, ناوگان ترابری, اتوبوس سرویس پرسنل, مینی‌بوس, ون مسافربری, شهرک صنعتی کاسپین, شهرک صنعتی البرز">
   <meta name="author" content="شرکت قزوین تصویر">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://qazvintasvir.ir/">
@@ -17,7 +17,9 @@
   <meta property="og:url" content="https://qazvintasvir.ir/">
   <meta property="og:title" content="قزوین تصویر | بازرگانی، واردات و صادرات و ترابری — تأسیس ۱۳۷۴">
   <meta property="og:description" content="شرکت قزوین تصویر با بیش از ۳۱ سال سابقه درخشان تحت مدیریت سعید امین‌زاده؛ خدمات تخصصی بازرگانی بین‌الملل و ناوگان ترابری پرسنل کارخانه‌ها.">
-  <meta property="og:image" content="assets/images/og-image.svg">
+  <meta property="og:image" content="https://qazvintasvir.ir/assets/images/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="ناوگان اتوبوس سرویس پرسنل شرکت قزوین تصویر">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fa_IR">
@@ -27,7 +29,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="قزوین تصویر | بازرگانی، واردات و صادرات و ترابری — تأسیس ۱۳۷۴">
   <meta name="twitter:description" content="شرکت قزوین تصویر (شناسه ۱۰۸۶۱۴۱۵۲۱۵) — ۳۱ سال تجربه در بازرگانی و ترابری سازمانی با مدیریت سعید امین‌زاده.">
-  <meta name="twitter:image" content="assets/images/og-image.svg">
+  <meta name="twitter:image" content="https://qazvintasvir.ir/assets/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="ناوگان اتوبوس سرویس پرسنل شرکت قزوین تصویر">
 
   <!-- Favicon & Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
@@ -40,6 +43,15 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- جایگزین بدون جاوااسکریپت: نمایش کامل بخش‌های انیمیشنی -->
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .fleet-card__img { opacity: 1 !important; }
+      .fleet-card__media { animation: none !important; }
+    </style>
+  </noscript>
 
   <!-- داده‌های ساختاریافته Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -102,6 +114,36 @@
     "areaServed": {
       "@type": "Country",
       "name": "Iran"
+    },
+    "knowsAbout": [
+      "بازرگانی، واردات و صادرات کالا",
+      "ترخیص گمرکی و امور بندری",
+      "حمل بین‌المللی دریایی، زمینی و هوایی",
+      "سرویس ایاب و ذهاب پرسنل کارخانه‌ها و ادارات",
+      "ناوگان اتوبوس، مینی‌بوس و ون"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "خدمات شرکت قزوین تصویر",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "بازرگانی، واردات و صادرات",
+            "description": "تأمین کالا، ترخیص گمرکی و امور بندری، حمل بین‌المللی و گشایش اعتبارات اسنادی (LC)."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "ترابری و سرویس ایاب و ذهاب پرسنل",
+            "description": "قراردادهای بلندمدت و ماهانه سرویس پرسنل با ناوگان ملکی اتوبوس، مینی‌بوس و ون، پوشش کامل ساعات شیفتی و پشتیبانی ۲۴/۷.",
+            "serviceType": "Passenger transportation service"
+          }
+        }
+      ]
     },
     "sameAs": [
       "https://rasmio.com/company/10861415215/قزوین-تصویر/",
@@ -182,10 +224,9 @@
         <ul class="nav-menu" role="menubar">
           <li role="none"><a href="#hero" class="nav-menu__link active" role="menuitem">خانه</a></li>
           <li role="none"><a href="#about" class="nav-menu__link" role="menuitem">درباره ما</a></li>
-          <li role="none"><a href="#services" class="nav-menu__link" role="menuitem">خدمات تخصصی</a></li>
-          <li role="none"><a href="#why-us" class="nav-menu__link" role="menuitem">چرا قزوین تصویر</a></li>
-          <li role="none"><a href="#clients" class="nav-menu__link" role="menuitem">مشتریان و همکاران</a></li>
-          <li role="none"><a href="#trust" class="nav-menu__link" role="menuitem">اعتبار و اطلاعات ثبتی</a></li>
+          <li role="none"><a href="#services" class="nav-menu__link" role="menuitem">خدمات</a></li>
+          <li role="none"><a href="#fleet" class="nav-menu__link" role="menuitem">ناوگان</a></li>
+          <li role="none"><a href="#brands" class="nav-menu__link" role="menuitem">برندها</a></li>
           <li role="none"><a href="#contact" class="nav-menu__link" role="menuitem">تماس با ما</a></li>
         </ul>
 
@@ -198,7 +239,7 @@
             <span>مشاوره رایگان</span>
           </button>
 
-          <button id="hamburger-btn" class="hamburger-btn" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="mobile-drawer">
+          <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="mobile-drawer">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -230,27 +271,39 @@
         </a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="#why-us" class="mobile-drawer__link">
-          <span>چرا ما؟</span>
+        <a href="#fleet" class="mobile-drawer__link">
+          <span>ناوگان ترابری (اتوبوس، مینی‌بوس، ون)</span>
           <span class="mobile-drawer__num">۰۴</span>
         </a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="#clients" class="mobile-drawer__link">
-          <span>مشتریان و برندهای همکار</span>
+        <a href="#brands" class="mobile-drawer__link">
+          <span>برندهای همکار</span>
           <span class="mobile-drawer__num">۰۵</span>
+        </a>
+      </li>
+      <li class="mobile-drawer__item">
+        <a href="#why-us" class="mobile-drawer__link">
+          <span>چرا ما؟</span>
+          <span class="mobile-drawer__num">۰۶</span>
+        </a>
+      </li>
+      <li class="mobile-drawer__item">
+        <a href="#clients" class="mobile-drawer__link">
+          <span>مشتریان و همکاران تجاری</span>
+          <span class="mobile-drawer__num">۰۷</span>
         </a>
       </li>
       <li class="mobile-drawer__item">
         <a href="#trust" class="mobile-drawer__link">
           <span>اعتبار و استعلام رسمی</span>
-          <span class="mobile-drawer__num">۰۶</span>
+          <span class="mobile-drawer__num">۰۸</span>
         </a>
       </li>
       <li class="mobile-drawer__item">
         <a href="#contact" class="mobile-drawer__link">
           <span>تماس با شرکت</span>
-          <span class="mobile-drawer__num">۰۷</span>
+          <span class="mobile-drawer__num">۰۹</span>
         </a>
       </li>
     </ul>
@@ -277,6 +330,8 @@
       <div class="hero__glow-top" aria-hidden="true"></div>
       <div class="hero__glow-bottom" aria-hidden="true"></div>
       <div class="hero__grid-pattern" aria-hidden="true"></div>
+      <!-- ذرات نورانی متحرک ملایم (تنها در دسکتاپ نمایش داده می‌شود) -->
+      <div class="hero__particles" aria-hidden="true"></div>
 
       <div class="container">
         <div class="hero__grid">
@@ -458,7 +513,7 @@
               شرکت <strong>قزوین تصویر</strong> با مسئولیت محدود، از <strong>اردیبهشت سال ۱۳۷۴</strong> با هدایت و مدیریت جناب آقای <strong>سعید امین‌زاده</strong> فعالیت رسمی خود را آغاز نمود. در طول بیش از سه دهه خدمت مستمر به بخش‌های تولیدی و بازرگانی کشور، ما به یکی از خوش‌نام‌ترین و مطمئن‌ترین مجموعه‌ها در دو حوزه حیاتی <strong>«بازرگانی، واردات و صادرات»</strong> و <strong>«ترابری و ترابری پرسنل کارخانه‌ها»</strong> بدل شده‌ایم.
             </p>
 
-            <ul class="about__checklist" role="list">
+            <ul class="about__checklist">
               <li class="about__check-item">
                 <div class="check-icon" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
@@ -689,7 +744,188 @@
     </section>
 
     <!-- ======================================================================
-         ۴.۶ بخش چرا ما (Why Us Section)
+         ۴.۶ بخش ناوگان ترابری (Fleet Section) — جدید
+         ناوگان ملکی: اتوبوس، مینی‌بوس و ون با تصاویر اختصاصی
+         تصاویر: assets/images/bus-fleet.jpg | minibus-fleet.jpg | van-fleet.jpg
+         ====================================================================== -->
+    <section id="fleet" class="fleet-section" aria-label="ناوگان ترابری شرکت قزوین تصویر">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label section-label--sky">
+            <span>ناوگان ملکی و بیمه‌شده</span>
+          </div>
+          <h2 class="section-title">ناوگان مجهز ترابری</h2>
+          <p class="section-desc">
+            سرویس‌دهی منظم و ایمن با اتوبوس، مینی‌بوس و ون‌های ملکی؛ آماده انعقاد قرارداد با کارخانه‌ها، شرکت‌ها، ادارات و مدارس
+          </p>
+        </div>
+
+        <!-- گرید سه‌ستونه کارت‌های ناوگان (موبایل: تک‌ستونه) -->
+        <ul class="fleet-grid">
+          <!-- کارت ۱ — اتوبوس -->
+          <li class="fleet-card reveal">
+            <div class="fleet-card__media">
+              <picture>
+                <source srcset="assets/images/bus-fleet.webp" type="image/webp">
+                <img class="fleet-card__img"
+                     src="assets/images/bus-fleet.jpg"
+                     alt="اتوبوس سرویس پرسنل قزوین تصویر"
+                     width="1000" height="747"
+                     loading="lazy" decoding="async">
+              </picture>
+              <span class="fleet-card__tag">اتوبوس</span>
+            </div>
+            <div class="fleet-card__info">
+              <h3 class="fleet-card__title">اتوبوس‌های بین‌شهری و درون‌شهری</h3>
+              <p class="fleet-card__desc">
+                ظرفیت بالا برای جابه‌جایی پرسنل کارخانه‌ها در شیفت‌های مختلف، با پوشش مسیرهای درون‌شهری و بین‌شهری استان قزوین.
+              </p>
+              <ul class="fleet-card__features">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>پوشش کامل ساعات شیفتی</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>ایمنی و بیمه کامل سرنشین</span>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- کارت ۲ — مینی‌بوس -->
+          <li class="fleet-card reveal">
+            <div class="fleet-card__media">
+              <picture>
+                <source srcset="assets/images/minibus-fleet.webp" type="image/webp">
+                <img class="fleet-card__img"
+                     src="assets/images/minibus-fleet.jpg"
+                     alt="مینی‌بوس سرویس پرسنل قزوین تصویر"
+                     width="1000" height="747"
+                     loading="lazy" decoding="async">
+              </picture>
+              <span class="fleet-card__tag">مینی‌بوس</span>
+            </div>
+            <div class="fleet-card__info">
+              <h3 class="fleet-card__title">مینی‌بوس‌های مسافربری</h3>
+              <p class="fleet-card__desc">
+                مناسب برای مسیرهای کوتاه‌تر و گروه‌های متوسط پرسنل؛ گزینه‌ای بهینه برای واحدهای تولیدی با تعداد نفرات محدودتر.
+              </p>
+              <ul class="fleet-card__features">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>انعطاف در تعریف مسیر</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>رانندگان حرفه‌ای و آموزش‌دیده</span>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- کارت ۳ — ون -->
+          <li class="fleet-card reveal">
+            <div class="fleet-card__media">
+              <picture>
+                <source srcset="assets/images/van-fleet.webp" type="image/webp">
+                <img class="fleet-card__img"
+                     src="assets/images/van-fleet.jpg"
+                     alt="ون سرویس پرسنل قزوین تصویر"
+                     width="1000" height="747"
+                     loading="lazy" decoding="async">
+              </picture>
+              <span class="fleet-card__tag">ون</span>
+            </div>
+            <div class="fleet-card__info">
+              <h3 class="fleet-card__title">ون‌های مسافربری</h3>
+              <p class="fleet-card__desc">
+                گزینه‌ای اقتصادی و سریع برای جابه‌جایی گروه‌های کوچک پرسنل، مدیران و مهمانان سازمانی در کوتاه‌ترین زمان.
+              </p>
+              <ul class="fleet-card__features">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>مقرون‌به‌صرفه و اقتصادی</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>چابکی در ترافیک شهری</span>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <!-- نوار تعهدات ناوگان -->
+        <div class="fleet-strip reveal">
+          <div class="fleet-strip__item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>بیمه کامل سرنشین و معاینه فنی ادواری</span>
+          </div>
+          <div class="fleet-strip__item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>ناوگان جایگزین فوری در شرایط اضطراری</span>
+          </div>
+          <div class="fleet-strip__item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>رانندگان مجرب با سابقه سرویس صنعتی</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ۴.۷ بخش برندهای همکار (Partner Vehicle Brands) — جدید
+         لوگوها در مسیر assets/logos/ قرار دارند و قابل جایگزینی با لوگوی رسمی هستند
+         ====================================================================== -->
+    <section id="brands" class="brands-section" aria-label="برندهای خودروسازی مورد استفاده در ناوگان">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label section-label--onDark">
+            <span>کیفیت ناوگان</span>
+          </div>
+          <h2 class="section-title">برندهای همکار و مورد اعتماد</h2>
+          <p class="section-desc">
+            ناوگان ترابری ما مجهز به خودروهای برندهای معتبر جهانی است؛ انتخابی که ایمنی، دوام و آسایش پرسنل شما را تضمین می‌کند.
+          </p>
+        </div>
+
+        <!-- گرید ۵ ستونه (موبایل: ۲ ستون | تبلت: ۳ ستون) -->
+        <ul class="brands-grid reveal">
+          <li class="brand-item">
+            <img class="brand-item__logo" src="assets/logos/scania.svg" alt="لوگوی متنی برند اسکانیا" width="160" height="88" loading="lazy" decoding="async">
+            <span class="brand-item__name">اسکانیا (Scania)</span>
+          </li>
+          <li class="brand-item">
+            <img class="brand-item__logo" src="assets/logos/volvo.svg" alt="لوگوی متنی برند ولوو" width="160" height="88" loading="lazy" decoding="async">
+            <span class="brand-item__name">ولوو (Volvo)</span>
+          </li>
+          <li class="brand-item">
+            <img class="brand-item__logo" src="assets/logos/mercedes.svg" alt="لوگوی متنی برند مرسدس بنز" width="160" height="88" loading="lazy" decoding="async">
+            <span class="brand-item__name">مرسدس بنز (Mercedes-Benz)</span>
+          </li>
+          <li class="brand-item">
+            <img class="brand-item__logo" src="assets/logos/iveco.svg" alt="لوگوی متنی برند ایویکو" width="160" height="88" loading="lazy" decoding="async">
+            <span class="brand-item__name">ایویکو (Iveco)</span>
+          </li>
+          <li class="brand-item">
+            <img class="brand-item__logo" src="assets/logos/irankhodro.svg" alt="لوگوی متنی برند ایران خودرو دیزل" width="160" height="88" loading="lazy" decoding="async">
+            <span class="brand-item__name">ایران خودرو دیزل (IKD)</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ۴.۸ بخش چرا ما (Why Us Section)
          ====================================================================== -->
     <section id="why-us" class="section section--alt" aria-label="مزایای همکاری با قزوین تصویر">
       <div class="container">
@@ -809,7 +1045,7 @@
     </section>
 
     <!-- ======================================================================
-         ۴.۶.۵ بخش مشتریان و سابقه همکاری با برندهای مطرح (Clients & Partners)
+         ۴.۹ بخش مشتریان و سابقه همکاری با برندهای مطرح (Clients & Partners)
          ====================================================================== -->
     <section id="clients" class="clients-section" aria-label="سابقه همکاری با برندهای معتبر صنعتی">
       <div class="container">
@@ -892,26 +1128,12 @@
             <span class="client-card__tag">قوای محرکه و گیربکس</span>
           </div>
 
-          <!-- ۶. آناتا -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                <line x1="15" y1="9" x2="15.01" y2="9"></line>
-              </svg>
-            </div>
-            <h3 class="client-card__name">آناتا</h3>
-            <span class="client-card__name-en">Anata</span>
-            <span class="client-card__tag">صنایع غذایی و شکلات‌سازی</span>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         ۴.۷ بخش اعتبار و اطلاعات ثبتی (Trust & Registry)
+         ۴.۱۰ بخش اعتبار و اطلاعات ثبتی (Trust & Registry)
          ====================================================================== -->
     <section id="trust" class="registry-section" aria-label="اعتبار و شناسه ثبتی شرکت">
       <div class="container">
@@ -1001,13 +1223,13 @@
 
         <div style="text-align: center; margin-top: 20px; font-size: 0.875rem; color: var(--text-muted);" class="reveal">
           <strong style="color: var(--primary-navy);">سابقه همکاری با مجموعه‌های پیشرو:</strong>
-          <span>نستله (Nestlé) • ال‌جی (LG) • نیروگاه شهید رجایی • آسان پک • نیرومحرکه • آناتا و ده‌ها کارخانه صنعتی کشور</span>
+          <span>نستله (Nestlé) • ال‌جی (LG) • نیروگاه شهید رجایی • آسان پک • نیرومحرکه و ده‌ها کارخانه صنعتی کشور</span>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         ۴.۸ بخش تماس با ما (Contact Section)
+         ۴.۱۱ بخش تماس با ما (Contact Section)
          ====================================================================== -->
     <section id="contact" class="section" aria-label="تماس با شرکت قزوین تصویر">
       <div class="container">
@@ -1195,6 +1417,8 @@
             <li><a href="#hero" class="footer__link">صفحه اصلی</a></li>
             <li><a href="#about" class="footer__link">درباره قزوین تصویر</a></li>
             <li><a href="#services" class="footer__link">خدمات تخصصی</a></li>
+            <li><a href="#fleet" class="footer__link">ناوگان ترابری</a></li>
+            <li><a href="#brands" class="footer__link">برندهای همکار</a></li>
             <li><a href="#why-us" class="footer__link">چرا قزوین تصویر؟</a></li>
             <li><a href="#trust" class="footer__link">اعتبار و اطلاعات ثبتی</a></li>
             <li><a href="#contact" class="footer__link">تماس با ما</a></li>
@@ -1275,7 +1499,7 @@
        ======================================================================== -->
   
   <!-- دکمه‌های شناور تماس و واتساپ (پایین-چپ در RTL) -->
-  <div class="floating-actions" aria-label="دکمه‌های تماس سریع شناور">
+  <div class="floating-actions" role="group" aria-label="دکمه‌های تماس سریع شناور">
     <!-- دکمه واتساپ -->
     <a href="https://wa.me/989122815189" target="_blank" rel="noopener noreferrer" class="fab-btn fab-btn--whatsapp" title="ارتباط مستقیم در واتساپ" aria-label="ارتباط مستقیم در واتساپ قزوین تصویر">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -1292,7 +1516,7 @@
   </div>
 
   <!-- دکمه بازگشت به بالا -->
-  <button id="back-to-top" class="back-to-top" title="بازگشت به بالای صفحه" aria-label="بازگشت به بالای صفحه">
+  <button type="button" id="back-to-top" class="back-to-top" title="بازگشت به بالای صفحه" aria-label="بازگشت به بالای صفحه">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
