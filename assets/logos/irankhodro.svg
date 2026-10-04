@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  لوگوی متنی (Text-based Wordmark) برند ایران خودرو دیزل — طراحی اختصاصی قزوین تصویر
+  توجه: بازتولید نشان رسمی تجاری شرکت سازنده نیست؛ وردمارک متنی جایگزین است.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110" width="200" height="110" role="img" aria-label="ایران خودرو دیزل">
+  <title>ایران خودرو دیزل (IKD)</title>
+  <!-- نشان اختصاصی: کامیون انتزاعی خطی (کابین + بار) -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <path d="M62 44 L62 26 L104 26 L104 44" stroke="#FFFFFF" opacity="0.95"></path>
+    <path d="M104 30 L122 30 L132 40 L132 44 L104 44" stroke="#FCD34D" opacity="0.95"></path>
+    <path d="M56 48 L140 48" stroke="#FFFFFF" stroke-width="4.5" opacity="0.9"></path>
+    <circle cx="76" cy="50" r="5" stroke="#0EA5E9" stroke-width="3.5"></circle>
+    <circle cx="120" cy="50" r="5" stroke="#0EA5E9" stroke-width="3.5"></circle>
+  </g>
+  <!-- نام برند -->
+  <text x="100" y="82" text-anchor="middle"
+        font-family="Vazirmatn, Tahoma, sans-serif"
+        font-size="19" font-weight="800" fill="#FFFFFF">ایران خودرو دیزل</text>
+  <text x="100" y="99" text-anchor="middle"
+        font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="12" font-weight="700" letter-spacing="2" fill="#94A3B8">IRAN KHODRO DIESEL</text>
+</svg>

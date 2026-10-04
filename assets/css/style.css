@@ -645,6 +645,7 @@ button, input, select, textarea {
 .mobile-drawer.is-open {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .mobile-drawer__list {
@@ -709,6 +710,18 @@ button, input, select, textarea {
   overflow: hidden;
 }
 
+/* بافت نویز SVG (شفافیت ۴٪) برای حذف Banding روی مش گرادیان */
+.hero::after,
+.brands-section::after,
+.fleet-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='nz'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23nz)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
 /* هاله‌های نورانی */
 .hero__glow-top {
   position: absolute;
@@ -732,6 +745,35 @@ button, input, select, textarea {
   filter: blur(70px);
   pointer-events: none;
   z-index: 1;
+}
+
+/* ذرات نورانی متحرک (فقط دسکتاپ) */
+.hero__particles {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .hero__particles {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+      radial-gradient(2.5px 2.5px at 12% 28%, rgba(252, 211, 77, 0.85), transparent 60%),
+      radial-gradient(2px 2px at 78% 16%, rgba(56, 189, 248, 0.80), transparent 60%),
+      radial-gradient(2px 2px at 34% 74%, rgba(255, 255, 255, 0.70), transparent 60%),
+      radial-gradient(3px 3px at 62% 84%, rgba(252, 211, 77, 0.60), transparent 60%),
+      radial-gradient(2px 2px at 88% 60%, rgba(56, 189, 248, 0.65), transparent 60%),
+      radial-gradient(2px 2px at 22% 10%, rgba(255, 255, 255, 0.55), transparent 60%),
+      radial-gradient(2px 2px at 52% 40%, rgba(252, 211, 77, 0.45), transparent 60%);
+    animation: particleDrift 16s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes particleDrift {
+  0%   { transform: translate3d(0, 0, 0) scale(1);        opacity: 0.85; }
+  50%  { transform: translate3d(-14px, -12px, 0) scale(1.04); opacity: 1; }
+  100% { transform: translate3d(10px, -20px, 0) scale(1);  opacity: 0.75; }
 }
 
 /* الگوی نقطه‌ای */
@@ -1417,7 +1459,7 @@ button, input, select, textarea {
 }
 @media (min-width: 1024px) {
   .clients-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -1489,6 +1531,386 @@ button, input, select, textarea {
 .client-card:hover .client-card__tag {
   background: rgba(245, 158, 11, 0.12);
   color: #B45309;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۰.۶ بخش ناوگان ترابری (Fleet Section) — نسخه نسل جدید
+   -------------------------------------------------------------------------- */
+.fleet-section {
+  position: relative;
+  padding-block: var(--section-padding-block);
+  background: var(--surface-white);
+  border-block: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+/* مش گرادیان رنگی (Mesh Gradient) به‌عنوان بستر کارت‌های شیشه‌ای */
+.fleet-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(48% 44% at 92% 4%, rgba(14, 165, 233, 0.16) 0%, rgba(14, 165, 233, 0) 70%),
+    radial-gradient(46% 46% at 4% 98%, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0) 70%),
+    radial-gradient(60% 55% at 50% 45%, rgba(18, 58, 94, 0.05) 0%, rgba(18, 58, 94, 0) 72%);
+  pointer-events: none;
+}
+.fleet-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* گرید کارت‌های ناوگان (لیست بومی بدون نشانگر) */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .fleet-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  /* در حالت دوستونه، کارت سوم تمام‌عرض نمایش داده می‌شود */
+  .fleet-grid > .fleet-card:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 1024px) {
+  .fleet-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .fleet-grid > .fleet-card:nth-child(3) {
+    grid-column: auto;
+  }
+}
+
+/* کارت شیشه‌ای ناوگان */
+.fleet-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-slow) var(--ease-quint),
+              box-shadow var(--dur-slow) var(--ease-quint),
+              border-color var(--dur-base) ease;
+  position: relative;
+  isolation: isolate;
+}
+/* مرز نوری گرادیانی داخلی (Glassmorphism 2.0) */
+.fleet-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 42%, rgba(14, 165, 233, 0.28) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+.fleet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+/* ناحیه تصویر ۴:۳ با اسکلتون لودینگ */
+.fleet-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(100deg, #E8EEF6 25%, #F4F8FC 50%, #E8EEF6 75%);
+  background-size: 200% 100%;
+  animation: fleetSkeleton 1.6s linear infinite;
+}
+.fleet-card__media.is-loaded {
+  animation: none;
+  background: #E8EEF6;
+}
+@keyframes fleetSkeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.fleet-card__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fleet-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--dur-slow) ease, transform var(--dur-slower) var(--ease-quint);
+  will-change: transform;
+}
+.fleet-card__media.is-loaded .fleet-card__img {
+  opacity: 1;
+}
+.fleet-card:hover .fleet-card__img {
+  transform: scale(1.05);
+}
+
+/* Overlay گرادیانی از پایین روی تصویر */
+.fleet-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 24, 41, 0.75) 0%, rgba(6, 24, 41, 0.15) 42%, rgba(6, 24, 41, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* تگ شیشه‌ای روی تصویر */
+.fleet-card__tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(6, 24, 41, 0.42);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--r-full);
+  box-shadow: 0 4px 16px rgba(6, 24, 41, 0.25);
+  text-shadow: 0 1px 4px rgba(6, 24, 41, 0.5);
+}
+
+/* بخش اطلاعات کارت */
+.fleet-card__info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.fleet-card__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  line-height: 1.5;
+}
+
+.fleet-card__desc {
+  font-size: 0.9375rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+.fleet-card__features {
+  list-style: none;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fleet-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--teal-industrial);
+}
+.fleet-card__features svg {
+  flex-shrink: 0;
+  color: var(--amber-accent);
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+  border-radius: var(--r-full);
+  background: rgba(245, 158, 11, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   انیمیشن ورود پله‌ای کارت‌های ناوگان (Stagger 100ms)
+   از animation با fill-mode: backwards استفاده شده تا تأخیر ورود، روی
+   ترنزیشن هاور (translateY) اثری نگذارد.
+   -------------------------------------------------------------------------- */
+.fleet-grid > .fleet-card.reveal {
+  opacity: 0;
+  transform: none;
+  transition: transform var(--dur-slow) var(--ease-quint),
+              box-shadow var(--dur-slow) var(--ease-quint),
+              border-color var(--dur-base) ease;
+}
+.fleet-grid > .fleet-card.reveal.is-revealed {
+  opacity: 1;
+  animation: fleetCardIn var(--dur-slower) var(--ease-quint) backwards;
+}
+.fleet-grid > .fleet-card.reveal.is-revealed:nth-child(2) { animation-delay: 100ms; }
+.fleet-grid > .fleet-card.reveal.is-revealed:nth-child(3) { animation-delay: 200ms; }
+
+@keyframes fleetCardIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* نوار تعهدات ناوگان */
+.fleet-strip {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+@media (min-width: 768px) {
+  .fleet-strip {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+}
+.fleet-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+.fleet-strip__item svg {
+  flex-shrink: 0;
+  color: var(--sky-blue);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۰.۷ بخش برندهای همکار (Partner Vehicle Brands) — نسخه نسل جدید
+   -------------------------------------------------------------------------- */
+.brands-section {
+  position: relative;
+  padding-block: var(--section-padding-block);
+  background: var(--navy-deep);
+  color: #FFFFFF;
+  overflow: hidden;
+}
+/* هاله‌های نورانی و نویز برای کنتراست با بخش‌های روشن */
+.brands-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0) 55%),
+    radial-gradient(circle at 12% 100%, rgba(14, 165, 233, 0.18) 0%, rgba(14, 165, 233, 0) 55%);
+  pointer-events: none;
+}
+.brands-section .container {
+  position: relative;
+  z-index: 1;
+}
+.brands-section h2 {
+  color: #FFFFFF;
+}
+.brands-section .section-desc {
+  color: #B6C4D6;
+}
+.section-label--onDark {
+  color: var(--amber-light);
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+/* گرید برندها: موبایل ۲ | تبلت ۳ | دسکتاپ ۵ */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+@media (min-width: 1024px) {
+  .brands-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+}
+
+.brand-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--r-md);
+  transition: transform var(--dur-base) var(--ease-quint),
+              border-color var(--dur-base) ease,
+              background var(--dur-base) ease,
+              box-shadow var(--dur-base) ease;
+  cursor: default;
+}
+.brand-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.65);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: var(--shadow-glow-amber);
+}
+
+.brand-item__logo {
+  width: 100%;
+  max-width: 168px;
+  height: auto;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter var(--dur-base) ease, opacity var(--dur-base) ease;
+}
+.brand-item:hover .brand-item__logo,
+.brand-item:focus-within .brand-item__logo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.brand-item__name {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-align: center;
+  line-height: 1.6;
+  transition: color var(--dur-base) ease;
+}
+.brand-item:hover .brand-item__name {
+  color: #FFFFFF;
 }
 
 /* --------------------------------------------------------------------------
@@ -2115,5 +2537,12 @@ button, input, select, textarea {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
+  }
+  /* توقف اسکلتون لودینگ و انیمیشن ورود کارت‌های ناوگان */
+  .fleet-card__media {
+    animation: none !important;
+  }
+  .fleet-grid > .fleet-card.reveal.is-revealed {
+    animation: none !important;
   }
 }

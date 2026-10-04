@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  لوگوی متنی (Text-based Wordmark) برند مرسدس بنز — طراحی اختصاصی قزوین تصویر
+  توجه: بازتولید نشان رسمی تجاری شرکت سازنده نیست؛ وردمارک متنی جایگزین است.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110" width="200" height="110" role="img" aria-label="مرسدس بنز">
+  <title>مرسدس بنز (Mercedes-Benz)</title>
+  <!-- نشان اختصاصی: سپر/شانه‌ی شش‌ضلعی نماد استحکام صنعتی -->
+  <g fill="none" stroke-linejoin="round">
+    <path d="M100 8 L122 20 L122 44 L100 56 L78 44 L78 20 Z" stroke="#FFFFFF" stroke-width="4" opacity="0.95"></path>
+    <path d="M100 20 L100 44" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"></path>
+  </g>
+  <!-- نام برند -->
+  <text x="100" y="83" text-anchor="middle"
+        font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="24" font-weight="800" letter-spacing="1.5" fill="#FFFFFF">MERCEDES</text>
+  <text x="100" y="100" text-anchor="middle"
+        font-family="Vazirmatn, Tahoma, sans-serif"
+        font-size="12.5" font-weight="600" fill="#94A3B8">مرسدس بنز • آلمان</text>
+</svg>
