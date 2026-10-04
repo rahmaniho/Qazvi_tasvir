@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2540" />
+      <stop offset="50%" stop-color="#123A5E" />
+      <stop offset="100%" stop-color="#0E4B6E" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0EA5E9" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0A2540" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Background Rounded Base -->
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="url(#brandGrad)" filter="url(#glow)" />
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="6"/>
+
+  <!-- Dynamic Waves / Global Trade Lines -->
+  <path d="M 80 340 Q 180 310 256 340 T 432 340" fill="none" stroke="url(#skyGrad)" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 80 380 Q 180 350 256 380 T 432 380" fill="none" stroke="url(#skyGrad)" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Ship Hull & Cargo (Commerce / Import-Export) -->
+  <g transform="translate(100, 150)">
+    <!-- Cargo Containers -->
+    <rect x="40" y="50" width="45" height="35" rx="4" fill="url(#amberGrad)"/>
+    <rect x="90" y="50" width="45" height="35" rx="4" fill="url(#skyGrad)"/>
+    <rect x="65" y="10" width="45" height="35" rx="4" fill="#FFFFFF"/>
+    <line x1="55" y1="50" x2="55" y2="85" stroke="#0A2540" stroke-width="2"/>
+    <line x1="72" y1="50" x2="72" y2="85" stroke="#0A2540" stroke-width="2"/>
+    <line x1="105" y1="50" x2="105" y2="85" stroke="#0A2540" stroke-width="2"/>
+    <line x1="122" y1="50" x2="122" y2="85" stroke="#0A2540" stroke-width="2"/>
+    <line x1="80" y1="10" x2="80" y2="45" stroke="#0A2540" stroke-width="2"/>
+    <line x1="97" y1="10" x2="97" y2="45" stroke="#0A2540" stroke-width="2"/>
+
+    <!-- Ship Body -->
+    <path d="M 20 90 L 160 90 L 140 140 L 40 140 Z" fill="#FFFFFF"/>
+    <path d="M 20 90 L 5 110 L 40 140 L 20 90 Z" fill="url(#amberGrad)"/>
+  </g>
+
+  <!-- Industrial Fleet / Truck (Personnel & Logistics) -->
+  <g transform="translate(230, 210)">
+    <!-- Truck Cab & Body -->
+    <path d="M 10 30 L 110 30 L 110 90 L 10 90 Z" fill="#F7F9FC"/>
+    <path d="M 110 50 L 145 50 L 165 75 L 165 90 L 110 90 Z" fill="url(#amberGrad)"/>
+    <!-- Windshield -->
+    <path d="M 118 56 L 142 56 L 155 74 L 118 74 Z" fill="#0A2540"/>
+    <!-- Wheels -->
+    <circle cx="45" cy="95" r="16" fill="#0A2540" stroke="#FFFFFF" stroke-width="4"/>
+    <circle cx="135" cy="95" r="16" fill="#0A2540" stroke="#FFFFFF" stroke-width="4"/>
+    <circle cx="45" cy="95" r="6" fill="url(#amberGrad)"/>
+    <circle cx="135" cy="95" r="6" fill="url(#amberGrad)"/>
+    <!-- Speed Lines -->
+    <line x1="-15" y1="40" x2="-2" y2="40" stroke="url(#amberGrad)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-25" y1="60" x2="-5" y2="60" stroke="url(#amberGrad)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-15" y1="80" x2="-2" y2="80" stroke="url(#amberGrad)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- 31+ Years Star Badge (تأسیس ۱۳۷۴) -->
+  <g transform="translate(370, 70)">
+    <circle cx="35" cy="35" r="42" fill="url(#amberGrad)" filter="url(#glow)"/>
+    <circle cx="35" cy="35" r="38" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="35" y="44" font-family="sans-serif" font-size="22" font-weight="900" fill="#0A2540" text-anchor="middle">31+</text>
+  </g>
+</svg>
