@@ -547,6 +547,21 @@ button, input, select, textarea {
   }
 }
 
+/* چیدمان هفت‌گانه منو در پهنای ۱۰۲۴ تا ۱۱۷۹ پیکسل (فشرده‌سازی ملایم) */
+@media (min-width: 1024px) and (max-width: 1179px) {
+  .nav-menu {
+    gap: 2px;
+  }
+  .nav-menu__link {
+    padding: 8px 10px;
+    font-size: 0.8875rem;
+  }
+  .navbar__actions .btn-sm {
+    padding: 8px 13px;
+    font-size: 0.825rem;
+  }
+}
+
 .nav-menu__link {
   padding: 8px 16px;
   font-weight: 600;
@@ -2544,5 +2559,1471 @@ button, input, select, textarea {
   }
   .fleet-grid > .fleet-card.reveal.is-revealed {
     animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   ۱۷. بخش تأمین غذای پرسنل و وعده‌های سازمانی (Personnel Food & Corporate Catering)
+   سرویس سوم شرکت — هویت بصری اختصاصی (سبز آشپزخانه + آمبر برند + کرم گرم)
+   تمام کلاس‌ها با پیشوند food- / dish- / food-meal نام‌گذاری شده‌اند تا هیچ
+   تداخلی با استایل‌های بخش‌های قبلی ایجاد نشود.
+   ========================================================================== */
+
+.food-section {
+  /* توکن‌های رنگی اختصاصی بخش غذا */
+  --food-forest: #0B3B2E;
+  --food-forest-deep: #06251C;
+  --food-green: #1E7A5A;
+  --food-green-mid: #2C9770;
+  --food-green-soft: #E8F3EE;
+  --food-green-line: rgba(30, 122, 90, 0.18);
+  --food-leaf: #D8EDE3;
+  --food-cream: #FBF7F1;
+  --food-cream-line: rgba(194, 65, 12, 0.14);
+  --food-brick: #C2410C;
+  --food-brick-soft: #FDF3EC;
+  --food-card: #FFFFFF;
+  --grad-food-hero: linear-gradient(155deg, #06251C 0%, #0B3B2E 46%, #14523C 100%);
+  --grad-food-green: linear-gradient(135deg, #34A36F 0%, #1E7A5A 100%);
+  --food-shadow-sm: 0 2px 10px rgba(11, 59, 46, 0.07);
+  --food-shadow-md: 0 14px 34px rgba(11, 59, 46, 0.10);
+  --food-shadow-lg: 0 28px 60px rgba(11, 59, 46, 0.18);
+
+  position: relative;
+  isolation: isolate;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۱ هیرو بخش غذا (Food Hero)
+   -------------------------------------------------------------------------- */
+.food-hero {
+  position: relative;
+  padding-block: clamp(56px, 7vw, 96px) clamp(40px, 5vw, 64px);
+  background: var(--grad-food-hero);
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.food-hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(4px);
+}
+.food-hero__glow--green {
+  width: min(560px, 70vw);
+  height: min(560px, 70vw);
+  top: -180px;
+  right: -140px;
+  background: radial-gradient(circle, rgba(52, 163, 111, 0.42) 0%, rgba(52, 163, 111, 0) 68%);
+}
+.food-hero__glow--amber {
+  width: min(520px, 66vw);
+  height: min(520px, 66vw);
+  bottom: -220px;
+  left: -160px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.32) 0%, rgba(245, 158, 11, 0) 68%);
+}
+
+/* گرید نقطه‌ای نرم پس‌زمینه */
+.food-hero__pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 82%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 82%);
+}
+
+.food-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.food-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 4vw, 56px);
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .food-hero__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+  }
+}
+
+.food-hero__content {
+  min-width: 0;
+}
+
+.food-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #D6F5E6;
+  background: rgba(52, 163, 111, 0.16);
+  border: 1px solid rgba(94, 214, 160, 0.38);
+  padding: 7px 16px;
+  border-radius: var(--r-full);
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+}
+.food-hero__badge svg {
+  color: #6EE7B7;
+  flex-shrink: 0;
+}
+
+.food-hero__title {
+  font-size: var(--fs-display);
+  line-height: 1.35;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+}
+
+.food-hero__lead {
+  font-size: 1.075rem;
+  line-height: 2;
+  color: #CFE3DA;
+  margin-bottom: 26px;
+  max-width: 62ch;
+}
+
+.food-hero__facts {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+@media (min-width: 640px) {
+  .food-hero__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .food-hero__facts li:last-child {
+    grid-column: 1 / -1;
+  }
+}
+.food-hero__facts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #E4F3EC;
+}
+.food-hero__facts svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: #6EE7B7;
+}
+
+.food-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* --- ستون تصویر هیرو --- */
+.food-hero__media {
+  position: relative;
+}
+
+.food-hero__frame {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 30px 70px rgba(3, 20, 15, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+  margin: 0;
+}
+.food-hero__frame picture {
+  display: block;
+}
+.food-hero__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.food-hero__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 37, 28, 0.62) 0%, rgba(6, 37, 28, 0.05) 48%, rgba(6, 37, 28, 0) 75%);
+  pointer-events: none;
+}
+
+.food-hero__caption {
+  position: absolute;
+  inset-inline: 16px;
+  bottom: 16px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.food-hero__caption-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(6, 37, 28, 0.55);
+  border: 1px solid rgba(110, 231, 183, 0.45);
+  padding: 7px 14px;
+  border-radius: var(--r-full);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+}
+.food-hero__caption-badge svg {
+  color: #6EE7B7;
+  flex-shrink: 0;
+}
+
+/* چیپ‌های شیشه‌ای شناور روی تصویر (فقط دسکتاپ) */
+.food-hero__chip {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .food-hero__chip {
+    position: absolute;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--food-forest);
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    padding: 9px 16px;
+    border-radius: var(--r-full);
+    box-shadow: var(--food-shadow-md);
+    backdrop-filter: blur(10px);
+    animation: foodFloat 6s ease-in-out infinite;
+  }
+  .food-hero__chip--a {
+    top: -18px;
+    right: -12px;
+  }
+  .food-hero__chip--b {
+    bottom: 74px;
+    left: -18px;
+    animation-delay: 1.6s;
+  }
+}
+@keyframes foodFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+/* --- نوار شاخص‌های خدمت --- */
+.food-hero__metrics {
+  list-style: none;
+  margin-top: clamp(36px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (min-width: 900px) {
+  .food-hero__metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+.food-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  transition: transform var(--dur-base) var(--ease-quint), background var(--dur-base) ease;
+}
+.food-metric:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.11);
+}
+.food-metric__value {
+  font-family: var(--font-numbers);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #FDBA74 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.food-metric__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #C6DED3;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۲ ناحیه‌های محتوایی بخش (Zones) و برچسب سبز
+   -------------------------------------------------------------------------- */
+.food-zone {
+  position: relative;
+  padding-block: var(--section-padding-block);
+  border-block: 1px solid var(--line-soft);
+}
+.food-zone--light {
+  background-color: var(--surface-bg);
+}
+.food-zone--white {
+  background-color: var(--surface-white);
+}
+.food-zone--cream {
+  background-color: var(--food-cream);
+  border-block-color: var(--food-cream-line);
+}
+
+.section-label--food {
+  color: var(--food-green);
+  background: rgba(30, 122, 90, 0.10);
+  border-color: rgba(30, 122, 90, 0.24);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۳ کارت‌های مزایای قرارداد (Benefits)
+   -------------------------------------------------------------------------- */
+.food-benefits {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 640px) {
+  .food-benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .food-benefits {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 26px;
+  }
+}
+
+.food-benefit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 30px 26px;
+  background: var(--food-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xl);
+  box-shadow: var(--food-shadow-sm);
+  overflow: hidden;
+  transition: transform var(--dur-slow) var(--ease-quint),
+              box-shadow var(--dur-slow) var(--ease-quint),
+              border-color var(--dur-base) ease;
+}
+.food-benefit::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 4px;
+  background: var(--grad-food-green);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-slow) var(--ease-quint);
+}
+.food-benefit:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--food-shadow-md);
+  border-color: var(--food-green-line);
+}
+.food-benefit:hover::after {
+  transform: scaleX(1);
+}
+
+.food-benefit__icon {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--food-green);
+  background: linear-gradient(135deg, rgba(52, 163, 111, 0.16) 0%, rgba(30, 122, 90, 0.09) 100%);
+  border: 1px solid rgba(30, 122, 90, 0.16);
+}
+
+.food-benefit__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--food-forest);
+  line-height: 1.6;
+}
+
+.food-benefit__text {
+  font-size: 0.9375rem;
+  line-height: 1.95;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۴ فرآیند همکاری پنج‌مرحله‌ای (Process Steps)
+   -------------------------------------------------------------------------- */
+.food-steps {
+  list-style: none;
+  counter-reset: food-step;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+@media (min-width: 700px) {
+  .food-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .food-steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* خط اتصال مراحل در دسکتاپ */
+@media (min-width: 1100px) {
+  .food-steps {
+    position: relative;
+  }
+  .food-steps::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    inset-inline: 8%;
+    height: 2px;
+    background: repeating-linear-gradient(to left, var(--food-green-line) 0 10px, transparent 10px 20px);
+    z-index: 0;
+  }
+}
+
+.food-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 22px;
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--food-shadow-sm);
+  transition: transform var(--dur-base) var(--ease-quint), box-shadow var(--dur-base) var(--ease-quint), border-color var(--dur-base) ease;
+}
+.food-step:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--food-shadow-md);
+  border-color: var(--food-green-line);
+}
+
+.food-step__num {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  font-family: var(--font-numbers);
+  font-size: 2.1rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(30, 122, 90, 0.12);
+}
+
+.food-step__icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  color: #FFFFFF;
+  background: var(--grad-food-green);
+  box-shadow: 0 10px 22px rgba(30, 122, 90, 0.28);
+}
+
+.food-step__title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--food-forest);
+}
+
+.food-step__text {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۵ منوی نمونه و تب‌بندی وعده‌ها (Menu Tabs & Dishes)
+   -------------------------------------------------------------------------- */
+.food-menu__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--food-forest);
+  color: #FFFFFF;
+  box-shadow: var(--food-shadow-md);
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+@media (min-width: 900px) {
+  .food-menu__header {
+    grid-template-columns: 1.05fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.food-menu__header-media {
+  position: relative;
+  margin: 0;
+  min-height: 240px;
+}
+/* تصویر به‌صورت absolute کشیده می‌شود تا کاشی در همه ارتفاع‌ها کامل پر شود */
+.food-menu__header-media picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.food-menu__header-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.food-menu__header-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(11, 59, 46, 0.6) 0%, rgba(11, 59, 46, 0) 55%);
+  pointer-events: none;
+}
+@media (max-width: 899px) {
+  .food-menu__header-media::after {
+    background: linear-gradient(to top, rgba(11, 59, 46, 0.65) 0%, rgba(11, 59, 46, 0) 60%);
+  }
+}
+
+.food-menu__header-body {
+  padding: clamp(26px, 3.5vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.food-menu__header-tag {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: #06251C;
+  background: linear-gradient(135deg, #A7F3D0 0%, #6EE7B7 100%);
+  padding: 5px 14px;
+  border-radius: var(--r-full);
+}
+
+.food-menu__header-title {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.7;
+}
+
+.food-menu__header-text {
+  font-size: 0.9375rem;
+  line-height: 1.95;
+  color: #C7DED4;
+}
+
+.food-menu__header-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.food-menu__header-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #E3F3EB;
+}
+.food-menu__header-list svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: #6EE7B7;
+}
+
+/* --- تب‌ها --- */
+.food-menu__tabs-area {
+  position: relative;
+}
+
+.food-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px;
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xl);
+  box-shadow: var(--food-shadow-sm);
+  margin-bottom: 26px;
+}
+@media (min-width: 768px) {
+  .food-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: var(--r-full);
+  }
+}
+
+.food-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: var(--r-lg);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-quint);
+  flex: 1 1 auto;
+}
+.food-tab svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.food-tab:hover {
+  color: var(--food-forest);
+  background: var(--food-green-soft);
+}
+.food-tab.is-active {
+  color: #FFFFFF;
+  background: var(--grad-food-green);
+  border-color: rgba(30, 122, 90, 0.35);
+  box-shadow: 0 12px 26px rgba(30, 122, 90, 0.26);
+}
+.food-tab.is-active svg {
+  opacity: 1;
+}
+
+/* --- پنل‌ها --- */
+.food-panel {
+  animation: foodPanelIn var(--dur-slow) var(--ease-quint);
+}
+.food-panel[hidden] {
+  display: none;
+}
+@keyframes foodPanelIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.food-panel__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+@media (min-width: 968px) {
+  .food-panel__grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.food-panel__feature {
+  margin: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--food-shadow-sm);
+  position: relative;
+}
+.food-panel__feature picture {
+  display: block;
+}
+.food-panel__feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.food-panel__feature figcaption {
+  padding: 16px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.9;
+  color: var(--food-forest);
+  background: var(--food-green-soft);
+  border-top: 1px solid var(--food-green-line);
+}
+
+/* --- کارت‌های غذا --- */
+.dish-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 640px) {
+  .dish-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.dish-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px 18px;
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--food-shadow-sm);
+  transition: transform var(--dur-base) var(--ease-quint), box-shadow var(--dur-base) var(--ease-quint), border-color var(--dur-base) ease;
+}
+.dish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--food-shadow-md);
+  border-color: var(--food-green-line);
+}
+
+.dish-card__icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  color: var(--food-brick);
+  background: var(--food-brick-soft);
+  border: 1px solid var(--food-cream-line);
+}
+
+.dish-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.dish-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dish-card__name {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--food-forest);
+  line-height: 1.7;
+}
+
+.dish-card__price {
+  flex-shrink: 0;
+  font-family: var(--font-numbers);
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: var(--food-green);
+  background: var(--food-green-soft);
+  border: 1px solid var(--food-green-line);
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  white-space: nowrap;
+}
+.dish-card__price small {
+  font-size: 0.68rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.dish-card__desc {
+  font-size: 0.8375rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+
+.food-menu__note {
+  margin-top: 26px;
+  padding: 16px 20px;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--text-primary);
+  background: var(--food-cream);
+  border: 1px dashed var(--food-cream-line);
+  border-inline-start: 4px solid var(--food-brick);
+  border-radius: var(--r-md);
+}
+.food-menu__note strong {
+  color: var(--food-brick);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۶ گالری تصاویر بخش غذا (Gallery)
+   -------------------------------------------------------------------------- */
+.food-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 640px) {
+  .food-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    /* چیدمان موزاییکی بدون حفره: آیتم‌های پهن، فضای خالی ردیف را پر می‌کنند */
+    grid-auto-flow: dense;
+  }
+}
+@media (min-width: 1024px) {
+  .food-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+.food-gallery__item {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--food-shadow-sm);
+  transition: transform var(--dur-slow) var(--ease-quint), box-shadow var(--dur-slow) var(--ease-quint);
+}
+.food-gallery__item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--food-shadow-md);
+}
+.food-gallery__item picture {
+  display: block;
+}
+.food-gallery__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--dur-slower) var(--ease-quint);
+}
+.food-gallery__item:hover img {
+  transform: scale(1.05);
+}
+.food-gallery__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 37, 28, 0.82) 0%, rgba(6, 37, 28, 0.18) 45%, rgba(6, 37, 28, 0) 72%);
+  pointer-events: none;
+}
+/* در تبلت و دسکتاپ: کاشی‌های پهن دو ستون را می‌گیرند و ارتفاع ردیف‌ها
+   یکسان می‌شود (تصویر با object-fit: cover برش می‌خورد) */
+@media (min-width: 640px) {
+  .food-gallery__item {
+    aspect-ratio: 4 / 3;
+  }
+  .food-gallery__item--wide {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+  .food-gallery__item picture {
+    display: block;
+    height: 100%;
+  }
+  .food-gallery__item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+}
+
+.food-gallery__caption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #FFFFFF;
+}
+.food-gallery__title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(6, 37, 28, 0.5);
+}
+.food-gallery__text {
+  font-size: 0.8125rem;
+  color: #D5E7E0;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۷ فرم درخواست قرارداد غذا (Request Form)
+   -------------------------------------------------------------------------- */
+.food-request {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+@media (min-width: 1024px) {
+  .food-request {
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 34px;
+    align-items: start;
+  }
+}
+
+.food-request__form-card {
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xl);
+  padding: clamp(26px, 3.6vw, 40px);
+  box-shadow: var(--food-shadow-md);
+}
+
+.food-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 20px;
+}
+@media (min-width: 700px) {
+  .food-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* رنگ فوکوس فیلدهای بخش غذا با هویت سبز */
+.food-request__form-card .form-control:focus {
+  border-color: var(--food-green);
+  box-shadow: 0 0 0 4px rgba(30, 122, 90, 0.13);
+}
+.food-request__form-card .form-control:focus ~ .form-label,
+.food-request__form-card .form-control:not(:placeholder-shown) ~ .form-label {
+  color: var(--food-green);
+}
+.food-request__form-card .food-form-grid .form-group {
+  margin-bottom: 22px;
+}
+.food-request__form-card > form > .form-group {
+  margin-bottom: 22px;
+}
+
+/* فیلد پنهان ضد اسپم */
+.food-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- گروه وعده‌ها --- */
+.food-panels {
+  position: relative;
+  min-width: 0;
+}
+.food-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 22px;
+}
+.food-legend {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.food-meals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .food-meals {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.food-meal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 14px;
+  background: var(--surface-bg);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all var(--dur-fast) ease;
+  user-select: none;
+}
+.food-meal:hover {
+  border-color: var(--food-green-line);
+  background: var(--food-green-soft);
+}
+
+.food-meal input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+.food-meal input:focus-visible ~ .food-meal__box {
+  outline: 3px solid var(--sky-blue);
+  outline-offset: 2px;
+}
+
+.food-meal__label {
+  line-height: 1.6;
+}
+
+.food-meal__box {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  border: 1.5px solid #C9D7E4;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all var(--dur-fast) ease;
+}
+
+.food-meal input:checked ~ .food-meal__box {
+  background: var(--grad-food-green);
+  border-color: var(--food-green);
+  color: #FFFFFF;
+}
+.food-meal.is-checked {
+  background: var(--food-green-soft);
+  border-color: var(--food-green-line);
+  color: var(--food-forest);
+}
+
+/* --- ردیف اطلاعات تماس زیر فرم --- */
+.food-form-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 6px 0 20px;
+  padding: 14px 16px;
+  background: var(--surface-bg);
+  border: 1px dashed var(--line-soft);
+  border-radius: var(--r-md);
+}
+.food-form-contact__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8375rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.food-form-contact__item svg {
+  color: var(--food-green);
+  flex-shrink: 0;
+}
+.food-form-contact__item a {
+  color: var(--primary-navy);
+  font-weight: 700;
+}
+
+.food-form-note {
+  margin-top: 14px;
+  font-size: 0.8125rem;
+  line-height: 1.85;
+  color: var(--text-light);
+  text-align: center;
+}
+
+/* --- ستون کنار فرم --- */
+.food-request__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.food-trust-card {
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xl);
+  padding: 26px;
+  box-shadow: var(--food-shadow-sm);
+}
+.food-trust-card__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--food-forest);
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.food-trust-card__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.food-trust-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+.food-trust-card__list svg {
+  flex-shrink: 0;
+  margin-top: 5px;
+  padding: 2px;
+  width: 19px;
+  height: 19px;
+  color: var(--food-green);
+  background: var(--food-green-soft);
+  border-radius: var(--r-full);
+}
+
+.food-request__contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px;
+  border-radius: var(--r-xl);
+  background: linear-gradient(150deg, #0B3B2E 0%, #14523C 100%);
+  color: #FFFFFF;
+  box-shadow: var(--food-shadow-md);
+}
+.food-request__contact-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #A7D9C4;
+}
+.food-request__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-numbers);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  direction: ltr;
+  transition: color var(--dur-fast) ease;
+}
+.food-request__phone:hover {
+  color: #FCD34D;
+}
+.food-request__phone svg {
+  color: #6EE7B7;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۸ سوالات متداول (FAQ — Accordion)
+   -------------------------------------------------------------------------- */
+.food-faq {
+  max-width: 880px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.food-faq__item {
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--food-shadow-sm);
+  overflow: hidden;
+  transition: border-color var(--dur-base) ease, box-shadow var(--dur-base) ease;
+}
+.food-faq__item[open] {
+  border-color: var(--food-green-line);
+  box-shadow: var(--food-shadow-md);
+}
+
+.food-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--food-forest);
+  line-height: 1.8;
+  list-style: none;
+  transition: background var(--dur-fast) ease;
+}
+.food-faq__question::-webkit-details-marker {
+  display: none;
+}
+.food-faq__question:hover {
+  background: var(--food-green-soft);
+}
+
+.food-faq__toggle {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--food-green);
+  background: var(--food-green-soft);
+  border: 1px solid var(--food-green-line);
+  transition: transform var(--dur-base) var(--ease-quint), background var(--dur-base) ease, color var(--dur-base) ease;
+}
+.food-faq__item[open] .food-faq__toggle {
+  transform: rotate(135deg);
+  background: var(--grad-food-green);
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+.food-faq__answer {
+  padding: 0 22px 22px;
+  border-top: 1px dashed var(--line-soft);
+  padding-top: 16px;
+}
+.food-faq__answer p {
+  font-size: 0.925rem;
+  line-height: 2;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۹ CTA پایانی بخش غذا
+   -------------------------------------------------------------------------- */
+.food-cta {
+  position: relative;
+  padding-block: clamp(48px, 6vw, 84px);
+  background: var(--food-forest-deep);
+  overflow: hidden;
+}
+.food-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.food-cta__panel {
+  position: relative;
+  border-radius: var(--r-xl);
+  padding: clamp(30px, 4vw, 52px);
+  background: linear-gradient(145deg, #0B3B2E 0%, #124B37 55%, #1B6047 100%);
+  border: 1px solid rgba(110, 231, 183, 0.22);
+  box-shadow: var(--food-shadow-lg);
+  overflow: hidden;
+  text-align: center;
+}
+
+.food-cta__glow {
+  position: absolute;
+  width: min(520px, 80%);
+  height: min(520px, 80%);
+  top: -240px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(52, 163, 111, 0.45) 0%, rgba(52, 163, 111, 0) 70%);
+  pointer-events: none;
+}
+
+.food-cta__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.food-cta__badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #06251C;
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+  padding: 6px 16px;
+  border-radius: var(--r-full);
+}
+
+.food-cta__title {
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.55;
+  max-width: 30ch;
+}
+
+.food-cta__text {
+  font-size: 1rem;
+  line-height: 2;
+  color: #C7DED4;
+  max-width: 62ch;
+}
+
+.food-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.food-cta__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 22px;
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  transition: all var(--dur-base) var(--ease-quint);
+  text-align: right;
+}
+.food-cta__phone:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(252, 211, 77, 0.6);
+  transform: translateY(-3px);
+}
+.food-cta__phone-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #06251C;
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+  flex-shrink: 0;
+}
+.food-cta__phone-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.food-cta__phone-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #A7D9C4;
+}
+.food-cta__phone-number {
+  font-family: var(--font-numbers);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  direction: ltr;
+}
+
+.food-cta__note {
+  font-size: 0.8125rem;
+  color: #9CC9B6;
+  line-height: 1.9;
+  margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۱۰ اسپینر ارسال فرم بخش غذا
+   -------------------------------------------------------------------------- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷.۱۱ ریسپانسیو تکمیلی و کاهش موشن برای بخش غذا
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .food-hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+  .food-faq__question {
+    padding: 18px 16px;
+    font-size: 0.94rem;
+  }
+  .food-faq__answer {
+    padding-inline: 16px;
+  }
+  .food-request__form-card {
+    padding: 22px 18px;
+  }
+  .dish-card {
+    padding: 16px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .food-hero__chip {
+    animation: none !important;
+  }
+  .food-panel {
+    animation: none !important;
+  }
+  .food-gallery__item img,
+  .food-metric,
+  .food-benefit,
+  .food-step,
+  .dish-card {
+    transition: none !important;
   }
 }
