@@ -388,4 +388,230 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   }
+
+  // ۱۱. بخش تأمین غذای پرسنل — تب‌بندی منوی وعده‌ها (Accessible Tabs)
+  const foodTabs = Array.from(document.querySelectorAll('.food-tab'));
+  const foodPanels = Array.from(document.querySelectorAll('.food-panel'));
+
+  function activateFoodTab(targetTab) {
+    foodTabs.forEach(tab => {
+      const isTarget = tab === targetTab;
+      tab.classList.toggle('is-active', isTarget);
+      tab.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+      tab.tabIndex = isTarget ? 0 : -1;
+    });
+
+    const targetPanelId = targetTab.getAttribute('aria-controls');
+    foodPanels.forEach(panel => {
+      const isTarget = panel.id === targetPanelId;
+      panel.classList.toggle('is-active', isTarget);
+      if (isTarget) {
+        panel.removeAttribute('hidden');
+      } else {
+        panel.setAttribute('hidden', '');
+      }
+    });
+  }
+
+  if (foodTabs.length) {
+    foodTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateFoodTab(tab));
+
+      // ناوبری با کیبورد مطابق الگوی WAI-ARIA (در RTL جهت کلیدها معکوس است)
+      tab.addEventListener('keydown', (e) => {
+        let nextIndex = null;
+        if (e.key === 'ArrowLeft') {
+          nextIndex = (index + 1) % foodTabs.length;
+        } else if (e.key === 'ArrowRight') {
+          nextIndex = (index - 1 + foodTabs.length) % foodTabs.length;
+        } else if (e.key === 'Home') {
+          nextIndex = 0;
+        } else if (e.key === 'End') {
+          nextIndex = foodTabs.length - 1;
+        }
+
+        if (nextIndex === null) return;
+        e.preventDefault();
+        activateFoodTab(foodTabs[nextIndex]);
+        foodTabs[nextIndex].focus({ preventScroll: true });
+      });
+    });
+  }
+
+  // ۱۲. بخش تأمین غذای پرسنل — انتخاب وعده‌ها و آینه‌سازی برای ارسال
+  const mealInputs = Array.from(document.querySelectorAll('.food-meal input[type="checkbox"]'));
+  const mealsMirror = document.getElementById('food-meals-mirror');
+  const mealsFeedback = document.querySelector('[data-feedback-for="food-meals"]');
+
+  function syncMealSelection() {
+    const picked = [];
+    mealInputs.forEach(input => {
+      const label = input.closest('.food-meal');
+      if (label) label.classList.toggle('is-checked', input.checked);
+      if (input.checked) picked.push(input.value);
+    });
+
+    if (mealsMirror) mealsMirror.value = picked.join('، ');
+    if (picked.length && mealsFeedback) mealsFeedback.classList.remove('is-error');
+  }
+
+  mealInputs.forEach(input => input.addEventListener('change', syncMealSelection));
+
+  // ۱۳. بخش تأمین غذای پرسنل — اعتبارسنجی و ارسال فرم درخواست قرارداد
+  const foodForm = document.getElementById('personnel-food-form');
+
+  if (foodForm) {
+    // تبدیل ارقام فارسی/عربی به لاتین برای اعتبارسنجی دقیق شماره و تعداد
+    function toLatinDigits(value) {
+      const persianDigits = { '۰': '0', '۱': '1', '۲': '2', '۳': '3', '۴': '4', '۵': '5', '۶': '6', '۷': '7', '۸': '8', '۹': '9' };
+      const arabicDigits = { '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4', '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9' };
+      return String(value).replace(/[۰-۹٠-٩]/g, d => persianDigits[d] || arabicDigits[d] || d);
+    }
+
+    const foodFields = [
+      {
+        el: foodForm.querySelector('#food-company'),
+        validate: v => v.trim().length >= 2
+      },
+      {
+        el: foodForm.querySelector('#food-person'),
+        validate: v => v.trim().length >= 2
+      },
+      {
+        el: foodForm.querySelector('#food-phone'),
+        validate: v => /^(\+98|0098|0)?9\d{9}$/.test(toLatinDigits(v).replace(/[\s\-()]/g, ''))
+      },
+      {
+        el: foodForm.querySelector('#food-headcount'),
+        validate: v => {
+          const n = parseInt(toLatinDigits(v).replace(/[^\d]/g, ''), 10);
+          return !isNaN(n) && n >= 10 && n <= 50000;
+        }
+      },
+      {
+        el: foodForm.querySelector('#food-address'),
+        validate: v => v.trim().length >= 5
+      }
+    ];
+
+    function setFoodFieldState(el, isValid) {
+      if (!el) return;
+      el.classList.toggle('is-invalid', !isValid);
+      el.setAttribute('aria-invalid', isValid ? 'false' : 'true');
+
+      const feedback = foodForm.querySelector(`[data-feedback-for="${el.id}"]`);
+      if (feedback) feedback.classList.toggle('is-error', !isValid);
+    }
+
+    // پاک شدن خطا هنگام تصحیح فیلد توسط کاربر
+    foodFields.forEach(field => {
+      if (!field.el) return;
+      field.el.addEventListener('input', () => {
+        if (field.el.classList.contains('is-invalid')) {
+          setFoodFieldState(field.el, field.validate(field.el.value));
+        }
+      });
+    });
+
+    foodForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let isValid = true;
+      let firstInvalid = null;
+
+      foodFields.forEach(field => {
+        if (!field.el) return;
+        const ok = field.validate(field.el.value);
+        setFoodFieldState(field.el, ok);
+        if (!ok) {
+          isValid = false;
+          if (!firstInvalid) firstInvalid = field.el;
+        }
+      });
+
+      const pickedMeals = mealInputs.filter(input => input.checked);
+      if (mealsFeedback) mealsFeedback.classList.toggle('is-error', pickedMeals.length === 0);
+      if (!pickedMeals.length) {
+        isValid = false;
+        if (!firstInvalid) firstInvalid = mealInputs[0];
+      }
+
+      if (!isValid) {
+        showToast('لطفاً فیلدهای الزامی فرم تأمین غذا را به درستی تکمیل فرمایید.');
+        if (firstInvalid) firstInvalid.focus({ preventScroll: true });
+        return;
+      }
+
+      const submitBtn = foodForm.querySelector('#food-submit-btn');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+
+      function setFoodBtnLoading(text) {
+        if (!submitBtn) return;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="spinner" width="20" height="20" viewBox="0 0 50 50" style="animation: spin 1s linear infinite;">
+            <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="31.415, 31.415" stroke-dashoffset="0"></circle>
+          </svg>
+          ${text}
+        `;
+      }
+
+      function showFoodFormSuccess() {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '✓ درخواست قرارداد شما ثبت شد';
+          submitBtn.style.background = '#10B981';
+          submitBtn.style.color = '#FFFFFF';
+        }
+
+        showToast('درخواست تأمین غذای پرسنل ثبت شد. کارشناس ما حداکثر تا ۲ ساعت کاری تماس می‌گیرد.');
+
+        setTimeout(() => {
+          foodForm.reset();
+          foodFields.forEach(field => setFoodFieldState(field.el, true));
+          if (mealsFeedback) mealsFeedback.classList.remove('is-error');
+          syncMealSelection();
+
+          if (submitBtn) {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.style.background = '';
+            submitBtn.style.color = '';
+          }
+        }, 4500);
+      }
+
+      // ارسال به سرویس فرم آنلاین (Formspree / Netlify Forms) در صورت تنظیم action سازنده
+      const isEndpointConfigured = foodForm.action.indexOf('YOUR_FORM_ID') === -1;
+
+      if (!isEndpointConfigured) {
+        // حالت پیش‌فرض: سرویس فرم هنوز تنظیم نشده است — پیام موفقیت نمایش داده می‌شود
+        // برای اتصال واقعی، مقدار action فرم را در index.html با شناسه فرم خود جایگزین کنید.
+        setFoodBtnLoading('در حال ثبت درخواست...');
+        setTimeout(showFoodFormSuccess, 1200);
+        return;
+      }
+
+      setFoodBtnLoading('در حال ثبت درخواست...');
+
+      fetch(foodForm.action, {
+        method: foodForm.method || 'POST',
+        body: new FormData(foodForm),
+        headers: { Accept: 'application/json' }
+      })
+        .then(response => {
+          if (response.ok) {
+            showFoodFormSuccess();
+            return;
+          }
+          throw new Error('Form endpoint responded with ' + response.status);
+        })
+        .catch(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+          }
+          showToast('ارسال خودکار درخواست انجام نشد؛ لطفاً به صورت تلفنی یا واتساپی درخواست خود را ثبت کنید.');
+        });
+    });
+  }
 });
