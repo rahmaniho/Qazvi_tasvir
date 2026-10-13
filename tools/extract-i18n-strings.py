@@ -66,12 +66,26 @@ def load_ledger() -> "dict[tuple, str]":
     return ledger
 
 
-def next_nid(numbers: "dict[str, int]", section: str) -> str:
-    numbers[section] = numbers.get(section, 0) + 1
+def max_ids_by_section(ledger: "dict[tuple, list[str]]") -> "dict[str, int]":
+    """Highest id already handed out per section — a new string must never mint
+    an id that an existing string still holds."""
+    highest: dict[str, int] = {}
+    for candidates in ledger.values():
+        for key in candidates:
+            section, _, num = key.rpartition(".")
+            if num.isdigit():
+                highest[section] = max(highest.get(section, 0), int(num))
+    return highest
+
+
+def next_nid(numbers: "dict[str, int]", section: str, highest: "dict[str, int] | None" = None) -> str:
+    if section not in numbers:
+        numbers[section] = (highest or {}).get(section, 0)
+    numbers[section] += 1
     return f"{section}.{numbers[section]:03d}"
 
 
-def stable_ids(records, numbers: "dict[str, int]", ledger: "dict[tuple, list[str]") -> None:
+def stable_ids(records, numbers, ledger, highest) -> None:
     """Re-key the freshly scanned records: reuse the previous id when the
     signature matches (duplicates consume their ids in order), otherwise mint
     the next free number in the section."""
@@ -79,7 +93,7 @@ def stable_ids(records, numbers: "dict[str, int]", ledger: "dict[tuple, list[str
         sig = (rec.section, rec.kind, f"{rec.tag}.{rec.klass}".strip("."), rec.fa,
                rec.html or "")
         candidates = ledger.get(sig) or []
-        rec.key = candidates.pop(0) if candidates else next_nid(numbers, rec.section)
+        rec.key = candidates.pop(0) if candidates else next_nid(numbers, rec.section, highest)
 
 
 def main() -> None:
@@ -89,8 +103,9 @@ def main() -> None:
     OUT_DIR.mkdir(exist_ok=True)
 
     ledger = load_ledger()
+    highest = max_ids_by_section(ledger)
     numbers: dict[str, int] = {}
-    stable_ids(records, numbers, ledger)
+    stable_ids(records, numbers, ledger, highest)
     strings: dict[str, dict] = {}
 
     for rec in records:
@@ -112,10 +127,15 @@ def main() -> None:
         candidates = ledger.get(sig) or []
         new_key = candidates.pop(0) if candidates else None
         if not new_key or new_key in taken:
-            new_key = next_nid(numbers, "jsonld")
+            new_key = next_nid(numbers, "jsonld", highest)
         taken.add(new_key)
         ordered_structured[new_key] = val
     structured = ordered_structured
+
+    all_ids = list(strings) + list(structured)
+    if len(all_ids) != len(set(all_ids)):
+        dupes = sorted({k for k in all_ids if all_ids.count(k) > 1})
+        raise SystemExit(f"duplicate string ids — refusing to write the map: {dupes[:6]}")
 
     payload = {
         "source": SRC.name,

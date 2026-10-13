@@ -321,7 +321,7 @@ def build_language(lang: str, master: str, strings: dict,
         if str(value.get("fa", "")).strip():
             pass
     html = apply_translations(html, records, translations, info["digits"], locked_keys)
-    html = apply_jsonld(html, translations,
+    html = apply_jsonld(html, STRUCTURED, translations,
                         digits_to_persian if info["digits"] == "fa" else digits_to_latin)
 
     # per-page <title>/description for the hash routes, in this language.

@@ -33,6 +33,11 @@ from html.parser import HTMLParser
 ATTRS = ("alt", "aria-label", "title", "placeholder")
 META_NAMES = ("description", "keywords", "author")
 META_PREFIXES = ("og:", "twitter:")
+# meta values that are machine tokens, not reader-facing text
+META_SKIP = {"og:locale", "og:type", "og:image", "og:image:type", "og:url",
+             "og:image:width", "og:image:height", "og:video", "og:audio",
+             "twitter:card", "twitter:image", "twitter:url", "twitter:site",
+             "twitter:creator"}
 INLINE_TAGS = {"span", "strong", "b", "em", "i", "small", "code", "sup", "sub", "a", "br"}
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
              "meta", "param", "source", "track", "wbr"}
@@ -201,7 +206,8 @@ class _Scanner(HTMLParser):
                     self.ctx = saved
         if tag == "meta" and a.get("content"):
             mname = a.get("name") or a.get("property") or ""
-            if mname in META_NAMES or mname.startswith(META_PREFIXES):
+            if (mname in META_NAMES or mname.startswith(META_PREFIXES)) \
+                    and mname not in META_SKIP:
                 span = self.attr_span(start, tag_end, "content")
                 if span:
                     saved, self.ctx = self.ctx, {"tag": "meta", "klass": mname}
@@ -316,7 +322,7 @@ JSONLD_KEEP = {
     "telephone", "faxNumber", "email", "taxID", "identifier", "foundingDate",
     "postalCode", "addressCountry", "dayOfWeek", "opens", "closes",
     "latitude", "longitude", "priceCurrency", "price", "priceRange",
-    "availableChannel", "termsOfService", "serviceUrl", "target",
+    "availableChannel", "serviceUrl", "target",
     "bestRating", "worstRating", "ratingValue", "reviewCount", "duration",
 }
 
@@ -331,7 +337,8 @@ def _jsonld_walk(node, path=(), out=None):
     elif isinstance(node, list):
         for i, val in enumerate(node):
             _jsonld_walk(val, path + (str(i),), out)
-    elif isinstance(node, str) and node.strip():
+    elif isinstance(node, str) and node.strip() and "://" not in node \
+            and not node.startswith("www."):
         out.append(path)
     return out
 
@@ -354,8 +361,13 @@ def collect_jsonld(html: str) -> "dict[str, dict]":
     return found
 
 
-def apply_jsonld(html: str, translations: "dict[str, str]", convert_digits=None) -> str:
-    """Write translated structured data back, block by block."""
+def apply_jsonld(html: str, structured: "dict[str, dict]", translations: "dict[str, str]",
+                 convert_digits=None) -> str:
+    """Write translated structured data back, block by block.
+
+    `structured` is the jsonld section of i18n/strings.fa.json: each entry knows
+    which block it belongs to and its path inside that block.
+    """
     blocks = list(JSONLD_RE.finditer(html))
     if not blocks:
         return html
@@ -365,12 +377,14 @@ def apply_jsonld(html: str, translations: "dict[str, str]", convert_digits=None)
             data = json.loads(m.group(2))
         except json.JSONDecodeError:
             continue
-        prefix = f"jsonld.{block_i}."
         touched = False
-        for key, value in translations.items():
-            if not key.startswith(prefix) or not str(value).strip():
+        for key, meta in structured.items():
+            if meta.get("block") != block_i:
                 continue
-            steps = key[len(prefix):].split(".")
+            value = translations.get(key)
+            if not value or not str(value).strip():
+                continue
+            steps = list(meta["path"])
             node = data
             try:
                 for step in steps[:-1]:

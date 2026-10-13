@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 491,
+  "count": 487,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -42,51 +42,31 @@
       "ctx": "meta.author"
     },
     "chrome.005": {
-      "fa": "website",
-      "kind": "meta:og:type",
-      "ctx": "meta.og:type"
-    },
-    "chrome.006": {
       "fa": "قزوین تصویر | بازرگانی، واردات و صادرات، ترابری و تأمین غذای پرسنل",
       "kind": "meta:og:title",
       "ctx": "meta.og:title"
     },
-    "chrome.007": {
+    "chrome.006": {
       "fa": "شرکت قزوین تصویر با بیش از ۳۱ سال سابقه تحت مدیریت سعید امین‌زاده؛ خدمات تخصصی بازرگانی بین‌الملل، ناوگان ترابری پرسنل و تأمین غذای پرسنل (صبحانه، ناهار، شام و میان‌وعده) برای کارخانه‌ها و شرکت‌ها.",
       "kind": "meta:og:description",
       "ctx": "meta.og:description"
     },
-    "chrome.008": {
-      "fa": "image/jpeg",
-      "kind": "meta:og:image:type",
-      "ctx": "meta.og:image:type"
-    },
-    "chrome.009": {
+    "chrome.007": {
       "fa": "ناوگان اتوبوس سرویس پرسنل شرکت قزوین تصویر",
       "kind": "meta:og:image:alt",
       "ctx": "meta.og:image:alt"
     },
-    "chrome.010": {
-      "fa": "fa_IR",
-      "kind": "meta:og:locale",
-      "ctx": "meta.og:locale"
-    },
-    "chrome.011": {
+    "chrome.008": {
       "fa": "قزوین تصویر",
       "kind": "meta:og:site_name",
       "ctx": "meta.og:site_name"
     },
-    "chrome.012": {
-      "fa": "summary_large_image",
-      "kind": "meta:twitter:card",
-      "ctx": "meta.twitter:card"
-    },
-    "chrome.013": {
+    "chrome.009": {
       "fa": "قزوین تصویر | بازرگانی، ترابری و تأمین غذای پرسنل",
       "kind": "meta:twitter:title",
       "ctx": "meta.twitter:title"
     },
-    "chrome.014": {
+    "chrome.010": {
       "fa": "شرکت قزوین تصویر (شناسه ۱۰۸۶۱۴۱۵۲۱۵) — ۳۱ سال تجربه در بازرگانی، ترابری و تأمین غذای سازمانی پرسنل با مدیریت سعید امین‌زاده.",
       "kind": "meta:twitter:description",
       "ctx": "meta.twitter:description",
@@ -94,22 +74,22 @@
         "۱۰۸۶۱۴۱۵۲۱۵"
       ]
     },
-    "chrome.015": {
+    "chrome.011": {
       "fa": "ناوگان اتوبوس سرویس پرسنل شرکت قزوین تصویر",
       "kind": "meta:twitter:image:alt",
       "ctx": "meta.twitter:image:alt"
     },
-    "chrome.016": {
+    "chrome.012": {
       "fa": "پرش به محتوای اصلی صفحه",
       "kind": "text",
       "ctx": "meta"
     },
-    "chrome.017": {
+    "chrome.013": {
       "fa": "اطلاعات سریع تماس و اعتبار",
       "kind": "attr:aria-label",
       "ctx": "header.header.top-bar"
     },
-    "chrome.018": {
+    "chrome.014": {
       "fa": "تماس با شماره ۰۹۱۲۲۸۱۵۱۸۹",
       "kind": "attr:aria-label",
       "ctx": "header.header.top-bar",
@@ -117,7 +97,7 @@
         "۰۹۱۲۲۸۱۵۱۸۹"
       ]
     },
-    "chrome.019": {
+    "chrome.015": {
       "fa": "تماس مستقیم با شماره ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "attr:title",
       "ctx": "header.header.top-bar",
@@ -125,22 +105,22 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "chrome.020": {
+    "chrome.016": {
       "fa": "کپی شماره تماس رسمی",
       "kind": "attr:aria-label",
       "ctx": "button.div.top-bar__right"
     },
-    "chrome.021": {
+    "chrome.017": {
       "fa": "کپی شماره",
       "kind": "text",
       "ctx": "button.div.top-bar__right"
     },
-    "chrome.022": {
+    "chrome.018": {
       "fa": "بیش از ۳۱ سال تجربه در خدمت صنعت کشور (تأسیس ۱۳۷۴)",
       "kind": "text",
       "ctx": "div.div.top-bar__inner"
     },
-    "chrome.023": {
+    "chrome.019": {
       "fa": "شناسه ملی: ۱۰۸۶۱۴۱۵۲۱۵",
       "kind": "text",
       "ctx": "span.div.top-bar__left",
@@ -148,127 +128,127 @@
         "۱۰۸۶۱۴۱۵۲۱۵"
       ]
     },
-    "chrome.024": {
+    "chrome.020": {
       "fa": "منوی اصلی ناوبری",
       "kind": "attr:aria-label",
       "ctx": "nav.nav.navbar"
     },
-    "chrome.025": {
+    "chrome.021": {
       "fa": "صفحه اصلی شرکت قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "nav.nav.navbar"
     },
-    "chrome.026": {
+    "chrome.022": {
       "fa": "قزوین تصویر",
       "kind": "text",
       "ctx": "nav.nav.navbar"
     },
-    "chrome.027": {
+    "chrome.023": {
       "fa": "بازرگانی • ترابری • تأمین غذای پرسنل",
       "kind": "text",
       "ctx": "span.div.brand-logo__text"
     },
-    "chrome.028": {
+    "chrome.024": {
       "fa": "خانه",
       "kind": "text",
       "ctx": "ul.div.navbar__inner"
     },
-    "chrome.029": {
+    "chrome.025": {
       "fa": "درباره ما",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.030": {
+    "chrome.026": {
       "fa": "خدمات",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.031": {
+    "chrome.027": {
       "fa": "ناوگان",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.032": {
+    "chrome.028": {
       "fa": "غذای پرسنل",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.033": {
+    "chrome.029": {
       "fa": "برندها",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.034": {
+    "chrome.030": {
       "fa": "تماس با ما",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.035": {
+    "chrome.031": {
       "fa": "دریافت مشاوره رایگان",
       "kind": "attr:aria-label",
       "ctx": "div.div.navbar__inner"
     },
-    "chrome.036": {
+    "chrome.032": {
       "fa": "مشاوره رایگان",
       "kind": "text",
       "ctx": "div.div.navbar__inner"
     },
-    "chrome.037": {
+    "chrome.033": {
       "fa": "باز کردن منوی موبایل",
       "kind": "attr:aria-label",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.038": {
+    "chrome.034": {
       "fa": "خانه",
       "kind": "text",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.039": {
+    "chrome.035": {
       "fa": "درباره قزوین تصویر",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.040": {
+    "chrome.036": {
       "fa": "خدمات بازرگانی و ترابری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.041": {
+    "chrome.037": {
       "fa": "تأمین غذای پرسنل و کیترینگ سازمانی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.042": {
+    "chrome.038": {
       "fa": "ناوگان ترابری (اتوبوس، مینی‌بوس، ون)",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.043": {
+    "chrome.039": {
       "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.044": {
+    "chrome.040": {
       "fa": "چرا ما؟",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.045": {
+    "chrome.041": {
       "fa": "مشتریان و همکاران تجاری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.046": {
+    "chrome.042": {
       "fa": "اعتبار و استعلام رسمی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.047": {
+    "chrome.043": {
       "fa": "تماس با شرکت",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.048": {
+    "chrome.044": {
       "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.mobile-drawer",
@@ -276,7 +256,7 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "chrome.049": {
+    "chrome.045": {
       "fa": "ارتباط در واتساپ رسمی",
       "kind": "text",
       "ctx": "a.div.mobile-drawer__footer"
@@ -2908,13 +2888,12 @@
       "ctx": "name"
     },
     "jsonld.039": {
-      "fa": "https://schema.org/InStock",
+      "fa": "حداقل ۵۰ پرس در هر وعده؛ قرارداد یک‌ساله با قابلیت تغییر تعداد پرس‌ها، برنامه توزیع بر اساس شیفت‌های کاری کارفرما.",
       "path": [
-        "offers",
-        "availability"
+        "termsOfService"
       ],
       "block": 1,
-      "ctx": "availability"
+      "ctx": "termsOfService"
     },
     "jsonld.040": {
       "fa": "قیمت پایه هر پرس میان‌وعده از ۳۵٬۰۰۰ تومان به بالا؛ قیمت نهایی بر اساس منوی توافق‌شده، تعداد پرس روزانه و تعداد وعده‌ها در قرارداد تعیین می‌شود.",
