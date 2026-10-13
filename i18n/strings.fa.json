@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 487,
+  "count": 480,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -85,170 +85,126 @@
       "ctx": "meta"
     },
     "chrome.013": {
-      "fa": "اطلاعات سریع تماس و اعتبار",
-      "kind": "attr:aria-label",
-      "ctx": "header.header.top-bar"
-    },
-    "chrome.014": {
-      "fa": "تماس با شماره ۰۹۱۲۲۸۱۵۱۸۹",
-      "kind": "attr:aria-label",
-      "ctx": "header.header.top-bar",
-      "keepVerbatim": [
-        "۰۹۱۲۲۸۱۵۱۸۹"
-      ]
-    },
-    "chrome.015": {
-      "fa": "تماس مستقیم با شماره ۰۹۱۲ ۲۸۱ ۵۱۸۹",
-      "kind": "attr:title",
-      "ctx": "header.header.top-bar",
-      "keepVerbatim": [
-        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
-      ]
-    },
-    "chrome.016": {
-      "fa": "کپی شماره تماس رسمی",
-      "kind": "attr:aria-label",
-      "ctx": "button.div.top-bar__right"
-    },
-    "chrome.017": {
-      "fa": "کپی شماره",
-      "kind": "text",
-      "ctx": "button.div.top-bar__right"
-    },
-    "chrome.018": {
-      "fa": "بیش از ۳۱ سال تجربه در خدمت صنعت کشور (تأسیس ۱۳۷۴)",
-      "kind": "text",
-      "ctx": "div.div.top-bar__inner"
-    },
-    "chrome.019": {
-      "fa": "شناسه ملی: ۱۰۸۶۱۴۱۵۲۱۵",
-      "kind": "text",
-      "ctx": "span.div.top-bar__left",
-      "keepVerbatim": [
-        "۱۰۸۶۱۴۱۵۲۱۵"
-      ]
-    },
-    "chrome.020": {
       "fa": "منوی اصلی ناوبری",
       "kind": "attr:aria-label",
       "ctx": "nav.nav.navbar"
     },
-    "chrome.021": {
+    "chrome.014": {
       "fa": "صفحه اصلی شرکت قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "nav.nav.navbar"
     },
-    "chrome.022": {
+    "chrome.015": {
       "fa": "قزوین تصویر",
       "kind": "text",
       "ctx": "nav.nav.navbar"
     },
-    "chrome.023": {
+    "chrome.016": {
       "fa": "بازرگانی • ترابری • تأمین غذای پرسنل",
       "kind": "text",
       "ctx": "span.div.brand-logo__text"
     },
-    "chrome.024": {
+    "chrome.017": {
       "fa": "خانه",
       "kind": "text",
       "ctx": "ul.div.navbar__inner"
     },
-    "chrome.025": {
+    "chrome.018": {
       "fa": "درباره ما",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.026": {
+    "chrome.019": {
       "fa": "خدمات",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.027": {
+    "chrome.020": {
       "fa": "ناوگان",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.028": {
+    "chrome.021": {
       "fa": "غذای پرسنل",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.029": {
+    "chrome.022": {
       "fa": "برندها",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.030": {
+    "chrome.023": {
       "fa": "تماس با ما",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.031": {
+    "chrome.024": {
       "fa": "دریافت مشاوره رایگان",
       "kind": "attr:aria-label",
       "ctx": "div.div.navbar__inner"
     },
-    "chrome.032": {
+    "chrome.025": {
       "fa": "مشاوره رایگان",
       "kind": "text",
       "ctx": "div.div.navbar__inner"
     },
-    "chrome.033": {
+    "chrome.026": {
       "fa": "باز کردن منوی موبایل",
       "kind": "attr:aria-label",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.034": {
+    "chrome.027": {
       "fa": "خانه",
       "kind": "text",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.035": {
+    "chrome.028": {
       "fa": "درباره قزوین تصویر",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.036": {
+    "chrome.029": {
       "fa": "خدمات بازرگانی و ترابری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.037": {
+    "chrome.030": {
       "fa": "تأمین غذای پرسنل و کیترینگ سازمانی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.038": {
+    "chrome.031": {
       "fa": "ناوگان ترابری (اتوبوس، مینی‌بوس، ون)",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.039": {
+    "chrome.032": {
       "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.040": {
+    "chrome.033": {
       "fa": "چرا ما؟",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.041": {
+    "chrome.034": {
       "fa": "مشتریان و همکاران تجاری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.042": {
+    "chrome.035": {
       "fa": "اعتبار و استعلام رسمی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.043": {
+    "chrome.036": {
       "fa": "تماس با شرکت",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.044": {
+    "chrome.037": {
       "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.mobile-drawer",
@@ -256,7 +212,7 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "chrome.045": {
+    "chrome.038": {
       "fa": "ارتباط در واتساپ رسمی",
       "kind": "text",
       "ctx": "a.div.mobile-drawer__footer"
@@ -488,12 +444,12 @@
     "services.001": {
       "fa": "خدمات تخصصی قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.section"
+      "ctx": "div.section.site-page.section"
     },
     "services.002": {
       "fa": "خدمات تخصصی ما",
       "kind": "text",
-      "ctx": "section.section.site-page.section"
+      "ctx": "div.section.site-page.section"
     },
     "services.003": {
       "fa": "دو راهکار یکپارچه برای رشد کسب‌وکار شما",
@@ -2519,7 +2475,7 @@
     }
   },
   "structured": {
-    "jsonld.001": {
+    "jsonld.0.name": {
       "fa": "شرکت قزوین تصویر",
       "path": [
         "name"
@@ -2527,7 +2483,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.002": {
+    "jsonld.0.alternateName": {
       "fa": "قزوین تصویر",
       "path": [
         "alternateName"
@@ -2535,7 +2491,7 @@
       "block": 0,
       "ctx": "alternateName"
     },
-    "jsonld.003": {
+    "jsonld.0.description": {
       "fa": "ارائه‌دهنده خدمات بازرگانی، واردات و صادرات کلیه کالاهای مجاز، ترخیص گمرکی و ترابری و سرویس ایاب و ذهاب پرسنل کارخانه‌ها و شرکت‌ها با بیش از ۳۱ سال سابقه درخشان.",
       "path": [
         "description"
@@ -2543,7 +2499,7 @@
       "block": 0,
       "ctx": "description"
     },
-    "jsonld.004": {
+    "jsonld.0.founder.name": {
       "fa": "سعید امین‌زاده",
       "path": [
         "founder",
@@ -2552,7 +2508,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.005": {
+    "jsonld.0.founder.jobTitle": {
       "fa": "مدیرعامل و بنیان‌گذار",
       "path": [
         "founder",
@@ -2561,7 +2517,7 @@
       "block": 0,
       "ctx": "jobTitle"
     },
-    "jsonld.006": {
+    "jsonld.0.employee.0.name": {
       "fa": "سعید امین‌زاده",
       "path": [
         "employee",
@@ -2571,7 +2527,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.007": {
+    "jsonld.0.employee.0.jobTitle": {
       "fa": "مدیرعامل و عضو هیئت مدیره",
       "path": [
         "employee",
@@ -2581,7 +2537,7 @@
       "block": 0,
       "ctx": "jobTitle"
     },
-    "jsonld.008": {
+    "jsonld.0.employee.1.name": {
       "fa": "اصغر تقی‌لو",
       "path": [
         "employee",
@@ -2591,7 +2547,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.009": {
+    "jsonld.0.employee.1.jobTitle": {
       "fa": "رئیس هیئت مدیره",
       "path": [
         "employee",
@@ -2601,7 +2557,7 @@
       "block": 0,
       "ctx": "jobTitle"
     },
-    "jsonld.010": {
+    "jsonld.0.address.streetAddress": {
       "fa": "اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
       "path": [
         "address",
@@ -2610,7 +2566,7 @@
       "block": 0,
       "ctx": "streetAddress"
     },
-    "jsonld.011": {
+    "jsonld.0.address.addressLocality": {
       "fa": "قزوین",
       "path": [
         "address",
@@ -2619,7 +2575,7 @@
       "block": 0,
       "ctx": "addressLocality"
     },
-    "jsonld.012": {
+    "jsonld.0.address.addressRegion": {
       "fa": "استان قزوین",
       "path": [
         "address",
@@ -2628,7 +2584,7 @@
       "block": 0,
       "ctx": "addressRegion"
     },
-    "jsonld.013": {
+    "jsonld.0.areaServed.name": {
       "fa": "Iran",
       "path": [
         "areaServed",
@@ -2637,7 +2593,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.014": {
+    "jsonld.0.knowsAbout.0": {
       "fa": "بازرگانی، واردات و صادرات کالا",
       "path": [
         "knowsAbout",
@@ -2646,7 +2602,7 @@
       "block": 0,
       "ctx": "0"
     },
-    "jsonld.015": {
+    "jsonld.0.knowsAbout.1": {
       "fa": "ترخیص گمرکی و امور بندری",
       "path": [
         "knowsAbout",
@@ -2655,7 +2611,7 @@
       "block": 0,
       "ctx": "1"
     },
-    "jsonld.016": {
+    "jsonld.0.knowsAbout.2": {
       "fa": "حمل بین‌المللی دریایی، زمینی و هوایی",
       "path": [
         "knowsAbout",
@@ -2664,7 +2620,7 @@
       "block": 0,
       "ctx": "2"
     },
-    "jsonld.017": {
+    "jsonld.0.knowsAbout.3": {
       "fa": "سرویس ایاب و ذهاب پرسنل کارخانه‌ها و ادارات",
       "path": [
         "knowsAbout",
@@ -2673,7 +2629,7 @@
       "block": 0,
       "ctx": "3"
     },
-    "jsonld.018": {
+    "jsonld.0.knowsAbout.4": {
       "fa": "ناوگان اتوبوس، مینی‌بوس و ون",
       "path": [
         "knowsAbout",
@@ -2682,7 +2638,7 @@
       "block": 0,
       "ctx": "4"
     },
-    "jsonld.019": {
+    "jsonld.0.knowsAbout.5": {
       "fa": "تأمین غذای پرسنل و وعده‌های سازمانی (کیترینگ)",
       "path": [
         "knowsAbout",
@@ -2691,7 +2647,7 @@
       "block": 0,
       "ctx": "5"
     },
-    "jsonld.020": {
+    "jsonld.0.hasOfferCatalog.name": {
       "fa": "خدمات شرکت قزوین تصویر",
       "path": [
         "hasOfferCatalog",
@@ -2700,7 +2656,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.021": {
+    "jsonld.0.hasOfferCatalog.itemListElement.0.itemOffered.name": {
       "fa": "بازرگانی، واردات و صادرات",
       "path": [
         "hasOfferCatalog",
@@ -2712,7 +2668,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.022": {
+    "jsonld.0.hasOfferCatalog.itemListElement.0.itemOffered.description": {
       "fa": "تأمین کالا، ترخیص گمرکی و امور بندری، حمل بین‌المللی و گشایش اعتبارات اسنادی (LC).",
       "path": [
         "hasOfferCatalog",
@@ -2724,7 +2680,7 @@
       "block": 0,
       "ctx": "description"
     },
-    "jsonld.023": {
+    "jsonld.0.hasOfferCatalog.itemListElement.1.itemOffered.name": {
       "fa": "ترابری و سرویس ایاب و ذهاب پرسنل",
       "path": [
         "hasOfferCatalog",
@@ -2736,7 +2692,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.024": {
+    "jsonld.0.hasOfferCatalog.itemListElement.1.itemOffered.description": {
       "fa": "قراردادهای بلندمدت و ماهانه سرویس پرسنل با ناوگان ملکی اتوبوس، مینی‌بوس و ون، پوشش کامل ساعات شیفتی و پشتیبانی ۲۴/۷.",
       "path": [
         "hasOfferCatalog",
@@ -2748,7 +2704,7 @@
       "block": 0,
       "ctx": "description"
     },
-    "jsonld.025": {
+    "jsonld.0.hasOfferCatalog.itemListElement.1.itemOffered.serviceType": {
       "fa": "Passenger transportation service",
       "path": [
         "hasOfferCatalog",
@@ -2760,7 +2716,7 @@
       "block": 0,
       "ctx": "serviceType"
     },
-    "jsonld.026": {
+    "jsonld.0.hasOfferCatalog.itemListElement.2.itemOffered.name": {
       "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
       "path": [
         "hasOfferCatalog",
@@ -2772,7 +2728,7 @@
       "block": 0,
       "ctx": "name"
     },
-    "jsonld.027": {
+    "jsonld.0.hasOfferCatalog.itemListElement.2.itemOffered.description": {
       "fa": "انعقاد قرارداد یک‌ساله تأمین صبحانه، ناهار، شام و میان‌وعده پرسنل کارخانه‌ها و شرکت‌ها؛ طبخ در آشپزخانه‌های مجاز، توزیع گرم در محل و منوی هفتگی چرخشی.",
       "path": [
         "hasOfferCatalog",
@@ -2784,7 +2740,7 @@
       "block": 0,
       "ctx": "description"
     },
-    "jsonld.028": {
+    "jsonld.0.hasOfferCatalog.itemListElement.2.itemOffered.serviceType": {
       "fa": "Corporate catering service",
       "path": [
         "hasOfferCatalog",
@@ -2796,7 +2752,7 @@
       "block": 0,
       "ctx": "serviceType"
     },
-    "jsonld.029": {
+    "jsonld.1.name": {
       "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
       "path": [
         "name"
@@ -2804,7 +2760,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.030": {
+    "jsonld.1.alternateName": {
       "fa": "کیترینگ و پیمان‌کاری غذای کارخانه‌ها و شرکت‌ها",
       "path": [
         "alternateName"
@@ -2812,7 +2768,7 @@
       "block": 1,
       "ctx": "alternateName"
     },
-    "jsonld.031": {
+    "jsonld.1.serviceType": {
       "fa": "Corporate catering service",
       "path": [
         "serviceType"
@@ -2820,7 +2776,7 @@
       "block": 1,
       "ctx": "serviceType"
     },
-    "jsonld.032": {
+    "jsonld.1.description": {
       "fa": "قرارداد تأمین صبحانه، ناهار، شام و میان‌وعده پرسنل کارخانه‌ها و شرکت‌های صنعتی؛ طبخ در آشپزخانه‌های مجاز، غذای گرم و بهداشتی و توزیع در رستوران یا محل تعیین‌شده کارفرما با خودروهای کیترینگ. حداقل ۵۰ پرس در هر وعده و منوی هفتگی چرخشی.",
       "path": [
         "description"
@@ -2828,7 +2784,7 @@
       "block": 1,
       "ctx": "description"
     },
-    "jsonld.033": {
+    "jsonld.1.provider.name": {
       "fa": "شرکت قزوین تصویر",
       "path": [
         "provider",
@@ -2837,7 +2793,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.034": {
+    "jsonld.1.provider.address.streetAddress": {
       "fa": "اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
       "path": [
         "provider",
@@ -2847,7 +2803,7 @@
       "block": 1,
       "ctx": "streetAddress"
     },
-    "jsonld.035": {
+    "jsonld.1.provider.address.addressLocality": {
       "fa": "قزوین",
       "path": [
         "provider",
@@ -2857,7 +2813,7 @@
       "block": 1,
       "ctx": "addressLocality"
     },
-    "jsonld.036": {
+    "jsonld.1.provider.address.addressRegion": {
       "fa": "استان قزوین",
       "path": [
         "provider",
@@ -2867,7 +2823,7 @@
       "block": 1,
       "ctx": "addressRegion"
     },
-    "jsonld.037": {
+    "jsonld.1.areaServed.0.name": {
       "fa": "استان قزوین",
       "path": [
         "areaServed",
@@ -2877,7 +2833,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.038": {
+    "jsonld.1.areaServed.1.name": {
       "fa": "Iran",
       "path": [
         "areaServed",
@@ -2887,7 +2843,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.039": {
+    "jsonld.1.termsOfService": {
       "fa": "حداقل ۵۰ پرس در هر وعده؛ قرارداد یک‌ساله با قابلیت تغییر تعداد پرس‌ها، برنامه توزیع بر اساس شیفت‌های کاری کارفرما.",
       "path": [
         "termsOfService"
@@ -2895,7 +2851,7 @@
       "block": 1,
       "ctx": "termsOfService"
     },
-    "jsonld.040": {
+    "jsonld.1.offers.priceSpecification.description": {
       "fa": "قیمت پایه هر پرس میان‌وعده از ۳۵٬۰۰۰ تومان به بالا؛ قیمت نهایی بر اساس منوی توافق‌شده، تعداد پرس روزانه و تعداد وعده‌ها در قرارداد تعیین می‌شود.",
       "path": [
         "offers",
@@ -2905,7 +2861,7 @@
       "block": 1,
       "ctx": "description"
     },
-    "jsonld.041": {
+    "jsonld.1.offers.areaServed.name": {
       "fa": "استان قزوین",
       "path": [
         "offers",
@@ -2915,7 +2871,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.042": {
+    "jsonld.1.hasOfferCatalog.name": {
       "fa": "وعده‌های سازمانی قابل قرارداد",
       "path": [
         "hasOfferCatalog",
@@ -2924,7 +2880,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.043": {
+    "jsonld.1.hasOfferCatalog.itemListElement.0.itemOffered.name": {
       "fa": "صبحانه سازمانی",
       "path": [
         "hasOfferCatalog",
@@ -2936,7 +2892,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.044": {
+    "jsonld.1.hasOfferCatalog.itemListElement.0.itemOffered.description": {
       "fa": "نان تازه، پنیر، گردو، املت، حلیم و صبحانه سبک کارمندی با نوشیدنی گرم.",
       "path": [
         "hasOfferCatalog",
@@ -2948,7 +2904,7 @@
       "block": 1,
       "ctx": "description"
     },
-    "jsonld.045": {
+    "jsonld.1.hasOfferCatalog.itemListElement.1.itemOffered.name": {
       "fa": "ناهار سازمانی",
       "path": [
         "hasOfferCatalog",
@@ -2960,7 +2916,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.046": {
+    "jsonld.1.hasOfferCatalog.itemListElement.1.itemOffered.description": {
       "fa": "چلوکباب، زرشک‌پلو با مرغ، قیمه بادمجان و جوجه زعفرانی همراه با سالاد، ماست و نوشیدنی.",
       "path": [
         "hasOfferCatalog",
@@ -2972,7 +2928,7 @@
       "block": 1,
       "ctx": "description"
     },
-    "jsonld.047": {
+    "jsonld.1.hasOfferCatalog.itemListElement.2.itemOffered.name": {
       "fa": "شام سازمانی",
       "path": [
         "hasOfferCatalog",
@@ -2984,7 +2940,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.048": {
+    "jsonld.1.hasOfferCatalog.itemListElement.2.itemOffered.description": {
       "fa": "قورمه‌سبزی، کوکو سبزی، سوپ جو و ماهی قزل‌آلا؛ مناسب شیفت‌های شب و تولید شبانه.",
       "path": [
         "hasOfferCatalog",
@@ -2996,7 +2952,7 @@
       "block": 1,
       "ctx": "description"
     },
-    "jsonld.049": {
+    "jsonld.1.hasOfferCatalog.itemListElement.3.itemOffered.name": {
       "fa": "میان‌وعده سازمانی",
       "path": [
         "hasOfferCatalog",
@@ -3008,7 +2964,7 @@
       "block": 1,
       "ctx": "name"
     },
-    "jsonld.050": {
+    "jsonld.1.hasOfferCatalog.itemListElement.3.itemOffered.description": {
       "fa": "بسته میوه فصل، ساندویچ گرم، بسته خشک خط تولید و دسر تازه روز در بسته‌بندی بهداشتی.",
       "path": [
         "hasOfferCatalog",
@@ -3020,7 +2976,7 @@
       "block": 1,
       "ctx": "description"
     },
-    "jsonld.051": {
+    "jsonld.2.mainEntity.0.name": {
       "fa": "حداقل تعداد پرس برای انعقاد قرارداد تأمین غذای پرسنل چقدر است؟",
       "path": [
         "mainEntity",
@@ -3030,7 +2986,7 @@
       "block": 2,
       "ctx": "name"
     },
-    "jsonld.052": {
+    "jsonld.2.mainEntity.0.acceptedAnswer.text": {
       "fa": "معمولاً از ۵۰ پرس به بالا. برای مجموعه‌های کوچک‌تر نیز با توجه به فاصله محل توزیع و تعداد وعده‌ها، امکان تعریف قرارداد یا پرس‌های ترکیبی وجود دارد. کارشناس قزوین تصویر پس از بازدید، دقیق‌ترین برآورد را ارائه می‌کند.",
       "path": [
         "mainEntity",
@@ -3041,7 +2997,7 @@
       "block": 2,
       "ctx": "text"
     },
-    "jsonld.053": {
+    "jsonld.2.mainEntity.1.name": {
       "fa": "آیا منوی غذای سازمانی قابل تغییر است؟",
       "path": [
         "mainEntity",
@@ -3051,7 +3007,7 @@
       "block": 2,
       "ctx": "name"
     },
-    "jsonld.054": {
+    "jsonld.2.mainEntity.1.acceptedAnswer.text": {
       "fa": "بله. منوی هفتگی و فصلی است و بر اساس سلیقه پرسنل، بودجه و شرایط تولید قابل بازبینی است. آیتم‌های غیرمحبوب حذف یا جایگزین می‌شوند و امکان افزودن گزینه‌های رژیمی، گیاهی و کم‌نمک وجود دارد.",
       "path": [
         "mainEntity",
@@ -3062,7 +3018,7 @@
       "block": 2,
       "ctx": "text"
     },
-    "jsonld.055": {
+    "jsonld.2.mainEntity.2.name": {
       "fa": "غذای سازمانی جزو حقوق و دستمزد محسوب می‌شود؟",
       "path": [
         "mainEntity",
@@ -3072,7 +3028,7 @@
       "block": 2,
       "ctx": "name"
     },
-    "jsonld.056": {
+    "jsonld.2.mainEntity.2.acceptedAnswer.text": {
       "fa": "طبق قانون کار، غذای ارائه‌شده به پرسنل جزو مزایای غیرنقدی محسوب می‌شود و شرایط و آثار بیمه‌ای و مالیاتی خاص خود را دارد. در قرارداد تأمین غذا، نحوه محاسبه و مستندسازی وعده‌ها مشخص می‌شود و توصیه می‌شود پیش از امضا با مشاور مالی و بیمه‌ای مجموعه هماهنگی لازم انجام شود.",
       "path": [
         "mainEntity",
@@ -3083,7 +3039,7 @@
       "block": 2,
       "ctx": "text"
     },
-    "jsonld.057": {
+    "jsonld.2.mainEntity.3.name": {
       "fa": "زمان توزیع وعده‌های غذایی چگونه تنظیم می‌شود؟",
       "path": [
         "mainEntity",
@@ -3093,7 +3049,7 @@
       "block": 2,
       "ctx": "name"
     },
-    "jsonld.058": {
+    "jsonld.2.mainEntity.3.acceptedAnswer.text": {
       "fa": "طبق شیفت‌های کاری شما. برنامه توزیع در قرارداد تعیین می‌شود و برای شیفت‌های شب، تعطیلات و روزهای پیک تولید نیز قابل تنظیم است. تغییرات موقت برنامه با هماهنگی قبلی در کوتاه‌ترین زمان اعمال می‌شود.",
       "path": [
         "mainEntity",
