@@ -27,6 +27,7 @@ index.html  ──►  tools/extract-i18n-strings.py  ──►  i18n/strings.fa
 | `tools/build-i18n-site.py` | برای هر زبان یک صفحهٔ واقعی می‌سازد (نه ریدایرکت جاوااسکریپتی): `lang`/`dir`، سوییچر زبان، `hreflang`، `x-default`، `canonical`، `og:locale`، عنوان/توضیح هر مسیر، `sitemap.xml`. |
 | `tools/check-html.py` | بررسی ساختار HTML خروجی‌ها (تگ‌های بسته‌نشده، تودرتویی). |
 | `tools/smoke-test.mjs` | آزمون زمان اجرا در jsdom: هر صفحه، هر ۱۳ مسیر هش، سوییچر زبان و `hreflang` (نیازمند `npm i jsdom`؛ در خود سایت هیچ گام ساختی وجود ندارد). |
+| `tools/check-css-direction.py` | گیت جهت صفحه: برندهٔ آبشار `direction` روی `<html>` را برای هر دو حالت `dir="ltr"`/`dir="rtl"` حل می‌کند. (ویژگی `dir` فقط یک presentational hint است و هر قاعدهٔ CSS آن را باطل می‌کند.) |
 | `tools/check-no-content-drift.py` | گیت ضد‌رانش: اثبات می‌کند ساخت سایت، یک کلمه از متن فارسی را تغییر نداده است. |
 | `i18n/GLOSSARY.md` | واژه‌نامهٔ قفل‌شده: نام رسمی شرکت، داده‌های ثبتی، ~۵۰ اصطلاح در ۱۰ زبان، قاعدهٔ ارقام، نقشهٔ فونت و `hreflang`. |
 | `i18n/strings.fa.json` | نقشهٔ رشته‌ها (مرجع ماشینی) + اثر انگشت هر رشته. |
@@ -42,6 +43,7 @@ python3 tools/build-i18n-site.py                # ساخت همهٔ زبان‌�
 
 # آزمون‌های تأیید
 python3 tools/check-html.py index.html en/index.html
+python3 tools/check-css-direction.py
 python3 tools/check-no-content-drift.py
 cd /tmp && npm i jsdom && QT_ROOT=<repo> node <repo>/tools/smoke-test.mjs
 ```
@@ -65,6 +67,9 @@ cd /tmp && npm i jsdom && QT_ROOT=<repo> node <repo>/tools/smoke-test.mjs
    ارقام لاتین. تنها استثنا: رشته‌هایی که عمداً هر دو تقویم را کنار هم دارند
    (مثل «۱۴۰۴ / 2026») دست‌نخورده می‌مانند.
 8. **رانش صفر** — صفحهٔ فارسی پس از ساخت، بیت‌به‌بیت همان متن قبلی را دارد.
+9. **جهت صفحه** — قاعدهٔ CSS نباید ویژگی `dir` را باطل کند؛ گیت
+   `check-css-direction.py` این را قطعی بررسی می‌کند (باگ واقعی: یک قاعدهٔ
+   `html { direction: rtl }` کل صفحهٔ انگلیسی را راست‌به‌چپ می‌چید).
 
 ---
 

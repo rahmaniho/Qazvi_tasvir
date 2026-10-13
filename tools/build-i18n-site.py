@@ -92,6 +92,9 @@ PERSIAN_LETTERS = re.compile(r"[\u067E\u0686\u0698\u06AF\u06CC\u06A9]")  # پ چ
 
 SWITCH_BEGIN = "<!-- QT:LANG-SWITCH:BEGIN -->"
 SWITCH_END = "<!-- QT:LANG-SWITCH:END -->"
+DRAWER_BEGIN = "<!-- QT:LANG-SWITCH-DRAWER:BEGIN -->"
+DRAWER_END = "<!-- QT:LANG-SWITCH-DRAWER:END -->"
+RTL_LANGS = {"fa", "ar", "prs"}
 HREFLANG_BEGIN = "<!-- QT:HREFLANG:BEGIN -->"
 HREFLANG_END = "<!-- QT:HREFLANG:END -->"
 
@@ -110,21 +113,38 @@ def depth_prefix(lang: str) -> str:
     return "" if lang == "fa" else "../"
 
 
-def switcher_html(active: str, available: list[str], a11y_label: str) -> str:
-    """A JS-free language switcher: <details> + links in the reader's own script."""
-    links = []
+def language_href(active: str, code: str) -> str:
+    """Relative link that keeps working under any base path (e.g. GitHub Pages
+    /Qazvi_tasvir/): back to the root for fa, into the folder otherwise."""
+    if code == active:
+        return "./"
+    if code == "fa":
+        return "./" if active == "fa" else depth_prefix(active)
+    return f"{code}/" if active == "fa" else f"../{code}/"
+
+
+def switcher_items(active: str, available: list[str], indent: str,
+                   with_native: bool = True) -> str:
+    """One link per language, in the reader's own script and direction."""
+    lines = []
     for code in [c for c in LANGS if c in available]:
         info = LANGS[code]
-        href = f"{depth_prefix(active)}{'' if code == 'fa' else code + '/'}"
-        if active == code:
-            href = "./" if code != "fa" else "./"
+        direction = "rtl" if code in RTL_LANGS else "ltr"
         current = ' aria-current="true"' if code == active else ""
-        links.append(
-            f'        <a class="lang-switch__item" href="{href}" hreflang="{info["hreflang"]}"'
-            f' lang="{code}"{current}>'
-            f'<span class="lang-switch__name">{info["native"]}</span>'
-            f'<span class="lang-switch__native">{info["name"]}</span></a>'
-        )
+        if with_native:
+            inner = (f'<span class="lang-switch__name">{info["native"]}</span>'
+                     f'<span class="lang-switch__native">{info["name"]}</span>')
+        else:
+            inner = info["native"]
+        lines.append(
+            f'{indent}<a class="lang-switch__item" href="{language_href(active, code)}"'
+            f' hreflang="{info["hreflang"]}" lang="{code}" dir="{direction}"{current}>'
+            f'{inner}</a>')
+    return "\n".join(lines)
+
+
+def switcher_html(active: str, available: list[str], a11y_label: str) -> str:
+    """A JS-free language switcher: <details> + links in the reader's own script."""
     return (
         f'{SWITCH_BEGIN}\n'
         f'        <details class="lang-switch">\n'
@@ -133,10 +153,22 @@ def switcher_html(active: str, available: list[str], a11y_label: str) -> str:
         f'            <span class="lang-switch__code">{active}</span>\n'
         f'          </summary>\n'
         f'          <nav class="lang-switch__panel" aria-label="{a11y_label}">\n'
-        + "\n".join(links) + "\n"
+        + switcher_items(active, available, "            ") + "\n"
         f'          </nav>\n'
         f'        </details>\n'
         f'        {SWITCH_END}'
+    )
+
+
+def drawer_switcher_html(active: str, available: list[str], a11y_label: str) -> str:
+    """The same language links as chips inside the mobile drawer, so the site
+    can be switched from a phone too (the navbar row is cramped there)."""
+    return (
+        f'{DRAWER_BEGIN}\n'
+        f'      <nav class="lang-switch lang-switch--drawer" aria-label="{a11y_label}">\n'
+        + switcher_items(active, available, "        ", with_native=False) + "\n"
+        f'      </nav>\n'
+        f'      {DRAWER_END}'
     )
 
 
@@ -292,6 +324,8 @@ def build_language(lang: str, master: str, strings: dict,
     label = translations.get("chrome.langSwitch") or info.get("switch_label", "Change language")
     html = replace_block(html, SWITCH_BEGIN, SWITCH_END,
                          switcher_html(lang, available, label), "language switcher")
+    html = replace_block(html, DRAWER_BEGIN, DRAWER_END,
+                         drawer_switcher_html(lang, available, label), "drawer switcher")
     html = replace_block(html, HREFLANG_BEGIN, HREFLANG_END,
                          hreflang_html(available), "hreflang")
 
@@ -403,7 +437,8 @@ def main() -> None:
         return
 
     master = MASTER.read_text(encoding="utf-8")
-    for marker, label in ((SWITCH_BEGIN, "switcher"), (HREFLANG_BEGIN, "hreflang")):
+    for marker, label in ((SWITCH_BEGIN, "switcher"), (DRAWER_BEGIN, "drawer switcher"),
+                          (HREFLANG_BEGIN, "hreflang")):
         if marker not in master:
             raise SystemExit(f"index.html is missing the {label} markers — add them first")
 

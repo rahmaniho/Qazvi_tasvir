@@ -73,17 +73,47 @@ function testPage(rel, lang, dir) {
   }
   check(visible === routes.length, `${routes.length - visible}/${routes.length} hash routes stayed hidden`);
 
+  // there are two switchers (navbar dropdown + mobile drawer): each must mark
+  // exactly one language as current, and it must be this page's language
   const items = doc.querySelectorAll('.lang-switch__item');
-  const active = doc.querySelectorAll('.lang-switch__item[aria-current="true"]');
-  check(active.length === 1, `${active.length} languages marked as active`);
-  check(active[0]?.getAttribute('lang') === lang, `switcher marks ${active[0]?.getAttribute('lang')} as active`);
+  const navbarSwitch = doc.querySelector('details.lang-switch');
+  const active = navbarSwitch.querySelectorAll('.lang-switch__item[aria-current="true"]');
+  check(active.length === 1, `navbar switcher marks ${active.length} languages as active`);
+  check(active[0]?.getAttribute('lang') === lang,
+        `navbar switcher marks ${active[0]?.getAttribute('lang')} as active`);
 
   const alt = [...doc.querySelectorAll('link[rel=alternate]')].map(l => l.hreflang);
   check(alt.includes('x-default'), 'hreflang x-default missing');
   check(alt.length >= 2, 'hreflang set incomplete');
 
+  // the navbar switcher must be a native, JS-free disclosure element
+  const det = doc.querySelector('details.lang-switch > summary.lang-switch__btn');
+  check(det !== null, 'navbar language switcher (<details><summary>) missing');
+
+  // every language link must be typed in its own language *and* direction
+  const RTL_LANGS = ['fa', 'ar', 'prs'];
+  for (const a of doc.querySelectorAll('.lang-switch__item')) {
+    const l = a.getAttribute('lang');
+    check(l !== null, `switcher item without lang: ${a.textContent.trim()}`);
+    check(a.getAttribute('hreflang') !== null, `switcher item without hreflang: ${l}`);
+    const want = RTL_LANGS.includes(l) ? 'rtl' : 'ltr';
+    check(a.getAttribute('dir') === want,
+          `switcher item lang=${l} has dir=${a.getAttribute('dir')} (expected ${want})`);
+  }
+
+  // the mobile drawer must offer the same languages (the navbar row is cramped there)
+  const drawer = doc.querySelector('.mobile-drawer');
+  check(drawer !== null, 'mobile drawer missing');
+  const drawerActive = drawer ? drawer.querySelectorAll('.lang-switch__item[aria-current="true"]') : [];
+  check(drawerActive.length === 1,
+        `mobile drawer marks ${drawerActive.length} languages as active`);
+  check(drawerActive[0]?.getAttribute('lang') === lang,
+        `mobile drawer marks the wrong language as active`);
+
+  const drawerItems = doc.querySelectorAll('.mobile-drawer .lang-switch__item').length;
   console.log(`  ${rel.padEnd(14)} lang=${lang} dir=${dir} routes=${visible}/${routes.length} ` +
-              `switcher=${items.length} hreflang=${alt.join(',')} title="${doc.title.slice(0, 46)}…"`);
+              `switcher=${items.length}(drawer ${drawerItems}) hreflang=${alt.join(',')} ` +
+              `title="${doc.title.slice(0, 40)}…"`);
 }
 
 console.log('runtime smoke test:');
