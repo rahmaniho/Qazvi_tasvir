@@ -1,0 +1,3129 @@
+{
+  "source": "index.html",
+  "sourceLang": "fa",
+  "dir": "rtl",
+  "targetLangs": [
+    "en",
+    "ar",
+    "tr",
+    "ru",
+    "zh",
+    "ko",
+    "ja",
+    "de",
+    "prs",
+    "fr"
+  ],
+  "count": 491,
+  "countStructured": 58,
+  "strings": {
+    "chrome.001": {
+      "fa": "قزوین تصویر | بازرگانی، واردات و صادرات، ترابری و تأمین غذای پرسنل — تأسیس ۱۳۷۴",
+      "kind": "text",
+      "ctx": "html"
+    },
+    "chrome.002": {
+      "fa": "شرکت قزوین تصویر (شناسه ملی ۱۰۸۶۱۴۱۵۲۱۵)، با مدیریت سعید امین‌زاده؛ خدمات بازرگانی، واردات و صادرات، سرویس ایاب و ذهاب پرسنل و تأمین غذای پرسنل کارخانه‌ها (صبحانه، ناهار، شام و میان‌وعده). تأسیس ۱۳۷۴. تماس: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+      "kind": "meta:description",
+      "ctx": "meta.description",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹",
+        "۱۰۸۶۱۴۱۵۲۱۵"
+      ]
+    },
+    "chrome.003": {
+      "fa": "قزوین تصویر, سعید امین‌زاده, بازرگانی قزوین, واردات و صادرات, ترخیص گمرکی, ترابری کارخانجات قزوین, سرویس ایاب و ذهاب پرسنل, ناوگان ترابری, اتوبوس سرویس پرسنل, مینی‌بوس, ون مسافربری, تأمین غذای پرسنل, کیترینگ سازمانی, وعده‌های سازمانی, غذای کارخانه, پیمان‌کاری غذای پرسنل, صبحانه و ناهار سازمانی, شهرک صنعتی کاسپین, شهرک صنعتی البرز",
+      "kind": "meta:keywords",
+      "ctx": "meta.keywords"
+    },
+    "chrome.004": {
+      "fa": "شرکت قزوین تصویر",
+      "kind": "meta:author",
+      "ctx": "meta.author"
+    },
+    "chrome.005": {
+      "fa": "website",
+      "kind": "meta:og:type",
+      "ctx": "meta.og:type"
+    },
+    "chrome.006": {
+      "fa": "قزوین تصویر | بازرگانی، واردات و صادرات، ترابری و تأمین غذای پرسنل",
+      "kind": "meta:og:title",
+      "ctx": "meta.og:title"
+    },
+    "chrome.007": {
+      "fa": "شرکت قزوین تصویر با بیش از ۳۱ سال سابقه تحت مدیریت سعید امین‌زاده؛ خدمات تخصصی بازرگانی بین‌الملل، ناوگان ترابری پرسنل و تأمین غذای پرسنل (صبحانه، ناهار، شام و میان‌وعده) برای کارخانه‌ها و شرکت‌ها.",
+      "kind": "meta:og:description",
+      "ctx": "meta.og:description"
+    },
+    "chrome.008": {
+      "fa": "image/jpeg",
+      "kind": "meta:og:image:type",
+      "ctx": "meta.og:image:type"
+    },
+    "chrome.009": {
+      "fa": "ناوگان اتوبوس سرویس پرسنل شرکت قزوین تصویر",
+      "kind": "meta:og:image:alt",
+      "ctx": "meta.og:image:alt"
+    },
+    "chrome.010": {
+      "fa": "fa_IR",
+      "kind": "meta:og:locale",
+      "ctx": "meta.og:locale"
+    },
+    "chrome.011": {
+      "fa": "قزوین تصویر",
+      "kind": "meta:og:site_name",
+      "ctx": "meta.og:site_name"
+    },
+    "chrome.012": {
+      "fa": "summary_large_image",
+      "kind": "meta:twitter:card",
+      "ctx": "meta.twitter:card"
+    },
+    "chrome.013": {
+      "fa": "قزوین تصویر | بازرگانی، ترابری و تأمین غذای پرسنل",
+      "kind": "meta:twitter:title",
+      "ctx": "meta.twitter:title"
+    },
+    "chrome.014": {
+      "fa": "شرکت قزوین تصویر (شناسه ۱۰۸۶۱۴۱۵۲۱۵) — ۳۱ سال تجربه در بازرگانی، ترابری و تأمین غذای سازمانی پرسنل با مدیریت سعید امین‌زاده.",
+      "kind": "meta:twitter:description",
+      "ctx": "meta.twitter:description",
+      "keepVerbatim": [
+        "۱۰۸۶۱۴۱۵۲۱۵"
+      ]
+    },
+    "chrome.015": {
+      "fa": "ناوگان اتوبوس سرویس پرسنل شرکت قزوین تصویر",
+      "kind": "meta:twitter:image:alt",
+      "ctx": "meta.twitter:image:alt"
+    },
+    "chrome.016": {
+      "fa": "پرش به محتوای اصلی صفحه",
+      "kind": "text",
+      "ctx": "meta"
+    },
+    "chrome.017": {
+      "fa": "اطلاعات سریع تماس و اعتبار",
+      "kind": "attr:aria-label",
+      "ctx": "header.header.top-bar"
+    },
+    "chrome.018": {
+      "fa": "تماس با شماره ۰۹۱۲۲۸۱۵۱۸۹",
+      "kind": "attr:aria-label",
+      "ctx": "header.header.top-bar",
+      "keepVerbatim": [
+        "۰۹۱۲۲۸۱۵۱۸۹"
+      ]
+    },
+    "chrome.019": {
+      "fa": "تماس مستقیم با شماره ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+      "kind": "attr:title",
+      "ctx": "header.header.top-bar",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    },
+    "chrome.020": {
+      "fa": "کپی شماره تماس رسمی",
+      "kind": "attr:aria-label",
+      "ctx": "button.div.top-bar__right"
+    },
+    "chrome.021": {
+      "fa": "کپی شماره",
+      "kind": "text",
+      "ctx": "button.div.top-bar__right"
+    },
+    "chrome.022": {
+      "fa": "بیش از ۳۱ سال تجربه در خدمت صنعت کشور (تأسیس ۱۳۷۴)",
+      "kind": "text",
+      "ctx": "div.div.top-bar__inner"
+    },
+    "chrome.023": {
+      "fa": "شناسه ملی: ۱۰۸۶۱۴۱۵۲۱۵",
+      "kind": "text",
+      "ctx": "span.div.top-bar__left",
+      "keepVerbatim": [
+        "۱۰۸۶۱۴۱۵۲۱۵"
+      ]
+    },
+    "chrome.024": {
+      "fa": "منوی اصلی ناوبری",
+      "kind": "attr:aria-label",
+      "ctx": "nav.nav.navbar"
+    },
+    "chrome.025": {
+      "fa": "صفحه اصلی شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "nav.nav.navbar"
+    },
+    "chrome.026": {
+      "fa": "قزوین تصویر",
+      "kind": "text",
+      "ctx": "nav.nav.navbar"
+    },
+    "chrome.027": {
+      "fa": "بازرگانی • ترابری • تأمین غذای پرسنل",
+      "kind": "text",
+      "ctx": "span.div.brand-logo__text"
+    },
+    "chrome.028": {
+      "fa": "خانه",
+      "kind": "text",
+      "ctx": "ul.div.navbar__inner"
+    },
+    "chrome.029": {
+      "fa": "درباره ما",
+      "kind": "text",
+      "ctx": "li.ul.nav-menu"
+    },
+    "chrome.030": {
+      "fa": "خدمات",
+      "kind": "text",
+      "ctx": "li.ul.nav-menu"
+    },
+    "chrome.031": {
+      "fa": "ناوگان",
+      "kind": "text",
+      "ctx": "li.ul.nav-menu"
+    },
+    "chrome.032": {
+      "fa": "غذای پرسنل",
+      "kind": "text",
+      "ctx": "li.ul.nav-menu"
+    },
+    "chrome.033": {
+      "fa": "برندها",
+      "kind": "text",
+      "ctx": "li.ul.nav-menu"
+    },
+    "chrome.034": {
+      "fa": "تماس با ما",
+      "kind": "text",
+      "ctx": "li.ul.nav-menu"
+    },
+    "chrome.035": {
+      "fa": "دریافت مشاوره رایگان",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.navbar__inner"
+    },
+    "chrome.036": {
+      "fa": "مشاوره رایگان",
+      "kind": "text",
+      "ctx": "div.div.navbar__inner"
+    },
+    "chrome.037": {
+      "fa": "باز کردن منوی موبایل",
+      "kind": "attr:aria-label",
+      "ctx": "button.div.navbar__actions"
+    },
+    "chrome.038": {
+      "fa": "خانه",
+      "kind": "text",
+      "ctx": "button.div.navbar__actions"
+    },
+    "chrome.039": {
+      "fa": "درباره قزوین تصویر",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.040": {
+      "fa": "خدمات بازرگانی و ترابری",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.041": {
+      "fa": "تأمین غذای پرسنل و کیترینگ سازمانی",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.042": {
+      "fa": "ناوگان ترابری (اتوبوس، مینی‌بوس، ون)",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.043": {
+      "fa": "برندهای همکار",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.044": {
+      "fa": "چرا ما؟",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.045": {
+      "fa": "مشتریان و همکاران تجاری",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.046": {
+      "fa": "اعتبار و استعلام رسمی",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.047": {
+      "fa": "تماس با شرکت",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.048": {
+      "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+      "kind": "text",
+      "ctx": "div.div.mobile-drawer",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    },
+    "chrome.049": {
+      "fa": "ارتباط در واتساپ رسمی",
+      "kind": "text",
+      "ctx": "a.div.mobile-drawer__footer"
+    },
+    "hero.001": {
+      "fa": "معرفی اصلی قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "main"
+    },
+    "hero.002": {
+      "fa": "فعال در دو حوزه تخصصی بازرگانی و ترابری صنعتی",
+      "kind": "text",
+      "ctx": "main"
+    },
+    "hero.003": {
+      "fa": "قزوین تصویر؛ بیش از ۳۱ سال تجربه در بازرگانی، واردات و صادرات و ترابری",
+      "kind": "text",
+      "ctx": "h1.div.hero__content-col.reveal",
+      "html": "قزوین تصویر؛ بیش از ۳۱ سال تجربه در <span class=\"gradient-text\">بازرگانی، واردات و صادرات</span> و ترابری"
+    },
+    "hero.004": {
+      "fa": "از تأمین کالا، ترخیص گمرکی تخصصی و واردات ماشین‌آلات تا جابه‌جایی منظم روزانه پرسنل کارخانه‌ها و شرکت‌های صنعتی؛ با تیمی مجرب و متعهد با مدیریت سعید امین‌زاده در کنار شما هستیم.",
+      "kind": "text",
+      "ctx": "p.div.hero__content-col.reveal",
+      "html": "از تأمین کالا، ترخیص گمرکی تخصصی و واردات ماشین‌آلات تا جابه‌جایی منظم روزانه پرسنل کارخانه‌ها و شرکت‌های صنعتی؛ با تیمی مجرب و متعهد با مدیریت <strong>سعید امین‌زاده</strong> در کنار شما هستیم."
+    },
+    "hero.005": {
+      "fa": "مشاهده خدمات تخصصی",
+      "kind": "text",
+      "ctx": "div.div.hero__content-col.reveal"
+    },
+    "hero.006": {
+      "fa": "تماس فوری با قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "svg.a.btn.btn-primary"
+    },
+    "hero.007": {
+      "fa": "تماس فوری (۰۹۱۲ ۲۸۱ ۵۱۸۹)",
+      "kind": "text",
+      "ctx": "svg.a.btn.btn-primary",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    },
+    "hero.008": {
+      "fa": "آمار و شاخص‌های کلیدی شرکت",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.hero__content-col.reveal"
+    },
+    "hero.009": {
+      "fa": "سال سابقه (تأسیس ۱۳۷۴)",
+      "kind": "text",
+      "ctx": "span.div.hero__stat-item"
+    },
+    "hero.010": {
+      "fa": "مشتری فعال سازمانی",
+      "kind": "text",
+      "ctx": "span.div.hero__stat-item"
+    },
+    "hero.011": {
+      "fa": "پرسنل جابه‌جا شده روزانه",
+      "kind": "text",
+      "ctx": "span.div.hero__stat-item"
+    },
+    "hero.012": {
+      "fa": "بازرگانی بین‌الملل",
+      "kind": "text",
+      "ctx": "div.div.hero__grid"
+    },
+    "hero.013": {
+      "fa": "واردات، صادرات و ترخیص کالا",
+      "kind": "text",
+      "ctx": "div.div.float-card.float-card--top"
+    },
+    "hero.014": {
+      "fa": "قزوین تصویر",
+      "kind": "text",
+      "ctx": "div.div.hero__visual-wrap.reveal"
+    },
+    "hero.015": {
+      "fa": "شناسه ملی: ۱۰۸۶۱۴۱۵۲۱۵",
+      "kind": "text",
+      "ctx": "div.div.hero__showcase-brand",
+      "keepVerbatim": [
+        "۱۰۸۶۱۴۱۵۲۱۵"
+      ]
+    },
+    "hero.016": {
+      "fa": "فعال و دارای مجوز",
+      "kind": "text",
+      "ctx": "span.div.hero__showcase-header"
+    },
+    "hero.017": {
+      "fa": "مدیرعامل:",
+      "kind": "text",
+      "ctx": "div.div.hero__glass-card"
+    },
+    "hero.018": {
+      "fa": "سعید امین‌زاده",
+      "kind": "text",
+      "ctx": "div.div.hero__glass-card"
+    },
+    "hero.019": {
+      "fa": "ثبت:",
+      "kind": "text",
+      "ctx": "div.div.hero__glass-card"
+    },
+    "hero.020": {
+      "fa": "سرویس پرسنل صنایع",
+      "kind": "text",
+      "ctx": "div.div.hero__visual-wrap.reveal"
+    },
+    "hero.021": {
+      "fa": "ناوگان مجهز، منظم و شیفتی",
+      "kind": "text",
+      "ctx": "div.div.float-card.float-card--bottom"
+    },
+    "about.001": {
+      "fa": "درباره شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.section"
+    },
+    "about.002": {
+      "fa": "درباره شرکت قزوین تصویر",
+      "kind": "text",
+      "ctx": "section.section.site-page.section"
+    },
+    "about.003": {
+      "fa": "بیش از ۳۱ سال اعتماد، از قزوین تا بازارهای جهانی",
+      "kind": "text",
+      "ctx": "h2.div.about__content-column.reveal"
+    },
+    "about.004": {
+      "fa": "شرکت قزوین تصویر با مسئولیت محدود، از اردیبهشت سال ۱۳۷۴ با هدایت و مدیریت جناب آقای سعید امین‌زاده فعالیت رسمی خود را آغاز نمود. در طول بیش از سه دهه خدمت مستمر به بخش‌های تولیدی و بازرگانی کشور، ما به یکی از خوش‌نام‌ترین و مطمئن‌ترین مجموعه‌ها در دو حوزه حیاتی «بازرگانی، واردات و صادرات» و «ترابری و ترابری پرسنل کارخانه‌ها» بدل شده‌ایم.",
+      "kind": "text",
+      "ctx": "p.div.about__content-column.reveal",
+      "html": "شرکت <strong>قزوین تصویر</strong> با مسئولیت محدود، از <strong>اردیبهشت سال ۱۳۷۴</strong> با هدایت و مدیریت جناب آقای <strong>سعید امین‌زاده</strong> فعالیت رسمی خود را آغاز نمود. در طول بیش از سه دهه خدمت مستمر به بخش‌های تولیدی و بازرگانی کشور، ما به یکی از خوش‌نام‌ترین و مطمئن‌ترین مجموعه‌ها در دو حوزه حیاتی <strong>«بازرگانی، واردات و صادرات»</strong> و <strong>«ترابری و ترابری پرسنل کارخانه‌ها»</strong> بدل شده‌ایم."
+    },
+    "about.005": {
+      "fa": "تعهد خدشه‌ناپذیر به زمان‌بندی دقیق و انضباط کامل در تمام پروژه‌ها",
+      "kind": "text",
+      "ctx": "ul.div.about__content-column.reveal"
+    },
+    "about.006": {
+      "fa": "شبکه گسترده تأمین‌کنندگان معتبر داخلی، خارجی و کارگزاران گمرکی",
+      "kind": "text",
+      "ctx": "li.ul.about__checklist"
+    },
+    "about.007": {
+      "fa": "پشتیبانی شبانه‌روزی ۲۴/۷ و نظارت مستمر میدانی بر ناوگان ترابری",
+      "kind": "text",
+      "ctx": "li.ul.about__checklist"
+    },
+    "about.008": {
+      "fa": "ارتباط مستقیم با مدیریت",
+      "kind": "text",
+      "ctx": "div.div.about__content-column.reveal"
+    },
+    "about.009": {
+      "fa": "مشاهده پرونده ثبتی در رسمیو ↗",
+      "kind": "text",
+      "ctx": "a.div.about__content-column.reveal"
+    },
+    "about.010": {
+      "fa": "س.ا",
+      "kind": "text",
+      "ctx": "div.div.about__grid"
+    },
+    "about.011": {
+      "fa": "سعید امین‌زاده",
+      "kind": "text",
+      "ctx": "div.div.ceo-card__header"
+    },
+    "about.012": {
+      "fa": "مدیرعامل و عضو هیئت مدیره",
+      "kind": "text",
+      "ctx": "div.div.ceo-info"
+    },
+    "about.013": {
+      "fa": "بنیان‌گذار قزوین تصویر (از سال ۱۳۷۴)",
+      "kind": "text",
+      "ctx": "div.div.ceo-info"
+    },
+    "about.014": {
+      "fa": "«ما اعتبار ۳۱ ساله خود را بر پایه اعتماد متقابل، شفافیت و حل هوشمندانه دغدغه‌های لجستیکی و بازرگانی کارخانجات بنا نهاده‌ایم.»",
+      "kind": "text",
+      "ctx": "p.div.ceo-card"
+    },
+    "about.015": {
+      "fa": "خلاصه ثبتی شرکت",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.about__cards-column.reveal"
+    },
+    "about.016": {
+      "fa": "اطلاعات هویتی و ثبتی شرکت",
+      "kind": "text",
+      "ctx": "div.div.about__cards-column.reveal"
+    },
+    "about.017": {
+      "fa": "وضعیت: فعال",
+      "kind": "text",
+      "ctx": "span.div.registry-glass-box__title"
+    },
+    "about.018": {
+      "fa": "شناسه ملی",
+      "kind": "text",
+      "ctx": "div.div.registry-glass-box"
+    },
+    "about.019": {
+      "fa": "شماره ثبت",
+      "kind": "text",
+      "ctx": "div.div.registry-grid-mini"
+    },
+    "about.020": {
+      "fa": "تاریخ تأسیس",
+      "kind": "text",
+      "ctx": "div.div.registry-grid-mini"
+    },
+    "about.021": {
+      "fa": "نوع شرکت",
+      "kind": "text",
+      "ctx": "div.div.registry-grid-mini"
+    },
+    "about.022": {
+      "fa": "با مسئولیت محدود",
+      "kind": "text",
+      "ctx": "span.div.registry-item-mini"
+    },
+    "services.001": {
+      "fa": "خدمات تخصصی قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.section"
+    },
+    "services.002": {
+      "fa": "خدمات تخصصی ما",
+      "kind": "text",
+      "ctx": "section.section.site-page.section"
+    },
+    "services.003": {
+      "fa": "دو راهکار یکپارچه برای رشد کسب‌وکار شما",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "services.004": {
+      "fa": "پوشش جامع زنجیره بازرگانی و ترابری سازمانی؛ متناسب با نیازهای مدرن صنایع و شرکت‌های تجاری",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "services.005": {
+      "fa": "بازرگانی، واردات و صادرات",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "services.006": {
+      "fa": "واردات تخصصی انواع کالاهای مجاز، مواد اولیه صنایع، تجهیزات مکانیکی و برق و ماشین‌آلات؛ همراه با خدمات جامع ترخیص گمرکی، بازاریابی صادراتی و مشاوره ارزی و بین‌المللی.",
+      "kind": "text",
+      "ctx": "p.article.service-card.service-card--trade"
+    },
+    "services.007": {
+      "fa": "ترخیص گمرک شهید رجایی و سراسر کشور",
+      "kind": "text",
+      "ctx": "div.article.service-card.service-card--trade"
+    },
+    "services.008": {
+      "fa": "تجهیزات صنعتی و برق",
+      "kind": "text",
+      "ctx": "span.div.service-card__pills"
+    },
+    "services.009": {
+      "fa": "گشایش اعتبارات اسنادی (LC)",
+      "kind": "text",
+      "ctx": "span.div.service-card__pills"
+    },
+    "services.010": {
+      "fa": "ترخیص گمرکی تخصصی و مدیریت امور بندری با کمترین زمان توقف",
+      "kind": "text",
+      "ctx": "ul.article.service-card.service-card--trade"
+    },
+    "services.011": {
+      "fa": "حمل‌ونقل بین‌المللی کالا (دریایی کانتینری، زمینی ترانزیت و هوایی)",
+      "kind": "text",
+      "ctx": "li.ul.service-card__list"
+    },
+    "services.012": {
+      "fa": "واردات و صادرات تجهیزات مکانیکی، برق و قطعات خطوط تولید",
+      "kind": "text",
+      "ctx": "li.ul.service-card__list"
+    },
+    "services.013": {
+      "fa": "مشاوره ثبت سفارش، اینکوترمز و گشایش اعتبارات اسنادی (LC)",
+      "kind": "text",
+      "ctx": "li.ul.service-card__list"
+    },
+    "services.014": {
+      "fa": "درخواست مشاوره بازرگانی",
+      "kind": "attr:aria-label",
+      "ctx": "div.article.service-card.service-card--trade"
+    },
+    "services.015": {
+      "fa": "درخواست مشاوره بازرگانی (۰۹۱۲ ۲۸۱ ۵۱۸۹)",
+      "kind": "text",
+      "ctx": "div.article.service-card.service-card--trade",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    },
+    "services.016": {
+      "fa": "ترابری و سرویس ایاب‌وذهاب پرسنل",
+      "kind": "text",
+      "ctx": "article.div.services__grid"
+    },
+    "services.017": {
+      "fa": "سرویس‌دهی منظم و ایمن ایاب‌وذهاب پرسنل کارخانه‌ها، شهرک‌های صنعتی، مدارس، شرکت‌ها و ادارات با ناوگان مدرن و ملکی (اتوبوس، مینی‌بوس، ون و سواری) و رانندگان حرفه‌ای و متعهد.",
+      "kind": "text",
+      "ctx": "p.article.service-card.service-card--transport"
+    },
+    "services.018": {
+      "fa": "شهرک‌های صنعتی استان قزوین",
+      "kind": "text",
+      "ctx": "div.article.service-card.service-card--transport"
+    },
+    "services.019": {
+      "fa": "سرویس‌های شیفت شب و ۲۴ ساعته",
+      "kind": "text",
+      "ctx": "span.div.service-card__pills"
+    },
+    "services.020": {
+      "fa": "خودروهای مجهز و بیمه‌شده",
+      "kind": "text",
+      "ctx": "span.div.service-card__pills"
+    },
+    "services.021": {
+      "fa": "عقد قراردادهای رسمی سالانه و ماهانه با سازمان‌ها و کارخانه‌ها",
+      "kind": "text",
+      "ctx": "ul.article.service-card.service-card--transport"
+    },
+    "services.022": {
+      "fa": "پوشش دقیق تمام ساعات شیفتی (صبحگاهی، عصرگاهی، شب و روزهای تعطیل)",
+      "kind": "text",
+      "ctx": "li.ul.service-card__list"
+    },
+    "services.023": {
+      "fa": "ایمنی کامل، بیمه سرنشین، معاینه فنی ادواری و ناوگان جایگزین فوری",
+      "kind": "text",
+      "ctx": "li.ul.service-card__list"
+    },
+    "services.024": {
+      "fa": "پشتیبانی شبانه‌روزی ۲۴/۷ و اعزام سریع در شرایط اضطراری",
+      "kind": "text",
+      "ctx": "li.ul.service-card__list"
+    },
+    "services.025": {
+      "fa": "درخواست مشاوره ترابری",
+      "kind": "attr:aria-label",
+      "ctx": "div.article.service-card.service-card--transport"
+    },
+    "services.026": {
+      "fa": "درخواست مشاوره ترابری (۰۹۱۲ ۲۸۱ ۵۱۸۹)",
+      "kind": "text",
+      "ctx": "div.article.service-card.service-card--transport",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    },
+    "fleet.001": {
+      "fa": "ناوگان ترابری شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.fleet-section"
+    },
+    "fleet.002": {
+      "fa": "ناوگان ملکی و بیمه‌شده",
+      "kind": "text",
+      "ctx": "section.section.site-page.fleet-section"
+    },
+    "fleet.003": {
+      "fa": "ناوگان مجهز ترابری",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "fleet.004": {
+      "fa": "سرویس‌دهی منظم و ایمن با اتوبوس، مینی‌بوس و ون‌های ملکی؛ آماده انعقاد قرارداد با کارخانه‌ها، شرکت‌ها، ادارات و مدارس",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "fleet.005": {
+      "fa": "اتوبوس سرویس پرسنل قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "ul.div.container"
+    },
+    "fleet.006": {
+      "fa": "اتوبوس",
+      "kind": "text",
+      "ctx": "ul.div.container"
+    },
+    "fleet.007": {
+      "fa": "اتوبوس‌های بین‌شهری و درون‌شهری",
+      "kind": "text",
+      "ctx": "div.li.fleet-card.reveal"
+    },
+    "fleet.008": {
+      "fa": "ظرفیت بالا برای جابه‌جایی پرسنل کارخانه‌ها در شیفت‌های مختلف، با پوشش مسیرهای درون‌شهری و بین‌شهری استان قزوین.",
+      "kind": "text",
+      "ctx": "p.div.fleet-card__info"
+    },
+    "fleet.009": {
+      "fa": "پوشش کامل ساعات شیفتی",
+      "kind": "text",
+      "ctx": "ul.div.fleet-card__info"
+    },
+    "fleet.010": {
+      "fa": "ایمنی و بیمه کامل سرنشین",
+      "kind": "text",
+      "ctx": "li.ul.fleet-card__features"
+    },
+    "fleet.011": {
+      "fa": "مینی‌بوس سرویس پرسنل قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "li.ul.fleet-grid"
+    },
+    "fleet.012": {
+      "fa": "مینی‌بوس",
+      "kind": "text",
+      "ctx": "li.ul.fleet-grid"
+    },
+    "fleet.013": {
+      "fa": "مینی‌بوس‌های مسافربری",
+      "kind": "text",
+      "ctx": "div.li.fleet-card.reveal"
+    },
+    "fleet.014": {
+      "fa": "مناسب برای مسیرهای کوتاه‌تر و گروه‌های متوسط پرسنل؛ گزینه‌ای بهینه برای واحدهای تولیدی با تعداد نفرات محدودتر.",
+      "kind": "text",
+      "ctx": "p.div.fleet-card__info"
+    },
+    "fleet.015": {
+      "fa": "انعطاف در تعریف مسیر",
+      "kind": "text",
+      "ctx": "ul.div.fleet-card__info"
+    },
+    "fleet.016": {
+      "fa": "رانندگان حرفه‌ای و آموزش‌دیده",
+      "kind": "text",
+      "ctx": "li.ul.fleet-card__features"
+    },
+    "fleet.017": {
+      "fa": "ون سرویس پرسنل قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "li.ul.fleet-grid"
+    },
+    "fleet.018": {
+      "fa": "ون",
+      "kind": "text",
+      "ctx": "li.ul.fleet-grid"
+    },
+    "fleet.019": {
+      "fa": "ون‌های مسافربری",
+      "kind": "text",
+      "ctx": "div.li.fleet-card.reveal"
+    },
+    "fleet.020": {
+      "fa": "گزینه‌ای اقتصادی و سریع برای جابه‌جایی گروه‌های کوچک پرسنل، مدیران و مهمانان سازمانی در کوتاه‌ترین زمان.",
+      "kind": "text",
+      "ctx": "p.div.fleet-card__info"
+    },
+    "fleet.021": {
+      "fa": "مقرون‌به‌صرفه و اقتصادی",
+      "kind": "text",
+      "ctx": "ul.div.fleet-card__info"
+    },
+    "fleet.022": {
+      "fa": "چابکی در ترافیک شهری",
+      "kind": "text",
+      "ctx": "li.ul.fleet-card__features"
+    },
+    "fleet.023": {
+      "fa": "بیمه کامل سرنشین و معاینه فنی ادواری",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "fleet.024": {
+      "fa": "ناوگان جایگزین فوری در شرایط اضطراری",
+      "kind": "text",
+      "ctx": "div.div.fleet-strip.reveal"
+    },
+    "fleet.025": {
+      "fa": "رانندگان مجرب با سابقه سرویس صنعتی",
+      "kind": "text",
+      "ctx": "div.div.fleet-strip.reveal"
+    },
+    "brands.001": {
+      "fa": "برندهای خودروسازی مورد استفاده در ناوگان",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.brands-section"
+    },
+    "brands.002": {
+      "fa": "کیفیت ناوگان",
+      "kind": "text",
+      "ctx": "section.section.site-page.brands-section"
+    },
+    "brands.003": {
+      "fa": "برندهای همکار و مورد اعتماد",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "brands.004": {
+      "fa": "ناوگان ترابری ما مجهز به خودروهای برندهای معتبر جهانی است؛ انتخابی که ایمنی، دوام و آسایش پرسنل شما را تضمین می‌کند.",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "brands.005": {
+      "fa": "لوگوی متنی برند اسکانیا",
+      "kind": "attr:alt",
+      "ctx": "ul.div.container"
+    },
+    "brands.006": {
+      "fa": "اسکانیا (Scania)",
+      "kind": "text",
+      "ctx": "ul.div.container"
+    },
+    "brands.007": {
+      "fa": "لوگوی متنی برند ولوو",
+      "kind": "attr:alt",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "brands.008": {
+      "fa": "ولوو (Volvo)",
+      "kind": "text",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "brands.009": {
+      "fa": "لوگوی متنی برند مرسدس بنز",
+      "kind": "attr:alt",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "brands.010": {
+      "fa": "مرسدس بنز (Mercedes-Benz)",
+      "kind": "text",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "brands.011": {
+      "fa": "لوگوی متنی برند ایویکو",
+      "kind": "attr:alt",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "brands.012": {
+      "fa": "ایویکو (Iveco)",
+      "kind": "text",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "brands.013": {
+      "fa": "لوگوی متنی برند ایران خودرو دیزل",
+      "kind": "attr:alt",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "brands.014": {
+      "fa": "ایران خودرو دیزل (IKD)",
+      "kind": "text",
+      "ctx": "li.ul.brands-grid.reveal"
+    },
+    "why-us.001": {
+      "fa": "مزایای همکاری با قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.section"
+    },
+    "why-us.002": {
+      "fa": "تمایز و مزیت‌های رقابتی",
+      "kind": "text",
+      "ctx": "section.section.site-page.section"
+    },
+    "why-us.003": {
+      "fa": "چرا شرکت‌ها قزوین تصویر را انتخاب می‌کنند؟",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "why-us.004": {
+      "fa": "ترکیب بیش از ۳۱ سال سابقه عملیاتی با استانداردهای نوین مدیریت لجستیک و بازرگانی",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "why-us.005": {
+      "fa": "۳۱+ سال سابقه صنعتی (تأسیس ۱۳۷۴)",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "why-us.006": {
+      "fa": "پایداری و تداوم موفق از سال ۱۳۷۴ تاکنون که نشان از تعهد عمیق و ثبات اجرایی در تمام شرایط اقتصادی دارد.",
+      "kind": "text",
+      "ctx": "p.div.why-card.reveal"
+    },
+    "why-us.007": {
+      "fa": "مدیریت آقای سعید امین‌زاده",
+      "kind": "text",
+      "ctx": "div.div.why-us__grid"
+    },
+    "why-us.008": {
+      "fa": "نظارت مستقیم و پاسخگویی شخص مدیرعامل بر کلیه قراردادها و تعاملات مشتریان سازمانی و بازرگانان.",
+      "kind": "text",
+      "ctx": "p.div.why-card.reveal"
+    },
+    "why-us.009": {
+      "fa": "ناوگان ملکی و مجهز",
+      "kind": "text",
+      "ctx": "div.div.why-us__grid"
+    },
+    "why-us.010": {
+      "fa": "در اختیار داشتن انواع اتوبوس، مینی‌بوس و ون‌های بهینه‌سازی‌شده همراه با خودروهای پشتیبان در صورت لزوم.",
+      "kind": "text",
+      "ctx": "p.div.why-card.reveal"
+    },
+    "why-us.011": {
+      "fa": "شبکه تأمین داخلی و خارجی",
+      "kind": "text",
+      "ctx": "div.div.why-us__grid"
+    },
+    "why-us.012": {
+      "fa": "روابط بین‌المللی مؤثر با بازارهای مبدأ و زنجیره تأمین بدون واسطه مواد اولیه و تجهیزات تولیدی.",
+      "kind": "text",
+      "ctx": "p.div.why-card.reveal"
+    },
+    "why-us.013": {
+      "fa": "پشتیبانی ۲۴/۷ و قراردادهای منعطف",
+      "kind": "text",
+      "ctx": "div.div.why-us__grid"
+    },
+    "why-us.014": {
+      "fa": "انعطاف در نحوه تسویه، ساختار قراردادهای ماهانه و سالانه و پاسخگویی بی‌وقفه به تغییرات شیفت کاری.",
+      "kind": "text",
+      "ctx": "p.div.why-card.reveal"
+    },
+    "why-us.015": {
+      "fa": "رضایت بالا و تمدید مداوم قراردادها",
+      "kind": "text",
+      "ctx": "div.div.why-us__grid"
+    },
+    "why-us.016": {
+      "fa": "بیش از ۹۰٪ کارخانجات طرف قرارداد بیش از ۵ سال متوالی همکاری خود را با قزوین تصویر تمدید کرده‌اند.",
+      "kind": "text",
+      "ctx": "p.div.why-card.reveal"
+    },
+    "why-us.017": {
+      "fa": "«تعهد ما، آرامش خاطر شماست. در قزوین تصویر، تک‌تک محموله‌های تجاری سرمایه شما و هر سرنشین ناوگان امانت کارخانه شماست.»",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "why-us.018": {
+      "fa": "— سعید امین‌زاده | مدیرعامل شرکت قزوین تصویر",
+      "kind": "text",
+      "ctx": "div.div.quote-block__content"
+    },
+    "clients.001": {
+      "fa": "سابقه همکاری با برندهای معتبر صنعتی",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.clients-section"
+    },
+    "clients.002": {
+      "fa": "مشتریان و شرکای تجاری",
+      "kind": "text",
+      "ctx": "section.section.site-page.clients-section"
+    },
+    "clients.003": {
+      "fa": "برندهای شاخصی که به قزوین تصویر اعتماد کرده‌اند",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "clients.004": {
+      "fa": "افتخار بیش از ۳ دهه همراهی با بزرگ‌ترین کارخانجات، نیروگاه‌ها و صنایع بین‌المللی و ملی",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "clients.005": {
+      "fa": "نستله",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "clients.006": {
+      "fa": "Nestlé",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.007": {
+      "fa": "صنایع غذایی بین‌المللی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.008": {
+      "fa": "ال‌جی",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.009": {
+      "fa": "LG Electronics",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.010": {
+      "fa": "لوازم خانگی و الکترونیک",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.011": {
+      "fa": "نیروگاه شهید رجایی",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.012": {
+      "fa": "Shahid Rajaei Plant",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.013": {
+      "fa": "تولید برق و صنایع انرژی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.014": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.015": {
+      "fa": "Asan Pack",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.016": {
+      "fa": "صنایع کارتن و بسته‌بندی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.017": {
+      "fa": "نیرومحرکه",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.018": {
+      "fa": "Niru Moharreke",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.019": {
+      "fa": "قوای محرکه و گیربکس",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "trust.001": {
+      "fa": "اعتبار و شناسه ثبتی شرکت",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.registry-section"
+    },
+    "trust.002": {
+      "fa": "شفافیت و هویت حقوقی",
+      "kind": "text",
+      "ctx": "section.section.site-page.registry-section"
+    },
+    "trust.003": {
+      "fa": "اعتبار ثبت‌شده و قابل استعلام",
+      "kind": "text",
+      "ctx": "h2.div.registry-header.reveal"
+    },
+    "trust.004": {
+      "fa": "کلیه اطلاعات ثبتی شرکت قزوین تصویر در مراجع رسمی و پایگاه روزنامه رسمی و رسمیو قابل استعلام است.",
+      "kind": "text",
+      "ctx": "p.div.registry-header.reveal"
+    },
+    "trust.005": {
+      "fa": "شناسه ملی",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "trust.006": {
+      "fa": "شماره ثبت",
+      "kind": "text",
+      "ctx": "div.div.registry-cards-grid.reveal"
+    },
+    "trust.007": {
+      "fa": "کد اقتصادی",
+      "kind": "text",
+      "ctx": "div.div.registry-cards-grid.reveal"
+    },
+    "trust.008": {
+      "fa": "تاریخ تأسیس",
+      "kind": "text",
+      "ctx": "div.div.registry-cards-grid.reveal"
+    },
+    "trust.009": {
+      "fa": "عضو رسمی اتاق بازرگانی، صنایع و معادن",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "trust.010": {
+      "fa": "دارای پروانه معتبر ترابری و حمل‌ونقل سازمانی",
+      "kind": "text",
+      "ctx": "div.div.registry-footer-bar.reveal"
+    },
+    "trust.011": {
+      "fa": "شرکت با مسئولیت محدود فعال (مدیریت: سعید امین‌زاده)",
+      "kind": "text",
+      "ctx": "div.div.registry-footer-bar.reveal"
+    },
+    "trust.012": {
+      "fa": "سابقه همکاری با مجموعه‌های پیشرو:",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "trust.013": {
+      "fa": "نستله (Nestlé) • ال‌جی (LG) • نیروگاه شهید رجایی • آسان پک • نیرومحرکه و ده‌ها کارخانه صنعتی کشور",
+      "kind": "text",
+      "ctx": "span.div.reveal"
+    },
+    "personnel-food.001": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.food-section"
+    },
+    "personnel-food.002": {
+      "fa": "سرویس سوم شرکت: کیترینگ و تأمین غذای سازمانی",
+      "kind": "text",
+      "ctx": "section.section.site-page.food-section"
+    },
+    "personnel-food.003": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
+      "kind": "text",
+      "ctx": "h2.div.food-hero__content.reveal",
+      "html": "تأمین غذای پرسنل و <span class=\"gradient-text\">وعده‌های سازمانی</span>"
+    },
+    "personnel-food.004": {
+      "fa": "قزوین تصویر با تجربه در تأمین نیازهای صنایع، آماده انعقاد قرارداد تأمین وعده‌های غذایی برای پرسنل کارخانه‌ها و شرکت‌های شماست. غذای گرم، بهداشتی و باکیفیت را در محل شما توزیع می‌کنیم.",
+      "kind": "text",
+      "ctx": "p.div.food-hero__content.reveal"
+    },
+    "personnel-food.005": {
+      "fa": "حداقل ۵۰ پرس در هر وعده",
+      "kind": "text",
+      "ctx": "ul.div.food-hero__content.reveal"
+    },
+    "personnel-food.006": {
+      "fa": "صبحانه، ناهار، شام و میان‌وعده",
+      "kind": "text",
+      "ctx": "li.ul.food-hero__facts"
+    },
+    "personnel-food.007": {
+      "fa": "توزیع گرم در رستوران یا محل تعیین‌شده شما",
+      "kind": "text",
+      "ctx": "li.ul.food-hero__facts"
+    },
+    "personnel-food.008": {
+      "fa": "درخواست قرارداد",
+      "kind": "text",
+      "ctx": "div.div.food-hero__content.reveal"
+    },
+    "personnel-food.009": {
+      "fa": "تماس با کارشناس تأمین غذای پرسنل",
+      "kind": "attr:aria-label",
+      "ctx": "svg.a.btn.btn-primary"
+    },
+    "personnel-food.010": {
+      "fa": "تماس با کارشناس: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+      "kind": "text",
+      "ctx": "svg.a.btn.btn-primary",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    },
+    "personnel-food.011": {
+      "fa": "آشپزخانه صنعتی بهداشتی با آشپزهای یونیفرم‌پوش، کلاه بهداشتی و سطوح استیل ضدزنگ برای طبخ غذای پرسنل",
+      "kind": "attr:alt",
+      "ctx": "div.div.food-hero__grid"
+    },
+    "personnel-food.012": {
+      "fa": "آشپزخانه مجاز، استاندارد HACCP",
+      "kind": "text",
+      "ctx": "div.div.food-hero__grid"
+    },
+    "personnel-food.013": {
+      "fa": "طبخ روزانه با مواد اولیه تازه",
+      "kind": "text",
+      "ctx": "span.div.food-hero__media.reveal"
+    },
+    "personnel-food.014": {
+      "fa": "حمل با خودروهای کیترینگ مجهز",
+      "kind": "text",
+      "ctx": "span.div.food-hero__media.reveal"
+    },
+    "personnel-food.015": {
+      "fa": "حداقل پرس در هر وعده",
+      "kind": "text",
+      "ctx": "span.li.food-metric"
+    },
+    "personnel-food.016": {
+      "fa": "وعده: صبحانه تا شام",
+      "kind": "text",
+      "ctx": "span.li.food-metric"
+    },
+    "personnel-food.017": {
+      "fa": "۷ روز",
+      "kind": "text",
+      "ctx": "li.ul.food-hero__metrics.reveal"
+    },
+    "personnel-food.018": {
+      "fa": "منوی چرخشی هفتگی",
+      "kind": "text",
+      "ctx": "span.li.food-metric"
+    },
+    "personnel-food.019": {
+      "fa": "۲ ساعت",
+      "kind": "text",
+      "ctx": "li.ul.food-hero__metrics.reveal"
+    },
+    "personnel-food.020": {
+      "fa": "زمان پاسخ به درخواست",
+      "kind": "text",
+      "ctx": "span.li.food-metric"
+    },
+    "personnel-food.021": {
+      "fa": "مزایای قرارداد سازمانی",
+      "kind": "text",
+      "ctx": "div.section.site-page.food-section"
+    },
+    "personnel-food.022": {
+      "fa": "چرا کارخانه‌ها تأمین غذا را به قزوین تصویر می‌سپارند؟",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "personnel-food.023": {
+      "fa": "ساختاری شفاف، منوی متنوع و اجرای دقیق استانداردهای بهداشتی؛ از نخستین تماس تا توزیع روزانه در شیفت‌های شما",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "personnel-food.024": {
+      "fa": "قرارداد بلندمدت و انعطاف‌پذیر",
+      "kind": "text",
+      "ctx": "ul.div.container"
+    },
+    "personnel-food.025": {
+      "fa": "امکان تنظیم قرارداد یک‌ساله با قابلیت تغییر تعداد پرس‌ها، افزودن وعده جدید یا تعلیق موقت بر اساس برنامه تولید و شیفت‌های شما.",
+      "kind": "text",
+      "ctx": "p.li.food-benefit.reveal"
+    },
+    "personnel-food.026": {
+      "fa": "منوی متنوع و هفتگی",
+      "kind": "text",
+      "ctx": "li.ul.food-benefits"
+    },
+    "personnel-food.027": {
+      "fa": "صبحانه، ناهار، شام و میان‌وعده با منوی هفتگی؛ همراه با منوی فصلی، گزینه‌های گیاهی و امکان سفارش غذای رژیمی برای پرسنل خاص.",
+      "kind": "text",
+      "ctx": "p.li.food-benefit.reveal"
+    },
+    "personnel-food.028": {
+      "fa": "توزیع در محل",
+      "kind": "text",
+      "ctx": "li.ul.food-benefits"
+    },
+    "personnel-food.029": {
+      "fa": "تحویل غذا در رستوران کارخانه یا محل تعیین‌شده شما؛ با خودروهای کیترینگ مجهز، بسته‌بندی گرم و زمان‌بندی دقیق مطابق ساعات شیفت.",
+      "kind": "text",
+      "ctx": "p.li.food-benefit.reveal"
+    },
+    "personnel-food.030": {
+      "fa": "استانداردهای بهداشتی",
+      "kind": "text",
+      "ctx": "li.ul.food-benefits"
+    },
+    "personnel-food.031": {
+      "fa": "طبخ در آشپزخانه‌های مجاز و تحت نظارت، نمونه‌برداری و کنترل کیفی، بسته‌بندی بهداشتی و حمل با خودروهای کیترینگ استاندارد.",
+      "kind": "text",
+      "ctx": "p.li.food-benefit.reveal"
+    },
+    "personnel-food.032": {
+      "fa": "فرآیند همکاری",
+      "kind": "text",
+      "ctx": "div.section.site-page.food-section"
+    },
+    "personnel-food.033": {
+      "fa": "از درخواست اولیه تا شروع توزیع، در ۵ گام",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "personnel-food.034": {
+      "fa": "مسیری شفاف و زمان‌بندی‌شده؛ کل فرآیند معمولاً در کمتر از ۱۰ روز کاری نهایی می‌شود",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "personnel-food.035": {
+      "fa": "درخواست اولیه",
+      "kind": "text",
+      "ctx": "span.li.food-step.reveal"
+    },
+    "personnel-food.036": {
+      "fa": "ثبت درخواست از طریق فرم، تلفن یا واتساپ و دریافت اطلاعات پایه: تعداد پرس، وعده‌های موردنیاز و محل توزیع.",
+      "kind": "text",
+      "ctx": "p.li.food-step.reveal"
+    },
+    "personnel-food.037": {
+      "fa": "بازدید و ارزیابی",
+      "kind": "text",
+      "ctx": "span.li.food-step.reveal"
+    },
+    "personnel-food.038": {
+      "fa": "بازدید کارشناس از محل توزیع، بررسی امکانات گرم‌نگه‌داری، تعداد شیفت‌ها و برآورد دقیق ظرفیت سرو روزانه.",
+      "kind": "text",
+      "ctx": "p.li.food-step.reveal"
+    },
+    "personnel-food.039": {
+      "fa": "ارائه پیشنهاد و منو",
+      "kind": "text",
+      "ctx": "span.li.food-step.reveal"
+    },
+    "personnel-food.040": {
+      "fa": "ارائه پیشنهاد قیمت شفاف، منوی هفتگی نمونه و برنامه توزیع؛ همراه با امکان تغییر آیتم‌ها بر اساس سلیقه پرسنل شما.",
+      "kind": "text",
+      "ctx": "p.li.food-step.reveal"
+    },
+    "personnel-food.041": {
+      "fa": "انعقاد قرارداد",
+      "kind": "text",
+      "ctx": "span.li.food-step.reveal"
+    },
+    "personnel-food.042": {
+      "fa": "تنظیم و امضای قرارداد رسمی با تعیین تعهدات دو طرف، شرایط تسویه، سهمیه پرس روزانه و ضمانت کیفیت خدمات.",
+      "kind": "text",
+      "ctx": "p.li.food-step.reveal"
+    },
+    "personnel-food.043": {
+      "fa": "شروع توزیع",
+      "kind": "text",
+      "ctx": "span.li.food-step.reveal"
+    },
+    "personnel-food.044": {
+      "fa": "آغاز طبخ و توزیع روزانه در ساعت توافق‌شده، با نظارت مستمر کیفی، گزارش‌های دوره‌ای و پشتیبانی اختصاصی قرارداد.",
+      "kind": "text",
+      "ctx": "p.li.food-step.reveal"
+    },
+    "personnel-food.045": {
+      "fa": "منوی نمونه",
+      "kind": "text",
+      "ctx": "div.section.site-page.food-section"
+    },
+    "personnel-food.046": {
+      "fa": "منوی پیشنهادی وعده‌های سازمانی",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "personnel-food.047": {
+      "fa": "منوی هفتگی چرخشی با غذاهای ایرانی و بین‌المللی؛ قابل تنظیم بر اساس بودجه، سلیقه پرسنل و شرایط تولید شما",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "personnel-food.048": {
+      "fa": "نمونه طراحی منوی شرکتی کیترینگ سازمانی روی میز چوبی",
+      "kind": "attr:alt",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.049": {
+      "fa": "منوی چرخشی هفتگی",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.050": {
+      "fa": "۷ روز، ۲۸ آیتم متنوع در چهار وعده",
+      "kind": "text",
+      "ctx": "h4.div.food-menu__header-body"
+    },
+    "personnel-food.051": {
+      "fa": "هر هفته منوی جدید بر اساس فصل و سلیقه پرسنل تنظیم می‌شود؛ آیتم‌ها بدون تکرار در بازه هفتگی سرو می‌شوند.",
+      "kind": "text",
+      "ctx": "p.div.food-menu__header-body"
+    },
+    "personnel-food.052": {
+      "fa": "امکان حذف یا جایگزینی آیتم‌های غیرمحبوب",
+      "kind": "text",
+      "ctx": "ul.div.food-menu__header-body"
+    },
+    "personnel-food.053": {
+      "fa": "گزینه‌های رژیمی، گیاهی و کم‌نمک برای پرسنل خاص",
+      "kind": "text",
+      "ctx": "li.ul.food-menu__header-list"
+    },
+    "personnel-food.054": {
+      "fa": "سرو غذاهای مناسبتی در ایام خاص سال",
+      "kind": "text",
+      "ctx": "li.ul.food-menu__header-list"
+    },
+    "personnel-food.055": {
+      "fa": "دسته‌بندی وعده‌های غذایی",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.056": {
+      "fa": "صبحانه",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.057": {
+      "fa": "ناهار",
+      "kind": "text",
+      "ctx": "button.div.food-tabs"
+    },
+    "personnel-food.058": {
+      "fa": "شام",
+      "kind": "text",
+      "ctx": "button.div.food-tabs"
+    },
+    "personnel-food.059": {
+      "fa": "میان‌وعده",
+      "kind": "text",
+      "ctx": "button.div.food-tabs"
+    },
+    "personnel-food.060": {
+      "fa": "صبحانه سازمانی شامل نان تازه، پنیر، گردو، عسل و چای",
+      "kind": "attr:alt",
+      "ctx": "div.div.food-menu__tabs-area.reveal"
+    },
+    "personnel-food.061": {
+      "fa": "پیشنهاد ویژه صبحانه: نان سنگک تازه، پنیر لیقوان، گردو و چای پررنگ",
+      "kind": "text",
+      "ctx": "div.div.food-menu__tabs-area.reveal"
+    },
+    "personnel-food.062": {
+      "fa": "نان سنگک، پنیر لیقوان و گردو",
+      "kind": "text",
+      "ctx": "ul.div.food-panel__grid"
+    },
+    "personnel-food.063": {
+      "fa": "از ۶۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۶۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.064": {
+      "fa": "نان سنگک تازه، پنیر لیقوان، گردو، سبزی خوردن و یک لیوان چای پررنگ.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.065": {
+      "fa": "املت گوجه‌فرنگی با تخم‌مرغ محلی",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.066": {
+      "fa": "از ۷۸٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۷۸٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.067": {
+      "fa": "املت گرم با تخم‌مرغ تازه، گوجه‌فرنگی و ادویه ملایم، سرو با نان تست.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.068": {
+      "fa": "حلیم گندم با دارچین",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.069": {
+      "fa": "از ۸۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۸۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.070": {
+      "fa": "حلیم گرم و لعاب‌دار پخته‌شده در آشپزخانه مرکزی، همراه با دارچین، شکر و نان تازه.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.071": {
+      "fa": "صبحانه سبک کارمندی",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.072": {
+      "fa": "از ۵۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۵۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.073": {
+      "fa": "کیک تازه، شیرینی خشک، پنیر بسته‌بندی‌شده و نوشیدنی گرم یا سرد.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.074": {
+      "fa": "ناهار سازمانی شامل چلوکباب کوبیده، برنج زعفرانی، گوجه کبابی و سالاد",
+      "kind": "attr:alt",
+      "ctx": "div.div.food-panels"
+    },
+    "personnel-food.075": {
+      "fa": "پیشنهاد ویژه ناهار: چلوکباب کوبیده با برنج ایرانی و سالاد فصل",
+      "kind": "text",
+      "ctx": "div.div.food-panels"
+    },
+    "personnel-food.076": {
+      "fa": "چلوکباب کوبیده",
+      "kind": "text",
+      "ctx": "ul.div.food-panel__grid"
+    },
+    "personnel-food.077": {
+      "fa": "از ۱۴۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۱۴۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.078": {
+      "fa": "دو سیخ کوبیده گوشت تازه، برنج ایرانی، گوجه کبابی، کره، سالاد فصل و ماست.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.079": {
+      "fa": "زرشک‌پلو با مرغ",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.080": {
+      "fa": "از ۱۳۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۱۳۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.081": {
+      "fa": "ران مرغ زعفرانی، برنج ایرانی با زرشک و خلال پسته، سالاد شیرازی و ماست.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.082": {
+      "fa": "قیمه بادمجان با برنج ایرانی",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.083": {
+      "fa": "از ۱۲۰٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۱۲۰٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.084": {
+      "fa": "خورش لپه و گوشت با بادمجان سرخ‌شده، برنج ایرانی، ماست و ترشی خانگی.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.085": {
+      "fa": "چلوجوجه زعفرانی (پرس رژیمی)",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.086": {
+      "fa": "از ۱۵۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۱۵۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.087": {
+      "fa": "جوجه بی‌استخوان مزه‌دارشده، کره زعفرانی، گوجه کبابی و سبزیجات بخارپز.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.088": {
+      "fa": "شام سازمانی شامل خورش قورمه‌سبزی، برنج، نان گرم و سالاد در بسته‌بندی بهداشتی",
+      "kind": "attr:alt",
+      "ctx": "div.div.food-panels"
+    },
+    "personnel-food.089": {
+      "fa": "پیشنهاد ویژه شام: قورمه‌سبزی با برنج ایرانی، مناسب شیفت شب",
+      "kind": "text",
+      "ctx": "div.div.food-panels"
+    },
+    "personnel-food.090": {
+      "fa": "قورمه‌سبزی با برنج",
+      "kind": "text",
+      "ctx": "ul.div.food-panel__grid"
+    },
+    "personnel-food.091": {
+      "fa": "از ۱۳۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۱۳۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.092": {
+      "fa": "خورش قورمه‌سبزی با گوشت و لوبیا قرمز، برنج ایرانی، ترشی و ماست.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.093": {
+      "fa": "کوکو سبزی با نان سنگک",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.094": {
+      "fa": "از ۹۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۹۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.095": {
+      "fa": "کوکو سبزی خانگی، نان سنگک تازه، ماست چکیده و سبزیجات تازه.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.096": {
+      "fa": "سوپ جو و سبزیجات",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.097": {
+      "fa": "از ۷۸٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۷۸٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.098": {
+      "fa": "سوپ گرم خانگی با نان و پنیر؛ سبک و مناسب وعده شب شیفت‌های کاری.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.099": {
+      "fa": "ماهی قزل‌آلای سرخ‌شده",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.100": {
+      "fa": "از ۱۶۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۱۶۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.101": {
+      "fa": "فیله ماهی تازه، برنج ایرانی، سبزیجات بخارپز و سالاد؛ روزهای مشخص هفته.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.102": {
+      "fa": "بسته‌های میان‌وعده بهداشتی شامل میوه، ساندویچ، کیک و نوشیدنی",
+      "kind": "attr:alt",
+      "ctx": "div.div.food-panels"
+    },
+    "personnel-food.103": {
+      "fa": "پیشنهاد ویژه میان‌وعده: بسته میوه فصل، ساندویچ و نوشیدنی",
+      "kind": "text",
+      "ctx": "div.div.food-panels"
+    },
+    "personnel-food.104": {
+      "fa": "بسته میوه فصل و آبمیوه",
+      "kind": "text",
+      "ctx": "ul.div.food-panel__grid"
+    },
+    "personnel-food.105": {
+      "fa": "از ۴۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۴۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.106": {
+      "fa": "میوه شسته و بسته‌بندی‌شده بهداشتی همراه با آبمیوه طبیعی یا آب معدنی.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.107": {
+      "fa": "ساندویچ مرغ گریل (سرو گرم)",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.108": {
+      "fa": "از ۸۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۸۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.109": {
+      "fa": "نان تازه، فیله مرغ گریل‌شده، سبزیجات تازه و سس خانگی؛ سرو گرم.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.110": {
+      "fa": "بسته خشک خط تولید",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.111": {
+      "fa": "از ۳۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۳۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.112": {
+      "fa": "شکلات، بیسکویت و نوشیدنی بسته‌بندی‌شده؛ مناسب مصرف در خط تولید.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.113": {
+      "fa": "دسر تازه روز",
+      "kind": "text",
+      "ctx": "li.ul.dish-list"
+    },
+    "personnel-food.114": {
+      "fa": "از ۴۵٬۰۰۰ تومان",
+      "kind": "text",
+      "ctx": "span.div.dish-card__head",
+      "html": "از ۴۵٬۰۰۰ <small>تومان</small>"
+    },
+    "personnel-food.115": {
+      "fa": "ژله، حلوا یا کیک خانگی در بسته‌بندی استاندارد بهداشتی؛ تهیه روزانه.",
+      "kind": "text",
+      "ctx": "p.div.dish-card__body"
+    },
+    "personnel-food.116": {
+      "fa": "توجه:",
+      "kind": "text",
+      "ctx": "p.div.food-menu__tabs-area.reveal"
+    },
+    "personnel-food.117": {
+      "fa": "قیمت‌های پایه فوق صرفاً برای برآورد اولیه است. قیمت نهایی بر اساس منوی توافق‌شده، تعداد پرس روزانه، تعداد وعده‌ها و فاصله جغرافیایی محل توزیع در قرارداد درج می‌شود.",
+      "kind": "text",
+      "ctx": "p.p.food-menu__note"
+    },
+    "personnel-food.118": {
+      "fa": "گالری تصویری",
+      "kind": "text",
+      "ctx": "div.section.site-page.food-section"
+    },
+    "personnel-food.119": {
+      "fa": "نگاهی به آشپزخانه، غذا و فرآیند توزیع",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "personnel-food.120": {
+      "fa": "بخشی از فضای عملیاتی تأمین غذای سازمانی؛ از طبخ در آشپزخانه بهداشتی تا تحویل وعده‌ها در محل شما",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "personnel-food.121": {
+      "fa": "آشپزخانه تجاری بهداشتی با تجهیزات استیل و کارکنان با دستکش و ماسک",
+      "kind": "attr:alt",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.122": {
+      "fa": "آشپزخانه بهداشتی با استاندارد HACCP",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.123": {
+      "fa": "کنترل کیفی، پوشش کامل بهداشتی کارکنان و سطوح استیل ضدزنگ",
+      "kind": "text",
+      "ctx": "span.figcaption.food-gallery__caption"
+    },
+    "personnel-food.124": {
+      "fa": "بسته غذای پرسنل شامل برنج، کباب، سالاد و ماست در بسته‌بندی بهداشتی",
+      "kind": "attr:alt",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.125": {
+      "fa": "پرس غذای پرسنل",
+      "kind": "text",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.126": {
+      "fa": "خودروی کیترینگ در حال تحویل بسته‌های غذا به کارگران کارخانه",
+      "kind": "attr:alt",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.127": {
+      "fa": "توزیع با خودروی کیترینگ",
+      "kind": "text",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.128": {
+      "fa": "چیدمان میز بوفه سازمانی با ایستگاه‌های سرو بهداشتی و غذاهای ایرانی",
+      "kind": "attr:alt",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.129": {
+      "fa": "چیدمان میز و ایستگاه سرو",
+      "kind": "text",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.130": {
+      "fa": "نمونه منوی طراح‌شده کیترینگ سازمانی با غذاهای ایرانی",
+      "kind": "attr:alt",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.131": {
+      "fa": "منوی طراح‌شده سازمانی",
+      "kind": "text",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.132": {
+      "fa": "منوی هفتگی چاپی یا دیجیتال، قابل نصب در رستوران کارخانه",
+      "kind": "text",
+      "ctx": "span.figcaption.food-gallery__caption"
+    },
+    "personnel-food.133": {
+      "fa": "ناهار ایرانی شامل چلوکباب کوبیده، برنج زعفرانی و سالاد تازه",
+      "kind": "attr:alt",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.134": {
+      "fa": "وعده ناهار گرم",
+      "kind": "text",
+      "ctx": "figure.div.food-gallery"
+    },
+    "personnel-food.135": {
+      "fa": "درخواست قرارداد",
+      "kind": "text",
+      "ctx": "div.section.site-page.food-section"
+    },
+    "personnel-food.136": {
+      "fa": "فرم درخواست مشاوره و عقد قرارداد",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "personnel-food.137": {
+      "fa": "مشخصات مجموعه خود را ثبت کنید؛ کارشناس تأمین غذای سازمانی حداکثر تا ۲ ساعت کاری با شما تماس می‌گیرد و پیشنهاد اولیه را ارائه می‌دهد.",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "personnel-food.138": {
+      "fa": "نام شرکت / کارخانه *",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.139": {
+      "fa": "نام شرکت را وارد کنید.",
+      "kind": "text",
+      "ctx": "span.div.form-group"
+    },
+    "personnel-food.140": {
+      "fa": "نام رابط / مسئول رفاه *",
+      "kind": "text",
+      "ctx": "div.div.food-form-grid"
+    },
+    "personnel-food.141": {
+      "fa": "نام رابط را وارد کنید.",
+      "kind": "text",
+      "ctx": "span.div.form-group"
+    },
+    "personnel-food.142": {
+      "fa": "شماره تماس (۰۹...) *",
+      "kind": "text",
+      "ctx": "div.div.food-form-grid"
+    },
+    "personnel-food.143": {
+      "fa": "شماره همراه معتبر وارد کنید (مانند ۰۹۱۲۱۲۳۴۵۶۷).",
+      "kind": "text",
+      "ctx": "span.div.form-group"
+    },
+    "personnel-food.144": {
+      "fa": "تعداد پرسنل *",
+      "kind": "text",
+      "ctx": "div.div.food-form-grid"
+    },
+    "personnel-food.145": {
+      "fa": "تعداد پرسنل را وارد کنید (حداقل ۱۰ نفر).",
+      "kind": "text",
+      "ctx": "span.div.form-group"
+    },
+    "personnel-food.146": {
+      "fa": "وعده‌های مورد نیاز *",
+      "kind": "text",
+      "ctx": "fieldset.div.food-request__form-card.reveal"
+    },
+    "personnel-food.147": {
+      "fa": "صبحانه",
+      "kind": "text",
+      "ctx": "div.fieldset.food-fieldset"
+    },
+    "personnel-food.148": {
+      "fa": "ناهار",
+      "kind": "text",
+      "ctx": "label.div.food-meals"
+    },
+    "personnel-food.149": {
+      "fa": "شام",
+      "kind": "text",
+      "ctx": "label.div.food-meals"
+    },
+    "personnel-food.150": {
+      "fa": "میان‌وعده",
+      "kind": "text",
+      "ctx": "label.div.food-meals"
+    },
+    "personnel-food.151": {
+      "fa": "حداقل یک وعده را انتخاب کنید.",
+      "kind": "text",
+      "ctx": "span.fieldset.food-fieldset"
+    },
+    "personnel-food.152": {
+      "fa": "آدرس محل توزیع (کارخانه / شرکت) *",
+      "kind": "text",
+      "ctx": "div.div.food-request__form-card.reveal"
+    },
+    "personnel-food.153": {
+      "fa": "آدرس محل توزیع غذا را وارد کنید.",
+      "kind": "text",
+      "ctx": "span.div.form-group"
+    },
+    "personnel-food.154": {
+      "fa": "توضیحات، شیفت‌ها و درخواست‌های خاص",
+      "kind": "text",
+      "ctx": "div.div.food-request__form-card.reveal"
+    },
+    "personnel-food.155": {
+      "fa": "ارسال درخواست در واتساپ",
+      "kind": "text",
+      "ctx": "span.div.food-form-contact"
+    },
+    "personnel-food.156": {
+      "fa": "پاسخ‌گویی: شنبه تا پنجشنبه، ۸ تا ۲۰",
+      "kind": "text",
+      "ctx": "span.div.food-form-contact"
+    },
+    "personnel-food.157": {
+      "fa": "ارسال درخواست قرارداد",
+      "kind": "text",
+      "ctx": "button.div.food-request__form-card.reveal"
+    },
+    "personnel-food.158": {
+      "fa": "اطلاعات شما محرمانه است و صرفاً برای تنظیم پیشنهاد قرارداد استفاده می‌شود.",
+      "kind": "text",
+      "ctx": "svg.button.btn.btn-primary"
+    },
+    "personnel-food.159": {
+      "fa": "راه‌های ارتباطی و تضامین خدمات",
+      "kind": "attr:aria-label",
+      "ctx": "aside.div.food-request"
+    },
+    "personnel-food.160": {
+      "fa": "تضامین همکاری",
+      "kind": "text",
+      "ctx": "aside.div.food-request"
+    },
+    "personnel-food.161": {
+      "fa": "قرارداد رسمی با تعهدات شفاف دو طرف",
+      "kind": "text",
+      "ctx": "ul.div.food-trust-card"
+    },
+    "personnel-food.162": {
+      "fa": "بازدید کارشناسی رایگان از محل توزیع",
+      "kind": "text",
+      "ctx": "li.ul.food-trust-card__list"
+    },
+    "personnel-food.163": {
+      "fa": "کنترل کیفی و نمونه‌برداری روزانه غذا",
+      "kind": "text",
+      "ctx": "li.ul.food-trust-card__list"
+    },
+    "personnel-food.164": {
+      "fa": "پشتیبانی اختصاصی و پاسخ‌گویی مستمر",
+      "kind": "text",
+      "ctx": "li.ul.food-trust-card__list"
+    },
+    "personnel-food.165": {
+      "fa": "ثبت درخواست تلفنی و واتساپی",
+      "kind": "text",
+      "ctx": "div.aside.food-request__aside.reveal"
+    },
+    "personnel-food.166": {
+      "fa": "گفتگو در واتساپ",
+      "kind": "text",
+      "ctx": "a.div.food-request__contact-card"
+    },
+    "personnel-food.167": {
+      "fa": "سوالات متداول",
+      "kind": "text",
+      "ctx": "div.section.site-page.food-section"
+    },
+    "personnel-food.168": {
+      "fa": "پرسش‌های مدیران کارخانه‌ها و واحدهای رفاهی",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "personnel-food.169": {
+      "fa": "اگر پاسخ پرسش شما در این بخش نبود، کارشناسان ما آماده پاسخ‌گویی تلفنی و واتساپی هستند",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "personnel-food.170": {
+      "fa": "حداقل تعداد پرس برای انعقاد قرارداد چقدر است؟",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "personnel-food.171": {
+      "fa": "معمولاً از ۵۰ پرس به بالا؛ برای مجموعه‌های کوچک‌تر نیز با توجه به فاصله محل توزیع و تعداد وعده‌ها، امکان تعریف قرارداد یا پرس‌های ترکیبی وجود دارد. کارشناس ما پس از بازدید، دقیق‌ترین برآورد را ارائه می‌کند.",
+      "kind": "text",
+      "ctx": "span.summary.food-faq__question"
+    },
+    "personnel-food.172": {
+      "fa": "آیا منو قابل تغییر است؟",
+      "kind": "text",
+      "ctx": "details.div.food-faq"
+    },
+    "personnel-food.173": {
+      "fa": "بله؛ منوی هفتگی و فصلی است و بر اساس سلیقه پرسنل، بودجه شما و شرایط تولید قابل بازبینی است. آیتم‌های غیرمحبوب حذف یا جایگزین می‌شوند و می‌توانید گزینه‌های رژیمی، گیاهی یا کم‌نمک را به منو اضافه کنید.",
+      "kind": "text",
+      "ctx": "span.summary.food-faq__question"
+    },
+    "personnel-food.174": {
+      "fa": "غذای سازمانی جزو حقوق و دستمزد محسوب می‌شود؟",
+      "kind": "text",
+      "ctx": "details.div.food-faq"
+    },
+    "personnel-food.175": {
+      "fa": "طبق قانون کار، غذای ارائه‌شده به پرسنل جزو مزایای غیرنقدی محسوب می‌شود و شرایط و آثار بیمه‌ای و مالیاتی خاص خود را دارد. در قرارداد، نحوه محاسبه و مستندسازی وعده‌ها مشخص می‌شود و توصیه می‌کنیم پیش از امضا با مشاور مالی و بیمه‌ای مجموعه خود نیز هماهنگ کنید.",
+      "kind": "text",
+      "ctx": "span.summary.food-faq__question"
+    },
+    "personnel-food.176": {
+      "fa": "زمان توزیع وعده‌ها چگونه تنظیم می‌شود؟",
+      "kind": "text",
+      "ctx": "details.div.food-faq"
+    },
+    "personnel-food.177": {
+      "fa": "طبق شیفت‌های کاری شما؛ برنامه توزیع در قرارداد تعیین می‌شود و برای شیفت‌های شب، تعطیلات و روزهای پیک تولید نیز قابل تنظیم است. تغییرات موقت برنامه با هماهنگی قبلی و در کوتاه‌ترین زمان اعمال می‌شود.",
+      "kind": "text",
+      "ctx": "span.summary.food-faq__question"
+    },
+    "personnel-food.178": {
+      "fa": "آماده انعقاد قرارداد",
+      "kind": "text",
+      "ctx": "div.section.site-page.food-section"
+    },
+    "personnel-food.179": {
+      "fa": "امروز قرارداد تأمین غذای پرسنل خود را نهایی کنید",
+      "kind": "text",
+      "ctx": "h3.div.food-cta__body"
+    },
+    "personnel-food.180": {
+      "fa": "یک تماس کافی است؛ بازدید کارشناسی، ارائه منوی نمونه و پیشنهاد قیمت شفاف را به عهده ما بگذارید. غذای گرم، بهداشتی و باکیفیت را در محل شما توزیع می‌کنیم.",
+      "kind": "text",
+      "ctx": "p.div.food-cta__body"
+    },
+    "personnel-food.181": {
+      "fa": "تماس مستقیم با کارشناس تأمین غذا",
+      "kind": "text",
+      "ctx": "div.div.food-cta__body"
+    },
+    "personnel-food.182": {
+      "fa": "ارسال درخواست قرارداد",
+      "kind": "text",
+      "ctx": "a.div.food-cta__actions"
+    },
+    "personnel-food.183": {
+      "fa": "پیشنهاد قیمت و بازدید محل توزیع کاملاً رایگان است • پوشش استان قزوین و شهرک‌های صنعتی",
+      "kind": "text",
+      "ctx": "svg.a.btn.btn-primary"
+    },
+    "contact.001": {
+      "fa": "تماس با شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.section"
+    },
+    "contact.002": {
+      "fa": "ارتباط با کارشناسان",
+      "kind": "text",
+      "ctx": "section.section.site-page.section"
+    },
+    "contact.003": {
+      "fa": "درخواست مشاوره، استعلام قیمت و عقد قرارداد",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "contact.004": {
+      "fa": "فرم زیر را تکمیل فرمایید تا کارشناسان ما ظرف حداکثر ۲ ساعت کاری با شما تماس بگیرند یا مستقیماً تماس بگیرید.",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "contact.005": {
+      "fa": "ارسال پیام و درخواست همکاری",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "contact.006": {
+      "fa": "مشخصات خود را وارد کنید تا بهترین راهکار را ارائه دهیم.",
+      "kind": "text",
+      "ctx": "p.div.contact-form-header"
+    },
+    "contact.007": {
+      "fa": "نام و نام خانوادگی / نام شرکت *",
+      "kind": "text",
+      "ctx": "form.div.contact-form-card.reveal"
+    },
+    "contact.008": {
+      "fa": "شماره تلفن همراه (مانند ۰۹۱۲...) *",
+      "kind": "text",
+      "ctx": "div.div.contact-form-card.reveal"
+    },
+    "contact.009": {
+      "fa": "هر دو حوزه (بازرگانی و ترابری)",
+      "kind": "text",
+      "ctx": "div.div.contact-form-card.reveal"
+    },
+    "contact.010": {
+      "fa": "بازرگانی، واردات و صادرات و ترخیص گمرکی",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.011": {
+      "fa": "ترابری و سرویس ایاب‌وذهاب پرسنل",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.012": {
+      "fa": "مشاوره تخصصی و امور ارزی",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.013": {
+      "fa": "نوع خدمت مورد نظر",
+      "kind": "text",
+      "ctx": "label.div.form-group"
+    },
+    "contact.014": {
+      "fa": "توضیحات تکمیلی یا جزئیات درخواست...",
+      "kind": "text",
+      "ctx": "div.div.contact-form-card.reveal"
+    },
+    "contact.015": {
+      "fa": "ارسال درخواست مشاوره",
+      "kind": "text",
+      "ctx": "button.div.contact-form-card.reveal"
+    },
+    "contact.016": {
+      "fa": "تلفن تماس مستقیم و رسمی",
+      "kind": "text",
+      "ctx": "svg.button.btn.btn-primary"
+    },
+    "contact.017": {
+      "fa": "کپی شماره تماس",
+      "kind": "attr:aria-label",
+      "ctx": "button.div.contact-detail-box__value"
+    },
+    "contact.018": {
+      "fa": "کپی شماره",
+      "kind": "text",
+      "ctx": "button.div.contact-detail-box__value"
+    },
+    "contact.019": {
+      "fa": "ارتباط مستقیم در واتساپ",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box"
+    },
+    "contact.020": {
+      "fa": "گفتگو با پشتیبانی در واتساپ ↗",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box__item"
+    },
+    "contact.021": {
+      "fa": "نشانی دفتر مرکزی",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box"
+    },
+    "contact.022": {
+      "fa": "قزوین، اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box__item"
+    },
+    "contact.023": {
+      "fa": "کد پستی: ۳۴۱۳۶۹۱۵۸۹",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box__item"
+    },
+    "contact.024": {
+      "fa": "ساعات پاسخگویی اداری و پشتیبانی",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box"
+    },
+    "contact.025": {
+      "fa": "شنبه تا پنجشنبه: ۸:۰۰ صبح الی ۲۰:۰۰ شب",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box__item"
+    },
+    "contact.026": {
+      "fa": "عملیات ترابری و شیفت شب: ۲۴ ساعته شبانه‌روزی",
+      "kind": "text",
+      "ctx": "div.div.contact-detail-box__item"
+    },
+    "contact.027": {
+      "fa": "موقعیت استراتژیک در قطب صنعتی قزوین",
+      "kind": "text",
+      "ctx": "div.div.contact-info-card.reveal"
+    },
+    "contact.028": {
+      "fa": "دسترسی سریع به شهرک‌های صنعتی البرز، کاسپین، لیا، حیدریه، خرمدشت و شاهراه‌های ترانزیتی شمال‌غرب و گمرکات کشور.",
+      "kind": "text",
+      "ctx": "p.div.map-preview-box"
+    },
+    "contact.029": {
+      "fa": "شهرک کاسپین",
+      "kind": "text",
+      "ctx": "div.div.map-preview-box"
+    },
+    "contact.030": {
+      "fa": "شهرک البرز",
+      "kind": "text",
+      "ctx": "span.div.map-preview-box"
+    },
+    "contact.031": {
+      "fa": "شهرک لیا",
+      "kind": "text",
+      "ctx": "span.div.map-preview-box"
+    },
+    "contact.032": {
+      "fa": "گمرک قزوین",
+      "kind": "text",
+      "ctx": "span.div.map-preview-box"
+    },
+    "contact.033": {
+      "fa": "پاورقی سایت",
+      "kind": "attr:aria-label",
+      "ctx": "footer.footer.footer"
+    },
+    "contact.034": {
+      "fa": "شرکت قزوین تصویر",
+      "kind": "text",
+      "ctx": "footer.footer.footer"
+    },
+    "contact.035": {
+      "fa": "با مسئولیت محدود — تأسیس ۱۳۷۴",
+      "kind": "text",
+      "ctx": "span.div.brand-logo__text"
+    },
+    "contact.036": {
+      "fa": "ارائه‌دهنده خدمات تخصصی بازرگانی، واردات و صادرات کالا، ترابری و سرویس ایاب و ذهاب پرسنل و تأمین غذای پرسنل و وعده‌های سازمانی کارخانه‌ها و شرکت‌های صنعتی، با بیش از ۳۱ سال سابقه درخشان و با مدیریت سعید امین‌زاده.",
+      "kind": "text",
+      "ctx": "p.div.footer__grid"
+    },
+    "contact.037": {
+      "fa": "دسترسی سریع",
+      "kind": "text",
+      "ctx": "div.div.footer__grid"
+    },
+    "contact.038": {
+      "fa": "صفحه اصلی",
+      "kind": "text",
+      "ctx": "ul.div.footer__grid"
+    },
+    "contact.039": {
+      "fa": "درباره قزوین تصویر",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.040": {
+      "fa": "خدمات تخصصی",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.041": {
+      "fa": "ناوگان ترابری",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.042": {
+      "fa": "تأمین غذای پرسنل",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.043": {
+      "fa": "منوی وعده‌های سازمانی",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.044": {
+      "fa": "درخواست قرارداد غذا",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.045": {
+      "fa": "برندهای همکار",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.046": {
+      "fa": "چرا قزوین تصویر؟",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.047": {
+      "fa": "اعتبار و اطلاعات ثبتی",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.048": {
+      "fa": "تماس با ما",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.049": {
+      "fa": "خدمات تخصصی",
+      "kind": "text",
+      "ctx": "div.div.footer__grid"
+    },
+    "contact.050": {
+      "fa": "واردات و صادرات کالاهای مجاز",
+      "kind": "text",
+      "ctx": "ul.div.footer__grid"
+    },
+    "contact.051": {
+      "fa": "ترخیص گمرکی و امور بندری",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.052": {
+      "fa": "تأمین مواد اولیه و تجهیزات",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.053": {
+      "fa": "ترابری پرسنل کارخانجات",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.054": {
+      "fa": "سرویس مدارس، ادارات و شرکت‌ها",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.055": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.056": {
+      "fa": "مشاوره بازرگانی و گشایش LC",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.057": {
+      "fa": "اطلاعات تماس",
+      "kind": "text",
+      "ctx": "div.div.footer__grid"
+    },
+    "contact.058": {
+      "fa": "تلفن تماس:",
+      "kind": "text",
+      "ctx": "ul.div.footer__grid"
+    },
+    "contact.059": {
+      "fa": "نشانی دفتر:",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.060": {
+      "fa": "قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴",
+      "kind": "text",
+      "ctx": "span.ul.footer__links"
+    },
+    "contact.061": {
+      "fa": "پروفایل رسمی در رسمیو ↗",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.062": {
+      "fa": "شناسه ملی:",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "contact.063": {
+      "fa": "شماره ثبت:",
+      "kind": "text",
+      "ctx": "span.div.footer__registry-strip"
+    },
+    "contact.064": {
+      "fa": "کد اقتصادی:",
+      "kind": "text",
+      "ctx": "span.div.footer__registry-strip"
+    },
+    "contact.065": {
+      "fa": "تاریخ تأسیس:",
+      "kind": "text",
+      "ctx": "span.div.footer__registry-strip"
+    },
+    "contact.066": {
+      "fa": "مدیرعامل:",
+      "kind": "text",
+      "ctx": "span.div.footer__registry-strip"
+    },
+    "contact.067": {
+      "fa": "سعید امین‌زاده",
+      "kind": "text",
+      "ctx": "span.div.footer__registry-strip"
+    },
+    "contact.068": {
+      "fa": "© کلیه حقوق مادی و معنوی متعلق به شرکت قزوین تصویر (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶",
+      "kind": "text",
+      "ctx": "div.div.container",
+      "html": "© کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶"
+    },
+    "contact.069": {
+      "fa": "طراحی",
+      "kind": "text",
+      "ctx": "a.div.footer__bottom-bar"
+    },
+    "contact.070": {
+      "fa": "و",
+      "kind": "text",
+      "ctx": "span.span.ks-label.ks-label--fa"
+    },
+    "contact.071": {
+      "fa": "توسعه:",
+      "kind": "text",
+      "ctx": "span.span.ks-label.ks-label--fa"
+    },
+    "contact.072": {
+      "fa": "Designed",
+      "kind": "text",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.073": {
+      "fa": "&amp;",
+      "kind": "text",
+      "ctx": "span.span.ks-label.ks-label--en"
+    },
+    "contact.074": {
+      "fa": "Developed",
+      "kind": "text",
+      "ctx": "span.span.ks-label.ks-label--en"
+    },
+    "contact.075": {
+      "fa": "by",
+      "kind": "text",
+      "ctx": "span.span.ks-label.ks-label--en"
+    },
+    "contact.076": {
+      "fa": "کارن سافت",
+      "kind": "attr:alt",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.077": {
+      "fa": "KarenSoft",
+      "kind": "attr:alt",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.078": {
+      "fa": "تماس تلفنی با قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.079": {
+      "fa": "تماس تلفنی",
+      "kind": "attr:title",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.080": {
+      "fa": "ارتباط در واتساپ",
+      "kind": "attr:aria-label",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.081": {
+      "fa": "واتساپ",
+      "kind": "attr:title",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.082": {
+      "fa": "دکمه‌های تماس سریع شناور",
+      "kind": "attr:aria-label",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.083": {
+      "fa": "ارتباط مستقیم در واتساپ قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.084": {
+      "fa": "ارتباط مستقیم در واتساپ",
+      "kind": "attr:title",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.085": {
+      "fa": "تماس مستقیم با قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.086": {
+      "fa": "تماس تلفنی با ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+      "kind": "attr:title",
+      "ctx": "span.a.ks-credit",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    },
+    "contact.087": {
+      "fa": "بازگشت به بالای صفحه",
+      "kind": "attr:aria-label",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.088": {
+      "fa": "بازگشت به بالای صفحه",
+      "kind": "attr:title",
+      "ctx": "span.a.ks-credit"
+    },
+    "contact.089": {
+      "fa": "شماره ۰۹۱۲۲۸۱۵۱۸۹ با موفقیت کپی شد!",
+      "kind": "text",
+      "ctx": "span.a.ks-credit",
+      "keepVerbatim": [
+        "۰۹۱۲۲۸۱۵۱۸۹"
+      ]
+    },
+    "contact.090": {
+      "fa": "بستن پنجره مشاوره",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.modal-overlay"
+    },
+    "contact.091": {
+      "fa": "مشاوره رایگان تخصصی",
+      "kind": "text",
+      "ctx": "div.div.modal-overlay"
+    },
+    "contact.092": {
+      "fa": "درخواست مشاوره و استعلام قیمت",
+      "kind": "text",
+      "ctx": "h3.div.modal-container"
+    },
+    "contact.093": {
+      "fa": "شماره خود را ثبت کنید تا کارشناسان ما سریعاً با شما تماس حاصل فرمایند.",
+      "kind": "text",
+      "ctx": "p.div.modal-container"
+    },
+    "contact.094": {
+      "fa": "نام یا نام شرکت",
+      "kind": "text",
+      "ctx": "form.div.modal-container"
+    },
+    "contact.095": {
+      "fa": "شماره تماس همراه (۰۹...) *",
+      "kind": "text",
+      "ctx": "div.div.modal-container"
+    },
+    "contact.096": {
+      "fa": "بازرگانی و ترابری (هر دو)",
+      "kind": "text",
+      "ctx": "div.div.modal-container"
+    },
+    "contact.097": {
+      "fa": "بازرگانی و واردات/صادرات",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.098": {
+      "fa": "ترابری و سرویس پرسنل",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.099": {
+      "fa": "حوزه مشاوره",
+      "kind": "text",
+      "ctx": "label.div.form-group"
+    },
+    "contact.100": {
+      "fa": "ثبت درخواست مشاوره رایگان",
+      "kind": "text",
+      "ctx": "button.div.modal-container"
+    },
+    "contact.101": {
+      "fa": "یا تماس مستقیم با: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+      "kind": "text",
+      "ctx": "div.div.modal-container",
+      "html": "یا تماس مستقیم با: <a href=\"tel:+989122815189\" style=\"color: var(--primary-navy); font-weight: 700;\">۰۹۱۲ ۲۸۱ ۵۱۸۹</a>",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
+    }
+  },
+  "structured": {
+    "jsonld.001": {
+      "fa": "شرکت قزوین تصویر",
+      "path": [
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.002": {
+      "fa": "قزوین تصویر",
+      "path": [
+        "alternateName"
+      ],
+      "block": 0,
+      "ctx": "alternateName"
+    },
+    "jsonld.003": {
+      "fa": "ارائه‌دهنده خدمات بازرگانی، واردات و صادرات کلیه کالاهای مجاز، ترخیص گمرکی و ترابری و سرویس ایاب و ذهاب پرسنل کارخانه‌ها و شرکت‌ها با بیش از ۳۱ سال سابقه درخشان.",
+      "path": [
+        "description"
+      ],
+      "block": 0,
+      "ctx": "description"
+    },
+    "jsonld.004": {
+      "fa": "سعید امین‌زاده",
+      "path": [
+        "founder",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.005": {
+      "fa": "مدیرعامل و بنیان‌گذار",
+      "path": [
+        "founder",
+        "jobTitle"
+      ],
+      "block": 0,
+      "ctx": "jobTitle"
+    },
+    "jsonld.006": {
+      "fa": "سعید امین‌زاده",
+      "path": [
+        "employee",
+        "0",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.007": {
+      "fa": "مدیرعامل و عضو هیئت مدیره",
+      "path": [
+        "employee",
+        "0",
+        "jobTitle"
+      ],
+      "block": 0,
+      "ctx": "jobTitle"
+    },
+    "jsonld.008": {
+      "fa": "اصغر تقی‌لو",
+      "path": [
+        "employee",
+        "1",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.009": {
+      "fa": "رئیس هیئت مدیره",
+      "path": [
+        "employee",
+        "1",
+        "jobTitle"
+      ],
+      "block": 0,
+      "ctx": "jobTitle"
+    },
+    "jsonld.010": {
+      "fa": "اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
+      "path": [
+        "address",
+        "streetAddress"
+      ],
+      "block": 0,
+      "ctx": "streetAddress"
+    },
+    "jsonld.011": {
+      "fa": "قزوین",
+      "path": [
+        "address",
+        "addressLocality"
+      ],
+      "block": 0,
+      "ctx": "addressLocality"
+    },
+    "jsonld.012": {
+      "fa": "استان قزوین",
+      "path": [
+        "address",
+        "addressRegion"
+      ],
+      "block": 0,
+      "ctx": "addressRegion"
+    },
+    "jsonld.013": {
+      "fa": "Iran",
+      "path": [
+        "areaServed",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.014": {
+      "fa": "بازرگانی، واردات و صادرات کالا",
+      "path": [
+        "knowsAbout",
+        "0"
+      ],
+      "block": 0,
+      "ctx": "0"
+    },
+    "jsonld.015": {
+      "fa": "ترخیص گمرکی و امور بندری",
+      "path": [
+        "knowsAbout",
+        "1"
+      ],
+      "block": 0,
+      "ctx": "1"
+    },
+    "jsonld.016": {
+      "fa": "حمل بین‌المللی دریایی، زمینی و هوایی",
+      "path": [
+        "knowsAbout",
+        "2"
+      ],
+      "block": 0,
+      "ctx": "2"
+    },
+    "jsonld.017": {
+      "fa": "سرویس ایاب و ذهاب پرسنل کارخانه‌ها و ادارات",
+      "path": [
+        "knowsAbout",
+        "3"
+      ],
+      "block": 0,
+      "ctx": "3"
+    },
+    "jsonld.018": {
+      "fa": "ناوگان اتوبوس، مینی‌بوس و ون",
+      "path": [
+        "knowsAbout",
+        "4"
+      ],
+      "block": 0,
+      "ctx": "4"
+    },
+    "jsonld.019": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی (کیترینگ)",
+      "path": [
+        "knowsAbout",
+        "5"
+      ],
+      "block": 0,
+      "ctx": "5"
+    },
+    "jsonld.020": {
+      "fa": "خدمات شرکت قزوین تصویر",
+      "path": [
+        "hasOfferCatalog",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.021": {
+      "fa": "بازرگانی، واردات و صادرات",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "0",
+        "itemOffered",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.022": {
+      "fa": "تأمین کالا، ترخیص گمرکی و امور بندری، حمل بین‌المللی و گشایش اعتبارات اسنادی (LC).",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "0",
+        "itemOffered",
+        "description"
+      ],
+      "block": 0,
+      "ctx": "description"
+    },
+    "jsonld.023": {
+      "fa": "ترابری و سرویس ایاب و ذهاب پرسنل",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "1",
+        "itemOffered",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.024": {
+      "fa": "قراردادهای بلندمدت و ماهانه سرویس پرسنل با ناوگان ملکی اتوبوس، مینی‌بوس و ون، پوشش کامل ساعات شیفتی و پشتیبانی ۲۴/۷.",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "1",
+        "itemOffered",
+        "description"
+      ],
+      "block": 0,
+      "ctx": "description"
+    },
+    "jsonld.025": {
+      "fa": "Passenger transportation service",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "1",
+        "itemOffered",
+        "serviceType"
+      ],
+      "block": 0,
+      "ctx": "serviceType"
+    },
+    "jsonld.026": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "2",
+        "itemOffered",
+        "name"
+      ],
+      "block": 0,
+      "ctx": "name"
+    },
+    "jsonld.027": {
+      "fa": "انعقاد قرارداد یک‌ساله تأمین صبحانه، ناهار، شام و میان‌وعده پرسنل کارخانه‌ها و شرکت‌ها؛ طبخ در آشپزخانه‌های مجاز، توزیع گرم در محل و منوی هفتگی چرخشی.",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "2",
+        "itemOffered",
+        "description"
+      ],
+      "block": 0,
+      "ctx": "description"
+    },
+    "jsonld.028": {
+      "fa": "Corporate catering service",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "2",
+        "itemOffered",
+        "serviceType"
+      ],
+      "block": 0,
+      "ctx": "serviceType"
+    },
+    "jsonld.029": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
+      "path": [
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.030": {
+      "fa": "کیترینگ و پیمان‌کاری غذای کارخانه‌ها و شرکت‌ها",
+      "path": [
+        "alternateName"
+      ],
+      "block": 1,
+      "ctx": "alternateName"
+    },
+    "jsonld.031": {
+      "fa": "Corporate catering service",
+      "path": [
+        "serviceType"
+      ],
+      "block": 1,
+      "ctx": "serviceType"
+    },
+    "jsonld.032": {
+      "fa": "قرارداد تأمین صبحانه، ناهار، شام و میان‌وعده پرسنل کارخانه‌ها و شرکت‌های صنعتی؛ طبخ در آشپزخانه‌های مجاز، غذای گرم و بهداشتی و توزیع در رستوران یا محل تعیین‌شده کارفرما با خودروهای کیترینگ. حداقل ۵۰ پرس در هر وعده و منوی هفتگی چرخشی.",
+      "path": [
+        "description"
+      ],
+      "block": 1,
+      "ctx": "description"
+    },
+    "jsonld.033": {
+      "fa": "شرکت قزوین تصویر",
+      "path": [
+        "provider",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.034": {
+      "fa": "اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
+      "path": [
+        "provider",
+        "address",
+        "streetAddress"
+      ],
+      "block": 1,
+      "ctx": "streetAddress"
+    },
+    "jsonld.035": {
+      "fa": "قزوین",
+      "path": [
+        "provider",
+        "address",
+        "addressLocality"
+      ],
+      "block": 1,
+      "ctx": "addressLocality"
+    },
+    "jsonld.036": {
+      "fa": "استان قزوین",
+      "path": [
+        "provider",
+        "address",
+        "addressRegion"
+      ],
+      "block": 1,
+      "ctx": "addressRegion"
+    },
+    "jsonld.037": {
+      "fa": "استان قزوین",
+      "path": [
+        "areaServed",
+        "0",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.038": {
+      "fa": "Iran",
+      "path": [
+        "areaServed",
+        "1",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.039": {
+      "fa": "https://schema.org/InStock",
+      "path": [
+        "offers",
+        "availability"
+      ],
+      "block": 1,
+      "ctx": "availability"
+    },
+    "jsonld.040": {
+      "fa": "قیمت پایه هر پرس میان‌وعده از ۳۵٬۰۰۰ تومان به بالا؛ قیمت نهایی بر اساس منوی توافق‌شده، تعداد پرس روزانه و تعداد وعده‌ها در قرارداد تعیین می‌شود.",
+      "path": [
+        "offers",
+        "priceSpecification",
+        "description"
+      ],
+      "block": 1,
+      "ctx": "description"
+    },
+    "jsonld.041": {
+      "fa": "استان قزوین",
+      "path": [
+        "offers",
+        "areaServed",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.042": {
+      "fa": "وعده‌های سازمانی قابل قرارداد",
+      "path": [
+        "hasOfferCatalog",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.043": {
+      "fa": "صبحانه سازمانی",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "0",
+        "itemOffered",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.044": {
+      "fa": "نان تازه، پنیر، گردو، املت، حلیم و صبحانه سبک کارمندی با نوشیدنی گرم.",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "0",
+        "itemOffered",
+        "description"
+      ],
+      "block": 1,
+      "ctx": "description"
+    },
+    "jsonld.045": {
+      "fa": "ناهار سازمانی",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "1",
+        "itemOffered",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.046": {
+      "fa": "چلوکباب، زرشک‌پلو با مرغ، قیمه بادمجان و جوجه زعفرانی همراه با سالاد، ماست و نوشیدنی.",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "1",
+        "itemOffered",
+        "description"
+      ],
+      "block": 1,
+      "ctx": "description"
+    },
+    "jsonld.047": {
+      "fa": "شام سازمانی",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "2",
+        "itemOffered",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.048": {
+      "fa": "قورمه‌سبزی، کوکو سبزی، سوپ جو و ماهی قزل‌آلا؛ مناسب شیفت‌های شب و تولید شبانه.",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "2",
+        "itemOffered",
+        "description"
+      ],
+      "block": 1,
+      "ctx": "description"
+    },
+    "jsonld.049": {
+      "fa": "میان‌وعده سازمانی",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "3",
+        "itemOffered",
+        "name"
+      ],
+      "block": 1,
+      "ctx": "name"
+    },
+    "jsonld.050": {
+      "fa": "بسته میوه فصل، ساندویچ گرم، بسته خشک خط تولید و دسر تازه روز در بسته‌بندی بهداشتی.",
+      "path": [
+        "hasOfferCatalog",
+        "itemListElement",
+        "3",
+        "itemOffered",
+        "description"
+      ],
+      "block": 1,
+      "ctx": "description"
+    },
+    "jsonld.051": {
+      "fa": "حداقل تعداد پرس برای انعقاد قرارداد تأمین غذای پرسنل چقدر است؟",
+      "path": [
+        "mainEntity",
+        "0",
+        "name"
+      ],
+      "block": 2,
+      "ctx": "name"
+    },
+    "jsonld.052": {
+      "fa": "معمولاً از ۵۰ پرس به بالا. برای مجموعه‌های کوچک‌تر نیز با توجه به فاصله محل توزیع و تعداد وعده‌ها، امکان تعریف قرارداد یا پرس‌های ترکیبی وجود دارد. کارشناس قزوین تصویر پس از بازدید، دقیق‌ترین برآورد را ارائه می‌کند.",
+      "path": [
+        "mainEntity",
+        "0",
+        "acceptedAnswer",
+        "text"
+      ],
+      "block": 2,
+      "ctx": "text"
+    },
+    "jsonld.053": {
+      "fa": "آیا منوی غذای سازمانی قابل تغییر است؟",
+      "path": [
+        "mainEntity",
+        "1",
+        "name"
+      ],
+      "block": 2,
+      "ctx": "name"
+    },
+    "jsonld.054": {
+      "fa": "بله. منوی هفتگی و فصلی است و بر اساس سلیقه پرسنل، بودجه و شرایط تولید قابل بازبینی است. آیتم‌های غیرمحبوب حذف یا جایگزین می‌شوند و امکان افزودن گزینه‌های رژیمی، گیاهی و کم‌نمک وجود دارد.",
+      "path": [
+        "mainEntity",
+        "1",
+        "acceptedAnswer",
+        "text"
+      ],
+      "block": 2,
+      "ctx": "text"
+    },
+    "jsonld.055": {
+      "fa": "غذای سازمانی جزو حقوق و دستمزد محسوب می‌شود؟",
+      "path": [
+        "mainEntity",
+        "2",
+        "name"
+      ],
+      "block": 2,
+      "ctx": "name"
+    },
+    "jsonld.056": {
+      "fa": "طبق قانون کار، غذای ارائه‌شده به پرسنل جزو مزایای غیرنقدی محسوب می‌شود و شرایط و آثار بیمه‌ای و مالیاتی خاص خود را دارد. در قرارداد تأمین غذا، نحوه محاسبه و مستندسازی وعده‌ها مشخص می‌شود و توصیه می‌شود پیش از امضا با مشاور مالی و بیمه‌ای مجموعه هماهنگی لازم انجام شود.",
+      "path": [
+        "mainEntity",
+        "2",
+        "acceptedAnswer",
+        "text"
+      ],
+      "block": 2,
+      "ctx": "text"
+    },
+    "jsonld.057": {
+      "fa": "زمان توزیع وعده‌های غذایی چگونه تنظیم می‌شود؟",
+      "path": [
+        "mainEntity",
+        "3",
+        "name"
+      ],
+      "block": 2,
+      "ctx": "name"
+    },
+    "jsonld.058": {
+      "fa": "طبق شیفت‌های کاری شما. برنامه توزیع در قرارداد تعیین می‌شود و برای شیفت‌های شب، تعطیلات و روزهای پیک تولید نیز قابل تنظیم است. تغییرات موقت برنامه با هماهنگی قبلی در کوتاه‌ترین زمان اعمال می‌شود.",
+      "path": [
+        "mainEntity",
+        "3",
+        "acceptedAnswer",
+        "text"
+      ],
+      "block": 2,
+      "ctx": "text"
+    }
+  }
+}

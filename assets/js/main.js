@@ -673,8 +673,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const BASE_TITLE = document.title;
     const BASE_DESCRIPTION = (document.querySelector('meta[name="description"]') || {}).content || '';
 
-    // عنوان و توضیح هر مسیر (بر اساس تیتر همان بخش)
-    const ROUTE_META = {
+    // عنوان و توضیح هر مسیر.
+    // صفحه‌های غیرفارسی یک شیء QT_ROUTE_META تزریق‌شده دارند (ساختهٔ
+    // tools/build-i18n-site.py) که همین‌جا جای مقادیر فارسی را می‌گیرد.
+    const ROUTE_META = window.QT_ROUTE_META || {
       hero: {
         title: BASE_TITLE,
         desc: BASE_DESCRIPTION
