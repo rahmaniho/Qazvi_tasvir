@@ -33,13 +33,30 @@
   <meta name="twitter:image:alt" content="ناوگان اتوبوس سرویس پرسنل شرکت قزوین تصویر">
 
   <!-- Favicon & Icons -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brand/qazvin-tasvir-icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/brand/qazvin-tasvir-apple-touch.png">
   <meta name="theme-color" content="#0A2540">
 
   <!-- Google Fonts Preconnect & Fonts (Vazirmatn & Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- مسیریابی هشی: پیش از بارگذاری CSS مشخص می‌کنیم که صفحه‌ها با هش جدا می‌شوند
+       تا در اولین رنگ‌آمیزی تنها یک صفحه دیده شود (بدون پرش محتوا).
+       بدون جاوااسکریپت این کلاس اضافه نمی‌شود و کل سایت مثل قبل یک صفحهٔ کامل است. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.className += ' js-pages';
+      if (window.location.hash && window.location.hash.length > 1) {
+        root.className += ' qt-deeplink';
+        // شبکهٔ امن: اگر روتر به هر دلیلی اجرا نشد (خطای جاوااسکریپت یا قطع
+        // فایل)، این کلاس برداشته می‌شود تا صفحهٔ اصلی نمایش داده شود، نه صفحهٔ خالی.
+        setTimeout(function () { root.classList.remove('qt-deeplink'); }, 2500);
+      }
+    })();
+  </script>
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -50,6 +67,9 @@
       .reveal { opacity: 1 !important; transform: none !important; }
       .fleet-card__img { opacity: 1 !important; }
       .fleet-card__media { animation: none !important; }
+      /* اعتبار کارن سافت بدون JS هم کامل و خوانا دیده می‌شود */
+      .ks-label__word, .ks-card-border, .ks-mark-img { opacity: 1 !important; transform: none !important; filter: none !important; }
+      .ks-wordmark--fa, .ks-wordmark--en { clip-path: none !important; }
     </style>
   </noscript>
 
@@ -61,7 +81,7 @@
     "name": "شرکت قزوین تصویر",
     "alternateName": "قزوین تصویر",
     "url": "https://qazvintasvir.ir",
-    "logo": "https://qazvintasvir.ir/assets/images/logo.svg",
+    "logo": "https://qazvintasvir.ir/assets/images/brand/qazvin-tasvir-favicon.png",
     "image": "https://qazvintasvir.ir/assets/images/og-image.svg",
     "description": "ارائه‌دهنده خدمات بازرگانی، واردات و صادرات کلیه کالاهای مجاز، ترخیص گمرکی و ترابری و سرویس ایاب و ذهاب پرسنل کارخانه‌ها و شرکت‌ها با بیش از ۳۱ سال سابقه درخشان.",
     "identifier": "10861415215",
@@ -360,13 +380,12 @@
         <!-- لوگو برند -->
         <a href="#hero" class="brand-logo" aria-label="صفحه اصلی شرکت قزوین تصویر">
           <div class="brand-logo__emblem">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <!-- ترکیبی از کشتی بازرگانی و خودرو ترابری -->
-              <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-              <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"></path>
-              <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"></path>
-              <line x1="12" y1="2" x2="12" y2="10"></line>
-            </svg>
+            <!-- لوگوی رسمی قزوین تصویر (برش از فایل اصلی برند) -->
+            <img class="brand-logo__mark"
+                 src="assets/images/brand/qazvin-tasvir-mark.png"
+                 width="44" height="44"
+                 alt=""
+                 decoding="async">
           </div>
           <div class="brand-logo__text">
             <span class="brand-logo__title">قزوین تصویر</span>
@@ -486,7 +505,7 @@
     <!-- ======================================================================
          ۴.۳ بخش قهرمان (Hero Section)
          ====================================================================== -->
-    <section id="hero" class="hero" aria-label="معرفی اصلی قزوین تصویر">
+    <section id="hero" class="site-page is-current hero" aria-label="معرفی اصلی قزوین تصویر">
       <!-- هاله‌های نوری پس‌زمینه و گرید نقطه‌ای -->
       <div class="hero__glow-top" aria-hidden="true"></div>
       <div class="hero__glow-bottom" aria-hidden="true"></div>
@@ -566,12 +585,12 @@
             <div class="hero__glass-card">
               <div class="hero__showcase-header">
                 <div class="hero__showcase-brand">
-                  <div class="brand-logo__emblem" style="width: 38px; height: 38px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
+                  <div class="brand-logo__emblem brand-logo__emblem--plain" style="width: 38px; height: 38px;">
+                    <img class="brand-logo__mark"
+                         src="assets/images/brand/qazvin-tasvir-mark.png"
+                         width="38" height="38"
+                         alt=""
+                         loading="lazy" decoding="async">
                   </div>
                   <div>
                     <div style="font-weight: 800; font-size: 1rem; color: #FFFFFF;">قزوین تصویر</div>
@@ -657,7 +676,7 @@
     <!-- ======================================================================
          ۴.۴ بخش درباره ما (About Section)
          ====================================================================== -->
-    <section id="about" class="section section--alt" aria-label="درباره شرکت قزوین تصویر">
+    <section id="about" class="site-page section section--alt" aria-label="درباره شرکت قزوین تصویر">
       <div class="container">
         <div class="about__grid">
           <!-- ستون راست: متن روایت شرکت -->
@@ -763,7 +782,7 @@
     <!-- ======================================================================
          ۴.۵ بخش خدمات (Services Section) — قلب لندینگ
          ====================================================================== -->
-    <section id="services" class="section" aria-label="خدمات تخصصی قزوین تصویر">
+    <section id="services" class="site-page section" aria-label="خدمات تخصصی قزوین تصویر">
       <div class="container">
         <div class="section-header reveal">
           <div class="section-label section-label--sky">
@@ -909,7 +928,7 @@
          ناوگان ملکی: اتوبوس، مینی‌بوس و ون با تصاویر اختصاصی
          تصاویر: assets/images/bus-fleet.jpg | minibus-fleet.jpg | van-fleet.jpg
          ====================================================================== -->
-    <section id="fleet" class="fleet-section" aria-label="ناوگان ترابری شرکت قزوین تصویر">
+    <section id="fleet" class="site-page fleet-section" aria-label="ناوگان ترابری شرکت قزوین تصویر">
       <div class="container">
         <div class="section-header reveal">
           <div class="section-label section-label--sky">
@@ -1047,7 +1066,7 @@
          ۴.۷ بخش برندهای همکار (Partner Vehicle Brands) — جدید
          لوگوها در مسیر assets/logos/ قرار دارند و قابل جایگزینی با لوگوی رسمی هستند
          ====================================================================== -->
-    <section id="brands" class="brands-section" aria-label="برندهای خودروسازی مورد استفاده در ناوگان">
+    <section id="brands" class="site-page brands-section" aria-label="برندهای خودروسازی مورد استفاده در ناوگان">
       <div class="container">
         <div class="section-header reveal">
           <div class="section-label section-label--onDark">
@@ -1088,7 +1107,7 @@
     <!-- ======================================================================
          ۴.۸ بخش چرا ما (Why Us Section)
          ====================================================================== -->
-    <section id="why-us" class="section section--alt" aria-label="مزایای همکاری با قزوین تصویر">
+    <section id="why-us" class="site-page section section--alt" aria-label="مزایای همکاری با قزوین تصویر">
       <div class="container">
         <div class="section-header reveal">
           <div class="section-label">
@@ -1208,7 +1227,7 @@
     <!-- ======================================================================
          ۴.۹ بخش مشتریان و سابقه همکاری با برندهای مطرح (Clients & Partners)
          ====================================================================== -->
-    <section id="clients" class="clients-section" aria-label="سابقه همکاری با برندهای معتبر صنعتی">
+    <section id="clients" class="site-page clients-section" aria-label="سابقه همکاری با برندهای معتبر صنعتی">
       <div class="container">
         <div class="section-header reveal" style="margin-bottom: 32px;">
           <div class="section-label section-label--sky">
@@ -1296,7 +1315,7 @@
     <!-- ======================================================================
          ۴.۱۰ بخش اعتبار و اطلاعات ثبتی (Trust & Registry)
          ====================================================================== -->
-    <section id="trust" class="registry-section" aria-label="اعتبار و شناسه ثبتی شرکت">
+    <section id="trust" class="site-page registry-section" aria-label="اعتبار و شناسه ثبتی شرکت">
       <div class="container">
         <div class="registry-header reveal">
           <div class="section-label" style="margin-bottom: 8px;">
@@ -1394,7 +1413,7 @@
          سرویس سوم شرکت: قرارداد تأمین صبحانه، ناهار، شام و میان‌وعده پرسنل کارخانه‌ها و شرکت‌ها
          تصاویر تولیدشده با هوش مصنوعی در مسیر: assets/img/personnel-food/
          ====================================================================== -->
-    <section id="personnel-food" class="food-section" aria-label="تأمین غذای پرسنل و وعده‌های سازمانی شرکت قزوین تصویر">
+    <section id="personnel-food" class="site-page food-section" aria-label="تأمین غذای پرسنل و وعده‌های سازمانی شرکت قزوین تصویر">
 
       <!-- ۴.۱۱.۱ هیرو بخش غذا (Food Hero) -->
       <div class="food-hero">
@@ -2399,7 +2418,7 @@
     <!-- ======================================================================
          ۴.۱۲ بخش تماس با ما (Contact Section)
          ====================================================================== -->
-    <section id="contact" class="section" aria-label="تماس با شرکت قزوین تصویر">
+    <section id="contact" class="site-page section" aria-label="تماس با شرکت قزوین تصویر">
       <div class="container">
         <div class="section-header reveal">
           <div class="section-label">
@@ -2561,12 +2580,12 @@
         <!-- ستون ۱: لوگو و معرفی شرکت -->
         <div>
           <div class="brand-logo" style="margin-bottom: 12px;">
-            <div class="brand-logo__emblem">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
+            <div class="brand-logo__emblem brand-logo__emblem--plain">
+              <img class="brand-logo__mark"
+                   src="assets/images/brand/qazvin-tasvir-mark.png"
+                   width="44" height="44"
+                   alt=""
+                   loading="lazy" decoding="async">
             </div>
             <div class="brand-logo__text">
               <span class="brand-logo__title" style="color: #FFFFFF;">شرکت قزوین تصویر</span>
@@ -2646,9 +2665,89 @@
 
       <!-- نوار پایینی و کپی‌رایت -->
       <div class="footer__bottom-bar">
-        <div>
+        <div class="footer__copyright">
           © کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / 2026
         </div>
+
+        <!-- اعتبار طراحی و توسعه: کارن سافت (انیمیشنی — لوگوی اصلی برند به صورت تصویر) -->
+        <a class="ks-credit"
+           id="ks-credit"
+           href="https://www.karen-soft.ir"
+           target="_blank"
+           rel="noopener noreferrer"
+           title="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir"
+           aria-label="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir">
+
+          <span class="ks-label ks-label--fa" lang="fa" dir="rtl">
+            <span class="ks-label__word ks-label-gradient">طراحی</span>
+            <span class="ks-label__word ks-label-gradient">و</span>
+            <span class="ks-label__word ks-label-gradient">توسعه:</span>
+          </span>
+          <span class="ks-label ks-label--en" lang="en" dir="ltr">
+            <span class="ks-label__word ks-label-gradient">Designed</span>
+            <span class="ks-label__word ks-label-gradient">&amp;</span>
+            <span class="ks-label__word ks-label-gradient">Developed</span>
+            <span class="ks-label__word ks-label-gradient">by</span>
+          </span>
+
+          <span class="ks-card-border">
+            <span class="ks-ring" aria-hidden="true"></span>
+
+            <span class="ks-card" dir="ltr">
+              <span class="ks-shine" aria-hidden="true"></span>
+
+              <span class="ks-logo-wrap">
+                <span class="ks-ripple" aria-hidden="true"></span>
+                <span class="ks-ripple ks-ripple--2" aria-hidden="true"></span>
+                <span class="ks-logo-ring" aria-hidden="true"></span>
+                <span class="ks-orbit" aria-hidden="true"><span class="ks-orbit__dot"></span></span>
+                <span class="ks-inner-bg" aria-hidden="true"></span>
+
+                <span class="ks-mark">
+                  <span class="ks-particle ks-particle--1" aria-hidden="true"></span>
+                  <span class="ks-particle ks-particle--2" aria-hidden="true"></span>
+                  <span class="ks-particle ks-particle--3" aria-hidden="true"></span>
+                  <span class="ks-particle ks-particle--4" aria-hidden="true"></span>
+                  <span class="ks-mark-img">
+                    <span class="ks-mark-spin">
+                      <img class="ks-float ks-mark-logo"
+                           src="assets/images/karensoft/mark.png"
+                           width="36" height="36"
+                           alt=""
+                           decoding="async"
+                           loading="lazy">
+                    </span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="ks-divider" aria-hidden="true"></span>
+
+              <span class="ks-wordmarks">
+                <span class="ks-wordmark ks-wordmark--fa">
+                  <img src="assets/images/karensoft/wordmark-fa.png"
+                       width="96" height="24"
+                       alt="کارن سافت"
+                       decoding="async"
+                       loading="lazy">
+                  <span class="ks-text-shine-mask" aria-hidden="true">
+                    <span class="ks-text-shine"></span>
+                  </span>
+                </span>
+                <span class="ks-wordmark ks-wordmark--en">
+                  <img src="assets/images/karensoft/wordmark-en.png"
+                       width="94" height="11"
+                       alt="KarenSoft"
+                       decoding="async"
+                       loading="lazy">
+                  <span class="ks-text-shine-mask" aria-hidden="true">
+                    <span class="ks-text-shine"></span>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </span>
+        </a>
 
         <div class="social-links">
           <a href="tel:+989122815189" class="social-link" title="تماس تلفنی" aria-label="تماس تلفنی با قزوین تصویر">
