@@ -62,27 +62,27 @@ GENERATED_KEYS = {"chrome.langSwitch", "chrome.brandName"}
 # ── language registry ───────────────────────────────────────────────────────
 # digits: 'fa' → Persian digits kept, 'latin' → ASCII digits in text nodes
 LANGS: "OrderedDict[str, dict]" = OrderedDict([
-    ("fa",  dict(name="Persian",  native="فارسی",    dir="rtl", digits="fa",
+    ("fa",  dict(switch_label="تغییر زبان سایت", name="Persian",  native="فارسی",    dir="rtl", digits="fa",
                  hreflang="fa", label_fa="فارسی")),
-    ("en",  dict(name="English",  native="English",  dir="ltr", digits="latin",
+    ("en",  dict(switch_label="Change language", name="English",  native="English",  dir="ltr", digits="latin",
                  hreflang="en")),
-    ("ar",  dict(name="Arabic",   native="العربية",  dir="rtl", digits="latin",
+    ("ar",  dict(switch_label="تغيير اللغة", name="Arabic",   native="العربية",  dir="rtl", digits="latin",
                  hreflang="ar")),
-    ("prs", dict(name="Dari",     native="دری",      dir="rtl", digits="fa",
+    ("prs", dict(switch_label="تغییر زبان", name="Dari",     native="دری",      dir="rtl", digits="fa",
                  hreflang="fa-AF")),
-    ("tr",  dict(name="Turkish",  native="Türkçe",   dir="ltr", digits="latin",
+    ("tr",  dict(switch_label="Dili değiştir", name="Turkish",  native="Türkçe",   dir="ltr", digits="latin",
                  hreflang="tr")),
-    ("ru",  dict(name="Russian",  native="Русский",  dir="ltr", digits="latin",
+    ("ru",  dict(switch_label="Сменить язык", name="Russian",  native="Русский",  dir="ltr", digits="latin",
                  hreflang="ru")),
-    ("de",  dict(name="German",   native="Deutsch",  dir="ltr", digits="latin",
+    ("de",  dict(switch_label="Sprache ändern", name="German",   native="Deutsch",  dir="ltr", digits="latin",
                  hreflang="de")),
-    ("fr",  dict(name="French",   native="Français", dir="ltr", digits="latin",
+    ("fr",  dict(switch_label="Changer de langue", name="French",   native="Français", dir="ltr", digits="latin",
                  hreflang="fr")),
-    ("zh",  dict(name="Chinese",  native="中文",      dir="ltr", digits="latin",
+    ("zh",  dict(switch_label="切换语言", name="Chinese",  native="中文",      dir="ltr", digits="latin",
                  hreflang="zh-Hans")),
-    ("ko",  dict(name="Korean",   native="한국어",    dir="ltr", digits="latin",
+    ("ko",  dict(switch_label="언어 변경", name="Korean",   native="한국어",    dir="ltr", digits="latin",
                  hreflang="ko")),
-    ("ja",  dict(name="Japanese", native="日本語",    dir="ltr", digits="latin",
+    ("ja",  dict(switch_label="言語を切り替える", name="Japanese", native="日本語",    dir="ltr", digits="latin",
                  hreflang="ja")),
 ])
 X_DEFAULT = "fa"
@@ -289,7 +289,7 @@ def build_language(lang: str, master: str, strings: dict,
                   f'<html lang="{lang}" dir="{info["dir"]}">', html, count=1)
 
     # switcher + hreflang (both are generated for every language, fa included)
-    label = translations.get("chrome.langSwitch") or "Change language"
+    label = translations.get("chrome.langSwitch") or info.get("switch_label", "Change language")
     html = replace_block(html, SWITCH_BEGIN, SWITCH_END,
                          switcher_html(lang, available, label), "language switcher")
     html = replace_block(html, HREFLANG_BEGIN, HREFLANG_END,
