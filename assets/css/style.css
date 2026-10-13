@@ -146,7 +146,7 @@ body {
 .skip-link {
   position: absolute;
   top: -60px;
-  right: 20px;
+  inset-inline-end: 20px;
   background: var(--amber-accent);
   color: var(--navy-deep);
   padding: 12px 24px;
@@ -305,8 +305,7 @@ button, input, select, textarea {
 #scroll-progress {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--amber-accent) 0%, var(--sky-blue) 100%);
   transform-origin: 0 50%;
@@ -585,8 +584,8 @@ button, input, select, textarea {
   content: '';
   position: absolute;
   bottom: 0;
-  right: 16px;
-  left: 16px;
+  inset-inline-end: 16px;
+  /* حذف شد: با inset-inline جایگزین شد */
   height: 3px;
   background: var(--amber-accent);
   border-radius: var(--r-full);
@@ -741,7 +740,7 @@ button, input, select, textarea {
 .hero__glow-top {
   position: absolute;
   top: -150px;
-  right: -100px;
+  inset-inline-end: -100px;
   width: 600px;
   height: 600px;
   background: var(--grad-glow-amber);
@@ -753,7 +752,7 @@ button, input, select, textarea {
 .hero__glow-bottom {
   position: absolute;
   bottom: -150px;
-  left: -100px;
+  inset-inline-start: -100px;
   width: 600px;
   height: 600px;
   background: var(--grad-glow-sky);
@@ -889,7 +888,7 @@ button, input, select, textarea {
 .hero__stat-item:not(:last-child)::after {
   content: '';
   position: absolute;
-  left: 0;
+  inset-inline-end: 0;
   top: 15%;
   height: 70%;
   width: 1px;
@@ -904,7 +903,7 @@ button, input, select, textarea {
   line-height: 1.1;
   margin-bottom: 4px;
   direction: ltr;
-  text-align: right;
+  text-align: start;
 }
 
 .hero__stat-label {
@@ -985,13 +984,13 @@ button, input, select, textarea {
 
 .float-card--top {
   top: -20px;
-  right: -15px;
+  inset-inline-end: -15px;
   animation: floatSlow 5s ease-in-out infinite;
 }
 
 .float-card--bottom {
   bottom: -20px;
-  left: -15px;
+  inset-inline-start: -15px;
   animation: floatSlow 5s ease-in-out infinite 2.5s;
 }
 
@@ -1106,8 +1105,7 @@ button, input, select, textarea {
   content: '';
   position: absolute;
   top: 0;
-  right: 0;
-  left: 0;
+  inset-inline: 0;
   height: 5px;
   background: var(--grad-amber);
 }
@@ -1152,8 +1150,8 @@ button, input, select, textarea {
   font-size: 0.95rem;
   color: var(--text-muted);
   font-style: italic;
-  border-right: 3px solid var(--amber-accent);
-  padding-right: 14px;
+  border-inline-start: 3px solid var(--amber-accent);
+  padding-inline-start: 14px;
   margin-top: 14px;
 }
 
@@ -1197,7 +1195,7 @@ button, input, select, textarea {
   font-weight: 700;
   color: #FFFFFF;
   direction: ltr;
-  text-align: right;
+  text-align: start;
   font-family: var(--font-numbers);
 }
 
@@ -1233,8 +1231,7 @@ button, input, select, textarea {
   content: '';
   position: absolute;
   top: 0;
-  right: 0;
-  left: 0;
+  inset-inline: 0;
   height: 4px;
   opacity: 0;
   transition: opacity var(--dur-base) ease;
@@ -1695,7 +1692,7 @@ button, input, select, textarea {
 .fleet-card__tag {
   position: absolute;
   top: 16px;
-  right: 16px;
+  inset-inline-end: 16px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -2089,7 +2086,7 @@ button, input, select, textarea {
 .form-label {
   position: absolute;
   top: 16px;
-  right: 18px;
+  inset-inline-start: 18px;
   font-size: 0.95rem;
   color: var(--text-muted);
   pointer-events: none;
@@ -2101,7 +2098,7 @@ button, input, select, textarea {
 .form-control:focus ~ .form-label,
 .form-control:not(:placeholder-shown) ~ .form-label {
   top: -10px;
-  right: 14px;
+  inset-inline-start: 14px;
   font-size: 0.775rem;
   font-weight: 700;
   color: var(--sky-blue);
@@ -2191,7 +2188,7 @@ button, input, select, textarea {
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
-  margin-right: 8px;
+  margin-inline-end: 8px;
   transition: all var(--dur-fast) ease;
 }
 .copy-phone-btn:hover {
@@ -2262,7 +2259,7 @@ button, input, select, textarea {
   content: '';
   position: absolute;
   bottom: 0;
-  right: 0;
+  inset-inline-start: 0;
   width: 32px;
   height: 2px;
   background: var(--amber-accent);
@@ -2365,7 +2362,7 @@ button, input, select, textarea {
 .floating-actions {
   position: fixed;
   bottom: 24px;
-  left: 24px;
+  inset-inline-end: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2418,7 +2415,7 @@ button, input, select, textarea {
 .back-to-top {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  inset-inline-start: 24px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -2518,7 +2515,7 @@ button, input, select, textarea {
 .modal-close-btn {
   position: absolute;
   top: 20px;
-  left: 20px;
+  inset-inline-end: 20px;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -2623,14 +2620,14 @@ button, input, select, textarea {
   width: min(560px, 70vw);
   height: min(560px, 70vw);
   top: -180px;
-  right: -140px;
+  inset-inline-end: -140px;
   background: radial-gradient(circle, rgba(52, 163, 111, 0.42) 0%, rgba(52, 163, 111, 0) 68%);
 }
 .food-hero__glow--amber {
   width: min(520px, 66vw);
   height: min(520px, 66vw);
   bottom: -220px;
-  left: -160px;
+  inset-inline-start: -160px;
   background: radial-gradient(circle, rgba(245, 158, 11, 0.32) 0%, rgba(245, 158, 11, 0) 68%);
 }
 
@@ -2821,11 +2818,11 @@ button, input, select, textarea {
   }
   .food-hero__chip--a {
     top: -18px;
-    right: -12px;
+  inset-inline-end: -12px;
   }
   .food-hero__chip--b {
     bottom: 74px;
-    left: -18px;
+  inset-inline-start: -18px;
     animation-delay: 1.6s;
   }
 }
@@ -3046,7 +3043,7 @@ button, input, select, textarea {
 .food-step__num {
   position: absolute;
   top: 16px;
-  left: 18px;
+  inset-inline-end: 18px;
   font-family: var(--font-numbers);
   font-size: 2.1rem;
   font-weight: 900;
@@ -3946,7 +3943,7 @@ button, input, select, textarea {
   backdrop-filter: blur(10px) saturate(150%);
   -webkit-backdrop-filter: blur(10px) saturate(150%);
   transition: all var(--dur-base) var(--ease-quint);
-  text-align: right;
+  text-align: start;
 }
 .food-cta__phone:hover {
   background: rgba(255, 255, 255, 0.16);
@@ -4586,4 +4583,131 @@ html[lang^="en"] .ks-label--fa {
   .js-pages .site-page.is-entering {
     animation: none !important;
   }
+}
+
+/* ==========================================================================
+   ۲۱. چندزبانه‌سازی (Multilingual) — سوییچر زبان و اصلاحات چپ‌به‌راست
+   چیدمان این فایل بر پایهٔ خصوصیت‌های منطقی (inline-start/end) است، پس در
+   زبان‌های چپ‌به‌راست (‎en, de, fr, tr, ru, zh, ko, ja‎) آینه‌وار درست کار می‌کند.
+   کارت اعتبار کارن سافت عمداً با dir="ltr" قفل شده تا نشان برند در سمت چپ بماند.
+   ========================================================================== */
+
+/* هاور لینک فوتر: در RTL به چپ و در LTR به راست می‌رود (به سمت انتهای خط) */
+[dir="ltr"] .footer__link:hover {
+  transform: translateX(4px);
+}
+
+/* ---- سوییچر زبان (بدون جاوااسکریپت، با <details>) ---- */
+.lang-switch {
+  position: relative;
+  margin-inline-start: 4px;
+}
+.lang-switch__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line-soft);
+  background: #FFFFFF;
+  color: var(--primary-navy);
+  font-family: var(--font-main);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  transition: all var(--dur-fast) ease;
+}
+.lang-switch__btn::-webkit-details-marker { display: none; }
+.lang-switch__btn:hover {
+  border-color: var(--sky-blue);
+  color: var(--sky-blue);
+}
+.lang-switch[open] .lang-switch__btn {
+  border-color: var(--sky-blue);
+  color: var(--sky-blue);
+}
+.lang-switch__code {
+  font-family: var(--font-numbers);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lang-switch__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  min-width: 210px;
+  max-height: min(70vh, 480px);
+  overflow-y: auto;
+  padding: 8px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line-soft);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-lg);
+  z-index: 1001;
+  display: grid;
+  gap: 2px;
+}
+.lang-switch__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background var(--dur-fast) ease;
+}
+.lang-switch__item:hover {
+  background: var(--surface-bg);
+  color: var(--primary-navy);
+}
+.lang-switch__item[aria-current="true"] {
+  background: rgba(14, 165, 233, 0.08);
+  color: var(--sky-blue);
+  font-weight: 800;
+}
+.lang-switch__name {
+  font-weight: 600;
+}
+.lang-switch__native {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+.lang-switch__item[aria-current="true"] .lang-switch__native {
+  color: var(--sky-blue);
+}
+/* در نوار موبایل جای کمتری می‌گیرد */
+@media (max-width: 640px) {
+  .lang-switch__btn { padding: 8px 10px; }
+  .lang-switch__label-text { display: none; }
+}
+
+/* ---- زبان‌های لاتین/سیریلیک: فونت بین‌المللی Inter ---- */
+/* این قاعده پیش از قاعده‌های CJK می‌آید تا چینی/کره‌ای/ژاپنی پشتهٔ خودشان را
+   بگیرند (هر دو سرصفحه هم‌ویژگی‌اند و قاعدهٔ بعدی برنده می‌شود). */
+html[dir="ltr"] {
+  --font-main: 'Inter', 'Vazirmatn', system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, sans-serif;
+  --font-numbers: 'Inter', system-ui, sans-serif;
+}
+/* در چیدمان چپ‌به‌راست، فاصلهٔ خط کمی جمع‌تر و اندازهٔ متن راحت‌تر است */
+html[dir="ltr"] {
+  line-height: 1.7;
+}
+
+/* ---- صفحه‌های غیرفارسی: فونت مناسب هر زبان ---- */
+/* چینی/کره‌ای/ژاپنی فونت دانلودی نمی‌گیرند (چند مگابایت می‌شود)؛ از فونت سیستم
+   استفاده می‌شود که روی همان سیستم‌عامل بومی خوانا و سبک است. */
+html[lang="zh"] {
+  --font-main: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+}
+html[lang="ko"] {
+  --font-main: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Source Han Sans KR', sans-serif;
+}
+html[lang="ja"] {
+  --font-main: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Source Han Sans JP', sans-serif;
 }
