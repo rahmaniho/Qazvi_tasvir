@@ -51,6 +51,9 @@
       root.className += ' js-pages';
       if (window.location.hash && window.location.hash.length > 1) {
         root.className += ' qt-deeplink';
+        // شبکهٔ امن: اگر روتر به هر دلیلی اجرا نشد (خطای جاوااسکریپت یا قطع
+        // فایل)، این کلاس برداشته می‌شود تا صفحهٔ اصلی نمایش داده شود، نه صفحهٔ خالی.
+        setTimeout(function () { root.classList.remove('qt-deeplink'); }, 2500);
       }
     })();
   </script>
