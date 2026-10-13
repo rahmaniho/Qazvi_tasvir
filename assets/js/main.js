@@ -614,4 +614,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
+  // ۱۴. اعتبار انیمیشنی «طراحی و توسعه: کارن سافت» در نوار پایین فوتر (KarenSoft Credit)
+  const ksCredit = document.getElementById('ks-credit');
+  if (ksCredit) {
+    const ksReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // کلیدهای ترجمه (i18n): fa = «طراحی و توسعه:» | en = "Designed & Developed by"
+    const KS_LABELS = {
+      fa: 'طراحی و توسعه:',
+      en: 'Designed & Developed by'
+    };
+    // زبان فعال سایت؛ fa پیش‌فرض است، در صورت تغییر به en برچسب انگلیسی جایگزین می‌شود
+    const ksLang = (document.documentElement.getAttribute('lang') || 'fa')
+      .toLowerCase().indexOf('en') === 0 ? 'en' : 'fa';
+    const ksActiveLabel = KS_LABELS[ksLang];
+
+    // هر کلمه در یک span جدا (هرگز حرف‌به‌حرف — شکستن حروف فارسی/عربی اتصال حروف را خراب می‌کند)
+    function ksSplitLabel(labelEl, delayBase) {
+      if (!labelEl) { return; }
+      const text = KS_LABELS[labelEl.getAttribute('lang') === 'en' ? 'en' : 'fa'];
+      labelEl.textContent = '';
+      text.split(' ').forEach((word, index) => {
+        const wordEl = document.createElement('span');
+        wordEl.className = 'ks-label__word ks-label-gradient';
+        wordEl.textContent = word;
+        wordEl.style.setProperty('--ks-delay', (delayBase + index * 0.12).toFixed(2) + 's');
+        labelEl.appendChild(wordEl);
+      });
+    }
+    ksSplitLabel(ksCredit.querySelector('.ks-label--fa'), 0.1);
+    ksSplitLabel(ksCredit.querySelector('.ks-label--en'), 0.1);
+
+    // نام‌گذاری دسترس‌پذیر پیوند + tooltip
+    const ksAriaLabel = ksActiveLabel + ' کارن سافت | KarenSoft — www.karen-soft.ir';
+    ksCredit.setAttribute('aria-label', ksAriaLabel);
+    ksCredit.setAttribute('title', ksAriaLabel);
+
+    // در حالت «کاهش موشن» هیچ انیمیشن پیوسته‌ای لازم نیست؛ لایه‌های تزئینی حذف می‌شوند
+    if (ksReduceMotion) {
+      ksCredit
+        .querySelectorAll('.ks-ring, .ks-shine, .ks-ripple, .ks-logo-ring, .ks-orbit, .ks-particle, .ks-text-shine-mask')
+        .forEach(el => el.remove());
+    }
+
+    // ورود پله‌ای فقط یک‌بار، وقتی دست‌کم نیمی از اعتبار دیده شود
+    if (ksReduceMotion || !('IntersectionObserver' in window)) {
+      ksCredit.classList.add('is-visible');
+    } else {
+      const ksObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      ksObserver.observe(ksCredit);
+    }
+  }
 });
+

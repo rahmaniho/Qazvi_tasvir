@@ -50,6 +50,9 @@
       .reveal { opacity: 1 !important; transform: none !important; }
       .fleet-card__img { opacity: 1 !important; }
       .fleet-card__media { animation: none !important; }
+      /* اعتبار کارن سافت بدون JS هم کامل و خوانا دیده می‌شود */
+      .ks-label__word, .ks-card-border, .ks-mark-img { opacity: 1 !important; transform: none !important; filter: none !important; }
+      .ks-wordmark--fa, .ks-wordmark--en { clip-path: none !important; }
     </style>
   </noscript>
 
@@ -2646,9 +2649,89 @@
 
       <!-- نوار پایینی و کپی‌رایت -->
       <div class="footer__bottom-bar">
-        <div>
+        <div class="footer__copyright">
           © کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / 2026
         </div>
+
+        <!-- اعتبار طراحی و توسعه: کارن سافت (انیمیشنی — لوگوی اصلی برند به صورت تصویر) -->
+        <a class="ks-credit"
+           id="ks-credit"
+           href="https://www.karen-soft.ir"
+           target="_blank"
+           rel="noopener noreferrer"
+           title="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir"
+           aria-label="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir">
+
+          <span class="ks-label ks-label--fa" lang="fa" dir="rtl">
+            <span class="ks-label__word ks-label-gradient">طراحی</span>
+            <span class="ks-label__word ks-label-gradient">و</span>
+            <span class="ks-label__word ks-label-gradient">توسعه:</span>
+          </span>
+          <span class="ks-label ks-label--en" lang="en" dir="ltr">
+            <span class="ks-label__word ks-label-gradient">Designed</span>
+            <span class="ks-label__word ks-label-gradient">&amp;</span>
+            <span class="ks-label__word ks-label-gradient">Developed</span>
+            <span class="ks-label__word ks-label-gradient">by</span>
+          </span>
+
+          <span class="ks-card-border">
+            <span class="ks-ring" aria-hidden="true"></span>
+
+            <span class="ks-card" dir="ltr">
+              <span class="ks-shine" aria-hidden="true"></span>
+
+              <span class="ks-logo-wrap">
+                <span class="ks-ripple" aria-hidden="true"></span>
+                <span class="ks-ripple ks-ripple--2" aria-hidden="true"></span>
+                <span class="ks-logo-ring" aria-hidden="true"></span>
+                <span class="ks-orbit" aria-hidden="true"><span class="ks-orbit__dot"></span></span>
+                <span class="ks-inner-bg" aria-hidden="true"></span>
+
+                <span class="ks-mark">
+                  <span class="ks-particle ks-particle--1" aria-hidden="true"></span>
+                  <span class="ks-particle ks-particle--2" aria-hidden="true"></span>
+                  <span class="ks-particle ks-particle--3" aria-hidden="true"></span>
+                  <span class="ks-particle ks-particle--4" aria-hidden="true"></span>
+                  <span class="ks-mark-img">
+                    <span class="ks-mark-spin">
+                      <img class="ks-float ks-mark-logo"
+                           src="assets/images/karensoft/mark.png"
+                           width="36" height="36"
+                           alt=""
+                           decoding="async"
+                           loading="lazy">
+                    </span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="ks-divider" aria-hidden="true"></span>
+
+              <span class="ks-wordmarks">
+                <span class="ks-wordmark ks-wordmark--fa">
+                  <img src="assets/images/karensoft/wordmark-fa.png"
+                       width="96" height="24"
+                       alt="کارن سافت"
+                       decoding="async"
+                       loading="lazy">
+                  <span class="ks-text-shine-mask" aria-hidden="true">
+                    <span class="ks-text-shine"></span>
+                  </span>
+                </span>
+                <span class="ks-wordmark ks-wordmark--en">
+                  <img src="assets/images/karensoft/wordmark-en.png"
+                       width="94" height="11"
+                       alt="KarenSoft"
+                       decoding="async"
+                       loading="lazy">
+                  <span class="ks-text-shine-mask" aria-hidden="true">
+                    <span class="ks-text-shine"></span>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </span>
+        </a>
 
         <div class="social-links">
           <a href="tel:+989122815189" class="social-link" title="تماس تلفنی" aria-label="تماس تلفنی با قزوین تصویر">
