@@ -4520,3 +4520,70 @@ html[lang^="en"] .ks-label--fa {
   background: none;
   box-shadow: none;
 }
+
+/* ==========================================================================
+   ۲۰. مسیریابی صفحه‌ها با هش (Hash Routing) و بهینه‌سازی نمایش هر بخش
+   کلاس js-pages در <head> و پیش از بارگذاری این فایل اضافه می‌شود؛ بنابراین
+   اولین رنگ‌آمیزی فقط صفحهٔ جاری را نشان می‌دهد و هیچ پرش محتوایی رخ نمی‌دهد.
+   بدون جاوااسکریپت این کلاس وجود ندارد و سایت مثل قبل یک صفحهٔ بلند است.
+
+   نکته: برای پنهان‌کردن، فقط صفحه‌های «غیرجاری» هدف گرفته می‌شوند تا مقدار
+   display صفحهٔ جاری هرگز بازنویسی نشود و چیدمان هر بخش دست‌نخورده بماند.
+   display:none خودش باعث می‌شود انیمیشن‌های بخش‌های پنهان اجرا نشوند.
+   ========================================================================== */
+.js-pages .site-page:not(.is-current) {
+  display: none;
+}
+/* صفحه‌ای که کاربر با لینک عمیق باز کرده تا اجرای روتر پنهان می‌ماند
+   (جلوگیری از نمایش لحظه‌ای صفحهٔ خانه و سپس پرش به صفحهٔ مقصد) */
+.js-pages.qt-deeplink .site-page {
+  display: none;
+}
+
+/* ورود نرم صفحه هنگام تعویض مسیر (فقط شفافیت؛ بدون transform تا عناصر
+   چسبان/ثابت داخل صفحه‌ها دست‌نخورده بمانند) */
+@keyframes page-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.js-pages .site-page.is-entering {
+  animation: page-enter 0.32s ease both;
+}
+
+/* تعویض صفحه باید بدون انیمیشن اسکرول انجام شود */
+.is-page-switching {
+  scroll-behavior: auto !important;
+}
+
+/* صفحهٔ جاری بعد از تغییر مسیر فوکوس می‌گیرد، ولی بدون حلقهٔ فوکوس؛ حلقهٔ
+   فوکوس برای عناصر تعاملی سر جای خودش می‌ماند. */
+.js-pages .site-page:focus,
+.js-pages .site-page:focus-visible {
+  outline: none;
+}
+
+/* ناحیهٔ اعلام مسیر برای صفحه‌خوان‌ها */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* لینک فعال منو در حالت مسیریابی هشی */
+.nav-menu__link[aria-current="page"],
+.mobile-drawer__link[aria-current="page"] {
+  font-weight: 800;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-pages .site-page.is-entering {
+    animation: none !important;
+  }
+}

@@ -2,22 +2,25 @@
 """
 Qazvin Tasvir brand-logo assets builder.
 
-The uploaded master artwork (assets/images/logo_qazvin_tasvir.jpg) is a JPEG:
-opaque, gold-on-black, with a white frame. Web pages here need the gold logo on
-transparent backgrounds (navy navbar chip, dark footer, favicon), so this script
-derives clean transparent PNGs from it — the brand fonts and gold colour are
-never re-drawn or re-typed.
+Master artwork (transparent, preferred):
+    assets/images/qazvin_tasvir.png   1254x1254 RGBA, alpha already present
 
-Source layout (1512x1512), top to bottom:
-    y=0..27      white frame
-    y=133..711   gold "Q" / "O" monogram with the pixel-trail arrow
-    y=743..930   «شرکت قزوین تصویر»
-    y=968..1040  ornamental divider
-    y=1060..1209 "QAZVIN TASVIR CO."
-    y=1502..1511 stray mark at the bottom edge
+Legacy master (kept as a fallback):
+    assets/images/logo_qazvin_tasvir.jpg   1512x1512, opaque gold-on-black JPEG
+
+The JPEG is opaque, so its transparency has to be recovered; the PNG already has
+a real alpha channel and is simply used as-is. Either way this script only crops
+and rescales — the brand fonts and gold colour are never re-drawn or re-typed.
+
+Source layout (identical stacking in both masters), top to bottom:
+    gold "Q" monogram with the pixel-trail arrow
+    «شرکت قزوین تصویر»
+    ornamental divider
+    "QAZVIN TASVIR CO."
 
 Outputs (assets/images/brand/):
-    qazvin-tasvir-mark.png       256x256  transparent, square-padded monogram
+    qazvin-tasvir-mark.png       160x160  transparent, square-padded monogram
+                                          (displayed at 38-44px → ~3.6x DPI headroom)
     qazvin-tasvir-lockup.png     full stacked lockup, transparent, height 512
     qazvin-tasvir-favicon.png    512x512  gold mark on the brand navy chip
     qazvin-tasvir-apple-touch.png 180x180 same chip at apple-touch-icon size
@@ -41,17 +44,20 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC_DEFAULT = ROOT / "assets" / "images" / "logo_qazvin_tasvir.jpg"
+SRC_PNG = ROOT / "assets" / "images" / "qazvin_tasvir.png"
+SRC_JPG = ROOT / "assets" / "images" / "logo_qazvin_tasvir.jpg"
 OUT_DIR = ROOT / "assets" / "images" / "brand"
 
 LUM_LO, LUM_HI = 10, 50      # luminance ramp that becomes the alpha channel
 ALPHA_FLOOR = 20             # below this alpha the pixel is treated as background
 EDGE_GAMMA = 0.75            # speeds up the anti-aliased edge ramp (crisper gold)
 
-# Documented fallback rows (inclusive) in the 1512x1512 master
+# Documented fallback rows (inclusive), measured in both masters:
+#   qazvin_tasvir.png (1254px):  mark 85..604,  lockup 85..1053
+#   logo_qazvin_tasvir.jpg:      mark 120..725, lockup 120..1215
 FALLBACK = {
-    "mark": (120, 725),
-    "lockup": (120, 1215),
+    "mark": (85, 604),
+    "lockup": (85, 1053),
 }
 
 
@@ -124,13 +130,28 @@ def pad_square(img: Image.Image, margin_ratio: float = 0.04) -> Image.Image:
     return canvas
 
 
+def has_alpha(img: Image.Image) -> bool:
+    """True when the file ships a real alpha channel (some pixel is see-through)."""
+    if img.mode not in ("RGBA", "LA", "PA"):
+        return False
+    return img.convert("RGBA").getchannel("A").getextrema()[0] < 250
+
+
 def main() -> None:
-    src = Path(sys.argv[1]) if len(sys.argv) > 1 else SRC_DEFAULT
+    if len(sys.argv) > 1:
+        src = Path(sys.argv[1])
+    else:
+        src = SRC_PNG if SRC_PNG.exists() else SRC_JPG
     if not src.exists():
         raise SystemExit(f"master logo not found: {src}")
 
     master = Image.open(src)
-    transparent = black_to_alpha(master)
+    if has_alpha(master):
+        transparent = master.convert("RGBA")
+        print(f"source: {src.name} (real alpha channel — used as-is)")
+    else:
+        transparent = black_to_alpha(master)
+        print(f"source: {src.name} (opaque JPEG — alpha recovered from luminance)")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     bands = find_bands(transparent)
@@ -147,7 +168,9 @@ def main() -> None:
     mark = trim(transparent.crop((0, mark_band[0] - 8, w, mark_bottom + 8)))
 
     mark_sq = pad_square(mark)
-    mark_256 = mark_sq.resize((256, 256), Image.LANCZOS)
+    # 160px is deliberate: the mark is rendered at 38-44px CSS, so this keeps
+    # ~3.6x DPI headroom while staying ~26 KB instead of 53 KB on every page load.
+    mark_160 = mark_sq.resize((160, 160), Image.LANCZOS)
     lockup_h512 = lockup.resize(
         (max(1, round(lockup.width * 512 / lockup.height)), 512), Image.LANCZOS
     )
@@ -177,7 +200,7 @@ def main() -> None:
         return out
 
     for name, img in (
-        ("qazvin-tasvir-mark", mark_256),
+        ("qazvin-tasvir-mark", mark_160),
         ("qazvin-tasvir-lockup", lockup_h512),
         ("qazvin-tasvir-favicon", chip(512)),
         ("qazvin-tasvir-apple-touch", chip(180)),

@@ -31,21 +31,18 @@ LOCKUP_WIDTH = 292          # leaves ~44px of breathing room on each side
 SAMPLE_X = 3                # a column that is always matte
 
 
-def matte_rows(img: Image.Image) -> None:
-    """Report the empty band so a swapped-out artwork fails loudly, not silently."""
+def photo_left_edge(img: Image.Image) -> int:
+    """First column that differs from the empty navy matte."""
     px = img.load()
     w, h = img.size
     tol = 14
-    photo_left = None
     for x in range(w):
-        matte = px[SAMPLE_X, 0]
         if any(
             any(abs(px[x, y][c] - px[SAMPLE_X, y][c]) > tol for c in range(3))
             for y in range(0, h, 3)
         ):
-            photo_left = x
-            break
-    print(f"  artwork {w}x{h}; first non-matte column: {photo_left}")
+            return x
+    return w
 
 
 def main() -> None:
@@ -56,8 +53,18 @@ def main() -> None:
 
     check_only = "--check" in sys.argv
     base = Image.open(OG).convert("RGB")
-    print("before:")
-    matte_rows(base)
+    edge = photo_left_edge(base)
+    print(f"  artwork {base.width}x{base.height}; empty matte band ends at x={edge}")
+
+    # Idempotency guard: the artwork must still have an untouched empty band,
+    # otherwise a second run would stamp a second logo on top of the first.
+    if edge < FREE_BAND[2] - 40:
+        raise SystemExit(
+            f"the free band is already occupied (x={edge}).\n"
+            "Restore the untouched artwork first, e.g.:\n"
+            "  git checkout origin/main -- assets/images/og-image.jpg\n"
+            "  python3 tools/brand-og-image.py"
+        )
 
     lockup = Image.open(LOCKUP)
     target_w = LOCKUP_WIDTH

@@ -93,27 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ۳. اسکرول‌اسپای و لینک فعال منو (Scrollspy)
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-menu__link');
-
-  function updateActiveNavLink() {
-    const scrollY = window.scrollY + 120;
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-      if (scrollY >= top && scrollY < top + height) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }
-  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+  // ۳. (حذف شد) اسکرول‌اسپای — با مسیریابی هشی، هر بخش صفحهٔ مستقل خودش را دارد و
+  // لینک فعال منو توسط روتر (بخش ۱۵) بر اساس صفحهٔ جاری تعیین می‌شود. این کار یک
+  // شنوندهٔ scroll سراسری را هم حذف می‌کند.
 
   // ۴. انیمیشن ورود بخش‌ها با Intersection Observer
   const revealElements = document.querySelectorAll('.reveal');
@@ -672,5 +654,209 @@ document.addEventListener('DOMContentLoaded', () => {
       ksObserver.observe(ksCredit);
     }
   }
-});
 
+  // ۱۵. مسیریابی صفحه‌ها با هش (Hash Router)
+  // ---------------------------------------------------------------------------
+  // هر بخش اصلی سایت یک «صفحه»ی مستقل است و با هش آدرس (#services و…) نمایش
+  // داده می‌شود. بدون جاوااسکریپت کلاس js-pages اضافه نمی‌شود و همهٔ بخش‌ها مثل
+  // قبل به‌صورت یک صفحهٔ بلند دیده می‌شوند؛ پس این تغییر کاملاً تدریجی است.
+  //
+  // بهینه‌سازی‌هایی که همین ساختار به همراه دارد:
+  //   • فقط صفحهٔ جاری در چیدمان شرکت می‌کند؛ بخش‌های پنهان (display:none) نه
+  //     نقاشی می‌شوند و نه انیمیشن‌هایشان اجرا می‌شود.
+  //   • تصاویر بخش‌های دیده‌نشده (loading="lazy") تا لحظهٔ ورود به آن صفحه دانلود
+  //     نمی‌شوند؛ صفحهٔ غذا با ۱۰ تصویر سنگین‌ترین بخش سایت است.
+  //   • عنوان و توضیحات متای صفحه با هر مسیر به‌روز می‌شود.
+  const pageEls = Array.from(document.querySelectorAll('.site-page'));
+  if (pageEls.length) {
+    const HOME_PAGE = pageEls[0];               // #hero نخستین صفحه است
+    const BASE_TITLE = document.title;
+    const BASE_DESCRIPTION = (document.querySelector('meta[name="description"]') || {}).content || '';
+
+    // عنوان و توضیح هر مسیر (بر اساس تیتر همان بخش)
+    const ROUTE_META = {
+      hero: {
+        title: BASE_TITLE,
+        desc: BASE_DESCRIPTION
+      },
+      about: {
+        title: 'درباره شرکت قزوین تصویر | بیش از ۳۱ سال بازرگانی، ترابری و تأمین غذای پرسنل',
+        desc: 'شرکت قزوین تصویر (با مسئولیت محدود — تأسیس ۱۳۷۴) به مدیریت سعید امین‌زاده؛ بازرگانی، واردات و صادرات، ترابری پرسنل صنایع و تأمین غذای سازمانی.'
+      },
+      services: {
+        title: 'خدمات تخصصی | بازرگانی، ترخیص گمرکی، ترابری و غذای پرسنل — قزوین تصویر',
+        desc: 'واردات و صادرات کالاهای مجاز، ترخیص گمرکی و امور بندری، تأمین مواد اولیه، ترابری پرسنل کارخانجات و تأمین غذای سازمانی.'
+      },
+      fleet: {
+        title: 'ناوگان ترابری | اتوبوس، مینی‌بوس و ون سرویس پرسنل — قزوین تصویر',
+        desc: 'ناوگان ملکی اتوبوس، مینی‌بوس و ون با بیمه کامل سرنشین برای سرویس ایاب‌وذهاب پرسنل کارخانه‌ها، ادارات و مدارس استان قزوین.'
+      },
+      'personnel-food': {
+        title: 'تأمین غذای پرسنل و کیترینگ سازمانی | صبحانه، ناهار، شام — قزوین تصویر',
+        desc: 'تأمین غذای پرسنل کارخانه‌ها و شرکت‌ها با منوی متنوع، استانداردهای بهداشتی HACCP و توزیع در محل؛ درخواست قرارداد و دریافت پیش‌فاکتور.'
+      },
+      brands: {
+        title: 'برندهای همکار ناوگان | اسکانیا، ولوو، مرسدس بنز و ایویکو — قزوین تصویر',
+        desc: 'ناوگان قزوین تصویر از برندهای اسکانیا، ولوو، مرسدس بنز، ایویکو و ایران خودرو دیزل تشکیل شده است.'
+      },
+      'why-us': {
+        title: 'چرا قزوین تصویر؟ | ۳۱+ سال سابقه، ناوگان ملکی و پشتیبانی ۲۴/۷',
+        desc: 'سابقه از ۱۳۷۴، مدیریت سعید امین‌زاده، ناوگان ملکی مجهز، شبکه تأمین داخلی و خارجی، قراردادهای منعطف و رضایت بالای مشتریان.'
+      },
+      clients: {
+        title: 'مشتریان و همکاران تجاری | سابقه همکاری با برندهای شاخص صنعتی',
+        desc: 'برندهای شاخص صنعتی و تجاری که در بیش از سه دهه با شرکت قزوین تصویر همکاری کرده‌اند.'
+      },
+      trust: {
+        title: 'اعتبار و اطلاعات ثبتی | شناسه ملی ۱۰۸۶۱۴۱۵۲۱۵ — قزوین تصویر',
+        desc: 'شناسه ملی ۱۰۸۶۱۴۱۵۲۱۵، شماره ثبت ۲۷۴۹، کد اقتصادی ۴۱۱۳۸۶۸۳۷۶۶۵ و تاریخ تأسیس ۱۳۷۴/۰۲/۱۴؛ اطلاعات قابل استعلام شرکت قزوین تصویر.'
+      },
+      contact: {
+        title: 'تماس با قزوین تصویر | درخواست مشاوره، استعلام قیمت و عقد قرارداد',
+        desc: 'تماس مستقیم ۰۹۱۲ ۲۸۱ ۵۱۸۹، واتساپ و فرم درخواست مشاوره رایگان؛ قزوین، اول خیابان فردوسی، مجتمع آبادگران، طبقه ۶، اتاق ۶۰۴.'
+      }
+    };
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    // لینک‌های منو (دسکتاپ، موبایل و فوتر) صفحهٔ جاری را نشان می‌دهند؛ لینک‌های
+    // لنگرِ داخلی (مثل #food-menu که داخل صفحهٔ غذاست) هیچ‌وقت با شناسهٔ یک صفحه
+    // یکی نمی‌شوند، پس وضعیت اشتباه نمی‌گیرند.
+    const menuLinks = Array.from(
+      document.querySelectorAll('.nav-menu__link, .mobile-drawer__link, .footer__link')
+    );
+
+    // اعلام تغییر صفحه برای صفحه‌خوان‌ها
+    let liveRegion = document.getElementById('route-announcer');
+    if (!liveRegion) {
+      liveRegion = document.createElement('p');
+      liveRegion.id = 'route-announcer';
+      liveRegion.className = 'visually-hidden';
+      liveRegion.setAttribute('role', 'status');
+      liveRegion.setAttribute('aria-live', 'polite');
+      document.body.appendChild(liveRegion);
+    }
+
+    // هر صفحه یک بار tabindex می‌گیرد تا بتوان فوکوس را به آن منتقل کرد
+    pageEls.forEach(page => {
+      if (!page.hasAttribute('tabindex')) page.setAttribute('tabindex', '-1');
+    });
+
+    function currentHash() {
+      // بدون علامت # و با رمزگشایی درصدی (مثلاً %D8%B4 برای حروف فارسی)
+      return decodeURIComponent(window.location.hash.replace(/^#/, ''));
+    }
+
+    // هدف هش را به صفحهٔ مربوطه تبدیل می‌کند (لنگرهای داخلی به صفحهٔ والد می‌رسند)
+    function resolveRoute(hash) {
+      if (!hash) return { page: HOME_PAGE, target: null };
+      const el = document.getElementById(hash);
+      if (!el) return { page: HOME_PAGE, target: null };
+      const page = el.closest('.site-page');
+      return { page: page || null, target: el };
+    }
+
+    function setActiveMenuLink(page) {
+      menuLinks.forEach(link => {
+        const isCurrent = link.getAttribute('href') === '#' + page.id;
+        link.classList.toggle('active', isCurrent);
+        if (isCurrent) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let currentPage = null;
+
+    function scrollToTarget(target) {
+      if (!target || target === document.getElementById('main-content')) return;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 90; // ارتفاع هدر چسبان
+      window.scrollTo({ top: top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    }
+
+    function showRoute(hash, options) {
+      const opts = options || {};
+      const route = resolveRoute(hash);
+      const page = route.page || (route.target ? currentPage : HOME_PAGE);
+
+      // پرش فوری به بالا؛ انیمیشن اسکرول نرم برای تعویض صفحه مطلوب نیست
+      document.documentElement.classList.add('is-page-switching');
+
+      if (page && page !== currentPage) {
+        pageEls.forEach(el => el.classList.remove('is-current'));
+        page.classList.add('is-current');
+        currentPage = page;
+
+        const meta = ROUTE_META[page.id] || { title: BASE_TITLE, desc: BASE_DESCRIPTION };
+        document.title = meta.title;
+        if (metaDescription && meta.desc) metaDescription.setAttribute('content', meta.desc);
+
+        // انیمیشن ورود صفحه (با احترام به کاهش حرکت)
+        if (!prefersReducedMotion) {
+          page.classList.remove('is-entering');
+          void page.offsetWidth;             // ری‌استارت انیمیشن
+          page.classList.add('is-entering');
+        }
+      }
+
+      setActiveMenuLink(page || HOME_PAGE);
+
+      if (opts.target && opts.target !== page) {
+        // لنگر داخلی همان صفحه: فقط تا همان بخش اسکرول می‌کنیم
+        requestAnimationFrame(() => scrollToTarget(opts.target));
+      } else {
+        window.scrollTo(0, 0);            // تعویض صفحه: همیشه از بالای صفحه شروع می‌شود
+      }
+
+      window.requestAnimationFrame(() => {
+        document.documentElement.classList.remove('is-page-switching');
+      });
+
+      // انتقال فوکوس به صفحهٔ جدید + اعلام برای صفحه‌خوان
+      if (page && opts.moveFocus) {
+        page.focus({ preventScroll: true });
+        const heading = page.querySelector('h1, h2');
+        liveRegion.textContent = (heading ? heading.textContent : page.getAttribute('aria-label') || '') .trim();
+      }
+    }
+
+    // مسیر اولیه: کلاس js-pages در <head> اضافه شده تا پیش از اولین رنگ‌آمیزی
+    // بخش‌های غیرجاری پنهان بمانند (بدون پرش محتوا)
+    function routeFromHash(options) {
+      const hash = currentHash();
+      showRoute(hash, Object.assign({ target: hash ? document.getElementById(hash) : null }, options));
+    }
+
+    window.addEventListener('hashchange', () => {
+      const hash = currentHash();
+      const target = hash ? document.getElementById(hash) : null;
+      showRoute(hash, { target: target, moveFocus: true });
+    });
+
+    // کلیک روی لینکی که هش آن با هش فعلی یکی است، رویداد hashchange تولید
+    // نمی‌کند؛ در این حالت کاربر انتظار دارد به بالای همان صفحه برگردد.
+    document.addEventListener('click', event => {
+      const link = event.target.closest ? event.target.closest('a[href^="#"]') : null;
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (href === '#' || href === '#main-content') return;   // لینک پرش به محتوا
+      if (href === window.location.hash) {
+        event.preventDefault();
+        const target = document.getElementById(href.slice(1));
+        const page = target ? target.closest('.site-page') : null;
+        if (target && page && page !== target) {
+          scrollToTarget(target);
+        } else {
+          window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        }
+      }
+    });
+
+    // فعال‌سازی مسیر جاری؛ اگر کاربر روی لینک عمیق آمده باشد، پیش از این لحظه
+    // همهٔ صفحه‌ها پنهان بودند (کلاس qt-deeplink در <head>)
+    routeFromHash({ moveFocus: false });
+    document.documentElement.classList.remove('qt-deeplink');
+  }
+});
