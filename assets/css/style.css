@@ -102,12 +102,19 @@ html {
   line-height: 1.8;
   color: var(--text-primary);
   background-color: var(--surface-bg);
-  direction: rtl;
+  direction: rtl;                     /* پیش‌فرض: فارسی/دری/عربی */
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* جهت صفحه باید از ویژگی dir خودِ سند پیروی کند.
+   نکتهٔ مهم: در CSS، قاعدهٔ مؤلف بر ویژگی dir غلبه می‌کند؛ پس بدون این دو
+   قاعده، صفحهٔ انگلیسی (dir="ltr") هم راست‌به‌چپ چیده می‌شد: ترازها آینه‌ای،
+   اعداد و متن‌های ترکیبی جابه‌جا و کل چیدمان برعکس. */
+html[dir="ltr"] { direction: ltr; }
+html[dir="rtl"] { direction: rtl; }
 
 body {
   overflow-x: hidden;
@@ -2115,6 +2122,11 @@ button, input, select, textarea {
   background-size: 18px;
 }
 
+/* فلش سلکت در چیدمان چپ‌به‌راست باید سمت راست بنشیند (معادل منطقی left) */
+[dir="ltr"] .form-select {
+  background-position: right 16px center;
+}
+
 .form-feedback {
   font-size: 0.8125rem;
   margin-top: 6px;
@@ -2949,6 +2961,11 @@ button, input, select, textarea {
   transform-origin: right center;
   transition: transform var(--dur-slow) var(--ease-quint);
 }
+/* زیرخط کارت از سمت «شروع» رشد می‌کند: راست در RTL، چپ در LTR */
+[dir="ltr"] .food-benefit::after {
+  transform-origin: left center;
+}
+
 .food-benefit:hover {
   transform: translateY(-6px);
   box-shadow: var(--food-shadow-md);
@@ -3119,6 +3136,10 @@ button, input, select, textarea {
   inset: 0;
   background: linear-gradient(to right, rgba(11, 59, 46, 0.6) 0%, rgba(11, 59, 46, 0) 55%);
   pointer-events: none;
+}
+/* همان پوشش تیره، آینه‌شده برای صفحه‌های چپ‌به‌راست */
+[dir="ltr"] .food-menu__header-media::after {
+  background: linear-gradient(to left, rgba(11, 59, 46, 0.6) 0%, rgba(11, 59, 46, 0) 55%);
 }
 @media (max-width: 899px) {
   .food-menu__header-media::after {
@@ -4680,6 +4701,41 @@ html[lang^="en"] .ks-label--fa {
 .lang-switch__item[aria-current="true"] .lang-switch__native {
   color: var(--sky-blue);
 }
+/* نامِ هر زبان در خط خودش جداسازی دوجهته (bidi) می‌شود تا «فارسی English»
+   در کنار هم به‌هم نریزد. */
+.lang-switch__name,
+.lang-switch__native { unicode-bidi: isolate; }
+
+/* ---- سوییچر در منوی موبایل: ردیفی از نشان‌ها (chip) ---- */
+.lang-switch--drawer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 2px;
+}
+.lang-switch--drawer .lang-switch__item {
+  padding: 7px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.lang-switch--drawer .lang-switch__item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--amber-light);
+}
+.lang-switch--drawer .lang-switch__item[aria-current="true"] {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: var(--amber-accent);
+  color: var(--amber-light);
+  font-weight: 800;
+}
+
 /* در نوار موبایل جای کمتری می‌گیرد */
 @media (max-width: 640px) {
   .lang-switch__btn { padding: 8px 10px; }
