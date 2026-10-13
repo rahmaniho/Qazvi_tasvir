@@ -862,3 +862,29 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.remove('qt-deeplink');
   }
 });
+
+/* پارالاکس ملایم عکس‌های باند تصویری (فقط وقتی کاهش موشن غیرفعال است) */
+(function () {
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const bands = Array.prototype.slice.call(document.querySelectorAll('.photo-band'));
+  if (reduceMotion || !bands.length) return;
+  let ticking = false;
+  function updateParallax() {
+    const vh = window.innerHeight;
+    bands.forEach(function (band) {
+      const r = band.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const p = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+      band.style.setProperty('--py', (p * -24).toFixed(1) + 'px');
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateParallax);
+    }
+  }, { passive: true });
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+})();

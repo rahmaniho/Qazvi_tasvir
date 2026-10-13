@@ -42,10 +42,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/brand/qazvin-tasvir-apple-touch.png">
   <meta name="theme-color" content="#0A2540">
 
-  <!-- Google Fonts Preconnect & Fonts (Vazirmatn & Inter) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- فونت‌های محلی (بدون وابستگی به CDN خارجی) -->
+  <link rel="preload" href="../assets/fonts/vazirmatn-arabic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- مسیریابی هشی: پیش از بارگذاری CSS مشخص می‌کنیم که صفحه‌ها با هش جدا می‌شوند
        تا در اولین رنگ‌آمیزی تنها یک صفحه دیده شود (بدون پرش محتوا).
@@ -87,7 +85,7 @@
         "LocalBusiness"
     ],
     "name": "Qazvin Tasvir Company",
-    "alternateName": "Qazvin Tasvir",
+    "alternateName": "Qazvin Tasvir Company",
     "url": "https://qazvintasvir.ir",
     "logo": "https://qazvintasvir.ir/assets/images/brand/qazvin-tasvir-favicon.png",
     "image": "https://qazvintasvir.ir/assets/images/og-image.svg",
@@ -104,7 +102,7 @@
         {
             "@type": "Person",
             "name": "Saeed Aminzadeh",
-            "jobTitle": "CEO and board member"
+            "jobTitle": "CEO and Board Member"
         },
         {
             "@type": "Person",
@@ -159,7 +157,7 @@
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
-                    "name": "Trading, import and export",
+                    "name": "Trading, Import and Export",
                     "description": "Sourcing goods, customs clearance and port operations, international freight and opening letters of credit (LC)."
                 }
             },
@@ -343,39 +341,6 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ========================================================================
-       ۴.۱ نوار بالایی (Top Utility Bar)
-       ======================================================================== -->
-  <header class="top-bar" aria-label="Quick contact and registration details">
-    <div class="container">
-      <div class="top-bar__inner">
-        <!-- راست (RTL): آیکون تلفن + شماره مستقیم -->
-        <div class="top-bar__right">
-          <a href="tel:+989122815189" class="top-bar__phone-link" title="Call us directly on 0912 281 5189" aria-label="Call 09122815189">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>0912 281 5189</span>
-          </a>
-          <button type="button" class="copy-phone-btn" data-copy-phone aria-label="Copy the official phone number">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>Copy number</button>
-        </div>
-
-        <!-- چپ (RTL): بج طلایی سابقه و وضعیت -->
-        <div class="top-bar__left">
-          <span class="top-bar__badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>More than 31 years of experience serving the country's industry (founded 1995)</span>
-          <span class="top-bar__meta-item">National ID: 10861415215</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ========================================================================
        ۴.۲ هدر چسبان (Sticky Navbar)
        ======================================================================== -->
   <nav class="navbar" aria-label="Main navigation menu">
@@ -392,7 +357,7 @@
                  decoding="async">
           </div>
           <div class="brand-logo__text">
-            <span class="brand-logo__title">Qazvin Tasvir</span>
+            <span class="brand-logo__title">Qazvin Tasvir Company</span>
             <span class="brand-logo__subtitle">Trading • Transport • Staff Catering</span>
           </div>
         </a>
@@ -525,6 +490,13 @@
          ۴.۳ بخش قهرمان (Hero Section)
          ====================================================================== -->
     <section id="hero" class="site-page is-current hero" aria-label="Qazvin Tasvir — main introduction">
+      <!-- تصویر پس‌زمینهٔ هیرو (تزئینی) -->
+      <div class="hero__photo" aria-hidden="true">
+        <picture>
+<source srcset="assets/img/sections/hero-port.webp" type="image/webp">
+<img src="../assets/img/sections/hero-port.jpg" alt="" width="1536" height="1024" loading="eager" decoding="async" fetchpriority="high">
+</picture>
+      </div>
       <!-- هاله‌های نوری پس‌زمینه و گرید نقطه‌ای -->
       <div class="hero__glow-top" aria-hidden="true"></div>
       <div class="hero__glow-bottom" aria-hidden="true"></div>
@@ -608,7 +580,7 @@
                          loading="lazy" decoding="async">
                   </div>
                   <div>
-                    <div style="font-weight: 800; font-size: 1rem; color: #FFFFFF;">Qazvin Tasvir</div>
+                    <div style="font-weight: 800; font-size: 1rem; color: #FFFFFF;">Qazvin Tasvir Company</div>
                     <div style="font-size: 0.75rem; color: #94A3B8;">National ID: 10861415215</div>
                   </div>
                 </div>
@@ -785,16 +757,24 @@
           </div>
         </div>
       </div>
-    </section>
+    
+      <!-- باند تصویری بین درباره و خدمات (تزئینی) -->
+      <div class="photo-band reveal" aria-hidden="true">
+        <picture>
+<source srcset="assets/img/sections/about-office.webp" type="image/webp">
+<img src="../assets/img/sections/about-office.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+</picture>
+    </div>
+  </section>
 
     <!-- ======================================================================
          ۴.۵ بخش خدمات (Services Section) — قلب لندینگ
          ====================================================================== -->
-    <section id="services" class="site-page section" aria-label="Qazvin Tasvir specialist services">
+    <section id="services" class="site-page section" aria-label="Specialized Services of Qazvin Tasvir">
       <div class="container">
         <div class="section-header reveal">
           <div class="section-label section-label--sky">
-            <span>Our Specialist Services</span>
+            <span>Our Specialized Services</span>
           </div>
           <h2 class="section-title">Two integrated solutions for your business growth</h2>
           <p class="section-desc">Comprehensive coverage of the trading and corporate transport chain, matched to the modern needs of industries and commercial companies</p>
@@ -803,6 +783,12 @@
         <div class="services__grid">
           <!-- کارت ۱: بازرگانی، واردات و صادرات -->
           <article class="service-card service-card--trade reveal">
+              <div class="service-card__media" aria-hidden="true">
+                <picture>
+<source srcset="assets/img/sections/trade-customs.webp" type="image/webp">
+<img src="../assets/img/sections/trade-customs.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+</picture>
+              </div>
             <div>
               <div class="service-card__icon-wrap">
                 <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -863,6 +849,12 @@
 
           <!-- کارت ۲: ترابری و سرویس پرسنل -->
           <article class="service-card service-card--transport reveal">
+              <div class="service-card__media" aria-hidden="true">
+                <picture>
+<source srcset="assets/images/bus-fleet.webp" type="image/webp">
+<img src="../assets/images/bus-fleet.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async">
+</picture>
+              </div>
             <div>
               <div class="service-card__icon-wrap">
                 <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1100,6 +1092,13 @@
          ۴.۸ بخش چرا ما (Why Us Section)
          ====================================================================== -->
     <section id="why-us" class="site-page section section--alt" aria-label="Benefits of working with Qazvin Tasvir">
+      <!-- نوار تصویری بالای بخش مزایا (تزئینی) -->
+      <div class="why-banner reveal" aria-hidden="true">
+        <picture>
+<source srcset="assets/img/sections/why-banner.webp" type="image/webp">
+<img src="../assets/img/sections/why-banner.jpg" alt="" width="1600" height="718" loading="lazy" decoding="async">
+</picture>
+      </div>
       <div class="container">
         <div class="section-header reveal">
           <div class="section-label">
@@ -2374,7 +2373,7 @@
                 <select id="contact-service" class="form-control form-select">
                   <option value="both">Both fields (trading and transport)</option>
                   <option value="trade">Trading, import and export and customs clearance</option>
-                  <option value="transport">Transport and staff shuttle services</option>
+                  <option value="transport">Transport and Staff Shuttle Services</option>
                   <option value="consultation">Specialist advice and foreign-exchange matters</option>
                 </select>
                 <label for="contact-service" class="form-label" style="top: -10px; right: 14px; font-size: 0.775rem; font-weight: 700; color: var(--sky-blue); background: #FFFFFF;">Service required</label>
@@ -2399,6 +2398,12 @@
 
           <!-- اطلاعات تماس و کارت آدرس -->
           <div class="contact-info-card reveal">
+            <div class="contact-info-card__media" aria-hidden="true">
+              <picture>
+<source srcset="assets/img/sections/contact-city.webp" type="image/webp">
+<img src="../assets/img/sections/contact-city.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+</picture>
+            </div>
             <div class="contact-detail-box">
               <!-- تلفن رسمی -->
               <div class="contact-detail-box__item">
@@ -2514,7 +2519,7 @@
             <li><a href="#personnel-food" class="footer__link">Staff catering</a></li>
             <li><a href="#food-menu" class="footer__link">Corporate meal menu</a></li>
             <li><a href="#food-request" class="footer__link">Request a catering contract</a></li>
-            <li><a href="#brands" class="footer__link">Partner brands</a></li>
+            <li><a href="#brands" class="footer__link">Partner Brands</a></li>
             <li><a href="#why-us" class="footer__link">Why Qazvin Tasvir?</a></li>
             <li><a href="#trust" class="footer__link">Credentials and registration details</a></li>
             <li><a href="#contact" class="footer__link">Contact Us</a></li>
