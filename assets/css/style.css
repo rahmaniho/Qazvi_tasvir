@@ -1258,6 +1258,113 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
+   ۹.۱ کارت‌های جمع‌وجور بخش خدمات (Services Mini Cards)
+   -------------------------------------------------------------------------- */
+.services-cards__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .services-cards__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.service-mini-card__media {
+  margin: -32px -28px 8px;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.service-mini-card__media picture,
+.service-mini-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.service-mini-card__media img {
+  transition: transform var(--dur-slow) var(--ease-quint);
+}
+.service-mini-card:hover .service-mini-card__media img {
+  transform: scale(1.05);
+}
+
+.service-mini-card {
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xl);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-md);
+  transition: all var(--dur-slow) var(--ease-quint);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+}
+
+.service-mini-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 4px;
+  background: var(--grad-sky);
+  opacity: 0;
+  transition: opacity var(--dur-base) ease;
+}
+
+.service-mini-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(14, 165, 233, 0.35);
+}
+
+.service-mini-card:hover::before {
+  opacity: 1;
+}
+
+.service-mini-card__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 165, 233, 0.12);
+  color: var(--sky-blue);
+  margin-bottom: 6px;
+}
+
+.service-mini-card__title {
+  font-size: 1.25rem;
+  color: var(--primary-navy);
+  margin: 0;
+}
+
+.service-mini-card__desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0;
+  min-height: 3em;
+}
+
+.service-mini-card__btn {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.services__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* --------------------------------------------------------------------------
    ۱۰. بخش چرا ما (Why Us Section)
    -------------------------------------------------------------------------- */
 .why-us__grid {
