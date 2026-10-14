@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 480,
+  "count": 476,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -442,140 +442,114 @@
       "ctx": "span.div.registry-item-mini"
     },
     "services.001": {
-      "fa": "خدمات تخصصی قزوین تصویر",
+      "fa": "خدمات شرکت قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "div.section.site-page.section"
     },
     "services.002": {
-      "fa": "خدمات تخصصی ما",
+      "fa": "خدمات ما",
       "kind": "text",
       "ctx": "div.section.site-page.section"
     },
     "services.003": {
-      "fa": "دو راهکار یکپارچه برای رشد کسب‌وکار شما",
+      "fa": "خدمات تخصصی قزوین تصویر",
       "kind": "text",
       "ctx": "h2.div.section-header.reveal"
     },
     "services.004": {
-      "fa": "پوشش جامع زنجیره بازرگانی و ترابری سازمانی؛ متناسب با نیازهای مدرن صنایع و شرکت‌های تجاری",
+      "fa": "چهار حوزه اصلی فعالیت شرکت: ترابری و سرویس مسافربری، تهیه و پخش غذا، واردات و صادرات و خرید و فروش کالاهای مجاز",
       "kind": "text",
       "ctx": "p.div.section-header.reveal"
     },
     "services.005": {
-      "fa": "بازرگانی، واردات و صادرات",
+      "fa": "حمل و نقل مسافربری",
       "kind": "text",
       "ctx": "div.div.container"
     },
     "services.006": {
-      "fa": "واردات تخصصی انواع کالاهای مجاز، مواد اولیه صنایع، تجهیزات مکانیکی و برق و ماشین‌آلات؛ همراه با خدمات جامع ترخیص گمرکی، بازاریابی صادراتی و مشاوره ارزی و بین‌المللی.",
+      "fa": "درون شهری، برون شهری، سرویس کارخانجات، ادارات و شرکت‌ها",
       "kind": "text",
-      "ctx": "p.article.service-card.service-card--trade"
+      "ctx": "p.article.service-mini-card.reveal"
     },
     "services.007": {
-      "fa": "ترخیص گمرک شهید رجایی و سراسر کشور",
-      "kind": "text",
-      "ctx": "div.article.service-card.service-card--trade"
+      "fa": "درخواست مشاوره حمل و نقل مسافربری",
+      "kind": "attr:aria-label",
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.008": {
-      "fa": "تجهیزات صنعتی و برق",
+      "fa": "درخواست مشاوره",
       "kind": "text",
-      "ctx": "span.div.service-card__pills"
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.009": {
-      "fa": "گشایش اعتبارات اسنادی (LC)",
+      "fa": "خدمات و تشریفات و تهیه و پخش غذا",
       "kind": "text",
-      "ctx": "span.div.service-card__pills"
+      "ctx": "article.div.services-cards__grid"
     },
     "services.010": {
-      "fa": "ترخیص گمرکی تخصصی و مدیریت امور بندری با کمترین زمان توقف",
+      "fa": "تهیه و پخش غذای ادارات، شرکت‌ها، دانشگاه‌ها، وزارت‌خانه‌ها، سازمان‌های دولتی و خصوصی",
       "kind": "text",
-      "ctx": "ul.article.service-card.service-card--trade"
+      "ctx": "p.article.service-mini-card.reveal"
     },
     "services.011": {
-      "fa": "حمل‌ونقل بین‌المللی کالا (دریایی کانتینری، زمینی ترانزیت و هوایی)",
-      "kind": "text",
-      "ctx": "li.ul.service-card__list"
+      "fa": "درخواست مشاوره تهیه و پخش غذا",
+      "kind": "attr:aria-label",
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.012": {
-      "fa": "واردات و صادرات تجهیزات مکانیکی، برق و قطعات خطوط تولید",
+      "fa": "درخواست مشاوره",
       "kind": "text",
-      "ctx": "li.ul.service-card__list"
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.013": {
-      "fa": "مشاوره ثبت سفارش، اینکوترمز و گشایش اعتبارات اسنادی (LC)",
+      "fa": "واردات و صادرات",
       "kind": "text",
-      "ctx": "li.ul.service-card__list"
+      "ctx": "article.div.services-cards__grid"
     },
     "services.014": {
-      "fa": "درخواست مشاوره بازرگانی",
-      "kind": "attr:aria-label",
-      "ctx": "div.article.service-card.service-card--trade"
+      "fa": "کلیه کالاهای مجاز بازرگانی",
+      "kind": "text",
+      "ctx": "p.article.service-mini-card.reveal"
     },
     "services.015": {
-      "fa": "درخواست مشاوره بازرگانی (۰۹۱۲ ۲۸۱ ۵۱۸۹)",
-      "kind": "text",
-      "ctx": "div.article.service-card.service-card--trade",
-      "keepVerbatim": [
-        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
-      ]
+      "fa": "درخواست مشاوره واردات و صادرات",
+      "kind": "attr:aria-label",
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.016": {
-      "fa": "ترابری و سرویس ایاب‌وذهاب پرسنل",
+      "fa": "درخواست مشاوره",
       "kind": "text",
-      "ctx": "article.div.services__grid"
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.017": {
-      "fa": "سرویس‌دهی منظم و ایمن ایاب‌وذهاب پرسنل کارخانه‌ها، شهرک‌های صنعتی، مدارس، شرکت‌ها و ادارات با ناوگان مدرن و ملکی (اتوبوس، مینی‌بوس، ون و سواری) و رانندگان حرفه‌ای و متعهد.",
+      "fa": "خرید و فروش کالا",
       "kind": "text",
-      "ctx": "p.article.service-card.service-card--transport"
+      "ctx": "article.div.services-cards__grid"
     },
     "services.018": {
-      "fa": "شهرک‌های صنعتی استان قزوین",
+      "fa": "انواع کالاهای مجاز و قانونی",
       "kind": "text",
-      "ctx": "div.article.service-card.service-card--transport"
+      "ctx": "p.article.service-mini-card.reveal"
     },
     "services.019": {
-      "fa": "سرویس‌های شیفت شب و ۲۴ ساعته",
-      "kind": "text",
-      "ctx": "span.div.service-card__pills"
+      "fa": "درخواست مشاوره خرید و فروش کالا",
+      "kind": "attr:aria-label",
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.020": {
-      "fa": "خودروهای مجهز و بیمه‌شده",
+      "fa": "درخواست مشاوره",
       "kind": "text",
-      "ctx": "span.div.service-card__pills"
+      "ctx": "a.article.service-mini-card.reveal"
     },
     "services.021": {
-      "fa": "عقد قراردادهای رسمی سالانه و ماهانه با سازمان‌ها و کارخانه‌ها",
-      "kind": "text",
-      "ctx": "ul.article.service-card.service-card--transport"
+      "fa": "تماس با ما",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.container"
     },
     "services.022": {
-      "fa": "پوشش دقیق تمام ساعات شیفتی (صبحگاهی، عصرگاهی، شب و روزهای تعطیل)",
+      "fa": "تماس با ما",
       "kind": "text",
-      "ctx": "li.ul.service-card__list"
-    },
-    "services.023": {
-      "fa": "ایمنی کامل، بیمه سرنشین، معاینه فنی ادواری و ناوگان جایگزین فوری",
-      "kind": "text",
-      "ctx": "li.ul.service-card__list"
-    },
-    "services.024": {
-      "fa": "پشتیبانی شبانه‌روزی ۲۴/۷ و اعزام سریع در شرایط اضطراری",
-      "kind": "text",
-      "ctx": "li.ul.service-card__list"
-    },
-    "services.025": {
-      "fa": "درخواست مشاوره ترابری",
-      "kind": "attr:aria-label",
-      "ctx": "div.article.service-card.service-card--transport"
-    },
-    "services.026": {
-      "fa": "درخواست مشاوره ترابری (۰۹۱۲ ۲۸۱ ۵۱۸۹)",
-      "kind": "text",
-      "ctx": "div.article.service-card.service-card--transport",
-      "keepVerbatim": [
-        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
-      ]
+      "ctx": "div.div.container"
     },
     "fleet.001": {
       "fa": "ناوگان ترابری شرکت قزوین تصویر",
