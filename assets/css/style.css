@@ -2418,6 +2418,124 @@ html[dir="ltr"] .history-table td {
 }
 
 /* --------------------------------------------------------------------------
+   ۱۰.۸ بخش رزومه شرکت (Company Resume Section)
+   -------------------------------------------------------------------------- */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+@media (min-width: 960px) {
+  .resume-grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: start;
+  }
+}
+.resume-col {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.resume-card {
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 30px);
+  box-shadow: var(--shadow-sm);
+}
+.resume-card__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 16px;
+}
+.resume-card__title svg {
+  color: var(--teal-industrial);
+  flex-shrink: 0;
+}
+.resume-card__text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 2;
+}
+
+/* حوزه‌های فعالیت (Activity Cards) */
+.resume-activities {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.resume-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  background: rgba(14, 165, 233, 0.05);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+}
+.resume-activity__title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+}
+.resume-activity__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+.resume-activity__link {
+  justify-self: start;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--teal-industrial);
+  margin-top: 2px;
+}
+.resume-activity__link:hover {
+  text-decoration: underline;
+}
+.resume-card--fleet .btn {
+  margin-top: 14px;
+}
+
+/* سوابق همکاری قراردادی (Clients Chips) */
+.resume-clients {
+  margin-top: clamp(36px, 5vw, 52px);
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 30px);
+  box-shadow: var(--shadow-sm);
+}
+.resume-clients__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 16px;
+}
+.resume-clients__title svg {
+  color: var(--teal-industrial);
+  flex-shrink: 0;
+}
+.resume-clients__link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--teal-industrial);
+}
+.resume-clients__link:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
    ۱۱. بخش اعتبار و اطلاعات ثبتی (Trust & Registry Bar)
    -------------------------------------------------------------------------- */
 .registry-section {
