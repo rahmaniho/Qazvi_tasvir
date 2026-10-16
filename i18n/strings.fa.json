@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 627,
+  "count": 686,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -1002,10 +1002,9 @@
       "ctx": "div.dl.spec-card__list"
     },
     "fleet-specs.063": {
-      "fa": "رینگ ۵.۵×۱۶۰ و تایر 7.00×16",
+      "fa": "رینگ ۵.۵×۱۶۰ و تایر ۷.۰۰×۱۶",
       "kind": "text",
-      "ctx": "dd.div.spec-row",
-      "digitLocked": true
+      "ctx": "dd.div.spec-row"
     },
     "fleet-specs.064": {
       "fa": "ترمز و عملکرد",
@@ -1679,6 +1678,302 @@
       "fa": "قوای محرکه و گیربکس",
       "kind": "text",
       "ctx": "span.div.client-card"
+    },
+    "clients.020": {
+      "fa": "یونیلیور",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.021": {
+      "fa": "Unilever",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.022": {
+      "fa": "محصولات بهداشتی و غذایی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.023": {
+      "fa": "هنکل",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.024": {
+      "fa": "Henkel",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.025": {
+      "fa": "صنایع شیمیایی و بهداشتی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.026": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.027": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.028": {
+      "fa": "گروه صنعتی بین‌المللی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.029": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.030": {
+      "fa": "Alkaplastik",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.031": {
+      "fa": "صنایع پلاستیک و پلیمر",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.032": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.033": {
+      "fa": "Alborz Cable",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.034": {
+      "fa": "صنایع سیم و کابل",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.035": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.036": {
+      "fa": "Shir Sahar",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.037": {
+      "fa": "صنایع لبنی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.038": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.039": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.040": {
+      "fa": "شرکت صنعتی",
+      "kind": "text",
+      "ctx": "span.div.client-card"
+    },
+    "clients.041": {
+      "fa": "از رزومه رسمی شرکت",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "clients.042": {
+      "fa": "سوابق همکاری قراردادی",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "clients.043": {
+      "fa": "شرکتی که سرویس ایاب‌وذهاب پرسنل‌شان در طول سال‌های فعالیت، با ناوگان و رانندگان قزوین تصویر انجام شده است؛ به‌همراه تعداد دستگاه‌های واگذارشده و بازهٔ همکاری.",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "clients.044": {
+      "fa": "سوابق همکاری قراردادی شرکت قزوین تصویر با شرکت‌های صنعتی و تولیدی",
+      "kind": "text",
+      "ctx": "div.div.clients-history"
+    },
+    "clients.045": {
+      "fa": "شرکت",
+      "kind": "text",
+      "ctx": "thead.table.history-table"
+    },
+    "clients.046": {
+      "fa": "ناوگان واگذارشده",
+      "kind": "text",
+      "ctx": "th.table.history-table"
+    },
+    "clients.047": {
+      "fa": "بازهٔ همکاری",
+      "kind": "text",
+      "ctx": "th.table.history-table"
+    },
+    "clients.048": {
+      "fa": "نستله ایران",
+      "kind": "text",
+      "ctx": "tbody.table.history-table"
+    },
+    "clients.049": {
+      "fa": "۵ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.050": {
+      "fa": "۱۳۸۹ تا ۱۳۹۸",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.051": {
+      "fa": "گلدایران (ال‌جی)",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.052": {
+      "fa": "۹ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.053": {
+      "fa": "۱۳۹۰ تا ۱۴۰۲",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.054": {
+      "fa": "یونیلیور",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.055": {
+      "fa": "۹ دستگاه + ۳ دستگاه سرویس VIP",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.056": {
+      "fa": "۱۳۹۳ تا ۱۳۹۶",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.057": {
+      "fa": "هنکل",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.058": {
+      "fa": "۲ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.059": {
+      "fa": "۱۳۹۴ تا ۱۳۹۷",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.060": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.061": {
+      "fa": "۷ دستگاه + ۱۰ دستگاه VIP",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.062": {
+      "fa": "۱۳۹۳ تا ۱۳۹۶",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.063": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.064": {
+      "fa": "۶ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.065": {
+      "fa": "۱۳۸۹ تا ۱۳۹۵",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.066": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.067": {
+      "fa": "۷ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.068": {
+      "fa": "۱۳۹۰ تا ۱۳۹۶",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.069": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.070": {
+      "fa": "۸ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.071": {
+      "fa": "۱۴۰۲ تا کنون",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.072": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.073": {
+      "fa": "۹ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.074": {
+      "fa": "۱۴۰۰ تا ۱۴۰۲",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.075": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.076": {
+      "fa": "۹ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.077": {
+      "fa": "۱۳۹۷ تا کنون",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.078": {
+      "fa": "جمع‌اً ۸۴ دستگاه خودرو در قالب این قراردادها به شرکت‌های بالا واگذار شده است؛ نیروگاه شهید رجایی و نیرومحرکه نیز از دیگر مشتریان قزوین تصویر هستند.",
+      "kind": "text",
+      "ctx": "p.div.clients-history",
+      "html": "جمع‌اً <strong>۸۴ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است؛ نیروگاه شهید رجایی و نیرومحرکه نیز از دیگر مشتریان قزوین تصویر هستند."
     },
     "trust.001": {
       "fa": "اعتبار و شناسه ثبتی شرکت",

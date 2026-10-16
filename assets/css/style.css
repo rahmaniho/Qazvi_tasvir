@@ -1508,12 +1508,12 @@ button, input, select, textarea {
 }
 @media (min-width: 640px) {
   .clients-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 1024px) {
   .clients-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -1585,6 +1585,80 @@ button, input, select, textarea {
 .client-card:hover .client-card__tag {
   background: rgba(245, 158, 11, 0.12);
   color: #B45309;
+}
+
+/* سوابق همکاری قراردادی — جدول برگرفته از رزومه رسمی شرکت */
+.clients-history {
+  margin-top: clamp(44px, 6vw, 64px);
+}
+.clients-history__scroll {
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.history-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.history-table th,
+.history-table td {
+  padding: 13px 18px;
+  text-align: right;
+  border-bottom: 1px solid var(--line-soft);
+  white-space: nowrap;
+}
+html[dir="ltr"] .history-table th,
+html[dir="ltr"] .history-table td {
+  text-align: left;
+}
+.history-table thead th {
+  background: var(--grad-navy);
+  color: #FFFFFF;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.history-table thead th:first-child {
+  border-start-start-radius: var(--r-lg);
+}
+.history-table thead th:last-child {
+  border-start-end-radius: var(--r-lg);
+}
+.history-table tbody th {
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+.history-table tbody td {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.history-table tbody tr:nth-child(even) {
+  background: rgba(14, 165, 233, 0.045);
+}
+.history-table tbody tr {
+  transition: background var(--dur-fast) var(--ease-quint);
+}
+.history-table tbody tr:hover {
+  background: rgba(14, 165, 233, 0.10);
+}
+.history-table tbody tr:last-child th,
+.history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.clients-history__note {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+.clients-history__note strong {
+  color: var(--teal-industrial);
+  font-weight: 800;
 }
 
 /* --------------------------------------------------------------------------
