@@ -1858,8 +1858,384 @@ button, input, select, textarea {
   color: var(--sky-blue);
 }
 
+/* دعوت مشاهدهٔ مشخصات فنی ناوگان — انتهای بخش ناوگان */
+.fleet-specs-cta {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+.fleet-specs-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* --------------------------------------------------------------------------
-   ۱۰.۷ بخش برندهای همکار (Partner Vehicle Brands) — نسخه نسل جدید
+   ۱۰.۷ بخش مشخصات فنی ناوگان (Fleet Specs Section) — برگرفته از رزومه رسمی
+   -------------------------------------------------------------------------- */
+.fleet-specs-section {
+  position: relative;
+}
+
+/* نوار آمار کلیدی خودرو (Spec Stats) */
+.spec-stats {
+  margin: 0 auto clamp(36px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 880px;
+}
+@media (min-width: 900px) {
+  .spec-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+.spec-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  padding: 18px 14px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-quint),
+              box-shadow var(--dur-base) var(--ease-quint),
+              border-color var(--dur-base) var(--ease-quint);
+}
+.spec-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(14, 165, 233, 0.35);
+}
+.spec-stat dt {
+  order: 2;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.spec-stat dd {
+  order: 1;
+  margin-bottom: 4px;
+  font-family: var(--font-numbers);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary-navy);
+  direction: ltr;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+.spec-stat__plus {
+  color: var(--sky-blue);
+  font-weight: 800;
+}
+
+/* گرید کارت‌های مشخصات فنی */
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 720px) {
+  .spec-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1080px) {
+  .spec-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+.spec-card {
+  position: relative;
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 26px 24px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-slow) var(--ease-quint),
+              box-shadow var(--dur-slow) var(--ease-quint),
+              border-color var(--dur-slow) var(--ease-quint);
+}
+.spec-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(14, 165, 233, 0.35);
+}
+.spec-card__icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-sm);
+  color: #FFFFFF;
+  background: var(--grad-sky);
+  box-shadow: var(--shadow-glow-sky);
+  margin-bottom: 14px;
+}
+.spec-card__title {
+  font-size: var(--fs-h3);
+  margin-bottom: 14px;
+  color: var(--primary-navy);
+}
+
+/* ردیف‌های مشخصات: برچسب — مقدار، با جداکنندهٔ نقطه‌چین */
+.spec-card__list {
+  display: flex;
+  flex-direction: column;
+}
+.spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line-soft);
+  font-size: 0.9rem;
+}
+.spec-row:last-child {
+  border-bottom: none;
+}
+.spec-row dt {
+  color: var(--text-muted);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.spec-row dd {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* تجهیزات و امکانات (Amenities) */
+.amenity-groups {
+  margin-top: clamp(48px, 6vw, 72px);
+}
+.amenity-groups .section-header {
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+.amenity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 800px) {
+  .amenity-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+.amenity-group {
+  background: var(--surface-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 24px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-quint),
+              box-shadow var(--dur-base) var(--ease-quint);
+}
+.amenity-group:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.amenity-group--vip {
+  border-color: rgba(245, 158, 11, 0.35);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0) 55%),
+    var(--surface-white);
+}
+.amenity-group__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.06rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 16px;
+}
+.amenity-group__title svg {
+  color: var(--sky-blue);
+  flex-shrink: 0;
+}
+.amenity-group--vip .amenity-group__title svg {
+  color: var(--amber-accent);
+}
+.amenity-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.amenity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--teal-industrial);
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  padding: 6px 12px;
+  border-radius: var(--r-full);
+  line-height: 1.7;
+}
+.amenity-chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sky-blue);
+  flex-shrink: 0;
+}
+.amenity-group--vip .amenity-chip {
+  color: #92600A;
+  background: rgba(245, 158, 11, 0.10);
+  border-color: rgba(245, 158, 11, 0.30);
+}
+.amenity-group--vip .amenity-chip::before {
+  background: var(--amber-accent);
+}
+
+/* گالری تصاویر واقعی ناوگان — همان چیدمان موزاییکی گالری غذا */
+.fleet-specs-gallery {
+  margin-top: clamp(48px, 6vw, 72px);
+}
+.fleet-specs-gallery .section-header {
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+.fleet-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 640px) {
+  .fleet-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    grid-auto-flow: dense;
+  }
+}
+@media (min-width: 1024px) {
+  .fleet-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+.fleet-gallery__item {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--navy-deep);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-slow) var(--ease-quint),
+              box-shadow var(--dur-slow) var(--ease-quint);
+}
+.fleet-gallery__item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.fleet-gallery__item picture {
+  display: block;
+}
+.fleet-gallery__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--dur-slower) var(--ease-quint);
+}
+.fleet-gallery__item:hover img {
+  transform: scale(1.05);
+}
+.fleet-gallery__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 24, 41, 0.85) 0%, rgba(6, 24, 41, 0.20) 45%, rgba(6, 24, 41, 0) 72%);
+  pointer-events: none;
+}
+@media (min-width: 640px) {
+  .fleet-gallery__item {
+    aspect-ratio: 4 / 3;
+  }
+  .fleet-gallery__item--wide {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+  .fleet-gallery__item picture {
+    display: block;
+    height: 100%;
+  }
+  .fleet-gallery__item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+}
+.fleet-gallery__caption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #FFFFFF;
+}
+.fleet-gallery__title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(6, 24, 41, 0.55);
+}
+.fleet-gallery__text {
+  font-size: 0.8125rem;
+  color: #C9D8E6;
+}
+
+/* دعوت پایانی بخش مشخصات فنی */
+.fleet-specs-cta--end {
+  margin-top: clamp(44px, 6vw, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(14, 165, 233, 0.10) 0%, rgba(14, 165, 233, 0) 55%),
+    radial-gradient(circle at 8% 100%, rgba(245, 158, 11, 0.10) 0%, rgba(245, 158, 11, 0) 55%);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-xl);
+  padding: clamp(28px, 5vw, 48px);
+  box-shadow: var(--shadow-sm);
+}
+.fleet-specs-cta__text {
+  max-width: 620px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+}
+.fleet-specs-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۰.۸ بخش برندهای همکار (Partner Vehicle Brands) — نسخه نسل جدید
    -------------------------------------------------------------------------- */
 .brands-section {
   position: relative;

@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 476,
+  "count": 627,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -180,31 +180,36 @@
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.032": {
-      "fa": "برندهای همکار",
+      "fa": "مشخصات فنی ناوگان و سرویس‌های VIP",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.033": {
-      "fa": "چرا ما؟",
+      "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.034": {
-      "fa": "مشتریان و همکاران تجاری",
+      "fa": "چرا ما؟",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.035": {
-      "fa": "اعتبار و استعلام رسمی",
+      "fa": "مشتریان و همکاران تجاری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.036": {
-      "fa": "تماس با شرکت",
+      "fa": "اعتبار و استعلام رسمی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.037": {
+      "fa": "تماس با شرکت",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.038": {
       "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.mobile-drawer",
@@ -212,7 +217,7 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "chrome.038": {
+    "chrome.039": {
       "fa": "ارتباط در واتساپ رسمی",
       "kind": "text",
       "ctx": "a.div.mobile-drawer__footer"
@@ -675,6 +680,750 @@
       "fa": "رانندگان مجرب با سابقه سرویس صنعتی",
       "kind": "text",
       "ctx": "div.div.fleet-strip.reveal"
+    },
+    "fleet.026": {
+      "fa": "مشاهدهٔ مشخصات فنی کامل و امکانات ناوگان",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.container"
+    },
+    "fleet.027": {
+      "fa": "مشخصات فنی کامل و امکانات ناوگان",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "fleet-specs.001": {
+      "fa": "مشخصات فنی ناوگان مسافربری و سرویس‌های VIP شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "svg.a.btn.btn-secondary"
+    },
+    "fleet-specs.002": {
+      "fa": "برگرفته از رزومه رسمی شرکت",
+      "kind": "text",
+      "ctx": "svg.a.btn.btn-secondary"
+    },
+    "fleet-specs.003": {
+      "fa": "مشخصات فنی ناوگان حمل‌ونقل درون‌شهری",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "fleet-specs.004": {
+      "fa": "مهم‌ترین شاخص کیفیت در سرویس ایاب‌وذهاب پرسنل، خودِ خودرو است؛ مشخصات فنی و امکانات مینی‌بوس‌های مسافربری ۱۷+۱ نفرهٔ ناوگان قزوین تصویر، عیناً از رزومه رسمی حمل‌ونقل شرکت نقل شده است.",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "fleet-specs.005": {
+      "fa": "آمار کلیدی خودروی ناوگان",
+      "kind": "attr:aria-label",
+      "ctx": "dl.div.container"
+    },
+    "fleet-specs.006": {
+      "fa": "ظرفیت صندلی",
+      "kind": "text",
+      "ctx": "dl.div.container"
+    },
+    "fleet-specs.007": {
+      "fa": "قدرت موتور (اسب بخار)",
+      "kind": "text",
+      "ctx": "div.dl.spec-stats.reveal"
+    },
+    "fleet-specs.008": {
+      "fa": "حجم موتور (سی‌سی)",
+      "kind": "text",
+      "ctx": "div.dl.spec-stats.reveal"
+    },
+    "fleet-specs.009": {
+      "fa": "حداکثر سرعت (کیلومتر بر ساعت)",
+      "kind": "text",
+      "ctx": "div.dl.spec-stats.reveal"
+    },
+    "fleet-specs.010": {
+      "fa": "موتور",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "fleet-specs.011": {
+      "fa": "مدل موتور",
+      "kind": "text",
+      "ctx": "dl.article.spec-card.reveal"
+    },
+    "fleet-specs.012": {
+      "fa": "D4AL",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.013": {
+      "fa": "قدرت",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.014": {
+      "fa": "۱۱۵ اسب بخار در ۳۴۰۰ دور در دقیقه",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.015": {
+      "fa": "حداکثر گشتاور",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.016": {
+      "fa": "۲۹۰ نیوتن‌متر در ۲۰۰۰ دور در دقیقه",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.017": {
+      "fa": "سیلندرها",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.018": {
+      "fa": "۴ عدد، خطی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.019": {
+      "fa": "حجم کل سیلندرها",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.020": {
+      "fa": "۳۲۹۸ سی‌سی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.021": {
+      "fa": "تکنولوژی موتور",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.022": {
+      "fa": "دیزلی با تزریق مستقیم، مجهز به توربوشارژ و اینترکولر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.023": {
+      "fa": "گیربکس و انتقال قدرت",
+      "kind": "text",
+      "ctx": "article.div.spec-grid"
+    },
+    "fleet-specs.024": {
+      "fa": "مدل گیربکس",
+      "kind": "text",
+      "ctx": "dl.article.spec-card.reveal"
+    },
+    "fleet-specs.025": {
+      "fa": "M3S5",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.026": {
+      "fa": "تعداد دنده‌ها",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.027": {
+      "fa": "۵ دنده جلو + ۱ دنده عقب",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.028": {
+      "fa": "کلاچ",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.029": {
+      "fa": "تک‌صفحه‌ای خشک F202 با سیستم عملکرد هیدرولیکی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.030": {
+      "fa": "نوع شاسی",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.031": {
+      "fa": "ناودانی، فلزی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.032": {
+      "fa": "ابعاد شاسی",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.033": {
+      "fa": "۱۳۷×۶۵×۶ میلی‌متر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.034": {
+      "fa": "ظرفیت باک سوخت",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.035": {
+      "fa": "۱۰۰ لیتر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.036": {
+      "fa": "تعلیق و سیستم برق",
+      "kind": "text",
+      "ctx": "article.div.spec-grid"
+    },
+    "fleet-specs.037": {
+      "fa": "تعلیق جلو و عقب",
+      "kind": "text",
+      "ctx": "dl.article.spec-card.reveal"
+    },
+    "fleet-specs.038": {
+      "fa": "فنر تخت با ۲ عدد کمک‌فنر تلسکوپی و موج‌گیر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.039": {
+      "fa": "برق مصرفی",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.040": {
+      "fa": "۲۴ ولت",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.041": {
+      "fa": "باتری",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.042": {
+      "fa": "۲ عدد ۱۲ ولتی، ۷۷ آمپرساعت",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.043": {
+      "fa": "دینام",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.044": {
+      "fa": "۲۴ ولت / ۶۰ آمپر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.045": {
+      "fa": "استارت",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.046": {
+      "fa": "۲۴ ولت / ۳.۲ کیلووات",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.047": {
+      "fa": "ابعاد و وزن",
+      "kind": "text",
+      "ctx": "article.div.spec-grid"
+    },
+    "fleet-specs.048": {
+      "fa": "طول × عرض × ارتفاع",
+      "kind": "text",
+      "ctx": "dl.article.spec-card.reveal"
+    },
+    "fleet-specs.049": {
+      "fa": "۶۲۵۵ × ۱۹۹۵ × ۲۶۶۰ میلی‌متر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.050": {
+      "fa": "ارتفاع داخل کابین",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.051": {
+      "fa": "۱۸۰۰ میلی‌متر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.052": {
+      "fa": "فاصله دو محور",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.053": {
+      "fa": "۳۴۰۰ میلی‌متر",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.054": {
+      "fa": "وزن خالص",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.055": {
+      "fa": "۳۵۳۰ کیلوگرم",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.056": {
+      "fa": "بار مجاز روی اکسل جلو",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.057": {
+      "fa": "۲۲۰۰ کیلوگرم",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.058": {
+      "fa": "بار مجاز روی اکسل عقب",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.059": {
+      "fa": "۴۱۰۰ کیلوگرم",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.060": {
+      "fa": "وزن ناخالص مجاز",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.061": {
+      "fa": "۵۵۰۰ کیلوگرم",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.062": {
+      "fa": "رینگ و تایر",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.063": {
+      "fa": "رینگ ۵.۵×۱۶۰ و تایر 7.00×16",
+      "kind": "text",
+      "ctx": "dd.div.spec-row",
+      "digitLocked": true
+    },
+    "fleet-specs.064": {
+      "fa": "ترمز و عملکرد",
+      "kind": "text",
+      "ctx": "article.div.spec-grid"
+    },
+    "fleet-specs.065": {
+      "fa": "ترمز سرویس",
+      "kind": "text",
+      "ctx": "dl.article.spec-card.reveal"
+    },
+    "fleet-specs.066": {
+      "fa": "هیدرولیک با حمایت بوستر خلایی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.067": {
+      "fa": "ترمز جلو و عقب",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.068": {
+      "fa": "کاسه‌ای",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.069": {
+      "fa": "ترمز دستی",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.070": {
+      "fa": "مکانیکی در خروجی گیربکس",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.071": {
+      "fa": "ترمز موتور",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.072": {
+      "fa": "خلایی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.073": {
+      "fa": "توانایی بالا رفتن از شیب",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.074": {
+      "fa": "حداکثر ۴۴٪",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.075": {
+      "fa": "حداکثر سرعت",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.076": {
+      "fa": "۱۰۵ کیلومتر بر ساعت، طبق قوانین راهنمایی و رانندگی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.077": {
+      "fa": "اکسل و فرمان",
+      "kind": "text",
+      "ctx": "article.div.spec-grid"
+    },
+    "fleet-specs.078": {
+      "fa": "اکسل جلو",
+      "kind": "text",
+      "ctx": "dl.article.spec-card.reveal"
+    },
+    "fleet-specs.079": {
+      "fa": "ثابت (فورج‌شده)",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.080": {
+      "fa": "اکسل عقب",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.081": {
+      "fa": "فعال از نوع هیپوئید (HDPIC)",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.082": {
+      "fa": "نسبت اکسل عقب",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.083": {
+      "fa": "فرمان",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.084": {
+      "fa": "هیدرولیکی با مکانیزم مهره‌توپی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.085": {
+      "fa": "شیشه بالابر",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "fleet-specs.086": {
+      "fa": "برقی",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "fleet-specs.087": {
+      "fa": "تجهیزات و امکانات",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "fleet-specs.088": {
+      "fa": "آسایش، ایمنی و سرویس‌های VIP سرنشینان",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "fleet-specs.089": {
+      "fa": "فهرست کامل تجهیزات نصب‌شده روی سرویس‌های ناوگان، مطابق رزومه رسمی شرکت",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "fleet-specs.090": {
+      "fa": "رفاهی و آسایش",
+      "kind": "text",
+      "ctx": "div.div.amenity-groups"
+    },
+    "fleet-specs.091": {
+      "fa": "سیستم تهویه مطبوع (A/C)",
+      "kind": "text",
+      "ctx": "ul.div.amenity-group.reveal"
+    },
+    "fleet-specs.092": {
+      "fa": "کولر و بخاری",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.093": {
+      "fa": "هواکش سقفی",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.094": {
+      "fa": "سیستم صوتی",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.095": {
+      "fa": "روشنایی داخلی LED",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.096": {
+      "fa": "شیشه بالابر برقی",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.097": {
+      "fa": "صندلی راننده قابل تنظیم",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.098": {
+      "fa": "آیینه داخلی",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.099": {
+      "fa": "پوشش کف PVC",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.100": {
+      "fa": "صندلی ابر فشرده با روکش پارچه",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.101": {
+      "fa": "ایمنی",
+      "kind": "text",
+      "ctx": "div.div.amenity-grid"
+    },
+    "fleet-specs.102": {
+      "fa": "کمربند ایمنی روی همه صندلی‌ها",
+      "kind": "text",
+      "ctx": "ul.div.amenity-group.reveal"
+    },
+    "fleet-specs.103": {
+      "fa": "کپسول آتش‌نشانی",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.104": {
+      "fa": "جعبه کمک‌های اولیه",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.105": {
+      "fa": "نصب علائم هشداردهنده در سرویس‌ها",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.106": {
+      "fa": "فرمان هیدرولیک",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.107": {
+      "fa": "سرویس‌های ویژه (VIP)",
+      "kind": "text",
+      "ctx": "div.div.amenity-grid"
+    },
+    "fleet-specs.108": {
+      "fa": "صندلی‌های VIP",
+      "kind": "text",
+      "ctx": "ul.div.amenity-group.amenity-group--vip"
+    },
+    "fleet-specs.109": {
+      "fa": "سبد مطبوعاتی",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.110": {
+      "fa": "پذیرایی در سرویس‌های VIP",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.111": {
+      "fa": "سامانه پیامک",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.112": {
+      "fa": "ظرفیت ۱۷ صندلی مسافر + ۱ صندلی راننده",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "fleet-specs.113": {
+      "fa": "گالری تصویری",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "fleet-specs.114": {
+      "fa": "تصاویر واقعی ناوگان؛ از رزومه رسمی شرکت",
+      "kind": "text",
+      "ctx": "h3.div.section-header.reveal"
+    },
+    "fleet-specs.115": {
+      "fa": "تصاویر این بخش مستقیماً از رزومه رسمی حمل‌ونقل درون‌شهری شرکت قزوین تصویر برداشته شده است؛ بدون بازسازی یا افزودن.",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "fleet-specs.116": {
+      "fa": "تصویری از ناوگان حمل‌ونقل درون‌شهری شرکت قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "div.div.fleet-specs-gallery"
+    },
+    "fleet-specs.117": {
+      "fa": "حمل‌ونقل درون‌شهری",
+      "kind": "text",
+      "ctx": "div.div.fleet-specs-gallery"
+    },
+    "fleet-specs.118": {
+      "fa": "مینی‌بوس‌های مسافربری ناوگان با موتور توربودیزل D4AL",
+      "kind": "text",
+      "ctx": "span.figcaption.fleet-gallery__caption"
+    },
+    "fleet-specs.119": {
+      "fa": "عکس ناوگان مسافربری شرکت قزوین تصویر از رزومه رسمی",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.120": {
+      "fa": "از ناوگان قزوین تصویر",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.121": {
+      "fa": "سرویس ایاب‌وذهاب پرسنل با ناوگان شرکت قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.122": {
+      "fa": "سرویس ایاب‌وذهاب پرسنل",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.123": {
+      "fa": "صندلی‌های VIP با روکش پارچه و کمربند ایمنی در سرویس پرسنل",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.124": {
+      "fa": "صندلی‌های VIP",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.125": {
+      "fa": "روکش پارچه، ابر فشرده و کمربند ایمنی",
+      "kind": "text",
+      "ctx": "span.figcaption.fleet-gallery__caption"
+    },
+    "fleet-specs.126": {
+      "fa": "سبد مطبوعاتی و پذیرایی مسافران در سرویس‌های VIP",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.127": {
+      "fa": "سبد مطبوعاتی و پذیرایی",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.128": {
+      "fa": "پذیرایی مسافران در سرویس‌های VIP",
+      "kind": "text",
+      "ctx": "span.figcaption.fleet-gallery__caption"
+    },
+    "fleet-specs.129": {
+      "fa": "عکس ناوگان ملکی شرکت قزوین تصویر از رزومه رسمی",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.130": {
+      "fa": "ناوگان ملکی شرکت",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.131": {
+      "fa": "آماده انعقاد قرارداد با کارخانه‌ها و ادارات",
+      "kind": "text",
+      "ctx": "span.figcaption.fleet-gallery__caption"
+    },
+    "fleet-specs.132": {
+      "fa": "تصویری از سرویس مسافربری و تجهیزات ناوگان قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.133": {
+      "fa": "ایمنی و آسایش مسافران",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.134": {
+      "fa": "تجهیزات ایمنی و امکانات رفاهی کامل روی سرویس‌ها",
+      "kind": "text",
+      "ctx": "span.figcaption.fleet-gallery__caption"
+    },
+    "fleet-specs.135": {
+      "fa": "عکس سرویس پرسنل صنعتی از رزومه شرکت قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.136": {
+      "fa": "سرویس پرسنل صنعتی",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.137": {
+      "fa": "عکس ناوگان بیمه‌شده شرکت قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.138": {
+      "fa": "ناوگان بیمه‌شده",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.139": {
+      "fa": "عکس کیفیت سرویس حمل‌ونقل پرسنل شرکت قزوین تصویر",
+      "kind": "attr:alt",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.140": {
+      "fa": "کیفیت سرویس قزوین تصویر",
+      "kind": "text",
+      "ctx": "figure.div.fleet-gallery"
+    },
+    "fleet-specs.141": {
+      "fa": "بیش از سه دهه تجربه در ترابری پرسنل",
+      "kind": "text",
+      "ctx": "span.figcaption.fleet-gallery__caption"
+    },
+    "fleet-specs.142": {
+      "fa": "برای دریافت رزومه کامل ناوگان، استعلام ظرفیت یا تنظیم قرارداد سرویس پرسنل، با ما در تماس باشید.",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "fleet-specs.143": {
+      "fa": "درخواست مشاوره سرویس ایاب‌وذهاب پرسنل",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.fleet-specs-cta.fleet-specs-cta--end"
+    },
+    "fleet-specs.144": {
+      "fa": "درخواست مشاوره سرویس پرسنل",
+      "kind": "text",
+      "ctx": "div.div.fleet-specs-cta.fleet-specs-cta--end"
+    },
+    "fleet-specs.145": {
+      "fa": "تماس مستقیم با شرکت",
+      "kind": "attr:aria-label",
+      "ctx": "a.div.fleet-specs-cta__actions"
+    },
+    "fleet-specs.146": {
+      "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+      "kind": "text",
+      "ctx": "a.div.fleet-specs-cta__actions",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
     },
     "brands.001": {
       "fa": "برندهای خودروسازی مورد استفاده در ناوگان",
@@ -2137,227 +2886,237 @@
       "ctx": "li.ul.footer__links"
     },
     "contact.042": {
-      "fa": "تأمین غذای پرسنل",
+      "fa": "مشخصات فنی ناوگان",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.043": {
-      "fa": "منوی وعده‌های سازمانی",
+      "fa": "تأمین غذای پرسنل",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.044": {
-      "fa": "درخواست قرارداد غذا",
+      "fa": "منوی وعده‌های سازمانی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.045": {
-      "fa": "برندهای همکار",
+      "fa": "درخواست قرارداد غذا",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.046": {
-      "fa": "چرا قزوین تصویر؟",
+      "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.047": {
-      "fa": "اعتبار و اطلاعات ثبتی",
+      "fa": "چرا قزوین تصویر؟",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.048": {
-      "fa": "تماس با ما",
+      "fa": "اعتبار و اطلاعات ثبتی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.049": {
+      "fa": "تماس با ما",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.050": {
       "fa": "خدمات تخصصی",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.050": {
+    "contact.051": {
       "fa": "واردات و صادرات کالاهای مجاز",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.051": {
+    "contact.052": {
       "fa": "ترخیص گمرکی و امور بندری",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.052": {
+    "contact.053": {
       "fa": "تأمین مواد اولیه و تجهیزات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.053": {
+    "contact.054": {
       "fa": "ترابری پرسنل کارخانجات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.054": {
-      "fa": "سرویس مدارس، ادارات و شرکت‌ها",
-      "kind": "text",
-      "ctx": "li.ul.footer__links"
-    },
     "contact.055": {
-      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
+      "fa": "حمل‌ونقل درون‌شهری و سرویس‌های VIP",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.056": {
-      "fa": "مشاوره بازرگانی و گشایش LC",
+      "fa": "سرویس مدارس، ادارات و شرکت‌ها",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.057": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.058": {
+      "fa": "مشاوره بازرگانی و گشایش LC",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.059": {
       "fa": "اطلاعات تماس",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.058": {
+    "contact.060": {
       "fa": "تلفن تماس:",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.059": {
+    "contact.061": {
       "fa": "نشانی دفتر:",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.060": {
+    "contact.062": {
       "fa": "قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "span.ul.footer__links"
     },
-    "contact.061": {
+    "contact.063": {
       "fa": "پروفایل رسمی در رسمیو ↗",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.062": {
+    "contact.064": {
       "fa": "شناسه ملی:",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "contact.063": {
+    "contact.065": {
       "fa": "شماره ثبت:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.064": {
+    "contact.066": {
       "fa": "کد اقتصادی:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.065": {
+    "contact.067": {
       "fa": "تاریخ تأسیس:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.066": {
+    "contact.068": {
       "fa": "مدیرعامل:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.067": {
+    "contact.069": {
       "fa": "سعید امین‌زاده",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.068": {
+    "contact.070": {
       "fa": "© کلیه حقوق مادی و معنوی متعلق به شرکت قزوین تصویر (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶",
       "kind": "text",
       "ctx": "div.div.container",
       "html": "© کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶"
     },
-    "contact.069": {
+    "contact.071": {
       "fa": "طراحی",
       "kind": "text",
       "ctx": "a.div.footer__bottom-bar"
     },
-    "contact.070": {
+    "contact.072": {
       "fa": "و",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.071": {
+    "contact.073": {
       "fa": "توسعه:",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.072": {
+    "contact.074": {
       "fa": "Designed",
       "kind": "text",
       "ctx": "span.a.ks-credit"
     },
-    "contact.073": {
+    "contact.075": {
       "fa": "&amp;",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.074": {
+    "contact.076": {
       "fa": "Developed",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.075": {
+    "contact.077": {
       "fa": "by",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.076": {
+    "contact.078": {
       "fa": "کارن سافت",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.077": {
+    "contact.079": {
       "fa": "KarenSoft",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.078": {
+    "contact.080": {
       "fa": "تماس تلفنی با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.079": {
+    "contact.081": {
       "fa": "تماس تلفنی",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.080": {
+    "contact.082": {
       "fa": "ارتباط در واتساپ",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.081": {
+    "contact.083": {
       "fa": "واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.082": {
+    "contact.084": {
       "fa": "دکمه‌های تماس سریع شناور",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.083": {
+    "contact.085": {
       "fa": "ارتباط مستقیم در واتساپ قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.084": {
+    "contact.086": {
       "fa": "ارتباط مستقیم در واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.085": {
+    "contact.087": {
       "fa": "تماس مستقیم با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.086": {
+    "contact.088": {
       "fa": "تماس تلفنی با ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit",
@@ -2365,17 +3124,17 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "contact.087": {
+    "contact.089": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.088": {
+    "contact.090": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.089": {
+    "contact.091": {
       "fa": "شماره ۰۹۱۲۲۸۱۵۱۸۹ با موفقیت کپی شد!",
       "kind": "text",
       "ctx": "span.a.ks-credit",
@@ -2383,62 +3142,62 @@
         "۰۹۱۲۲۸۱۵۱۸۹"
       ]
     },
-    "contact.090": {
+    "contact.092": {
       "fa": "بستن پنجره مشاوره",
       "kind": "attr:aria-label",
       "ctx": "div.div.modal-overlay"
     },
-    "contact.091": {
+    "contact.093": {
       "fa": "مشاوره رایگان تخصصی",
       "kind": "text",
       "ctx": "div.div.modal-overlay"
     },
-    "contact.092": {
+    "contact.094": {
       "fa": "درخواست مشاوره و استعلام قیمت",
       "kind": "text",
       "ctx": "h3.div.modal-container"
     },
-    "contact.093": {
+    "contact.095": {
       "fa": "شماره خود را ثبت کنید تا کارشناسان ما سریعاً با شما تماس حاصل فرمایند.",
       "kind": "text",
       "ctx": "p.div.modal-container"
     },
-    "contact.094": {
+    "contact.096": {
       "fa": "نام یا نام شرکت",
       "kind": "text",
       "ctx": "form.div.modal-container"
     },
-    "contact.095": {
+    "contact.097": {
       "fa": "شماره تماس همراه (۰۹...) *",
       "kind": "text",
       "ctx": "div.div.modal-container"
     },
-    "contact.096": {
+    "contact.098": {
       "fa": "بازرگانی و ترابری (هر دو)",
       "kind": "text",
       "ctx": "div.div.modal-container"
     },
-    "contact.097": {
+    "contact.099": {
       "fa": "بازرگانی و واردات/صادرات",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
-    "contact.098": {
+    "contact.100": {
       "fa": "ترابری و سرویس پرسنل",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
-    "contact.099": {
+    "contact.101": {
       "fa": "حوزه مشاوره",
       "kind": "text",
       "ctx": "label.div.form-group"
     },
-    "contact.100": {
+    "contact.102": {
       "fa": "ثبت درخواست مشاوره رایگان",
       "kind": "text",
       "ctx": "button.div.modal-container"
     },
-    "contact.101": {
+    "contact.103": {
       "fa": "یا تماس مستقیم با: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.modal-container",

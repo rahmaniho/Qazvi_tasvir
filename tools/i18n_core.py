@@ -56,6 +56,10 @@ SKIP_TEXT = re.compile(
 # tag sequence + structure of a run, used to validate translations
 TAG_RE = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)")
 
+# a run of Latin alphanumerics — digits inside such a run belong to a code
+# (D4AL, M3S5, F202, 7.00R16 …) and must not be re-glyphed for Persian
+LATIN_TOKEN_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9./+-]*")
+
 
 @dataclass
 class Record:
@@ -420,9 +424,25 @@ def tag_signature(html: str) -> list[tuple[str, str]]:
 
 
 def digits_to_persian(text: str) -> str:
-    """ASCII digits → Persian digits (۰-۹)."""
-    return "".join(chr(ord(c) - ord("0") + 0x06F0) if "0" <= c <= "9" else c
-                   for c in text)
+    """ASCII digits → Persian digits (۰-۹).
+
+    Digits that belong to a Latin alphanumeric token (model codes like D4AL,
+    M3S5 or F202) keep their ASCII form — converting them would corrupt the
+    code. Pure numbers ("115 اسب بخار") still follow the language's glyphs.
+    """
+    def convert(span: str) -> str:
+        return "".join(chr(ord(c) - ord("0") + 0x06F0) if "0" <= c <= "9" else c
+                       for c in span)
+
+    out, last = [], 0
+    for m in LATIN_TOKEN_RE.finditer(text):
+        out.append(convert(text[last:m.start()]))
+        token = m.group(0)
+        # a token that carries Latin letters is a code, not a number
+        out.append(token if re.search(r"[A-Za-z]", token) else convert(token))
+        last = m.end()
+    out.append(convert(text[last:]))
+    return "".join(out)
 
 
 def normalize_digits(text: str) -> str:
