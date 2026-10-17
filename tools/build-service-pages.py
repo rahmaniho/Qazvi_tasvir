@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "services"
+FOOD_DETAIL_TEMPLATE = ROOT / "tools" / "personnel-food-detail.html"
 
 CHECK = '''<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>'''
 ARROW = '''<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>'''
@@ -480,11 +481,13 @@ def footer() -> str:
 </footer>'''
 
 
-def shell_head(title: str, description: str, canonical: str, theme: str, hero_webp: str | None = None) -> str:
+def shell_head(title: str, description: str, canonical: str, theme: str, hero_webp: str | None = None, food_page: bool = False) -> str:
     hero_preload = (
         f'  <link rel="preload" href="{escape(hero_webp)}" as="image" type="image/webp" fetchpriority="high">\n'
         if hero_webp else ""
     )
+    food_styles = '  <link rel="stylesheet" href="../assets/css/food-service.css">\n' if food_page else ""
+    body_class = f'food-service-page {escape(theme)}' if food_page else escape(theme)
     return f'''<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -502,14 +505,57 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <link rel="icon" href="../assets/images/brand/qazvin-tasvir-favicon.png" type="image/png">
 {hero_preload}  <link rel="stylesheet" href="../assets/css/service-pages.css">
   <link rel="stylesheet" href="../assets/css/glass-navigation.css">
-</head>
-<body class="{escape(theme)}">
+{food_styles}</head>
+<body class="{body_class}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
   <div class="scroll-progress" aria-hidden="true"></div>
 '''
 
 
+def detailed_food_page(service: dict) -> str:
+    detail = FOOD_DETAIL_TEMPLATE.read_text(encoding="utf-8")
+    return shell_head(
+        service["title"],
+        service["meta"],
+        service["slug"],
+        service["theme"],
+        service["image_webp"],
+        food_page=True,
+    ) + header() + f'''\n  <main id="main-content">
+    <nav class="container page-crumbs" aria-label="مسیر صفحه">
+      <a href="../index.html">خانه</a><span class="page-crumbs__separator">/</span>
+      <a href="index.html">خدمات</a><span class="page-crumbs__separator">/</span>
+      <span aria-current="page">تأمین غذای پرسنل و وعده‌های سازمانی</span>
+    </nav>
+{detail}
+  </main>
+{footer()}
+  <script src="../assets/js/service-pages.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "{escape(service["title"])}",
+    "url": "https://qazvintasvir.ir/services/personnel-food.html",
+    "description": "{escape(service["meta"])}",
+    "serviceType": "Corporate catering service",
+    "provider": {{
+      "@type": "Organization",
+      "name": "شرکت قزوین تصویر",
+      "url": "https://qazvintasvir.ir/"
+    }},
+    "areaServed": {{"@type": "Country", "name": "ایران"}}
+  }}
+  </script>
+</body>
+</html>
+'''
+
+
 def service_page(service: dict) -> str:
+    if service["slug"] == "personnel-food":
+        return detailed_food_page(service)
     feature_html = "\n".join(
         f'''          <article class="feature-card reveal">
             <span class="feature-card__number">{escape(number)}</span>
