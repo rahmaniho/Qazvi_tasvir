@@ -710,3 +710,424 @@
     animation: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   QT GLASS NAV 2.0 — یک زبان بصری واحد برای همه مسیرهای سایت
+   آیکون‌ها از assets/icons/navigation-sprite.svg می‌آیند تا هم سبک باشند و
+   هم در صفحه اصلی، نسخه انگلیسی و تمام صفحات خدمات یکسان رندر شوند.
+   -------------------------------------------------------------------------- */
+:root {
+  --qt-glass-ease: cubic-bezier(.16, 1, .3, 1);
+  --qt-glass-spring: cubic-bezier(.2, .9, .2, 1.35);
+  --qt-glass-cyan: #38bdf8;
+  --qt-glass-violet: #8b5cf6;
+  --qt-glass-amber: #fbbf24;
+  --qt-glass-panel: rgba(7, 23, 42, .72);
+  --qt-glass-panel-light: rgba(255, 255, 255, .76);
+}
+
+.navbar,
+.site-header {
+  overflow: visible;
+  border-color: rgba(255, 255, 255, .52);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(56, 189, 248, .13), transparent 25%),
+    radial-gradient(circle at 92% 100%, rgba(139, 92, 246, .12), transparent 30%),
+    linear-gradient(125deg, rgba(255, 255, 255, .78), rgba(232, 244, 255, .57));
+  box-shadow: 0 14px 46px rgba(6, 24, 41, .12), inset 0 1px 0 rgba(255, 255, 255, .92);
+}
+
+.navbar::before,
+.site-header::before {
+  opacity: .9;
+  filter: blur(.2px);
+}
+
+.nav-menu__link,
+.site-nav__link,
+.nav-dropdown__link,
+.site-nav__dropdown a,
+.mobile-drawer__link,
+.mobile-drawer__service-link {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* آیکون‌های کوچک و رنگی منوی اصلی */
+.nav-menu > li > .nav-menu__link::before,
+.site-nav > .site-nav__link::before,
+.site-nav__item--services > .site-nav__link::before {
+  display: inline-block;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  background-image: url("../icons/navigation-sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 1400% 100%;
+  background-position: 0% center;
+  content: "";
+  filter: drop-shadow(0 4px 8px rgba(14, 165, 233, .2));
+  transition: transform 360ms var(--qt-glass-spring), filter 240ms ease;
+}
+
+.nav-menu > li > .nav-menu__link,
+.site-nav > .site-nav__link,
+.site-nav__item--services > .site-nav__link {
+  gap: 7px;
+}
+
+.nav-menu > li > .nav-menu__link:hover::before,
+.nav-menu > li > .nav-menu__link:focus-visible::before,
+.site-nav > .site-nav__link:hover::before,
+.site-nav > .site-nav__link:focus-visible::before,
+.site-nav__item--services > .site-nav__link:hover::before,
+.site-nav__item--services > .site-nav__link:focus-visible::before,
+.site-nav__item--services.is-open > .site-nav__link::before {
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, .72));
+  transform: translateY(-1px) rotate(-7deg) scale(1.08);
+}
+
+.nav-menu > li > .nav-menu__link[href="#hero"]::before { background-position: 0% center; }
+.nav-menu > li > .nav-menu__link[href="#about"]::before,
+.site-nav > .site-nav__link[href*="#about"]::before { background-position: 7.692% center; }
+.nav-menu__item--has-dd > .nav-menu__link::before,
+.site-nav__item--services > .site-nav__link::before { background-position: 15.385% center; }
+.nav-menu > li > .nav-menu__link[href="#fleet"]::before,
+.site-nav > .site-nav__link[href*="#fleet"]::before { background-position: 84.615% center; }
+.nav-menu > li > .nav-menu__link[href="#brands"]::before,
+.site-nav > .site-nav__link[href*="#clients"]::before { background-position: 92.307% center; }
+.nav-menu > li > .nav-menu__link[href="#contact"]::before,
+.site-nav > .site-nav__link[href*="#contact"]::before { background-position: 100% center; }
+
+/* آیکون‌های بزرگ‌تر و اختصاصی هر خدمت */
+.nav-dropdown__link::before,
+.site-nav__dropdown a::before,
+.mobile-drawer__service-link::before {
+  display: inline-block;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 11px;
+  background-color: transparent;
+  background-image: url("../icons/navigation-sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 1400% 100%;
+  background-position: 15.385% center;
+  box-shadow: 0 5px 13px rgba(14, 165, 233, .13);
+  content: "";
+  counter-increment: none;
+  transition: transform 360ms var(--qt-glass-spring), filter 240ms ease;
+}
+
+.nav-dropdown__link:hover::before,
+.nav-dropdown__link:focus-visible::before,
+.site-nav__dropdown a:hover::before,
+.site-nav__dropdown a:focus-visible::before,
+.mobile-drawer__service-link:hover::before,
+.mobile-drawer__service-link:focus-visible::before {
+  filter: drop-shadow(0 0 9px rgba(56, 189, 248, .7));
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.nav-dropdown__link--all::before,
+.site-nav__dropdown a:first-child::before { background-position: 15.385% center; }
+.nav-dropdown__link[href*="import-export"]::before,
+.site-nav__dropdown a[href*="import-export"]::before,
+.mobile-drawer__service-link[href*="import-export"]::before { background-position: 23.077% center; }
+.nav-dropdown__link[href*="customs-port"]::before,
+.site-nav__dropdown a[href*="customs-port"]::before,
+.mobile-drawer__service-link[href*="customs-port"]::before { background-position: 30.769% center; }
+.nav-dropdown__link[href*="sourcing"]::before,
+.site-nav__dropdown a[href*="sourcing"]::before,
+.mobile-drawer__service-link[href*="sourcing"]::before { background-position: 38.462% center; }
+.nav-dropdown__link[href*="factory-transport"]::before,
+.site-nav__dropdown a[href*="factory-transport"]::before,
+.mobile-drawer__service-link[href*="factory-transport"]::before { background-position: 46.154% center; }
+.nav-dropdown__link[href*="urban-vip"]::before,
+.site-nav__dropdown a[href*="urban-vip"]::before,
+.mobile-drawer__service-link[href*="urban-vip"]::before { background-position: 53.846% center; }
+.nav-dropdown__link[href*="school-office"]::before,
+.site-nav__dropdown a[href*="school-office"]::before,
+.mobile-drawer__service-link[href*="school-office"]::before { background-position: 61.538% center; }
+.nav-dropdown__link[href*="personnel-food"]::before,
+.site-nav__dropdown a[href*="personnel-food"]::before,
+.mobile-drawer__service-link[href*="personnel-food"]::before { background-position: 69.231% center; }
+.nav-dropdown__link[href*="trade-consulting"]::before,
+.site-nav__dropdown a[href*="trade-consulting"]::before,
+.mobile-drawer__service-link[href*="trade-consulting"]::before { background-position: 76.923% center; }
+
+/* لینک‌های اصلی drawer نیز همان خانواده آیکون را دارند */
+.mobile-drawer__item > .mobile-drawer__link::before {
+  display: inline-block;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  margin-inline-end: 8px;
+  border-radius: 10px;
+  background-image: url("../icons/navigation-sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 1400% 100%;
+  background-position: 0% center;
+  content: "";
+  filter: drop-shadow(0 4px 8px rgba(56, 189, 248, .22));
+  transition: transform 360ms var(--qt-glass-spring), filter 240ms ease;
+}
+
+.mobile-drawer__item > .mobile-drawer__link[href="#about"]::before { background-position: 7.692% center; }
+.mobile-drawer__item > .mobile-drawer__link[href*="services/index"]::before { background-position: 15.385% center; }
+.mobile-drawer__item > .mobile-drawer__link[href="#fleet"]::before { background-position: 84.615% center; }
+.mobile-drawer__item > .mobile-drawer__link[href="#brands"]::before { background-position: 92.307% center; }
+.mobile-drawer__item > .mobile-drawer__link[href="#contact"]::before { background-position: 100% center; }
+.mobile-drawer__item > .mobile-drawer__link:hover::before,
+.mobile-drawer__item > .mobile-drawer__link:focus-visible::before {
+  filter: drop-shadow(0 0 9px rgba(56, 189, 248, .75));
+  transform: rotate(-8deg) scale(1.1);
+}
+
+/* کارت شیشه‌ای dropdown با بازشدن سه‌بعدی و stagger نرم */
+.nav-dropdown,
+.site-nav__dropdown {
+  overflow: visible;
+  transform-origin: top right;
+  background:
+    radial-gradient(circle at 92% 5%, rgba(56, 189, 248, .2), transparent 34%),
+    radial-gradient(circle at 7% 92%, rgba(244, 114, 182, .16), transparent 36%),
+    var(--qt-glass-panel-light);
+  box-shadow: 0 30px 80px rgba(6, 24, 41, .2), inset 0 1px 0 rgba(255, 255, 255, .9);
+  transition: opacity 280ms ease, transform 430ms var(--qt-glass-ease), visibility 280ms ease;
+}
+
+.nav-dropdown::after,
+.site-nav__dropdown::after {
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, .2) 45%, transparent 70%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-35%);
+  transition: opacity 360ms ease;
+}
+
+.nav-menu__item--has-dd:hover .nav-dropdown::after,
+.nav-menu__item--has-dd:focus-within .nav-dropdown::after,
+.nav-menu__item--has-dd.is-open .nav-dropdown::after,
+.site-nav__item--services:hover .site-nav__dropdown::after,
+.site-nav__item--services:focus-within .site-nav__dropdown::after,
+.site-nav__item--services.is-open .site-nav__dropdown::after {
+  opacity: 1;
+  animation: qt-glass-sweep 1.2s var(--qt-glass-ease) both;
+}
+
+.nav-dropdown > li,
+.site-nav__dropdown > a {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-7px) scale(.97);
+  transition: opacity 260ms ease, transform 420ms var(--qt-glass-spring);
+}
+
+.nav-dropdown > li:nth-child(1), .site-nav__dropdown > a:nth-child(1) { --qt-nav-index: 0; }
+.nav-dropdown > li:nth-child(2), .site-nav__dropdown > a:nth-child(2) { --qt-nav-index: 1; }
+.nav-dropdown > li:nth-child(3), .site-nav__dropdown > a:nth-child(3) { --qt-nav-index: 2; }
+.nav-dropdown > li:nth-child(4), .site-nav__dropdown > a:nth-child(4) { --qt-nav-index: 3; }
+.nav-dropdown > li:nth-child(5), .site-nav__dropdown > a:nth-child(5) { --qt-nav-index: 4; }
+.nav-dropdown > li:nth-child(6), .site-nav__dropdown > a:nth-child(6) { --qt-nav-index: 5; }
+.nav-dropdown > li:nth-child(7), .site-nav__dropdown > a:nth-child(7) { --qt-nav-index: 6; }
+.nav-dropdown > li:nth-child(8), .site-nav__dropdown > a:nth-child(8) { --qt-nav-index: 7; }
+.nav-dropdown > li:nth-child(9), .site-nav__dropdown > a:nth-child(9) { --qt-nav-index: 8; }
+
+.nav-menu__item--has-dd:hover .nav-dropdown > li,
+.nav-menu__item--has-dd:focus-within .nav-dropdown > li,
+.nav-menu__item--has-dd.is-open .nav-dropdown > li,
+.site-nav__item--services:hover .site-nav__dropdown > a,
+.site-nav__item--services:focus-within .site-nav__dropdown > a,
+.site-nav__item--services.is-open .site-nav__dropdown > a {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: calc(var(--qt-nav-index, 0) * 32ms);
+}
+
+.nav-dropdown__link,
+.site-nav__dropdown a {
+  min-height: 48px;
+  border-color: rgba(255, 255, 255, .42);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+.nav-dropdown__link--all,
+.site-nav__dropdown a:first-child {
+  background: linear-gradient(135deg, rgba(6, 24, 41, .93), rgba(30, 64, 175, .82));
+  box-shadow: 0 10px 24px rgba(30, 64, 175, .18), inset 0 1px 0 rgba(255, 255, 255, .22);
+}
+
+.nav-dropdown__link:hover,
+.nav-dropdown__link:focus-visible,
+.site-nav__dropdown a:hover,
+.site-nav__dropdown a:focus-visible {
+  background: linear-gradient(115deg, rgba(56, 189, 248, .2), rgba(167, 139, 250, .18), rgba(251, 191, 36, .15));
+  box-shadow: 0 12px 24px rgba(14, 165, 233, .14), inset 0 1px 0 rgba(255, 255, 255, .55);
+  transform: translateX(-4px) translateY(-2px);
+}
+
+/* انیمیشن drawer موبایل: لایه، آیتم‌ها و آیکون‌ها با هم وارد می‌شوند */
+.mobile-drawer {
+  transform: translateY(-12px) scale(.975);
+  transform-origin: top center;
+  transition: opacity 320ms ease, visibility 320ms ease, transform 460ms var(--qt-glass-ease);
+}
+
+.mobile-drawer.is-open {
+  transform: translateY(0) scale(1);
+}
+
+.mobile-drawer__item,
+.mobile-drawer__service-link,
+.mobile-drawer__footer {
+  will-change: transform, opacity;
+}
+
+.mobile-drawer__service-link {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 70px;
+  border-color: rgba(255, 255, 255, .14);
+  background: linear-gradient(135deg, rgba(255, 255, 255, .1), rgba(56, 189, 248, .07));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12);
+  transition: opacity 260ms ease, transform 420ms var(--qt-glass-spring), background 220ms ease, border-color 220ms ease;
+}
+
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(1) { --qt-nav-index: 0; }
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(2) { --qt-nav-index: 1; }
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(3) { --qt-nav-index: 2; }
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(4) { --qt-nav-index: 3; }
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(5) { --qt-nav-index: 4; }
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(6) { --qt-nav-index: 5; }
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(7) { --qt-nav-index: 6; }
+.mobile-drawer__services .mobile-drawer__service-link:nth-child(8) { --qt-nav-index: 7; }
+
+.mobile-drawer:not(.is-open) .mobile-drawer__service-link {
+  opacity: 0;
+  transform: translateY(10px) scale(.97);
+}
+
+.mobile-drawer.is-open .mobile-drawer__service-link {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: calc(100ms + var(--qt-nav-index, 0) * 34ms);
+}
+
+.mobile-drawer__service-link:hover,
+.mobile-drawer__service-link:focus-visible {
+  background: linear-gradient(120deg, rgba(56, 189, 248, .22), rgba(139, 92, 246, .18));
+  border-color: rgba(125, 211, 252, .52);
+  transform: translateY(-3px) scale(1.015);
+}
+
+/* صفحات خدمات: همان پنل متحرک، بدون جهش display:none هنگام بسته شدن */
+@media (max-width: 1023px) {
+  .site-header .site-nav {
+    position: absolute;
+    top: calc(100% + 9px);
+    inset-inline: 0;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-14px) scale(.975);
+    transform-origin: top center;
+    transition: opacity 300ms ease, visibility 300ms ease, transform 460ms var(--qt-glass-ease);
+  }
+
+  .site-header .site-nav.is-open {
+    position: fixed;
+    inset: 78px 8px 8px;
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .site-nav.is-open .site-nav__link,
+  .site-nav.is-open .site-nav__cta {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 6px 18px rgba(6, 24, 41, .1);
+    transition: background 220ms ease, border-color 220ms ease, transform 360ms var(--qt-glass-spring);
+  }
+
+  .site-nav.is-open .site-nav__item--services,
+  .site-nav.is-open > .site-nav__link,
+  .site-nav.is-open > .site-nav__cta {
+    animation: qt-nav-row-in 500ms var(--qt-glass-spring) both;
+  }
+
+  .site-nav.is-open .site-nav__item--services { animation-delay: 55ms; }
+  .site-nav.is-open > .site-nav__link:nth-of-type(1) { animation-delay: 25ms; }
+  .site-nav.is-open > .site-nav__link:nth-of-type(2) { animation-delay: 95ms; }
+  .site-nav.is-open > .site-nav__link:nth-of-type(3) { animation-delay: 135ms; }
+  .site-nav.is-open > .site-nav__cta { animation-delay: 175ms; }
+
+  .site-nav__dropdown {
+    transform-origin: top center;
+  }
+}
+
+/* بازخورد لمسی و کلیک */
+.nav-menu__link:active,
+.site-nav__link:active,
+.nav-dropdown__link:active,
+.site-nav__dropdown a:active,
+.mobile-drawer__link:active,
+.mobile-drawer__service-link:active {
+  transform: translateY(1px) scale(.975);
+}
+
+.is-tapped {
+  animation: qt-nav-tap 520ms var(--qt-glass-ease);
+}
+
+@keyframes qt-glass-sweep {
+  from { opacity: 0; transform: translateX(-38%); }
+  35% { opacity: 1; }
+  to { opacity: 0; transform: translateX(38%); }
+}
+
+@keyframes qt-nav-row-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes qt-nav-tap {
+  0% { filter: brightness(1); }
+  35% { filter: brightness(1.16) saturate(1.25); }
+  100% { filter: brightness(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .site-header,
+  .nav-dropdown,
+  .site-nav__dropdown,
+  .mobile-drawer,
+  .site-header .site-nav,
+  .nav-dropdown > li,
+  .site-nav__dropdown > a,
+  .mobile-drawer__service-link {
+    animation: none !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header .site-nav.is-open {
+    inset: 76px 6px 6px;
+  }
+}
