@@ -366,7 +366,15 @@
         <ul class="nav-menu" role="menubar">
           <li role="none"><a href="#hero" class="nav-menu__link active" role="menuitem">Home</a></li>
           <li role="none"><a href="#about" class="nav-menu__link" role="menuitem">About Us</a></li>
-          <li role="none"><a href="#services" class="nav-menu__link" role="menuitem">Services</a></li>
+          <li role="none" class="nav-menu__item--has-dd">
+            <a href="#services" class="nav-menu__link" role="menuitem" aria-haspopup="true">Services<svg class="nav-menu__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <ul class="nav-dropdown" role="menu" aria-label="Services submenu">
+              <li role="none"><a href="#services" class="nav-dropdown__link" role="menuitem">Trading, Import & Export</a></li>
+              <li role="none"><a href="#fleet" class="nav-dropdown__link" role="menuitem">Transport & Staff Shuttle Services</a></li>
+              <li role="none"><a href="#personnel-food" class="nav-dropdown__link" role="menuitem">Staff Catering</a></li>
+            </ul>
+          </li>
           <li role="none"><a href="#fleet" class="nav-menu__link" role="menuitem">Fleet</a></li>
           <li role="none"><a href="#personnel-food" class="nav-menu__link" role="menuitem">Staff Catering</a></li>
           <li role="none"><a href="#brands" class="nav-menu__link" role="menuitem">Brands</a></li>
@@ -388,12 +396,14 @@
         </details>
         <!-- QT:LANG-SWITCH:END -->
 
-          <button type="button" class="btn btn-primary btn-sm" data-open-modal aria-label="Request a free consultation">
+          <a href="#contact" class="btn btn-primary btn-sm" aria-label="Request a consultation from Qazvin Tasvir">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <line x1="9" y1="9" x2="15" y2="9"></line>
+              <line x1="9" y1="13" x2="13" y2="13"></line>
             </svg>
-            <span>Free Consultation</span>
-          </button>
+            <span>Request a Consultation</span>
+          </a>
 
           <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="Open the mobile menu" aria-expanded="false" aria-controls="mobile-drawer">
             <span class="hamburger-line"></span>
@@ -1582,19 +1592,15 @@
             <span>Clients and Business Partners</span>
           </div>
           <h2 class="section-title">Leading brands that have trusted Qazvin Tasvir</h2>
-          <p class="section-desc">Proud to have worked for more than three decades with the largest factories, power plants and international and national industries</p>
+          <p class="section-desc">Proud to have served the largest factories and international industries of the country for more than three decades</p>
         </div>
 
-        <!-- گرید ۶ برند معتبر با طراحی مدرن -->
+        <!-- گرید ۱۱ برند مشتری: ۶ کارت با لوگوی رسمی + ۵ کارت آیکونی (در انتظار لوگو) -->
         <div class="clients-grid reveal">
-          <!-- ۱. نستله (Nestle) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5"></path>
-                <path d="M2 12l10 5 10-5"></path>
-              </svg>
+          <!-- ۱. نستله (Nestlé) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/nestle.png" alt="Nestlé logo" width="480" height="370" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Nestlé</h3>
             <span class="client-card__name-en">Nestlé</span>
@@ -1602,165 +1608,112 @@
           </div>
 
           <!-- ۲. ال‌جی (LG) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9 8v8h6"></path>
-                <circle cx="9" cy="9" r="1" fill="currentColor"></circle>
-              </svg>
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/lg.png" alt="LG logo" width="480" height="122" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">LG</h3>
             <span class="client-card__name-en">LG Electronics</span>
-            <span class="client-card__tag">Home appliances and electronics</span>
+            <span class="client-card__tag">Home appliances & electronics</span>
           </div>
 
-          <!-- ۳. نیروگاه شهید رجایی -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-              </svg>
+          <!-- ۳. گلدایران (Goldiran) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/goldiran.png" alt="Goldiran logo" width="474" height="420" loading="lazy" decoding="async">
             </div>
-            <h3 class="client-card__name">Shahid Rajaei Power Plant</h3>
-            <span class="client-card__name-en">Shahid Rajaei Plant</span>
-            <span class="client-card__tag">Power generation and the energy industry</span>
+            <h3 class="client-card__name">Goldiran</h3>
+            <span class="client-card__name-en">Goldiran</span>
+            <span class="client-card__tag">Official LG partner in Iran</span>
           </div>
 
-          <!-- ۴. آسان پک -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
-            </div>
-            <h3 class="client-card__name">Asan Pack</h3>
-            <span class="client-card__name-en">Asan Pack</span>
-            <span class="client-card__tag">Carton and packaging industry</span>
-          </div>
-
-          <!-- ۵. نیرومحرکه -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-              </svg>
-            </div>
-            <h3 class="client-card__name">Niru Moharreke</h3>
-            <span class="client-card__name-en">Niru Moharreke</span>
-            <span class="client-card__tag">Powertrains and gearboxes</span>
-          </div>
-
-          <!-- ۶. یونیلیور (Unilever) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
+          <!-- ۴. یونیلیور (Unilever) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/unilever.png" alt="Unilever logo" width="434" height="480" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Unilever</h3>
             <span class="client-card__name-en">Unilever</span>
             <span class="client-card__tag">Personal care & food products</span>
           </div>
 
-          <!-- ۷. هنکل (Henkel) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-              </svg>
+          <!-- ۵. هنکل (Henkel) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/henkel.png" alt="Henkel logo" width="316" height="262" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Henkel</h3>
             <span class="client-card__name-en">Henkel</span>
-            <span class="client-card__tag">Chemical & consumer goods industries</span>
+            <span class="client-card__tag">Chemical & consumer goods industry</span>
           </div>
 
-          <!-- ۸. BAT -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
+          <!-- ۶. بریتیش آمریکن تاباکو (BAT) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/bat.png" alt="British American Tobacco logo" width="451" height="257" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">BAT</h3>
-            <span class="client-card__name-en">BAT</span>
+            <span class="client-card__name-en">British American Tobacco</span>
             <span class="client-card__tag">International industrial group</span>
           </div>
 
-          <!-- ۹. آلکاپلاستیک -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
+          <!-- ۷. آلکاپلاستیک -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/alkaplastik.png" alt="Alkaplastik logo" width="349" height="230" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Alkaplastik</h3>
             <span class="client-card__name-en">Alkaplastik</span>
             <span class="client-card__tag">Plastics & polymer industries</span>
           </div>
 
-          <!-- ۱۰. کابل البرز -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-              </svg>
+          <!-- ۸. کابل البرز -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/alborz-cable.png" alt="Alborz Cable logo" width="480" height="148" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Alborz Cable</h3>
             <span class="client-card__name-en">Alborz Cable</span>
             <span class="client-card__tag">Wire & cable industries</span>
           </div>
 
-          <!-- ۱۱. شیر سحر -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
+          <!-- ۹. شیر سحر -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/sahar.png" alt="Shir Sahar logo" width="442" height="342" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Shir Sahar</h3>
             <span class="client-card__name-en">Shir Sahar</span>
             <span class="client-card__tag">Dairy industries</span>
           </div>
 
-          <!-- ۱۲. AGT -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
+          <!-- ۱۰. AGT -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/agt.png" alt="AGT logo" width="291" height="117" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">AGT</h3>
             <span class="client-card__name-en">AGT</span>
             <span class="client-card__tag">Industrial company</span>
           </div>
 
+          <!-- ۱۱. آسان پک -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="../assets/images/clients/asanpack.png" alt="Asan Pack logo" width="405" height="313" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">Asan Pack</h3>
+            <span class="client-card__name-en">Asan Pack</span>
+            <span class="client-card__tag">Carton and packaging industry</span>
+          </div>
         </div>
 
         <!-- نوار متحرک مشتریان (Marquee) — تکرار تزئینی نام همکاران برای اثبات اجتماعی -->
         <div class="clients-marquee-wrapper reveal" aria-hidden="true">
           <div class="clients-marquee">
             <span class="clients-marquee__chip">Nestlé Iran</span>
-            <span class="clients-marquee__chip">Goldiran (LG)</span>
+            <span class="clients-marquee__chip">Goldiran</span>
+            <span class="clients-marquee__chip">LG</span>
             <span class="clients-marquee__chip">Unilever</span>
             <span class="clients-marquee__chip">Henkel</span>
             <span class="clients-marquee__chip">BAT</span>
@@ -1769,10 +1722,9 @@
             <span class="clients-marquee__chip">Shir Sahar</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">Asan Pack</span>
-            <span class="clients-marquee__chip">Shahid Rajaei Power Plant</span>
-            <span class="clients-marquee__chip">Niru Moharreke</span>
             <span class="clients-marquee__chip">Nestlé Iran</span>
-            <span class="clients-marquee__chip">Goldiran (LG)</span>
+            <span class="clients-marquee__chip">Goldiran</span>
+            <span class="clients-marquee__chip">LG</span>
             <span class="clients-marquee__chip">Unilever</span>
             <span class="clients-marquee__chip">Henkel</span>
             <span class="clients-marquee__chip">BAT</span>
@@ -1781,10 +1733,93 @@
             <span class="clients-marquee__chip">Shir Sahar</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">Asan Pack</span>
-            <span class="clients-marquee__chip">Shahid Rajaei Power Plant</span>
-            <span class="clients-marquee__chip">Niru Moharreke</span>
           </div>
         </div>
+        <!-- نظرات مشتریان — نمونه‌هایی از بازخورد مشتریان سازمانی -->
+        <div class="testimonials reveal">
+          <h3 class="testimonials__title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>Client Testimonials</h3>
+          <div class="testimonials__grid">
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" role="img" aria-label="Rated 5 out of 5 stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+              </div>
+              <p class="testimonial-card__text">“For three years, our factory's staff shuttle service has been run with the Qazvin Tasvir fleet; the scheduling discipline and the condition of the vehicles in every season are remarkable.”</p>
+              <footer class="testimonial-card__author">
+                <span class="testimonial-card__avatar" aria-hidden="true">R</span>
+                <div>
+                  <span class="testimonial-card__name">Eng. Reza Karimi</span>
+                  <span class="testimonial-card__role">Logistics Manager, food manufacturing company</span>
+                </div>
+              </footer>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" role="img" aria-label="Rated 5 out of 5 stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+              </div>
+              <p class="testimonial-card__text">“From signing the contract to the start of services, everything moved forward transparently and systematically; the management's quick responsiveness is the reason we renewed our contract.”</p>
+              <footer class="testimonial-card__author">
+                <span class="testimonial-card__avatar" aria-hidden="true">S</span>
+                <div>
+                  <span class="testimonial-card__name">Ms. Sara Mohammadi</span>
+                  <span class="testimonial-card__role">HR Manager, industrial holding</span>
+                </div>
+              </footer>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" role="img" aria-label="Rated 5 out of 5 stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+              </div>
+              <p class="testimonial-card__text">“For years, the night-shift catering at our factory has been in the hands of the Qazvin Tasvir team; the menu quality and adherence to hygiene standards have won our staff's satisfaction.”</p>
+              <footer class="testimonial-card__author">
+                <span class="testimonial-card__avatar" aria-hidden="true">M</span>
+                <div>
+                  <span class="testimonial-card__name">Mr. Mahdi Rostami</span>
+                  <span class="testimonial-card__role">Procurement Manager, industrial complex</span>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+
+        <!-- نمونه‌کار: مطالعه موردی سرویس پرسنل -->
+        <article class="case-study reveal">
+          <div class="case-study__content">
+            <span class="case-study__badge">Case Study</span>
+            <h3 class="case-study__title">Managing daily transport for 500 staff at Caspian Industrial Park</h3>
+            <p class="case-study__text">Design and operation of a daily staff commuting system for a large industrial group at Caspian Industrial Park: route planning based on employees' places of residence, allocation of a dedicated minibus and coach fleet, and daily monitoring of driver attendance — every day, across two work shifts.</p>
+            <a href="#contact" class="btn btn-primary">Request a Consultation for Staff Services</a>
+          </div>
+          <dl class="case-study__stats">
+            <div class="case-study__stat">
+              <dt>Staff covered</dt>
+              <dd>500+</dd>
+            </div>
+            <div class="case-study__stat">
+              <dt>Daily work shifts</dt>
+              <dd>2 shifts</dd>
+            </div>
+            <div class="case-study__stat">
+              <dt>Service coverage</dt>
+              <dd>7 days a week</dd>
+            </div>
+          </dl>
+        </article>
+
 
         <!-- سوابق همکاری قراردادی — برگرفته از رزومه رسمی شرکت -->
         <div class="clients-history">
@@ -1861,7 +1896,7 @@
             </table>
           </div>
 
-          <p class="clients-history__note reveal">In total, <strong>84 vehicles</strong> have been provided to the companies above under these contracts; Shahid Rajaei Power Plant and Niru Moharreke are also among Qazvin Tasvir's other clients.</p>
+          <p class="clients-history__note reveal">In total, <strong>84 vehicles</strong> have been leased to the companies above under these contracts.</p>
         </div>
       </div>
     </section>
@@ -1957,7 +1992,7 @@
 
         <div style="text-align: center; margin-top: 20px; font-size: 0.875rem; color: var(--text-muted);" class="reveal">
           <strong style="color: var(--primary-navy);">Track record with leading organisations:</strong>
-          <span>Nestlé • LG • Shahid Rajaei Power Plant • Asan Pack • Niru Moharreke and dozens of industrial factories across the country</span>
+          <span>Nestlé • LG • Goldiran • Unilever • Asan Pack and dozens of industrial factories across the country</span>
         </div>
       </div>
     </section>
@@ -2022,7 +2057,7 @@
               <div class="spec-row"><dt>Chairman of the Board</dt><dd>Asghar Taghilou</dd></div>
               <div class="spec-row"><dt>Address</dt><dd>Qazvin, beginning of Ferdowsi Street, Abadgaran Commercial Complex, sixth floor, room 604</dd></div>
               <div class="spec-row"><dt>Postal code</dt><dd>3413691589</dd></div>
-              <div class="spec-row"><dt>Phone</dt><dd>0912 281 5189</dd></div>
+              <div class="spec-row"><dt>Phone</dt><dd><a href="tel:+989122815189" class="tel-link">0912 281 5189</a></dd></div>
               <div class="spec-row"><dt>Status</dt><dd>Active</dd></div>
             </dl>
           </article>
@@ -2086,7 +2121,8 @@
           </h3>
           <ul class="amenity-chips">
             <li class="amenity-chip">Nestlé Iran</li>
-            <li class="amenity-chip">Goldiran (LG)</li>
+            <li class="amenity-chip">Goldiran</li>
+            <li class="amenity-chip">LG</li>
             <li class="amenity-chip">Unilever</li>
             <li class="amenity-chip">Henkel</li>
             <li class="amenity-chip">BAT</li>
@@ -2095,8 +2131,6 @@
             <li class="amenity-chip">Shir Sahar</li>
             <li class="amenity-chip">AGT</li>
             <li class="amenity-chip">Asan Pack</li>
-            <li class="amenity-chip">Shahid Rajaei Power Plant</li>
-            <li class="amenity-chip">Niru Moharreke</li>
           </ul>
           <a href="#clients" class="resume-clients__link" aria-label="View the full cooperation track record table">Full cooperation track record and vehicle counts →</a>
         </div>
@@ -3323,6 +3357,7 @@
                   <option value="both">Both fields (trading and transport)</option>
                   <option value="trade">Trading, import and export and customs clearance</option>
                   <option value="transport">Transport & Staff Commute Services</option>
+                  <option value="food">Staff catering (corporate catering)</option>
                   <option value="consultation">Specialist advice and foreign-exchange matters</option>
                 </select>
                 <label for="contact-service" class="form-label" style="top: -10px; right: 14px; font-size: 0.775rem; font-weight: 700; color: var(--sky-blue); background: #FFFFFF;">Service required</label>
@@ -3661,50 +3696,6 @@
     <span id="toast-text">Number 09122815189 copied successfully!</span>
   </div>
 
-  <!-- مدال مشاوره رایگان (Quick Consultation Modal) -->
-  <div id="consultation-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-container">
-      <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close the consultation window">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div style="margin-bottom: 20px;">
-        <span class="section-label" style="font-size: 0.75rem; margin-bottom: 8px;">Free specialist consultation</span>
-        <h3 id="modal-title" style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 6px;">Request advice and a price quote</h3>
-        <p style="font-size: 0.875rem;">Leave your number and our specialists will call you back promptly.</p>
-      </div>
-
-      <form id="modal-form">
-        <div class="form-group">
-          <input type="text" id="modal-name" class="form-control" placeholder=" " required>
-          <label for="modal-name" class="form-label">Name or company name</label>
-        </div>
-
-        <div class="form-group">
-          <input type="tel" id="modal-phone" class="form-control" placeholder=" " dir="ltr" style="text-align: right;" required>
-          <label for="modal-phone" class="form-label">Mobile number (09...) *</label>
-        </div>
-
-        <div class="form-group">
-          <select id="modal-service" class="form-control form-select">
-            <option value="both">Trading and transport (both)</option>
-            <option value="trade">Trading, import and export</option>
-            <option value="transport">Transport and staff services</option>
-          </select>
-          <label for="modal-service" class="form-label" style="top: -10px; right: 14px; font-size: 0.775rem; font-weight: 700; color: var(--sky-blue); background: #FFFFFF;">Field of advice</label>
-        </div>
-
-        <button type="submit" id="modal-submit-btn" class="btn btn-primary btn-full" style="padding: 14px;">Send the free consultation request</button>
-
-        <div style="text-align: center; margin-top: 16px; font-size: 0.8125rem; color: var(--text-muted);">or call us directly on: <a href="tel:+989122815189" style="color: var(--primary-navy); font-weight: 700;">0912 281 5189</a>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <!-- اسکریپت جاوااسکریپت اصلی -->
   <script>
   /* عنوان و توضیح هر مسیر به زبان این صفحه — ساختهٔ tools/build-i18n-site.py */
@@ -3739,7 +3730,7 @@
     },
     "clients": {
         "title": "Leading brands that have trusted Qazvin Tasvir | Qazvin Tasvir Company",
-        "desc": "Proud to have worked for more than three decades with the largest factories, power plants and international and national industries"
+        "desc": "Proud to have served the largest factories and international industries of the country for more than three decades"
     },
     "trust": {
         "title": "Registered credentials open to verification | Qazvin Tasvir Company",

@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ۳. (حذف شد) اسکرول‌اسپای — با مسیریابی هشی، هر بخش صفحهٔ مستقل خودش را دارد و
-  // لینک فعال منو توسط روتر (بخش ۱۵) بر اساس صفحهٔ جاری تعیین می‌شود. این کار یک
+  // لینک فعال منو توسط روتر (بخش ۱۴) بر اساس صفحهٔ جاری تعیین می‌شود. این کار یک
   // شنوندهٔ scroll سراسری را هم حذف می‌کند.
 
   // ۴. انیمیشن ورود بخش‌ها با Intersection Observer
@@ -202,54 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ۷. مدال مشاوره رایگان (Consultation Modal)
-  const modalOverlay = document.getElementById('consultation-modal');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
-  const openModalButtons = document.querySelectorAll('[data-open-modal]');
-
-  function openConsultationModal(serviceType = '') {
-    if (!modalOverlay) return;
-    modalOverlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-
-    if (serviceType) {
-      const modalSelect = modalOverlay.querySelector('#modal-service');
-      if (modalSelect) modalSelect.value = serviceType;
-    }
-  }
-
-  function closeConsultationModal() {
-    if (!modalOverlay) return;
-    modalOverlay.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-
-  openModalButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const service = btn.getAttribute('data-service') || '';
-      openConsultationModal(service);
-    });
-  });
-
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', closeConsultationModal);
-  }
-
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) {
-        closeConsultationModal();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) {
-        closeConsultationModal();
-      }
-    });
-  }
-
   // ۸. اعتبارسنجی و ارسال فرم تماس اصلی (Contact Form)
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -333,45 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ۱۰. اعتبارسنجی فرم مدال مشاوره
-  const modalForm = document.getElementById('modal-form');
-  if (modalForm) {
-    modalForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const phoneInput = modalForm.querySelector('#modal-phone');
-      const submitBtn = modalForm.querySelector('#modal-submit-btn');
-
-      const phoneVal = phoneInput.value.trim();
-      const phoneRegex = /^(\+98|0)?9\d{9}$/;
-      if (!phoneRegex.test(phoneVal.replace(/\s+/g, ''))) {
-        phoneInput.classList.add('is-invalid');
-        showToast('لطفاً یک شماره همراه معتبر وارد فرمایید.');
-        return;
-      }
-      phoneInput.classList.remove('is-invalid');
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'در حال ارسال...';
-
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '✓ درخواست ثبت شد';
-        submitBtn.style.background = '#10B981';
-        submitBtn.style.color = '#FFFFFF';
-
-        showToast('مشاوره رایگان برای شما ثبت شد. به زودی با شما تماس می‌گیریم.');
-        setTimeout(() => {
-          modalForm.reset();
-          closeConsultationModal();
-          submitBtn.innerHTML = 'ثبت درخواست مشاوره رایگان';
-          submitBtn.style.background = '';
-          submitBtn.style.color = '';
-        }, 2000);
-      }, 1000);
-    });
-  }
-
-  // ۱۱. بخش تأمین غذای پرسنل — تب‌بندی منوی وعده‌ها (Accessible Tabs)
+  // ۱۰. بخش تأمین غذای پرسنل — تب‌بندی منوی وعده‌ها (Accessible Tabs)
   const foodTabs = Array.from(document.querySelectorAll('.food-tab'));
   const foodPanels = Array.from(document.querySelectorAll('.food-panel'));
 
@@ -420,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ۱۲. بخش تأمین غذای پرسنل — انتخاب وعده‌ها و آینه‌سازی برای ارسال
+  // ۱۱. بخش تأمین غذای پرسنل — انتخاب وعده‌ها و آینه‌سازی برای ارسال
   const mealInputs = Array.from(document.querySelectorAll('.food-meal input[type="checkbox"]'));
   const mealsMirror = document.getElementById('food-meals-mirror');
   const mealsFeedback = document.querySelector('[data-feedback-for="food-meals"]');
@@ -439,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mealInputs.forEach(input => input.addEventListener('change', syncMealSelection));
 
-  // ۱۳. بخش تأمین غذای پرسنل — اعتبارسنجی و ارسال فرم درخواست قرارداد
+  // ۱۲. بخش تأمین غذای پرسنل — اعتبارسنجی و ارسال فرم درخواست قرارداد
   const foodForm = document.getElementById('personnel-food-form');
 
   if (foodForm) {
@@ -596,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
-  // ۱۴. اعتبار انیمیشنی «طراحی و توسعه: کارن سافت» در نوار پایین فوتر (KarenSoft Credit)
+  // ۱۳. اعتبار انیمیشنی «طراحی و توسعه: کارن سافت» در نوار پایین فوتر (KarenSoft Credit)
   const ksCredit = document.getElementById('ks-credit');
   if (ksCredit) {
     const ksReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -655,7 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ۱۵. مسیریابی صفحه‌ها با هش (Hash Router)
+  // ۱۴. مسیریابی صفحه‌ها با هش (Hash Router)
   // ---------------------------------------------------------------------------
   // هر بخش اصلی سایت یک «صفحه»ی مستقل است و با هش آدرس (#services و…) نمایش
   // داده می‌شود. بدون جاوااسکریپت کلاس js-pages اضافه نمی‌شود و همهٔ بخش‌ها مثل

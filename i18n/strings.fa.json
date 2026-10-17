@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 836,
+  "count": 859,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -120,106 +120,126 @@
       "ctx": "li.ul.nav-menu"
     },
     "chrome.020": {
+      "fa": "زیرشاخه‌های خدمات",
+      "kind": "attr:aria-label",
+      "ctx": "svg.a.nav-menu__link"
+    },
+    "chrome.021": {
+      "fa": "بازرگانی، واردات و صادرات",
+      "kind": "text",
+      "ctx": "svg.a.nav-menu__link"
+    },
+    "chrome.022": {
+      "fa": "حمل‌ونقل و سرویس ایاب‌وذهاب پرسنل",
+      "kind": "text",
+      "ctx": "li.ul.nav-dropdown"
+    },
+    "chrome.023": {
+      "fa": "تأمین غذای پرسنل (کیترینگ)",
+      "kind": "text",
+      "ctx": "li.ul.nav-dropdown"
+    },
+    "chrome.024": {
       "fa": "ناوگان",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.021": {
+    "chrome.025": {
       "fa": "غذای پرسنل",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.022": {
+    "chrome.026": {
       "fa": "برندها",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.023": {
+    "chrome.027": {
       "fa": "تماس با ما",
       "kind": "text",
       "ctx": "li.ul.nav-menu"
     },
-    "chrome.024": {
-      "fa": "دریافت مشاوره رایگان",
+    "chrome.028": {
+      "fa": "درخواست مشاوره از قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "div.div.navbar__inner"
     },
-    "chrome.025": {
-      "fa": "مشاوره رایگان",
+    "chrome.029": {
+      "fa": "درخواست مشاوره",
       "kind": "text",
       "ctx": "div.div.navbar__inner"
     },
-    "chrome.026": {
+    "chrome.030": {
       "fa": "باز کردن منوی موبایل",
       "kind": "attr:aria-label",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.027": {
+    "chrome.031": {
       "fa": "خانه",
       "kind": "text",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.028": {
+    "chrome.032": {
       "fa": "درباره قزوین تصویر",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.029": {
+    "chrome.033": {
       "fa": "خدمات بازرگانی و ترابری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.030": {
+    "chrome.034": {
       "fa": "تأمین غذای پرسنل و کیترینگ سازمانی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.031": {
+    "chrome.035": {
       "fa": "ناوگان ترابری (اتوبوس، مینی‌بوس، ون)",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.032": {
+    "chrome.036": {
       "fa": "مشخصات فنی ناوگان و سرویس‌های VIP",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.033": {
+    "chrome.037": {
       "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.034": {
+    "chrome.038": {
       "fa": "چرا ما؟",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.035": {
+    "chrome.039": {
       "fa": "مشتریان و همکاران تجاری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.036": {
+    "chrome.040": {
       "fa": "اعتبار و استعلام رسمی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.037": {
+    "chrome.041": {
       "fa": "رزومه شرکت",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.038": {
+    "chrome.042": {
       "fa": "اعتبارنامه حقوقی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.039": {
+    "chrome.043": {
       "fa": "تماس با شرکت",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.040": {
+    "chrome.044": {
       "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.mobile-drawer",
@@ -227,7 +247,7 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "chrome.041": {
+    "chrome.045": {
       "fa": "ارتباط در واتساپ رسمی",
       "kind": "text",
       "ctx": "a.div.mobile-drawer__footer"
@@ -1610,114 +1630,114 @@
       "ctx": "h2.div.section-header.reveal"
     },
     "clients.004": {
-      "fa": "افتخار بیش از ۳ دهه همراهی با بزرگ‌ترین کارخانجات، نیروگاه‌ها و صنایع بین‌المللی و ملی",
+      "fa": "افتخار بیش از ۳ دهه همراهی با بزرگ‌ترین کارخانجات و صنایع بین‌المللی و ملی",
       "kind": "text",
       "ctx": "p.div.section-header.reveal"
     },
     "clients.005": {
+      "fa": "لوگوی نستله",
+      "kind": "attr:alt",
+      "ctx": "div.div.container"
+    },
+    "clients.006": {
       "fa": "نستله",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "clients.006": {
+    "clients.007": {
       "fa": "Nestlé",
       "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.007": {
-      "fa": "صنایع غذایی بین‌المللی",
-      "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.008": {
+      "fa": "صنایع غذایی بین‌المللی",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.009": {
+      "fa": "لوگوی ال‌جی",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.010": {
       "fa": "ال‌جی",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
-    "clients.009": {
+    "clients.011": {
       "fa": "LG Electronics",
       "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.010": {
-      "fa": "لوازم خانگی و الکترونیک",
-      "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.011": {
-      "fa": "نیروگاه شهید رجایی",
-      "kind": "text",
-      "ctx": "div.div.clients-grid.reveal"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.012": {
-      "fa": "Shahid Rajaei Plant",
+      "fa": "لوازم خانگی و الکترونیک",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.013": {
-      "fa": "تولید برق و صنایع انرژی",
-      "kind": "text",
-      "ctx": "span.div.client-card"
+      "fa": "لوگوی گلدایران",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
     },
     "clients.014": {
-      "fa": "آسان پک",
+      "fa": "گلدایران",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.015": {
-      "fa": "Asan Pack",
+      "fa": "Goldiran",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.016": {
-      "fa": "صنایع کارتن و بسته‌بندی",
+      "fa": "همکار رسمی ال‌جی در ایران",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.017": {
-      "fa": "نیرومحرکه",
-      "kind": "text",
+      "fa": "لوگوی یونیلیور",
+      "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.018": {
-      "fa": "Niru Moharreke",
-      "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.019": {
-      "fa": "قوای محرکه و گیربکس",
-      "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.020": {
       "fa": "یونیلیور",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
-    "clients.021": {
+    "clients.019": {
       "fa": "Unilever",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
-    "clients.022": {
+    "clients.020": {
       "fa": "محصولات بهداشتی و غذایی",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
-    "clients.023": {
+    "clients.021": {
+      "fa": "لوگوی هنکل",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.022": {
       "fa": "هنکل",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
-    "clients.024": {
+    "clients.023": {
       "fa": "Henkel",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
-    "clients.025": {
+    "clients.024": {
       "fa": "صنایع شیمیایی و بهداشتی",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.025": {
+      "fa": "لوگوی شرکت بریتیش آمریکن تاباکو",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
     },
     "clients.026": {
       "fa": "BAT",
@@ -1725,385 +1745,540 @@
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.027": {
-      "fa": "BAT",
+      "fa": "British American Tobacco",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.028": {
       "fa": "گروه صنعتی بین‌المللی",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.029": {
+      "fa": "لوگوی آلکاپلاستیک",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.030": {
       "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
-    "clients.030": {
+    "clients.031": {
       "fa": "Alkaplastik",
       "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.031": {
-      "fa": "صنایع پلاستیک و پلیمر",
-      "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.032": {
+      "fa": "صنایع پلاستیک و پلیمر",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.033": {
+      "fa": "لوگوی کابل البرز",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.034": {
       "fa": "کابل البرز",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
-    "clients.033": {
+    "clients.035": {
       "fa": "Alborz Cable",
       "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.034": {
-      "fa": "صنایع سیم و کابل",
-      "kind": "text",
-      "ctx": "span.div.client-card"
-    },
-    "clients.035": {
-      "fa": "شیر سحر",
-      "kind": "text",
-      "ctx": "div.div.clients-grid.reveal"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.036": {
-      "fa": "Shir Sahar",
+      "fa": "صنایع سیم و کابل",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.037": {
-      "fa": "صنایع لبنی",
-      "kind": "text",
-      "ctx": "span.div.client-card"
+      "fa": "لوگوی شیر سحر",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
     },
     "clients.038": {
-      "fa": "AGT",
+      "fa": "شیر سحر",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.039": {
-      "fa": "AGT",
+      "fa": "Shir Sahar",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.040": {
-      "fa": "شرکت صنعتی",
+      "fa": "صنایع لبنی",
       "kind": "text",
-      "ctx": "span.div.client-card"
+      "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.041": {
+      "fa": "لوگوی AGT",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.042": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.043": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.044": {
+      "fa": "شرکت صنعتی",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.045": {
+      "fa": "لوگوی آسان پک",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.046": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.047": {
+      "fa": "Asan Pack",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.048": {
+      "fa": "صنایع کارتن و بسته‌بندی",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.049": {
       "fa": "نستله ایران",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "clients.042": {
-      "fa": "گلدایران (ال‌جی)",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.043": {
-      "fa": "یونیلیور",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.044": {
-      "fa": "هنکل",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.045": {
-      "fa": "BAT",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.046": {
-      "fa": "آلکاپلاستیک",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.047": {
-      "fa": "کابل البرز",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.048": {
-      "fa": "شیر سحر",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.049": {
-      "fa": "AGT",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
     "clients.050": {
-      "fa": "آسان پک",
+      "fa": "گلدایران",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.051": {
-      "fa": "نیروگاه شهید رجایی",
+      "fa": "ال‌جی",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.052": {
-      "fa": "نیرومحرکه",
+      "fa": "یونیلیور",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.053": {
-      "fa": "نستله ایران",
+      "fa": "هنکل",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.054": {
-      "fa": "گلدایران (ال‌جی)",
+      "fa": "BAT",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.055": {
-      "fa": "یونیلیور",
+      "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.056": {
-      "fa": "هنکل",
+      "fa": "کابل البرز",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.057": {
-      "fa": "BAT",
+      "fa": "شیر سحر",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.058": {
-      "fa": "آلکاپلاستیک",
+      "fa": "AGT",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.059": {
-      "fa": "کابل البرز",
+      "fa": "آسان پک",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.060": {
-      "fa": "شیر سحر",
+      "fa": "نستله ایران",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.061": {
-      "fa": "AGT",
+      "fa": "گلدایران",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.062": {
-      "fa": "آسان پک",
+      "fa": "ال‌جی",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.063": {
-      "fa": "نیروگاه شهید رجایی",
+      "fa": "یونیلیور",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.064": {
-      "fa": "نیرومحرکه",
+      "fa": "هنکل",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.065": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.066": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.067": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.068": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.069": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.070": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.071": {
+      "fa": "نظرات مشتریان",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "clients.072": {
+      "fa": "امتیاز ۵ از ۵ ستاره",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.testimonials.reveal"
+    },
+    "clients.073": {
+      "fa": "«سه سال است سرویس ایاب‌وذهاب پرسنل کارخانه ما با ناوگان قزوین تصویر انجام می‌شود؛ نظم زمان‌بندی و سلامت خودروها در تمام فصول سال چشمگیر است.»",
+      "kind": "text",
+      "ctx": "div.div.testimonials.reveal"
+    },
+    "clients.074": {
+      "fa": "ر",
+      "kind": "text",
+      "ctx": "footer.article.testimonial-card"
+    },
+    "clients.075": {
+      "fa": "مهندس رضا کریمی",
+      "kind": "text",
+      "ctx": "div.footer.testimonial-card__author"
+    },
+    "clients.076": {
+      "fa": "مدیر لجستیک، شرکت تولیدی صنایع غذایی",
+      "kind": "text",
+      "ctx": "span.footer.testimonial-card__author"
+    },
+    "clients.077": {
+      "fa": "امتیاز ۵ از ۵ ستاره",
+      "kind": "attr:aria-label",
+      "ctx": "article.div.testimonials__grid"
+    },
+    "clients.078": {
+      "fa": "«از عقد قرارداد تا شروع سرویس همه‌چیز شفاف و مستند پیش رفت؛ پاسخگویی سریع مدیریت، عاملی شد که قراردادمان را تمدید کنیم.»",
+      "kind": "text",
+      "ctx": "article.div.testimonials__grid"
+    },
+    "clients.079": {
+      "fa": "س",
+      "kind": "text",
+      "ctx": "footer.article.testimonial-card"
+    },
+    "clients.080": {
+      "fa": "خانم سارا محمدی",
+      "kind": "text",
+      "ctx": "div.footer.testimonial-card__author"
+    },
+    "clients.081": {
+      "fa": "مدیر منابع انسانی، هلدینگ صنعتی",
+      "kind": "text",
+      "ctx": "span.footer.testimonial-card__author"
+    },
+    "clients.082": {
+      "fa": "امتیاز ۵ از ۵ ستاره",
+      "kind": "attr:aria-label",
+      "ctx": "article.div.testimonials__grid"
+    },
+    "clients.083": {
+      "fa": "«تأمین وعده‌های غذایی شیفت شب کارخانه سال‌هاست بر عهده تیم قزوین تصویر است؛ کیفیت منو و پایبندی به نکات بهداشتی رضایت پرسنل را جلب کرده است.»",
+      "kind": "text",
+      "ctx": "article.div.testimonials__grid"
+    },
+    "clients.084": {
+      "fa": "م",
+      "kind": "text",
+      "ctx": "footer.article.testimonial-card"
+    },
+    "clients.085": {
+      "fa": "آقای مهدی رستمی",
+      "kind": "text",
+      "ctx": "div.footer.testimonial-card__author"
+    },
+    "clients.086": {
+      "fa": "مدیر تدارکات، مجتمع صنعتی",
+      "kind": "text",
+      "ctx": "span.footer.testimonial-card__author"
+    },
+    "clients.087": {
+      "fa": "نمونه‌کار",
+      "kind": "text",
+      "ctx": "article.div.container"
+    },
+    "clients.088": {
+      "fa": "مدیریت ایاب‌وذهاب ۵۰۰ پرسنل در شهرک صنعتی کاسپین",
+      "kind": "text",
+      "ctx": "h3.div.case-study__content"
+    },
+    "clients.089": {
+      "fa": "طراحی و اجرای سامانه رفت‌وآمد روزانه پرسنل یک مجموعه صنعتی بزرگ در شهرک صنعتی کاسپین؛ شامل برنامه‌ریزی مسیرها بر مبنای محل سکونت کارکنان، تخصیص ناوگان مینی‌بوس و اتوبوس، و پایش روزانه حضور رانندگان — همه‌روزه و در دو شیفت کاری.",
+      "kind": "text",
+      "ctx": "p.div.case-study__content"
+    },
+    "clients.090": {
+      "fa": "درخواست مشاوره برای سرویس پرسنل",
+      "kind": "text",
+      "ctx": "a.div.case-study__content"
+    },
+    "clients.091": {
+      "fa": "پرسنل تحت پوشش",
+      "kind": "text",
+      "ctx": "dl.article.case-study.reveal"
+    },
+    "clients.092": {
+      "fa": "شیفت کاری روزانه",
+      "kind": "text",
+      "ctx": "div.dl.case-study__stats"
+    },
+    "clients.093": {
+      "fa": "۲ شیفت",
+      "kind": "text",
+      "ctx": "dd.div.case-study__stat"
+    },
+    "clients.094": {
+      "fa": "پوشش خدمت",
+      "kind": "text",
+      "ctx": "div.dl.case-study__stats"
+    },
+    "clients.095": {
+      "fa": "۷ روز هفته",
+      "kind": "text",
+      "ctx": "dd.div.case-study__stat"
+    },
+    "clients.096": {
       "fa": "از رزومه رسمی شرکت",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "clients.066": {
+    "clients.097": {
       "fa": "سوابق همکاری قراردادی",
       "kind": "text",
       "ctx": "h3.div.section-header.reveal"
     },
-    "clients.067": {
+    "clients.098": {
       "fa": "شرکتی که سرویس ایاب‌وذهاب پرسنل‌شان در طول سال‌های فعالیت، با ناوگان و رانندگان قزوین تصویر انجام شده است؛ به‌همراه تعداد دستگاه‌های واگذارشده و بازهٔ همکاری.",
       "kind": "text",
       "ctx": "p.div.section-header.reveal"
     },
-    "clients.068": {
+    "clients.099": {
       "fa": "سوابق همکاری قراردادی شرکت قزوین تصویر با شرکت‌های صنعتی و تولیدی",
       "kind": "text",
       "ctx": "div.div.clients-history"
     },
-    "clients.069": {
+    "clients.100": {
       "fa": "شرکت",
       "kind": "text",
       "ctx": "thead.table.history-table"
     },
-    "clients.070": {
+    "clients.101": {
       "fa": "ناوگان واگذارشده",
       "kind": "text",
       "ctx": "th.table.history-table"
     },
-    "clients.071": {
+    "clients.102": {
       "fa": "بازهٔ همکاری",
       "kind": "text",
       "ctx": "th.table.history-table"
     },
-    "clients.072": {
+    "clients.103": {
       "fa": "نستله ایران",
       "kind": "text",
       "ctx": "tbody.table.history-table"
     },
-    "clients.073": {
+    "clients.104": {
       "fa": "۵ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.074": {
+    "clients.105": {
       "fa": "۱۳۸۹ تا ۱۳۹۸",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.075": {
+    "clients.106": {
       "fa": "گلدایران (ال‌جی)",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.076": {
+    "clients.107": {
       "fa": "۹ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.077": {
+    "clients.108": {
       "fa": "۱۳۹۰ تا ۱۴۰۲",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.078": {
+    "clients.109": {
       "fa": "یونیلیور",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.079": {
+    "clients.110": {
       "fa": "۹ دستگاه + ۳ دستگاه سرویس VIP",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.080": {
+    "clients.111": {
       "fa": "۱۳۹۳ تا ۱۳۹۶",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.081": {
+    "clients.112": {
       "fa": "هنکل",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.082": {
+    "clients.113": {
       "fa": "۲ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.083": {
+    "clients.114": {
       "fa": "۱۳۹۴ تا ۱۳۹۷",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.084": {
+    "clients.115": {
       "fa": "BAT",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.085": {
+    "clients.116": {
       "fa": "۷ دستگاه + ۱۰ دستگاه VIP",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.086": {
+    "clients.117": {
       "fa": "۱۳۹۳ تا ۱۳۹۶",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.087": {
+    "clients.118": {
       "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.088": {
+    "clients.119": {
       "fa": "۶ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.089": {
+    "clients.120": {
       "fa": "۱۳۸۹ تا ۱۳۹۵",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.090": {
+    "clients.121": {
       "fa": "کابل البرز",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.091": {
+    "clients.122": {
       "fa": "۷ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.092": {
+    "clients.123": {
       "fa": "۱۳۹۰ تا ۱۳۹۶",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.093": {
+    "clients.124": {
       "fa": "شیر سحر",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.094": {
+    "clients.125": {
       "fa": "۸ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.095": {
+    "clients.126": {
       "fa": "۱۴۰۲ تا کنون",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.096": {
+    "clients.127": {
       "fa": "AGT",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.097": {
+    "clients.128": {
       "fa": "۹ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.098": {
+    "clients.129": {
       "fa": "۱۴۰۰ تا ۱۴۰۲",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.099": {
+    "clients.130": {
       "fa": "آسان پک",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.100": {
+    "clients.131": {
       "fa": "۹ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.101": {
+    "clients.132": {
       "fa": "۱۳۹۷ تا کنون",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.102": {
-      "fa": "جمع‌اً ۸۴ دستگاه خودرو در قالب این قراردادها به شرکت‌های بالا واگذار شده است؛ نیروگاه شهید رجایی و نیرومحرکه نیز از دیگر مشتریان قزوین تصویر هستند.",
+    "clients.133": {
+      "fa": "جمع‌اً ۸۴ دستگاه خودرو در قالب این قراردادها به شرکت‌های بالا واگذار شده است.",
       "kind": "text",
       "ctx": "p.div.clients-history",
-      "html": "جمع‌اً <strong>۸۴ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است؛ نیروگاه شهید رجایی و نیرومحرکه نیز از دیگر مشتریان قزوین تصویر هستند."
+      "html": "جمع‌اً <strong>۸۴ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است."
     },
     "trust.001": {
       "fa": "اعتبار و شناسه ثبتی شرکت",
@@ -2166,7 +2341,7 @@
       "ctx": "div.div.container"
     },
     "trust.013": {
-      "fa": "نستله (Nestlé) • ال‌جی (LG) • نیروگاه شهید رجایی • آسان پک • نیرومحرکه و ده‌ها کارخانه صنعتی کشور",
+      "fa": "نستله (Nestlé) • ال‌جی (LG) • گلدایران • یونیلیور • آسان پک و ده‌ها کارخانه صنعتی کشور",
       "kind": "text",
       "ctx": "span.div.reveal"
     },
@@ -2407,91 +2582,86 @@
       "ctx": "ul.div.resume-clients.reveal"
     },
     "resume.048": {
-      "fa": "گلدایران (ال‌جی)",
+      "fa": "گلدایران",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.049": {
-      "fa": "یونیلیور",
+      "fa": "ال‌جی",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.050": {
-      "fa": "هنکل",
+      "fa": "یونیلیور",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.051": {
-      "fa": "BAT",
+      "fa": "هنکل",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.052": {
-      "fa": "آلکاپلاستیک",
+      "fa": "BAT",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.053": {
-      "fa": "کابل البرز",
+      "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.054": {
-      "fa": "شیر سحر",
+      "fa": "کابل البرز",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.055": {
-      "fa": "AGT",
+      "fa": "شیر سحر",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.056": {
-      "fa": "آسان پک",
+      "fa": "AGT",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.057": {
-      "fa": "نیروگاه شهید رجایی",
+      "fa": "آسان پک",
       "kind": "text",
       "ctx": "li.ul.amenity-chips"
     },
     "resume.058": {
-      "fa": "نیرومحرکه",
-      "kind": "text",
-      "ctx": "li.ul.amenity-chips"
-    },
-    "resume.059": {
       "fa": "مشاهده جدول کامل سوابق همکاری",
       "kind": "attr:aria-label",
       "ctx": "a.div.resume-clients.reveal"
     },
-    "resume.060": {
+    "resume.059": {
       "fa": "جدول کامل سوابق همکاری و تعداد دستگاه‌ها ←",
       "kind": "text",
       "ctx": "a.div.resume-clients.reveal"
     },
-    "resume.061": {
+    "resume.060": {
       "fa": "فایل رزومه رسمی شرکت (PDF) شامل مشخصات فنی کامل ناوگان، تجهیزات و سوابق همکاری را دریافت کنید.",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "resume.062": {
+    "resume.061": {
       "fa": "دریافت فایل رزومه شرکت قزوین تصویر در قالب PDF",
       "kind": "attr:aria-label",
       "ctx": "div.div.fleet-specs-cta.fleet-specs-cta--end"
     },
-    "resume.063": {
+    "resume.062": {
       "fa": "دریافت رزومه شرکت (PDF)",
       "kind": "text",
       "ctx": "div.div.fleet-specs-cta.fleet-specs-cta--end"
     },
-    "resume.064": {
+    "resume.063": {
       "fa": "تماس و درخواست مشاوره",
       "kind": "attr:aria-label",
       "ctx": "a.div.fleet-specs-cta__actions"
     },
-    "resume.065": {
+    "resume.064": {
       "fa": "تماس و درخواست مشاوره",
       "kind": "text",
       "ctx": "a.div.fleet-specs-cta__actions"
@@ -3772,397 +3942,402 @@
       "ctx": "option.select.form-control.form-select"
     },
     "contact.012": {
-      "fa": "مشاوره تخصصی و امور ارزی",
+      "fa": "تأمین غذای پرسنل (کیترینگ سازمانی)",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
     "contact.013": {
+      "fa": "مشاوره تخصصی و امور ارزی",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.014": {
       "fa": "نوع خدمت مورد نظر",
       "kind": "text",
       "ctx": "label.div.form-group"
     },
-    "contact.014": {
+    "contact.015": {
       "fa": "توضیحات تکمیلی یا جزئیات درخواست...",
       "kind": "text",
       "ctx": "div.div.contact-form-card.reveal"
     },
-    "contact.015": {
+    "contact.016": {
       "fa": "ارسال درخواست مشاوره",
       "kind": "text",
       "ctx": "button.div.contact-form-card.reveal"
     },
-    "contact.016": {
+    "contact.017": {
       "fa": "تلفن تماس مستقیم و رسمی",
       "kind": "text",
       "ctx": "svg.button.btn.btn-primary"
     },
-    "contact.017": {
+    "contact.018": {
       "fa": "کپی شماره تماس",
       "kind": "attr:aria-label",
       "ctx": "button.div.contact-detail-box__value"
     },
-    "contact.018": {
+    "contact.019": {
       "fa": "کپی شماره",
       "kind": "text",
       "ctx": "button.div.contact-detail-box__value"
     },
-    "contact.019": {
+    "contact.020": {
       "fa": "ارتباط مستقیم در واتساپ",
       "kind": "text",
       "ctx": "div.div.contact-detail-box"
     },
-    "contact.020": {
+    "contact.021": {
       "fa": "گفتگو با پشتیبانی در واتساپ ↗",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.021": {
+    "contact.022": {
       "fa": "نشانی دفتر مرکزی",
       "kind": "text",
       "ctx": "div.div.contact-detail-box"
     },
-    "contact.022": {
+    "contact.023": {
       "fa": "قزوین، اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.023": {
+    "contact.024": {
       "fa": "کد پستی: ۳۴۱۳۶۹۱۵۸۹",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.024": {
+    "contact.025": {
       "fa": "ساعات پاسخگویی اداری و پشتیبانی",
       "kind": "text",
       "ctx": "div.div.contact-detail-box"
     },
-    "contact.025": {
+    "contact.026": {
       "fa": "شنبه تا پنجشنبه: ۸:۰۰ صبح الی ۲۰:۰۰ شب",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.026": {
+    "contact.027": {
       "fa": "عملیات ترابری و شیفت شب: ۲۴ ساعته شبانه‌روزی",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.027": {
+    "contact.028": {
       "fa": "موقعیت استراتژیک در قطب صنعتی قزوین",
       "kind": "text",
       "ctx": "div.div.contact-info-card.reveal"
     },
-    "contact.028": {
+    "contact.029": {
       "fa": "دسترسی سریع به شهرک‌های صنعتی البرز، کاسپین، لیا، حیدریه، خرمدشت و شاهراه‌های ترانزیتی شمال‌غرب و گمرکات کشور.",
       "kind": "text",
       "ctx": "p.div.map-preview-box"
     },
-    "contact.029": {
+    "contact.030": {
       "fa": "شهرک کاسپین",
       "kind": "text",
       "ctx": "div.div.map-preview-box"
     },
-    "contact.030": {
+    "contact.031": {
       "fa": "شهرک البرز",
       "kind": "text",
       "ctx": "span.div.map-preview-box"
     },
-    "contact.031": {
+    "contact.032": {
       "fa": "شهرک لیا",
       "kind": "text",
       "ctx": "span.div.map-preview-box"
     },
-    "contact.032": {
+    "contact.033": {
       "fa": "گمرک قزوین",
       "kind": "text",
       "ctx": "span.div.map-preview-box"
     },
-    "contact.033": {
+    "contact.034": {
       "fa": "پاورقی سایت",
       "kind": "attr:aria-label",
       "ctx": "footer.footer.footer"
     },
-    "contact.034": {
+    "contact.035": {
       "fa": "شرکت قزوین تصویر",
       "kind": "text",
       "ctx": "footer.footer.footer"
     },
-    "contact.035": {
+    "contact.036": {
       "fa": "با مسئولیت محدود — تأسیس ۱۳۷۴",
       "kind": "text",
       "ctx": "span.div.brand-logo__text"
     },
-    "contact.036": {
+    "contact.037": {
       "fa": "ارائه‌دهنده خدمات تخصصی بازرگانی، واردات و صادرات کالا، ترابری و سرویس ایاب و ذهاب پرسنل و تأمین غذای پرسنل و وعده‌های سازمانی کارخانه‌ها و شرکت‌های صنعتی، با بیش از ۳۱ سال سابقه درخشان و با مدیریت سعید امین‌زاده.",
       "kind": "text",
       "ctx": "p.div.footer__grid"
     },
-    "contact.037": {
+    "contact.038": {
       "fa": "دسترسی سریع",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.038": {
+    "contact.039": {
       "fa": "صفحه اصلی",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.039": {
+    "contact.040": {
       "fa": "درباره قزوین تصویر",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.040": {
-      "fa": "خدمات تخصصی",
-      "kind": "text",
-      "ctx": "li.ul.footer__links"
-    },
     "contact.041": {
-      "fa": "ناوگان ترابری",
+      "fa": "خدمات تخصصی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.042": {
-      "fa": "مشخصات فنی ناوگان",
+      "fa": "ناوگان ترابری",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.043": {
-      "fa": "تأمین غذای پرسنل",
+      "fa": "مشخصات فنی ناوگان",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.044": {
-      "fa": "منوی وعده‌های سازمانی",
+      "fa": "تأمین غذای پرسنل",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.045": {
-      "fa": "درخواست قرارداد غذا",
+      "fa": "منوی وعده‌های سازمانی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.046": {
-      "fa": "برندهای همکار",
+      "fa": "درخواست قرارداد غذا",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.047": {
-      "fa": "چرا قزوین تصویر؟",
+      "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.048": {
-      "fa": "اعتبار و اطلاعات ثبتی",
+      "fa": "چرا قزوین تصویر؟",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.049": {
-      "fa": "رزومه شرکت",
+      "fa": "اعتبار و اطلاعات ثبتی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.050": {
-      "fa": "اعتبارنامه حقوقی",
+      "fa": "رزومه شرکت",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.051": {
-      "fa": "تماس با ما",
+      "fa": "اعتبارنامه حقوقی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.052": {
+      "fa": "تماس با ما",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.053": {
       "fa": "خدمات تخصصی",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.053": {
+    "contact.054": {
       "fa": "واردات و صادرات کالاهای مجاز",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.054": {
+    "contact.055": {
       "fa": "ترخیص گمرکی و امور بندری",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.055": {
+    "contact.056": {
       "fa": "تأمین مواد اولیه و تجهیزات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.056": {
+    "contact.057": {
       "fa": "ترابری پرسنل کارخانجات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.057": {
+    "contact.058": {
       "fa": "حمل‌ونقل درون‌شهری و سرویس‌های VIP",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.058": {
+    "contact.059": {
       "fa": "سرویس مدارس، ادارات و شرکت‌ها",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.059": {
+    "contact.060": {
       "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.060": {
+    "contact.061": {
       "fa": "مشاوره بازرگانی و گشایش LC",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.061": {
+    "contact.062": {
       "fa": "اطلاعات تماس",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.062": {
+    "contact.063": {
       "fa": "تلفن تماس:",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.063": {
+    "contact.064": {
       "fa": "نشانی دفتر:",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.064": {
+    "contact.065": {
       "fa": "قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "span.ul.footer__links"
     },
-    "contact.065": {
+    "contact.066": {
       "fa": "پروفایل رسمی در رسمیو ↗",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.066": {
+    "contact.067": {
       "fa": "شناسه ملی:",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "contact.067": {
+    "contact.068": {
       "fa": "شماره ثبت:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.068": {
+    "contact.069": {
       "fa": "کد اقتصادی:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.069": {
+    "contact.070": {
       "fa": "تاریخ تأسیس:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.070": {
+    "contact.071": {
       "fa": "مدیرعامل:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.071": {
+    "contact.072": {
       "fa": "سعید امین‌زاده",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.072": {
+    "contact.073": {
       "fa": "© کلیه حقوق مادی و معنوی متعلق به شرکت قزوین تصویر (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶",
       "kind": "text",
       "ctx": "div.div.container",
       "html": "© کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶"
     },
-    "contact.073": {
+    "contact.074": {
       "fa": "طراحی",
       "kind": "text",
       "ctx": "a.div.footer__bottom-bar"
     },
-    "contact.074": {
+    "contact.075": {
       "fa": "و",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.075": {
+    "contact.076": {
       "fa": "توسعه:",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.076": {
+    "contact.077": {
       "fa": "Designed",
       "kind": "text",
       "ctx": "span.a.ks-credit"
     },
-    "contact.077": {
+    "contact.078": {
       "fa": "&amp;",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.078": {
+    "contact.079": {
       "fa": "Developed",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.079": {
+    "contact.080": {
       "fa": "by",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.080": {
+    "contact.081": {
       "fa": "کارن سافت",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.081": {
+    "contact.082": {
       "fa": "KarenSoft",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.082": {
+    "contact.083": {
       "fa": "تماس تلفنی با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.083": {
+    "contact.084": {
       "fa": "تماس تلفنی",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.084": {
+    "contact.085": {
       "fa": "ارتباط در واتساپ",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.085": {
+    "contact.086": {
       "fa": "واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.086": {
+    "contact.087": {
       "fa": "دکمه‌های تماس سریع شناور",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.087": {
+    "contact.088": {
       "fa": "ارتباط مستقیم در واتساپ قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.088": {
+    "contact.089": {
       "fa": "ارتباط مستقیم در واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.089": {
+    "contact.090": {
       "fa": "تماس مستقیم با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.090": {
+    "contact.091": {
       "fa": "تماس تلفنی با ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit",
@@ -4170,86 +4345,22 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "contact.091": {
+    "contact.092": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.092": {
+    "contact.093": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.093": {
+    "contact.094": {
       "fa": "شماره ۰۹۱۲۲۸۱۵۱۸۹ با موفقیت کپی شد!",
       "kind": "text",
       "ctx": "span.a.ks-credit",
       "keepVerbatim": [
         "۰۹۱۲۲۸۱۵۱۸۹"
-      ]
-    },
-    "contact.094": {
-      "fa": "بستن پنجره مشاوره",
-      "kind": "attr:aria-label",
-      "ctx": "div.div.modal-overlay"
-    },
-    "contact.095": {
-      "fa": "مشاوره رایگان تخصصی",
-      "kind": "text",
-      "ctx": "div.div.modal-overlay"
-    },
-    "contact.096": {
-      "fa": "درخواست مشاوره و استعلام قیمت",
-      "kind": "text",
-      "ctx": "h3.div.modal-container"
-    },
-    "contact.097": {
-      "fa": "شماره خود را ثبت کنید تا کارشناسان ما سریعاً با شما تماس حاصل فرمایند.",
-      "kind": "text",
-      "ctx": "p.div.modal-container"
-    },
-    "contact.098": {
-      "fa": "نام یا نام شرکت",
-      "kind": "text",
-      "ctx": "form.div.modal-container"
-    },
-    "contact.099": {
-      "fa": "شماره تماس همراه (۰۹...) *",
-      "kind": "text",
-      "ctx": "div.div.modal-container"
-    },
-    "contact.100": {
-      "fa": "بازرگانی و ترابری (هر دو)",
-      "kind": "text",
-      "ctx": "div.div.modal-container"
-    },
-    "contact.101": {
-      "fa": "بازرگانی و واردات/صادرات",
-      "kind": "text",
-      "ctx": "option.select.form-control.form-select"
-    },
-    "contact.102": {
-      "fa": "ترابری و سرویس پرسنل",
-      "kind": "text",
-      "ctx": "option.select.form-control.form-select"
-    },
-    "contact.103": {
-      "fa": "حوزه مشاوره",
-      "kind": "text",
-      "ctx": "label.div.form-group"
-    },
-    "contact.104": {
-      "fa": "ثبت درخواست مشاوره رایگان",
-      "kind": "text",
-      "ctx": "button.div.modal-container"
-    },
-    "contact.105": {
-      "fa": "یا تماس مستقیم با: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
-      "kind": "text",
-      "ctx": "div.div.modal-container",
-      "html": "یا تماس مستقیم با: <a href=\"tel:+989122815189\" style=\"color: var(--primary-navy); font-weight: 700;\">۰۹۱۲ ۲۸۱ ۵۱۸۹</a>",
-      "keepVerbatim": [
-        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     }
   },
