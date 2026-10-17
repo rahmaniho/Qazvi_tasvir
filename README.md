@@ -38,8 +38,8 @@
 - [`assets/css/style.css`](assets/css/style.css) — سیستم طراحی و بخش‌های صفحهٔ اصلی.
 - [`assets/css/service-pages.css`](assets/css/service-pages.css) — ظاهر صفحات مستقل خدمات.
 - [`assets/css/glass-navigation.css`](assets/css/glass-navigation.css) — ناوبری شیشه‌ای مشترک.
-- [`assets/js/main.js`](assets/js/main.js) — تم، منوی موبایل، فرم تماس، رفتار صفحهٔ اصلی و routeهای hash.
-- [`assets/js/service-pages.js`](assets/js/service-pages.js) — رفتار منوی موبایل و اسکرول صفحات خدمات.
+- [`assets/js/main.js`](assets/js/main.js) — تم، فرم تماس، رفتار صفحهٔ اصلی و routeهای hash.
+- [`assets/js/service-pages.js`](assets/js/service-pages.js) — کنترل مشترک header، dropdown خدمات، drawer موبایل و اسکرول همهٔ صفحات.
 - `assets/fonts/` — فونت‌های محلی Vazirmatn و Inter؛ سایت به CDN وابسته نیست.
 - `assets/img/sections/` — تصاویر hero و بخش‌های اصلی.
 - `assets/img/fleet-specs/` — تصاویر واقعی ناوگان و VIP که در صفحهٔ مستقل خدمت VIP قابل استفاده‌اند.

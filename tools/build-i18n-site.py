@@ -341,8 +341,12 @@ def build_language(lang: str, master: str, strings: dict,
     label = translations.get("chrome.langSwitch") or info.get("switch_label", "Change language")
     html = replace_block(html, SWITCH_BEGIN, SWITCH_END,
                          switcher_html(lang, available, label), "language switcher")
-    html = replace_block(html, DRAWER_BEGIN, DRAWER_END,
-                         drawer_switcher_html(lang, available, label), "drawer switcher")
+    # The shared site header owns the mobile nav now; unlike the former
+    # homepage-only drawer it has no duplicated language block. Keep support
+    # for older masters so a partial rebuild remains backwards compatible.
+    if DRAWER_BEGIN in html and DRAWER_END in html:
+        html = replace_block(html, DRAWER_BEGIN, DRAWER_END,
+                             drawer_switcher_html(lang, available, label), "drawer switcher")
     html = replace_block(html, HREFLANG_BEGIN, HREFLANG_END,
                          hreflang_html(available), "hreflang")
 
@@ -463,8 +467,7 @@ def main() -> None:
         return
 
     master = MASTER.read_text(encoding="utf-8")
-    for marker, label in ((SWITCH_BEGIN, "switcher"), (DRAWER_BEGIN, "drawer switcher"),
-                          (HREFLANG_BEGIN, "hreflang")):
+    for marker, label in ((SWITCH_BEGIN, "switcher"), (HREFLANG_BEGIN, "hreflang")):
         if marker not in master:
             raise SystemExit(f"index.html is missing the {label} markers — add them first")
 

@@ -448,10 +448,8 @@ def header(current_slug: str = "") -> str:
       <span class="brand-mark"><img src="../assets/images/brand/qazvin-tasvir-mark.png" alt="" width="44" height="44"></span>
       <span class="brand-copy"><strong>قزوین تصویر</strong><small>بازرگانی • ترابری • غذای سازمانی</small></span>
     </a>
-    <button class="menu-toggle" type="button" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="service-nav">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav" id="service-nav" aria-label="منوی اصلی خدمات">
+    <nav class="site-nav" id="service-nav" aria-label="منوی اصلی سایت">
+      <a class="site-nav__link" href="../index.html">خانه</a>
       <a class="site-nav__link" href="../index.html#about">درباره ما</a>
       <div class="site-nav__item--services">
         <a class="site-nav__link is-active" href="index.html"{trigger_current} aria-haspopup="true" aria-expanded="false" aria-controls="service-pages-menu">خدمات</a>
@@ -461,10 +459,15 @@ def header(current_slug: str = "") -> str:
         </div>
       </div>
       <a class="site-nav__link" href="../index.html#fleet">ناوگان</a>
-      <a class="site-nav__link" href="../index.html#clients">همکاران</a>
+      <a class="site-nav__link" href="../index.html#brands">برندها</a>
       <a class="site-nav__link" href="../index.html#contact">تماس با ما</a>
       <a class="site-nav__cta" href="../index.html#contact">درخواست مشاوره {ARROW}</a>
     </nav>
+    <div class="site-header__tools">
+      <button class="menu-toggle" type="button" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="service-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>'''
 
