@@ -144,6 +144,21 @@
 
 ---
 
+## ۲.۵ صفحه‌های مستقل خدمات
+
+برای هر یک از هشت خدمت تخصصی، یک صفحه مستقل با محتوای اجرایی، تصویر، فرآیند همکاری و CTA تماس ساخته شده است. فهرست کامل در [صفحه خدمات](/services/) قرار دارد:
+
+1. [واردات و صادرات کالاهای مجاز](/services/import-export.html)
+2. [ترخیص گمرکی و امور بندری](/services/customs-port.html)
+3. [تأمین مواد اولیه و تجهیزات](/services/sourcing.html)
+4. [ترابری پرسنل کارخانجات](/services/factory-transport.html)
+5. [حمل‌ونقل درون‌شهری و سرویس‌های VIP](/services/urban-vip.html)
+6. [سرویس مدارس، ادارات و شرکت‌ها](/services/school-office.html)
+7. [تأمین غذای پرسنل و وعده‌های سازمانی](/services/personnel-food.html)
+8. [مشاوره بازرگانی و گشایش](/services/trade-consulting.html)
+
+محتوای این صفحات از داده‌های همین سایت استفاده می‌کند و با اجرای `python3 tools/build-service-pages.py` دوباره تولید می‌شود. استایل مشترک در `assets/css/service-pages.css` و تعاملات سبک موبایل/اسکرول در `assets/js/service-pages.js` قرار دارد.
+
 ## ۲. ساختار فایل‌ها
 
 ```
