@@ -4584,22 +4584,20 @@ html[dir="ltr"] .history-table td {
   line-height: 1.7;
 }
 
-.dish-card__price {
+.dish-card__photo {
   flex-shrink: 0;
-  font-family: var(--font-numbers);
-  font-size: 0.84rem;
-  font-weight: 800;
-  color: var(--food-green);
-  background: var(--food-green-soft);
-  border: 1px solid var(--food-green-line);
-  padding: 3px 10px;
-  border-radius: var(--r-full);
-  white-space: nowrap;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--food-shadow-sm);
 }
-.dish-card__price small {
-  font-size: 0.68rem;
-  font-weight: 600;
-  opacity: 0.8;
+.dish-card__photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .dish-card__desc {
