@@ -392,14 +392,14 @@
       "ctx": "a.div.about__content-column.reveal"
     },
     "about.010": {
-      "fa": "س.ا",
-      "kind": "text",
+      "fa": "سعید امین‌زاده، مدیرعامل قزوین تصویر",
+      "kind": "attr:alt",
       "ctx": "div.div.about__grid"
     },
     "about.011": {
       "fa": "سعید امین‌زاده",
       "kind": "text",
-      "ctx": "div.div.ceo-card__header"
+      "ctx": "div.div.about__grid"
     },
     "about.012": {
       "fa": "مدیرعامل و عضو هیئت مدیره",
