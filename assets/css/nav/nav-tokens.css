@@ -27,6 +27,8 @@
   --qt-sidebar-fast: 180ms ease;
   --qt-sidebar-drawer: 420ms cubic-bezier(.2, .8, .2, 1);
 
+  /* verified 2026-10-18 against assets/icons/navigation-sprite.svg — 14 icons
+     (فایل ‎<symbol>‎ ندارد؛ ۱۴ فریم ‎<g>‎ با ‎viewBox 896×64 = ‎14×64px) */
   --qt-sprite-count: 14;
   --qt-sprite-step: calc(100% / (var(--qt-sprite-count) - 1));
   --ico-home: 0%;

@@ -64,7 +64,17 @@
 
 ## فاز ۱ — رفع باگ‌های بحرانی
 
-_(در انتظار اجرا)_
+| باگ | رفع | فایل |
+|---|---|---|
+| ۱-۱. سلکتور مرده `.navbar` | تغییر به `.site-header` + گارد `if (!header) return;`؛ `scrolled` حالا واقعاً با اسکرول > ۴۰px اعمال می‌شود. کلاس فعلاً قلاب حالتی بدون استایل است (قوانین قدیمی `.navbar.scrolled` کد مرده‌اند و در فاز ۲-۴ حذف می‌شوند) | `assets/js/main.js` |
+| ۱-۲. سینک وضعیت منو | تابع واحد `setMenuState(controller, open)` در navigation.js: کلاس `is-open`، ‏`aria-hidden` ناوبری (فقط در مد موبایل؛ ریل دسکتاپ هرگز مخفی نمی‌شود)، ‏`aria-expanded`/برچسب دکمه (از مسیر `syncSidebarToggle` برای سازگاری با collapse دسکتاپ)، ‏`body.service-nav-open` و `body.style.overflow` — همه‌جانبه. تمام مسیرها (openDrawer/closeDrawer/closeDrawers/resetOnResize/init) فقط از همین تابع عبور می‌کنند؛ `syncBodyLock` قدیمی حذف شد | `assets/js/navigation.js` |
+| ۱-۳. قفل توکن sprite | کامنت تاریخ‌دار بالای `--qt-sprite-count: 14` — تطابق با ۱۴ فریم SVG تأیید شد | `assets/css/nav/nav-tokens.css` |
+| ۱-۴. تعارض position | `sticky` فقط در `@media (max-width: 1023px)` (nav-base.css) و `fixed` فقط در `@media (min-width: 1024px)` (nav-sidebar.css) — دیگر هیچ‌کدام به ترتیب لود وابسته نیستند | هر دو فایل nav |
+| ۱-۵. ‏`--qt-dir` | مصرف واقعی دارد (translateX دراور موبایل + چرخش chevron دسکتاپ) → نگه‌داری شد | — |
+
+**تست‌ها**: `node --check` برای هر دو فایل JS ⭕ عبور. بدون تغییر ظاهری (هر ۵ ویرایش، رندر را یکسان نگه می‌دارند: sticky/fixed همان رفتار قبلی با قفل مدیاست؛ setMenuState فقط صفات از قبل موجود را از یک نقطه ست می‌کند + دو افزودهٔ غیربصری: `aria-hidden` موبایل و overflow این‌لاین که تکرارِ قاعدهٔ CSS موجود است).
+
+> نکتهٔ فاز ۱-۱: کلاس `scrolled` با طراحی فعلی سایدبار استایل بصری نمی‌گیرد — افزودن استایل برایش تغییر ظاهری بود و در این فاز مجاز نبود.
 
 ## فاز ۲ — اصلاحات ساختاری
 

@@ -255,11 +255,6 @@
 
     let openDropdown = null;
 
-    function syncBodyLock() {
-      const open = controllers.some(controller => controller.nav.classList.contains('is-open'));
-      document.body.classList.toggle('service-nav-open', open);
-    }
-
     function syncSidebarToggle(controller) {
       if (!controller.header || isMobile()) {
         controller.toggle.setAttribute('aria-expanded',
@@ -272,6 +267,25 @@
       controller.toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
       controller.toggle.setAttribute('aria-label', collapsed
         ? controller.expandLabel : controller.collapseLabel);
+    }
+
+    // فاز ۱-۲: تابع واحد وضعیت منو. کلاس is-open، صفت aria-hidden ناوبری
+    // (فقط در حالت drawer موبایل؛ ریل دسکتاپ همیشه در دسترس است)، وضعیت
+    // aria-expanded/برچسب دکمه (از طریق syncSidebarToggle تا حالت collapse
+    // دسکتاپ هم درست بماند)، کلاس قفل body و overflow این‌لاین — همه در یک
+    // نقطه و هم‌زمان. هر مسیر باز/بسته کردن منو فقط همین تابع را صدا می‌زند.
+    function setMenuState(controller, open) {
+      const nav = controller.nav;
+      nav.classList.toggle('is-open', open);
+      if (isMobile()) {
+        nav.setAttribute('aria-hidden', String(!open));
+      } else {
+        nav.removeAttribute('aria-hidden');
+      }
+      syncSidebarToggle(controller);
+      const anyOpen = controllers.some(item => item.nav.classList.contains('is-open'));
+      document.body.classList.toggle('service-nav-open', anyOpen);
+      document.body.style.overflow = anyOpen && isMobile() ? 'hidden' : '';
     }
 
     function toggleSidebar(controller) {
@@ -321,9 +335,7 @@
 
     function closeDrawer(controller, restoreFocus) {
       if (!controller) return;
-      controller.nav.classList.remove('is-open');
-      controller.toggle.setAttribute('aria-expanded', 'false');
-      controller.toggle.setAttribute('aria-label', controller.openLabel);
+      setMenuState(controller, false);
       if (restoreFocus) {
         const target = controller.lastFocusedElement || controller.toggle;
         if (target && typeof target.focus === 'function') {
@@ -331,8 +343,6 @@
         }
       }
       controller.lastFocusedElement = null;
-      syncBodyLock();
-      syncSidebarToggle(controller);
     }
 
     function closeDrawers(restoreFocus) {
@@ -354,10 +364,7 @@
     function openDrawer(controller) {
       closeDrawers(false);
       controller.lastFocusedElement = controller.toggle;
-      controller.nav.classList.add('is-open');
-      controller.toggle.setAttribute('aria-expanded', 'true');
-      controller.toggle.setAttribute('aria-label', controller.closeLabel);
-      syncBodyLock();
+      setMenuState(controller, true);
 
       const firstLink = controller.nav.querySelector('a[href]');
       if (firstLink) firstLink.focus({ preventScroll: true });
@@ -389,7 +396,8 @@
         controller.header.setAttribute('data-sidebar-state', 'expanded');
       }
       document.body.classList.remove('qt-sidebar-collapsed');
-      syncSidebarToggle(controller);
+      // وضعیت اولیه: منو بسته است؛ aria-hidden/aria-expanded همین‌جا سینک می‌شود
+      setMenuState(controller, false);
       controller.toggle.addEventListener('click', () => toggleDrawer(controller));
 
       controller.nav.querySelectorAll('a').forEach(link => {

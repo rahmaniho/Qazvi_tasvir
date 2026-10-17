@@ -13,6 +13,9 @@
     padding-inline-start: calc(var(--qt-sidebar-collapsed-width) + var(--qt-sidebar-gap));
   }
 
+  /* فاز ۱-۴: fixed حصری دسکتاپ (≥1024px) — نسخهٔ موبایل (sticky) فقط در
+     nav-base.css داخل @media (max-width: 1023px) است؛ هیچ‌کدام به ترتیب
+     لود دو فایل وابسته نیستند. */
   .site-header {
     position: fixed;
     inset-block: var(--qt-sidebar-inset);

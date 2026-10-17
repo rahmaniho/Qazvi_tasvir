@@ -9,9 +9,12 @@ body.qt-sidebar-shell {
   overflow-x: hidden;
 }
 
+/* فاز ۱-۴: position دیگر به ترتیب لود وابسته نیست — در این فایل فقط داخل
+   @media (max-width: 1023px) مقدار sticky می‌گیرد و نسخهٔ دسکتاپ (fixed)
+   فقط در nav-sidebar.css داخل @media (min-width: 1024px) تعریف می‌شود. */
+/* کلاس .scrolled را main.js با اسکرول > ۴۰px به .site-header می‌افزاید
+   (قلاب حالتی؛ در این شیت عمداً بدون استایل بصری است). */
 .site-header {
-  position: sticky;
-  inset-block-start: 8px;
   z-index: 1200;
   width: calc(100% - 16px);
   min-height: 64px;
@@ -552,6 +555,8 @@ body.qt-sidebar-shell {
   }
 
   .site-header {
+    position: sticky; /* فاز ۱-۴: sticky حصری موبایل/تبلت (≤1023px) */
+    inset-block-start: 8px;
     width: calc(100% - 16px);
     margin-block-start: 8px;
   }

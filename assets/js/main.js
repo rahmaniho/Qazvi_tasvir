@@ -8,36 +8,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ۱. نوار پیشرفت اسکرول و هدر چسبان
   const scrollProgress = document.getElementById('scroll-progress');
-  const navbar = document.querySelector('.navbar');
+  // فاز ۱-۱: هدر فعلی سایت .site-header است؛ سلکتور قدیمی .navbar در هیچ
+  // صفحه‌ای وجود نداشت و کلاس scrolled را برای همیشه مرده نگه داشته بود.
+  const header = document.querySelector('.site-header');
   const backToTopBtn = document.getElementById('back-to-top');
 
   function handleScroll() {
     const scrollY = window.scrollY || window.pageYOffset;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    
+
     // پیشرفت اسکرول
     if (scrollProgress && docHeight > 0) {
       const progress = scrollY / docHeight;
       scrollProgress.style.transform = `scaleX(${progress})`;
     }
 
-    // هدر چسبان
-    if (navbar) {
-      if (scrollY > 40) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }
-
     // دکمه بازگشت به بالا
     if (backToTopBtn) {
-      if (scrollY > 500) {
-        backToTopBtn.classList.add('is-visible');
-      } else {
-        backToTopBtn.classList.remove('is-visible');
-      }
+      backToTopBtn.classList.toggle('is-visible', scrollY > 500);
     }
+
+    // هدر چسبان — در صفحه‌های بدون هدر مشترک بدون خطا عبور کن
+    if (!header) return;
+    header.classList.toggle('scrolled', scrollY > 40);
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
