@@ -9,11 +9,14 @@
   'use strict';
 
   function initServiceDropdowns() {
+    if (document.documentElement.dataset.qtNavigationReady === 'true') return;
+
     const items = Array.from(document.querySelectorAll(
       '.nav-menu__item--has-dd, .site-nav__item--services'
     ));
 
     if (!items.length) return;
+    document.documentElement.dataset.qtNavigationReady = 'true';
 
     const instances = items.map(item => {
       const trigger = item.querySelector(':scope > .nav-menu__link, :scope > .site-nav__link');
@@ -31,8 +34,24 @@
       panel.setAttribute('role', 'menu');
       panel.setAttribute('aria-hidden', 'true');
 
-      return { item, trigger, panel };
+      return { item, trigger, panel, ignoreFocusOpen: false };
     }).filter(Boolean);
+
+    const tapTargets = document.querySelectorAll(
+      '.nav-menu__link, .site-nav__link, .nav-dropdown__link, '
+      + '.site-nav__dropdown a, .mobile-drawer__link, .mobile-drawer__service-link'
+    );
+    tapTargets.forEach(link => {
+      link.addEventListener('pointerdown', () => {
+        link.classList.remove('is-tapped');
+        // Force a clean animation cycle even when the same item is tapped twice.
+        void link.offsetWidth;
+        link.classList.add('is-tapped');
+      });
+      link.addEventListener('animationend', event => {
+        if (event.animationName === 'qt-nav-tap') link.classList.remove('is-tapped');
+      });
+    });
 
     function setOpen(instance, open, focusTrigger) {
       instances.forEach(other => {
@@ -47,6 +66,15 @@
       }
     }
 
+    function focusTriggerAfterClose(instance) {
+      if (!instance) return;
+      instance.ignoreFocusOpen = true;
+      instance.trigger.focus({ preventScroll: true });
+      // In browsers where focus() does not dispatch focusin synchronously,
+      // release the guard on the next task without affecting the closed state.
+      window.setTimeout(() => { instance.ignoreFocusOpen = false; }, 0);
+    }
+
     function closeAll(restoreFocus) {
       const focusedInstance = instances.find(instance =>
         instance.item.contains(document.activeElement)
@@ -57,7 +85,7 @@
         instance.panel.setAttribute('aria-hidden', 'true');
       });
       if (restoreFocus && focusedInstance) {
-        focusedInstance.trigger.focus({ preventScroll: true });
+        focusTriggerAfterClose(focusedInstance);
       }
     }
 
@@ -79,7 +107,7 @@
         } else if (event.key === 'Escape') {
           event.preventDefault();
           closeAll();
-          trigger.focus({ preventScroll: true });
+          focusTriggerAfterClose(instance);
         }
       });
 
@@ -100,14 +128,20 @@
         } else if (event.key === 'Escape') {
           event.preventDefault();
           closeAll();
-          trigger.focus({ preventScroll: true });
+          focusTriggerAfterClose(instance);
         }
       });
 
       item.addEventListener('mouseenter', () => setOpen(instance, true, false));
       item.addEventListener('focusin', () => {
         // Keep the visual :focus-within state and the accessibility tree in
-        // sync, including when Tab lands on the trigger itself.
+        // sync, including when Tab lands on the trigger itself. Restoring
+        // focus after Escape is deliberately exempt so a closed menu stays
+        // closed.
+        if (instance.ignoreFocusOpen) {
+          instance.ignoreFocusOpen = false;
+          return;
+        }
         setOpen(instance, true, false);
       });
       item.addEventListener('mouseleave', () => {
