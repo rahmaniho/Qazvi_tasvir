@@ -13,7 +13,9 @@
   <meta property="og:image" content="https://qazvintasvir.ir/assets/images/og-image.jpg">
   <link rel="canonical" href="https://qazvintasvir.ir/services/sourcing.html">
   <link rel="icon" href="../assets/images/brand/qazvin-tasvir-favicon.png" type="image/png">
+  <link rel="preload" href="../assets/img/sections/trade-customs.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="../assets/css/service-pages.css">
+  <link rel="stylesheet" href="../assets/css/glass-navigation.css">
 </head>
 <body class="theme-trade">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
@@ -28,9 +30,22 @@
     <button class="menu-toggle" type="button" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="service-nav">
       <span></span><span></span><span></span>
     </button>
-    <nav class="site-nav" id="service-nav" aria-label="منوی خدمات">
+    <nav class="site-nav" id="service-nav" aria-label="منوی اصلی خدمات">
       <a class="site-nav__link" href="../index.html#about">درباره ما</a>
-      <a class="site-nav__link is-active" href="index.html" aria-current="page">خدمات</a>
+      <div class="site-nav__item--services">
+        <a class="site-nav__link is-active" href="index.html" aria-current="page" aria-haspopup="true">خدمات</a>
+        <div class="site-nav__dropdown" aria-label="هشت خدمت تخصصی">
+          <a href="index.html">فهرست هشت خدمت تخصصی</a>
+        <a href="import-export.html">واردات و صادرات کالاهای مجاز</a>
+        <a href="customs-port.html">ترخیص گمرکی و امور بندری</a>
+        <a href="sourcing.html">تأمین مواد اولیه و تجهیزات</a>
+        <a href="factory-transport.html">ترابری پرسنل کارخانجات</a>
+        <a href="urban-vip.html">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a>
+        <a href="school-office.html">سرویس مدارس، ادارات و شرکت‌ها</a>
+        <a href="personnel-food.html">تأمین غذای پرسنل و وعده‌های سازمانی</a>
+        <a href="trade-consulting.html">مشاوره بازرگانی و گشایش</a>
+        </div>
+      </div>
       <a class="site-nav__link" href="../index.html#fleet">ناوگان</a>
       <a class="site-nav__link" href="../index.html#clients">همکاران</a>
       <a class="site-nav__link" href="../index.html#contact">تماس با ما</a>

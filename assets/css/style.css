@@ -698,6 +698,8 @@ button, input, select, textarea {
 .mobile-drawer.is-open .mobile-drawer__item:nth-child(3) { transition-delay: 200ms; }
 .mobile-drawer.is-open .mobile-drawer__item:nth-child(4) { transition-delay: 260ms; }
 .mobile-drawer.is-open .mobile-drawer__item:nth-child(5) { transition-delay: 320ms; }
+.mobile-drawer.is-open .mobile-drawer__item:nth-child(6) { transition-delay: 380ms; }
+.mobile-drawer.is-open .mobile-drawer__item:nth-child(7) { transition-delay: 440ms; }
 
 .mobile-drawer__link {
   display: flex;

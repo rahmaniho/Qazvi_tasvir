@@ -429,7 +429,11 @@ def picture(service: dict, story: bool = False, eager: bool = False) -> str:
 
 
 def header() -> str:
-    return '''
+    service_links = "\n".join(
+        f'        <a href="{escape(service["slug"])}.html">{escape(service["title"])}</a>'
+        for service in SERVICES
+    )
+    return f'''
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="../index.html" aria-label="بازگشت به صفحه اصلی شرکت قزوین تصویر">
@@ -439,16 +443,22 @@ def header() -> str:
     <button class="menu-toggle" type="button" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="service-nav">
       <span></span><span></span><span></span>
     </button>
-    <nav class="site-nav" id="service-nav" aria-label="منوی خدمات">
+    <nav class="site-nav" id="service-nav" aria-label="منوی اصلی خدمات">
       <a class="site-nav__link" href="../index.html#about">درباره ما</a>
-      <a class="site-nav__link is-active" href="index.html" aria-current="page">خدمات</a>
+      <div class="site-nav__item--services">
+        <a class="site-nav__link is-active" href="index.html" aria-current="page" aria-haspopup="true">خدمات</a>
+        <div class="site-nav__dropdown" aria-label="هشت خدمت تخصصی">
+          <a href="index.html">فهرست هشت خدمت تخصصی</a>
+{service_links}
+        </div>
+      </div>
       <a class="site-nav__link" href="../index.html#fleet">ناوگان</a>
       <a class="site-nav__link" href="../index.html#clients">همکاران</a>
       <a class="site-nav__link" href="../index.html#contact">تماس با ما</a>
       <a class="site-nav__cta" href="../index.html#contact">درخواست مشاوره {ARROW}</a>
     </nav>
   </div>
-</header>'''.replace("{ARROW}", ARROW)
+</header>'''
 
 
 def footer() -> str:
@@ -470,7 +480,11 @@ def footer() -> str:
 </footer>'''
 
 
-def shell_head(title: str, description: str, canonical: str, theme: str) -> str:
+def shell_head(title: str, description: str, canonical: str, theme: str, hero_webp: str | None = None) -> str:
+    hero_preload = (
+        f'  <link rel="preload" href="{escape(hero_webp)}" as="image" type="image/webp" fetchpriority="high">\n'
+        if hero_webp else ""
+    )
     return f'''<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -486,7 +500,8 @@ def shell_head(title: str, description: str, canonical: str, theme: str) -> str:
   <meta property="og:image" content="https://qazvintasvir.ir/assets/images/og-image.jpg">
   <link rel="canonical" href="https://qazvintasvir.ir/services/{escape(canonical)}.html">
   <link rel="icon" href="../assets/images/brand/qazvin-tasvir-favicon.png" type="image/png">
-  <link rel="stylesheet" href="../assets/css/service-pages.css">
+{hero_preload}  <link rel="stylesheet" href="../assets/css/service-pages.css">
+  <link rel="stylesheet" href="../assets/css/glass-navigation.css">
 </head>
 <body class="{escape(theme)}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
@@ -528,7 +543,7 @@ def service_page(service: dict) -> str:
         for item in related
     )
 
-    return shell_head(service["title"], service["meta"], service["slug"], service["theme"]) + header() + f'''
+    return shell_head(service["title"], service["meta"], service["slug"], service["theme"], service["image_webp"]) + header() + f'''
   <main id="main-content">
     <section class="service-hero" aria-labelledby="service-title">
       <div class="container">
@@ -702,6 +717,7 @@ def hub_page() -> str:
         "هشت صفحه مستقل خدمات شرکت قزوین تصویر در حوزه بازرگانی، ترابری و تأمین غذای سازمانی.",
         "index",
         "theme-trade",
+        "../assets/img/sections/hero-graphic.webp",
     ) + header() + f'''
   <main id="main-content">
     <section class="hub-hero" aria-labelledby="services-title">
