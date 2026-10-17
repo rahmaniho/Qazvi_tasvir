@@ -410,6 +410,12 @@
     min-height: 62px;
   }
 
+  .site-header .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .site-header .site-nav {
     display: none;
   }
