@@ -75,6 +75,9 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/nav/nav-tokens.css">
+  <link rel="stylesheet" href="../assets/css/nav/nav-base.css">
+  <link rel="stylesheet" href="../assets/css/nav/nav-sidebar.css">
 
   <!-- جایگزین بدون جاوااسکریپت: نمایش کامل بخش‌های انیمیشنی -->
   <noscript>
@@ -249,7 +252,7 @@
   </script>
 
 </head>
-<body>
+<body class="qt-sidebar-shell">
 
   <!-- نوار پیشرفت اسکرول بالا -->
   <div id="scroll-progress" aria-hidden="true"></div>
@@ -261,7 +264,69 @@
        ۴.۲ هدر چسبان (Sticky Navbar)
        ======================================================================== -->
 
-<main id="main-content">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#hero" aria-label="Qazvin Tasvir Company home page">
+      <span class="brand-mark"><img src="../assets/images/brand/qazvin-tasvir-mark.png" alt="" width="44" height="44"></span>
+      <span class="brand-copy"><strong>Qazvin Tasvir</strong><small>Trade • Transport • Corporate Catering</small></span>
+    </a>
+    <nav class="site-nav" id="main-site-nav" aria-label="Main site navigation">
+      <a class="site-nav__link" href="#hero" aria-current="page">Home</a><a class="site-nav__link" href="#about">About us</a>
+      <div class="site-nav__item--services">
+        <a class="site-nav__link" href="../services/index.html" aria-haspopup="true" aria-expanded="false" aria-controls="main-services-menu">Services</a>
+        <div id="main-services-menu" class="site-nav__dropdown" role="menu" aria-label="Eight specialist services" aria-hidden="true">
+
+        <a role="menuitem" href="../services/index.html">All eight specialist services</a><a role="menuitem" href="../services/import-export.html">Permitted goods import and export</a><a role="menuitem" href="../services/customs-port.html">Customs clearance and port affairs</a><a role="menuitem" href="../services/sourcing.html">Raw materials and equipment sourcing</a><a role="menuitem" href="../services/factory-transport.html">Factory staff transportation</a><a role="menuitem" href="../services/urban-vip.html">Urban transport and VIP services</a><a role="menuitem" href="../services/school-office.html">School, office and company shuttles</a><a role="menuitem" href="../services/personnel-food.html">Staff meals and corporate catering</a><a role="menuitem" href="../services/trade-consulting.html">Trade consulting and letters of credit</a>
+        </div>
+      </div>
+      <a class="site-nav__link" href="#fleet">Fleet</a><a class="site-nav__link" href="#brands">Brands</a><a class="site-nav__link" href="#contact">Contact us</a><a class="site-nav__cta" href="#contact">Request a consultation<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+    </nav>
+    <div class="site-header__tools">
+      <details class="theme-switch">
+        <summary class="theme-switch__btn" aria-label="Change site theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="13.5" cy="6.5" r="1.5"></circle>
+            <circle cx="17.5" cy="10.5" r="1.5"></circle>
+            <circle cx="8.5" cy="7.5" r="1.5"></circle>
+            <circle cx="6.5" cy="12.5" r="1.5"></circle>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+          </svg>
+        </summary>
+        <div class="theme-switch__panel" role="group" aria-label="Choose a colour theme">
+          <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
+            <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span><span class="theme-option__name">Light</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
+            <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span><span class="theme-option__name">Dark</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
+            <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span><span class="theme-option__name">Ocean</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+        </div>
+      </details>
+      <!-- QT:LANG-SWITCH:BEGIN -->
+        <details class="lang-switch">
+          <summary class="lang-switch__btn" aria-label="Change language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span class="lang-switch__code">en</span>
+          </summary>
+          <nav class="lang-switch__panel" aria-label="Change language">
+            <a class="lang-switch__item" href="../" hreflang="fa" lang="fa" dir="rtl"><span class="lang-switch__name">فارسی</span><span class="lang-switch__native">Persian</span></a>
+            <a class="lang-switch__item" href="./" hreflang="en" lang="en" dir="ltr" aria-current="true"><span class="lang-switch__name">English</span><span class="lang-switch__native">English</span></a>
+          </nav>
+        </details>
+        <!-- QT:LANG-SWITCH:END -->
+      <button class="menu-toggle" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="main-site-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+  <main id="main-content">
     <!-- ======================================================================
          ۴.۳ بخش قهرمان (Hero Section)
          ====================================================================== -->
@@ -1950,20 +2015,7 @@
         </div>
       </div>
     </div>
-
-        <!-- QT:LANG-SWITCH:BEGIN -->
-        <details class="lang-switch">
-          <summary class="lang-switch__btn" aria-label="Change language">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            <span class="lang-switch__code">en</span>
-          </summary>
-          <nav class="lang-switch__panel" aria-label="Change language">
-            <a class="lang-switch__item" href="../" hreflang="fa" lang="fa" dir="rtl"><span class="lang-switch__name">فارسی</span><span class="lang-switch__native">Persian</span></a>
-            <a class="lang-switch__item" href="./" hreflang="en" lang="en" dir="ltr" aria-current="true"><span class="lang-switch__name">English</span><span class="lang-switch__native">English</span></a>
-          </nav>
-        </details>
-        <!-- QT:LANG-SWITCH:END -->
-</footer>
+  </footer>
 
   <!-- ========================================================================
        ۵. دکمه‌های شناور (Floating Action Buttons) و Toast و Modal
@@ -2002,6 +2054,7 @@
   </div>
 
   <!-- اسکریپت جاوااسکریپت اصلی -->
+  <script src="../assets/js/navigation.js"></script>
   <script src="../assets/js/service-pages.js"></script>
   <script>
   /* عنوان و توضیح هر مسیر به زبان این صفحه — ساختهٔ tools/build-i18n-site.py */
