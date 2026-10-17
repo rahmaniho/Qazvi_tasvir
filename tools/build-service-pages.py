@@ -524,7 +524,7 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
 {hero_preload}  <link rel="stylesheet" href="../assets/css/service-pages.css">
   <link rel="stylesheet" href="../assets/css/glass-navigation.css">
 {food_styles}</head>
-<body class="{body_class}">
+<body class="qt-sidebar-shell {body_class}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
   <div class="scroll-progress" aria-hidden="true"></div>
 '''
