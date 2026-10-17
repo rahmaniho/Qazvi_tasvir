@@ -151,7 +151,7 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     with (OUT_DIR / "worksheet.csv").open("w", encoding="utf-8-sig", newline="") as fh:
-        w = csv.writer(fh)
+        w = csv.writer(fh, lineterminator="\n")
         w.writerow(["key", "section", "kind", "context", "flags", "fa (source)"]
                    + [f"{code} — {name}" for code, name in LANGS.items()])
         for key, val in strings.items():

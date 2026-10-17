@@ -282,11 +282,11 @@
           <li role="none"><a href="#hero" class="nav-menu__link active" role="menuitem">خانه</a></li>
           <li role="none"><a href="#about" class="nav-menu__link" role="menuitem">درباره ما</a></li>
           <li role="none" class="nav-menu__item--has-dd">
-            <a href="services/index.html" class="nav-menu__link" role="menuitem" aria-haspopup="true">
+            <a href="services/index.html" class="nav-menu__link" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="main-services-menu">
               خدمات
               <svg class="nav-menu__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
-            <ul class="nav-dropdown" role="menu" aria-label="صفحه‌های مستقل خدمات">
+            <ul id="main-services-menu" class="nav-dropdown" role="menu" aria-label="صفحه‌های مستقل خدمات" aria-hidden="true">
               <li role="none"><a href="services/index.html" class="nav-dropdown__link nav-dropdown__link--all" role="menuitem">فهرست هشت خدمت تخصصی</a></li>
               <li role="none"><a href="services/import-export.html" class="nav-dropdown__link" role="menuitem">واردات و صادرات کالاهای مجاز</a></li>
               <li role="none"><a href="services/customs-port.html" class="nav-dropdown__link" role="menuitem">ترخیص گمرکی و امور بندری</a></li>
@@ -368,7 +368,7 @@
   </nav>
 
   <!-- منوی شیشه‌ای موبایل؛ لینک‌های پرتکرار و هشت خدمت مشخص -->
-  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true" inert>
     <div class="mobile-drawer__head" aria-hidden="true">
       <span>منوی سایت</span>
       <span>قزوین تصویر</span>
@@ -2362,6 +2362,7 @@
   </div>
 
   <!-- اسکریپت جاوااسکریپت اصلی -->
+  <script src="assets/js/navigation.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -554,7 +554,8 @@ button, input, select, textarea {
   transition: transform var(--dur-fast) ease;
 }
 .nav-menu__item--has-dd:hover .nav-menu__chevron,
-.nav-menu__item--has-dd:focus-within .nav-menu__chevron {
+.nav-menu__item--has-dd:focus-within .nav-menu__chevron,
+.nav-menu__item--has-dd.is-open .nav-menu__chevron {
   transform: rotate(180deg);
 }
 .nav-dropdown {
@@ -586,7 +587,8 @@ button, input, select, textarea {
   height: 8px;
 }
 .nav-menu__item--has-dd:hover .nav-dropdown,
-.nav-menu__item--has-dd:focus-within .nav-dropdown {
+.nav-menu__item--has-dd:focus-within .nav-dropdown,
+.nav-menu__item--has-dd.is-open .nav-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -669,7 +671,8 @@ button, input, select, textarea {
   justify-content: space-between;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--dur-slow) var(--ease-quint);
+  visibility: hidden;
+  transition: opacity var(--dur-slow) var(--ease-quint), visibility var(--dur-slow);
 }
 .mobile-drawer.is-open {
   opacity: 1;

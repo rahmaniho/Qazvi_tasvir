@@ -24,6 +24,13 @@
   function closeMenu(restoreFocus) {
     if (!toggle || !nav) return;
     nav.classList.remove('is-open');
+    nav.querySelectorAll('.site-nav__item--services.is-open').forEach(function (item) {
+      item.classList.remove('is-open');
+      const trigger = item.querySelector(':scope > .site-nav__link');
+      const panel = item.querySelector(':scope > .site-nav__dropdown');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      if (panel) panel.setAttribute('aria-hidden', 'true');
+    });
     document.body.classList.remove('service-nav-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'باز کردن منوی موبایل');
@@ -49,7 +56,16 @@
     });
 
     nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () { closeMenu(false); });
+      link.addEventListener('click', function () {
+        // زیرمنوی «خدمات» با navigation.js باز و بسته می‌شود؛ این trigger
+        // نباید بلافاصله توسط handler بستن drawer reset شود.
+        if (link.matches('.site-nav__item--services > .site-nav__link')) return;
+        closeMenu(false);
+      });
+    });
+
+    nav.addEventListener('click', function (event) {
+      if (event.target === nav && nav.classList.contains('is-open')) closeMenu(true);
     });
 
     document.addEventListener('keydown', function (event) {

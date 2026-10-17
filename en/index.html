@@ -249,48 +249,6 @@
 }
   </script>
 
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What is the minimum number of portions for a staff catering contract?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Usually from 50 portions upwards. For smaller organisations, a contract or combined portions are still possible depending on the delivery distance and the number of meals. After the site visit, a Qazvin Tasvir specialist provides the most accurate estimate."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Can the corporate catering menu be changed?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. The menu is weekly and seasonal and can be revised to suit staff preferences, your budget and production conditions. Unpopular items are removed or replaced, and diet, vegetarian or low-salt options can be added."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Is corporate catering part of wages?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Under Iranian labour law, food provided to staff counts as a non-cash benefit and carries its own insurance and tax implications. The catering contract sets out how meals are calculated and documented, and we recommend coordinating with your organisation's financial and insurance adviser before signing."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How is the meal delivery schedule set?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "According to your working shifts. The delivery plan is defined in the contract and can also be arranged for night shifts, holidays and peak production days. Temporary changes are applied with prior coordination in the shortest possible time."
-            }
-        }
-    ]
-}
-  </script>
 </head>
 <body>
 
@@ -317,8 +275,7 @@
                  decoding="async">
           </div>
           <div class="brand-logo__text">
-            <span class="brand-logo__title">Qazvin Tasvir Company</span>
-            <span class="brand-logo__subtitle">Trading • Transport • Staff Catering</span>
+            <span class="brand-logo__title">Qazvin Tasvir Company</span><span class="brand-logo__subtitle">Trading • Transport • Staff Catering</span>
           </div>
         </a>
 
@@ -327,10 +284,10 @@
           <li role="none"><a href="#hero" class="nav-menu__link active" role="menuitem">Home</a></li>
           <li role="none"><a href="#about" class="nav-menu__link" role="menuitem">About Us</a></li>
           <li role="none" class="nav-menu__item--has-dd">
-            <a href="../services/index.html" class="nav-menu__link" role="menuitem" aria-haspopup="true">Services<svg class="nav-menu__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <a href="../services/index.html" class="nav-menu__link" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="main-services-menu">Services<svg class="nav-menu__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
-            <ul class="nav-dropdown" role="menu" aria-label="Eight services submenu">
-              <li role="none"><a href="../services/index.html" class="nav-dropdown__link" role="menuitem">Open the eight-service directory</a></li>
+            <ul id="main-services-menu" class="nav-dropdown" role="menu" aria-label="Eight services submenu" aria-hidden="true">
+              <li role="none"><a href="../services/index.html" class="nav-dropdown__link nav-dropdown__link--all" role="menuitem">Open the eight-service directory</a></li>
               <li role="none"><a href="../services/import-export.html" class="nav-dropdown__link" role="menuitem">Permitted goods import and export</a></li>
               <li role="none"><a href="../services/customs-port.html" class="nav-dropdown__link" role="menuitem">Customs clearance and port affairs</a></li>
               <li role="none"><a href="../services/sourcing.html" class="nav-dropdown__link" role="menuitem">Raw materials and equipment sourcing</a></li>
@@ -361,18 +318,15 @@
           </summary>
           <div class="theme-switch__panel" role="group" aria-label="Choose the site color theme">
             <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
-              <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span>
-              <span class="theme-option__name">Light</span>
+              <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span><span class="theme-option__name">Light</span>
               <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </button>
             <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
-              <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span>
-              <span class="theme-option__name">Dark</span>
+              <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span><span class="theme-option__name">Dark</span>
               <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </button>
             <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
-              <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span>
-              <span class="theme-option__name">Ocean</span>
+              <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span><span class="theme-option__name">Ocean</span>
               <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </button>
           </div>
@@ -410,83 +364,46 @@
     </div>
   </nav>
 
-  <!-- منوی تمام صفحه موبایل (Mobile Drawer) -->
-  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+  <!-- منوی شیشه‌ای موبایل؛ لینک‌های پرتکرار و هشت خدمت مشخص -->
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true" inert>
+    <div class="mobile-drawer__head" aria-hidden="true">
+      <span>Home</span><span>Qazvin Tasvir</span>
+    </div>
     <ul class="mobile-drawer__list">
       <li class="mobile-drawer__item">
-        <a href="#hero" class="mobile-drawer__link">
-          <span>Home</span><span class="mobile-drawer__num">01</span>
-        </a>
+        <a href="#hero" class="mobile-drawer__link"><span>Home</span><span class="mobile-drawer__num">01</span></a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="#about" class="mobile-drawer__link">
-          <span>About Qazvin Tasvir</span><span class="mobile-drawer__num">02</span>
-        </a>
+        <a href="#about" class="mobile-drawer__link"><span>About Qazvin Tasvir</span><span class="mobile-drawer__num">02</span></a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="../services/index.html" class="mobile-drawer__link">
-          <span>All eight services</span><span class="mobile-drawer__num">03</span>
-        </a>
+        <a href="../services/index.html" class="mobile-drawer__link"><span>All eight services</span><span class="mobile-drawer__num">03</span></a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="#fleet" class="mobile-drawer__link">
-          <span>Transport fleet</span><span class="mobile-drawer__num">04</span>
-        </a>
+        <a href="#fleet" class="mobile-drawer__link"><span>Transport fleet</span><span class="mobile-drawer__num">04</span></a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="#brands" class="mobile-drawer__link">
-          <span>Partner brands</span><span class="mobile-drawer__num">05</span>
-        </a>
+        <a href="#brands" class="mobile-drawer__link"><span>Partner brands</span><span class="mobile-drawer__num">05</span></a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="#why-us" class="mobile-drawer__link">
-          <span>Why us?</span><span class="mobile-drawer__num">06</span>
-        </a>
+        <a href="#why-us" class="mobile-drawer__link"><span>Why us?</span><span class="mobile-drawer__num">06</span></a>
       </li>
       <li class="mobile-drawer__item">
-        <a href="#clients" class="mobile-drawer__link">
-          <span>Clients and business partners</span><span class="mobile-drawer__num">07</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#trust" class="mobile-drawer__link">
-          <span>Credentials and verification</span><span class="mobile-drawer__num">08</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#resume" class="mobile-drawer__link">
-          <span>Company resume</span><span class="mobile-drawer__num">09</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#legal" class="mobile-drawer__link">
-          <span>Legal credentials</span><span class="mobile-drawer__num">10</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#contact" class="mobile-drawer__link">
-          <span>Contact the company</span><span class="mobile-drawer__num">11</span>
-        </a>
+        <a href="#contact" class="mobile-drawer__link"><span>Clients and business partners</span><span class="mobile-drawer__num">07</span></a>
       </li>
     </ul>
 
     <section class="mobile-drawer__section" aria-labelledby="mobile-services-title">
       <h2 id="mobile-services-title" class="mobile-drawer__section-title">Eight direct service pages</h2>
       <div class="mobile-drawer__services">
-        <a href="../services/import-export.html" class="mobile-drawer__service-link mobile-drawer__link">Permitted goods import and export</a>
-        <a href="../services/customs-port.html" class="mobile-drawer__service-link mobile-drawer__link">Customs clearance and port affairs</a>
-        <a href="../services/sourcing.html" class="mobile-drawer__service-link mobile-drawer__link">Raw materials and equipment sourcing</a>
-        <a href="../services/factory-transport.html" class="mobile-drawer__service-link mobile-drawer__link">Factory staff transportation</a>
-        <a href="../services/urban-vip.html" class="mobile-drawer__service-link mobile-drawer__link">Urban transport and VIP services</a>
-        <a href="../services/school-office.html" class="mobile-drawer__service-link mobile-drawer__link">School, office and company shuttles</a>
-        <a href="../services/personnel-food.html" class="mobile-drawer__service-link mobile-drawer__link">Staff meals and corporate catering</a>
-        <a href="../services/trade-consulting.html" class="mobile-drawer__service-link mobile-drawer__link">Trade consulting and opening</a>
+        <a href="../services/import-export.html" class="mobile-drawer__service-link mobile-drawer__link">Permitted goods import and export</a><a href="../services/customs-port.html" class="mobile-drawer__service-link mobile-drawer__link">Customs clearance and port affairs</a><a href="../services/sourcing.html" class="mobile-drawer__service-link mobile-drawer__link">Raw materials and equipment sourcing</a><a href="../services/factory-transport.html" class="mobile-drawer__service-link mobile-drawer__link">Factory staff transportation</a><a href="../services/urban-vip.html" class="mobile-drawer__service-link mobile-drawer__link">Urban transport and VIP services</a><a href="../services/school-office.html" class="mobile-drawer__service-link mobile-drawer__link">School, office and company shuttles</a><a href="../services/personnel-food.html" class="mobile-drawer__service-link mobile-drawer__link">Staff meals and corporate catering</a><a href="../services/trade-consulting.html" class="mobile-drawer__service-link mobile-drawer__link">Trade consulting and opening</a>
       </div>
     </section>
+
     <div class="mobile-drawer__footer">
       <a href="tel:+989122815189" class="btn btn-primary btn-full">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>Direct call: 0912 281 5189</a>
       <a href="https://wa.me/989122815189" target="_blank" rel="noopener noreferrer" class="btn btn-outline-glass btn-full" style="color: #25D366; border-color: rgba(37,211,102,0.4);">Chat on our official WhatsApp</a>
       <!-- QT:LANG-SWITCH-DRAWER:BEGIN -->
@@ -522,8 +439,7 @@
           <!-- ستون راست: متن و پیام اصلی -->
           <div class="hero__content-col reveal">
             <div class="hero__badge">
-              <span class="hero__badge-dot" aria-hidden="true"></span>
-              <span>Eight specialist service paths for trade, transport and organisational wellbeing</span>
+              <span class="hero__badge-dot" aria-hidden="true"></span><span>Eight specialist service paths for trade, transport and organisational wellbeing</span>
             </div>
 
             <h1 class="hero__title">Qazvin Tasvir: more than 31 years of experience in <span class="gradient-text">trading, import and export</span> and transport</h1>
@@ -531,8 +447,7 @@
             <p class="hero__lead">From sourcing goods, specialist customs clearance and machinery imports to the orderly daily transport of factory and industrial-company staff — an experienced, committed team led by <strong>Saeed Aminzadeh</strong> stands beside you.</p>
 
             <div class="hero__actions">
-              <a href="#services" class="btn btn-primary btn-lg">
-                <span>Explore Our Specialist Services</span>
+              <a href="#services" class="btn btn-primary btn-lg"><span>Explore Our Specialist Services</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -550,16 +465,13 @@
             <!-- آمار عددی شمارش‌شونده (Stats Count-up) -->
             <div class="hero__stats" role="region" aria-label="Key company figures">
               <div class="hero__stat-item">
-                <span class="hero__stat-number" data-count="31" data-prefix="+" data-suffix="">+31</span>
-                <span class="hero__stat-label">years of experience (founded 1995)</span>
+                <span class="hero__stat-number" data-count="31" data-prefix="+" data-suffix="">+31</span><span class="hero__stat-label">years of experience (founded 1995)</span>
               </div>
               <div class="hero__stat-item">
-                <span class="hero__stat-number" data-count="100" data-prefix="+" data-suffix="">+100</span>
-                <span class="hero__stat-label">active corporate clients</span>
+                <span class="hero__stat-number" data-count="100" data-prefix="+" data-suffix="">+100</span><span class="hero__stat-label">active corporate clients</span>
               </div>
               <div class="hero__stat-item">
-                <span class="hero__stat-number" data-count="500" data-prefix="+" data-suffix="">+500</span>
-                <span class="hero__stat-label">staff transported daily</span>
+                <span class="hero__stat-number" data-count="500" data-prefix="+" data-suffix="">+500</span><span class="hero__stat-label">staff transported daily</span>
               </div>
             </div>
           </div>
@@ -613,8 +525,7 @@
                 <div style="font-size: 0.8125rem; color: #CBD5E1;">
                   <strong style="color: #FCD34D;">CEO:</strong>Saeed Aminzadeh</div>
                 <div style="font-size: 0.8125rem; color: #CBD5E1;">
-                  <strong style="color: #38BDF8;">Reg. no.:</strong> 2749
-                </div>
+                  <strong style="color: #38BDF8;">Registration:</strong> 2749</div>
               </div>
             </div>
 
@@ -683,12 +594,7 @@
             </ul>
 
             <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-              <a href="#contact" class="btn btn-secondary">
-                <span>Direct line to management</span>
-              </a>
-              <a href="https://rasmio.com/company/10861415215/قزوین-تصویر/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-glass" style="color: var(--primary-navy); border-color: var(--line-soft);">
-                <span>View the registration record on Rasmiyo ↗</span>
-              </a>
+              <a href="#contact" class="btn btn-secondary"><span>Direct line to management</span></a><a href="https://rasmio.com/company/10861415215/قزوین-تصویر/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-glass" style="color: var(--primary-navy); border-color: var(--line-soft);"><span>View the registration record on Rasmiyo ↗</span></a>
             </div>
           </div>
 
@@ -715,25 +621,20 @@
             <!-- باکس شیشه‌ای اطلاعات ثبتی -->
             <div class="registry-glass-box" role="region" aria-label="Company registration summary">
               <div class="registry-glass-box__title">
-                <span>Company identity and registration details</span>
-                <span style="color: #34D399; font-size: 0.8rem; background: rgba(16,185,129,0.2); padding: 2px 8px; border-radius: 4px;">Status: Active</span>
+                <span>Company identity and registration details</span><span style="color: #34D399; font-size: 0.8rem; background: rgba(16,185,129,0.2); padding: 2px 8px; border-radius: 4px;">Status: Active</span>
               </div>
               <div class="registry-grid-mini">
                 <div class="registry-item-mini">
-                  <span class="registry-item-mini__label">National ID</span>
-                  <span class="registry-item-mini__value">10861415215</span>
+                  <span class="registry-item-mini__label">National ID</span><span class="registry-item-mini__value">10861415215</span>
                 </div>
                 <div class="registry-item-mini">
-                  <span class="registry-item-mini__label">Registration number</span>
-                  <span class="registry-item-mini__value">2749</span>
+                  <span class="registry-item-mini__label">Registration number</span><span class="registry-item-mini__value">2749</span>
                 </div>
                 <div class="registry-item-mini">
-                  <span class="registry-item-mini__label">Founding date</span>
-                  <span class="registry-item-mini__value">1374/02/14</span>
+                  <span class="registry-item-mini__label">Founding date</span><span class="registry-item-mini__value">1374/02/14</span>
                 </div>
                 <div class="registry-item-mini">
-                  <span class="registry-item-mini__label">Company type</span>
-                  <span class="registry-item-mini__value" style="font-size: 0.85rem; font-family: var(--font-main);">Limited liability</span>
+                  <span class="registry-item-mini__label">Registration number</span><span class="registry-item-mini__value">2749</span>
                 </div>
               </div>
             </div>
@@ -832,8 +733,8 @@
           <article class="service-mini-card reveal">
             <div class="service-mini-card__media" aria-hidden="true">
               <picture>
-                <source srcset="../assets/img/sections/contact-city.webp" type="image/webp">
-                <img src="../assets/img/sections/contact-city.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                <source srcset="../assets/img/sections/trade-customs.webp" type="image/webp">
+                <img src="../assets/img/sections/trade-customs.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
               </picture>
             </div>
             <div class="service-mini-card__icon" aria-hidden="true">
@@ -850,8 +751,7 @@
         </div>
 
         <div class="services__cta reveal">
-          <a href="../services/index.html" class="btn btn-primary btn-lg" aria-label="View all eight service pages">View all eight service pages</a>
-          <a href="#contact" class="btn btn-secondary btn-lg" aria-label="Contact Us">Contact Us</a>
+          <a href="../services/index.html" class="btn btn-secondary btn-lg" aria-label="View all eight service pages">View all eight service pages</a><a href="#contact" class="btn btn-primary btn-lg" aria-label="Contact Us">Contact Us</a>
         </div>
       </div>
     </section>
@@ -984,7 +884,7 @@
           </div>
         </div>
 
-        <!-- پیوند به صفحهٔ مستقل سرویس VIP و حمل‌ونقل درون‌شهری -->
+        <!-- پیوند به صفحهٔ مشخصات فنی ناوگان (برگرفته از رزومه رسمی شرکت) -->
         <div class="fleet-specs-cta reveal">
           <a href="../services/urban-vip.html" class="btn btn-secondary btn-lg" aria-label="View the urban transport and VIP service page">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1002,6 +902,12 @@
       </div>
     </section>
 
+
+
+    <!-- ======================================================================
+         ۴.۸ بخش برندهای همکار (Partner Vehicle Brands) — جدید
+         لوگوها در مسیر assets/logos/ قرار دارند و قابل جایگزینی با لوگوی رسمی هستند
+         ====================================================================== -->
     <section id="brands" class="site-page brands-section" aria-label="Vehicle brands used in the fleet">
       <div class="container">
         <div class="section-header reveal">
@@ -1176,8 +1082,7 @@
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/yataqan-bosh.png" alt="Yataqan Bosh Iran logo" width="245" height="317" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Yataqan Bosh Iran</h3>
-            <span class="client-card__name-en">Yataqan Bosh Iran</span>
-            <span class="client-card__tag">Bearing and industrial parts industry</span>
+            <span class="client-card__name-en">Yataqan Bosh Iran</span><span class="client-card__tag">Bearing and industrial parts industry</span>
           </div>
 
           <!-- ۳. شیر سحر -->
@@ -1186,8 +1091,7 @@
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/sahar.png" alt="Shir Sahar logo" width="442" height="342" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Shir Sahar</h3>
-            <span class="client-card__name-en">Shir Sahar</span>
-            <span class="client-card__tag">Dairy industries</span>
+            <span class="client-card__name-en">Shir Sahar</span><span class="client-card__tag">Dairy industries</span>
           </div>
 
           <!-- ۴. AGT -->
@@ -1196,8 +1100,7 @@
               <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/agt.png" alt="AGT logo" width="291" height="117" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">AGT</h3>
-            <span class="client-card__name-en">AGT</span>
-            <span class="client-card__tag">Industrial company</span>
+            <span class="client-card__name-en">AGT</span><span class="client-card__tag">Industrial company</span>
           </div>
 
           <!-- ۵. آسان پک -->
@@ -1206,8 +1109,7 @@
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/asanpack.png" alt="Asan Pack logo" width="405" height="313" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Asan Pack</h3>
-            <span class="client-card__name-en">Asan Pack</span>
-            <span class="client-card__tag">Carton and packaging industry</span>
+            <span class="client-card__name-en">Asan Pack</span><span class="client-card__tag">Carton and packaging industry</span>
           </div>
 
           <!-- ۶. هنکل -->
@@ -1216,8 +1118,7 @@
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/henkel.png" alt="Henkel logo" width="316" height="262" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Henkel</h3>
-            <span class="client-card__name-en">Henkel</span>
-            <span class="client-card__tag">Chemical & consumer goods industry</span>
+            <span class="client-card__name-en">Henkel</span><span class="client-card__tag">Chemical & consumer goods industry</span>
           </div>
 
           <!-- ۷. یونیلیور -->
@@ -1226,8 +1127,7 @@
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/unilever.png" alt="Unilever logo" width="434" height="480" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Unilever</h3>
-            <span class="client-card__name-en">Unilever</span>
-            <span class="client-card__tag">Personal care & food products</span>
+            <span class="client-card__name-en">Unilever</span><span class="client-card__tag">Personal care & food products</span>
           </div>
 
           <!-- ۸. BAT -->
@@ -1236,8 +1136,7 @@
               <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/bat.png" alt="British American Tobacco logo" width="451" height="257" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">BAT</h3>
-            <span class="client-card__name-en">British American Tobacco</span>
-            <span class="client-card__tag">International industrial group</span>
+            <span class="client-card__name-en">British American Tobacco</span><span class="client-card__tag">International industrial group</span>
           </div>
 
           <!-- ۹. گلدایران -->
@@ -1246,8 +1145,7 @@
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/goldiran.png" alt="Goldiran logo" width="474" height="420" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Goldiran</h3>
-            <span class="client-card__name-en">Goldiran</span>
-            <span class="client-card__tag">Official LG partner in Iran</span>
+            <span class="client-card__name-en">Goldiran</span><span class="client-card__tag">Official LG partner in Iran</span>
           </div>
 
           <!-- ۰. ال‌جی -->
@@ -1256,8 +1154,7 @@
               <img class="client-card__logo-img client-card__logo-img--wide" src="../assets/images/clients/lg.png" alt="LG logo" width="480" height="122" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">LG</h3>
-            <span class="client-card__name-en">LG Electronics</span>
-            <span class="client-card__tag">Home appliances & electronics</span>
+            <span class="client-card__name-en">LG Electronics</span><span class="client-card__tag">Home appliances & electronics</span>
           </div>
 
           <!-- ۲۱. کابل البرز -->
@@ -1266,8 +1163,7 @@
               <img class="client-card__logo-img client-card__logo-img--wide" src="../assets/images/clients/alborz-cable.png" alt="Alborz Cable logo" width="480" height="148" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Alborz Cable</h3>
-            <span class="client-card__name-en">Alborz Cable</span>
-            <span class="client-card__tag">Wire & cable industries</span>
+            <span class="client-card__name-en">Alborz Cable</span><span class="client-card__tag">Wire & cable industries</span>
           </div>
 
           <!-- ۲۲. آلکاپلاستیک -->
@@ -1276,8 +1172,7 @@
               <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/alkaplastik.png" alt="Alkaplastik logo" width="349" height="230" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Alkaplastik</h3>
-            <span class="client-card__name-en">Alkaplastik</span>
-            <span class="client-card__tag">Plastics & polymer industries</span>
+            <span class="client-card__name-en">Alkaplastik</span><span class="client-card__tag">Plastics & polymer industries</span>
           </div>
 
           <!-- ۲۳. نستله -->
@@ -1286,36 +1181,12 @@
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/nestle.png" alt="Nestlé logo" width="439" height="454" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">Nestlé</h3>
-            <span class="client-card__name-en">Nestlé</span>
-            <span class="client-card__tag">International food industry</span>
+            <span class="client-card__name-en">Nestlé</span><span class="client-card__tag">International food industry</span>
           </div>
         </div><!-- نوار متحرک مشتریان (Marquee) — تکرار تزئینی نام همکاران برای اثبات اجتماعی -->
         <div class="clients-marquee-wrapper reveal" aria-hidden="true">
           <div class="clients-marquee">
-            <span class="clients-marquee__chip">Yataqan Bosh Iran</span>
-            <span class="clients-marquee__chip">Shir Sahar</span>
-            <span class="clients-marquee__chip">AGT</span>
-            <span class="clients-marquee__chip">Asan Pack</span>
-            <span class="clients-marquee__chip">Henkel</span>
-            <span class="clients-marquee__chip">Unilever</span>
-            <span class="clients-marquee__chip">BAT</span>
-            <span class="clients-marquee__chip">Goldiran</span>
-            <span class="clients-marquee__chip">LG</span>
-            <span class="clients-marquee__chip">Alborz Cable</span>
-            <span class="clients-marquee__chip">Alkaplastik</span>
-            <span class="clients-marquee__chip">Nestlé Iran</span>
-            <span class="clients-marquee__chip">Yataqan Bosh Iran</span>
-            <span class="clients-marquee__chip">Shir Sahar</span>
-            <span class="clients-marquee__chip">AGT</span>
-            <span class="clients-marquee__chip">Asan Pack</span>
-            <span class="clients-marquee__chip">Henkel</span>
-            <span class="clients-marquee__chip">Unilever</span>
-            <span class="clients-marquee__chip">BAT</span>
-            <span class="clients-marquee__chip">Goldiran</span>
-            <span class="clients-marquee__chip">LG</span>
-            <span class="clients-marquee__chip">Alborz Cable</span>
-            <span class="clients-marquee__chip">Alkaplastik</span>
-            <span class="clients-marquee__chip">Nestlé Iran</span>
+            <span class="clients-marquee__chip">Yataqan Bosh Iran</span><span class="clients-marquee__chip">Shir Sahar</span><span class="clients-marquee__chip">AGT</span><span class="clients-marquee__chip">Asan Pack</span><span class="clients-marquee__chip">Henkel</span><span class="clients-marquee__chip">Unilever</span><span class="clients-marquee__chip">BAT</span><span class="clients-marquee__chip">Goldiran</span><span class="clients-marquee__chip">LG</span><span class="clients-marquee__chip">Alborz Cable</span><span class="clients-marquee__chip">Alkaplastik</span><span class="clients-marquee__chip">Nestlé Iran</span><span class="clients-marquee__chip">Yataqan Bosh Iran</span><span class="clients-marquee__chip">Shir Sahar</span><span class="clients-marquee__chip">AGT</span><span class="clients-marquee__chip">Asan Pack</span><span class="clients-marquee__chip">Henkel</span><span class="clients-marquee__chip">Unilever</span><span class="clients-marquee__chip">BAT</span><span class="clients-marquee__chip">Goldiran</span><span class="clients-marquee__chip">LG</span><span class="clients-marquee__chip">Alborz Cable</span><span class="clients-marquee__chip">Alkaplastik</span><span class="clients-marquee__chip">Nestlé Iran</span>
           </div>
         </div>
         <!-- نظرات مشتریان — نمونه‌هایی از بازخورد مشتریان سازمانی -->
@@ -1337,8 +1208,7 @@
               <footer class="testimonial-card__author">
                 <span class="testimonial-card__avatar" aria-hidden="true">R</span>
                 <div>
-                  <span class="testimonial-card__name">Eng. Reza Karimi</span>
-                  <span class="testimonial-card__role">Logistics Manager, food manufacturing company</span>
+                  <span class="testimonial-card__name">Eng. Reza Karimi</span><span class="testimonial-card__role">Logistics Manager, food manufacturing company</span>
                 </div>
               </footer>
             </article>
@@ -1354,8 +1224,7 @@
               <footer class="testimonial-card__author">
                 <span class="testimonial-card__avatar" aria-hidden="true">S</span>
                 <div>
-                  <span class="testimonial-card__name">Ms. Sara Mohammadi</span>
-                  <span class="testimonial-card__role">HR Manager, industrial holding</span>
+                  <span class="testimonial-card__name">Ms. Sara Mohammadi</span><span class="testimonial-card__role">HR Manager, industrial holding</span>
                 </div>
               </footer>
             </article>
@@ -1371,8 +1240,7 @@
               <footer class="testimonial-card__author">
                 <span class="testimonial-card__avatar" aria-hidden="true">M</span>
                 <div>
-                  <span class="testimonial-card__name">Mr. Mahdi Rostami</span>
-                  <span class="testimonial-card__role">Procurement Manager, industrial complex</span>
+                  <span class="testimonial-card__name">Mr. Mahdi Rostami</span><span class="testimonial-card__role">Procurement Manager, industrial complex</span>
                 </div>
               </footer>
             </article>
@@ -1512,8 +1380,7 @@
                 <line x1="7" y1="12" x2="13" y2="12"></line>
               </svg>
             </div>
-            <span class="registry-card__label">National ID</span>
-            <span class="registry-card__value">10861415215</span>
+            <span class="registry-card__label">National ID</span><span class="registry-card__value">10861415215</span>
           </div>
 
           <!-- کارت شماره ثبت -->
@@ -1526,8 +1393,7 @@
                 <line x1="16" y1="17" x2="8" y2="17"></line>
               </svg>
             </div>
-            <span class="registry-card__label">Registration number</span>
-            <span class="registry-card__value">2749</span>
+            <span class="registry-card__label">Registration number</span><span class="registry-card__value">2749</span>
           </div>
 
           <!-- کارت کد اقتصادی -->
@@ -1538,8 +1404,7 @@
                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
               </svg>
             </div>
-            <span class="registry-card__label">Economic code</span>
-            <span class="registry-card__value">411386837665</span>
+            <span class="registry-card__label">Economic code</span><span class="registry-card__value">411386837665</span>
           </div>
 
           <!-- کارت تاریخ تأسیس -->
@@ -1552,8 +1417,7 @@
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
             </div>
-            <span class="registry-card__label">Founding date</span>
-            <span class="registry-card__value">1374/02/14</span>
+            <span class="registry-card__label">Founding date</span><span class="registry-card__value">1374/02/14</span>
           </div>
         </div>
 
@@ -1579,8 +1443,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 20px; font-size: 0.875rem; color: var(--text-muted);" class="reveal">
-          <strong style="color: var(--primary-navy);">Track record with leading organisations:</strong>
-          <span>Nestlé • LG • Goldiran • Unilever • Asan Pack and dozens of industrial factories across the country</span>
+          <strong style="color: var(--primary-navy);">Track record with leading organisations:</strong><span>Nestlé • LG • Goldiran • Unilever • Asan Pack and dozens of industrial factories across the country</span>
         </div>
       </div>
     </section>
@@ -1846,8 +1709,7 @@
                     <circle cx="18.5" cy="18.5" r="1.5"></circle>
                   </svg>
                 </span>
-                <span class="legal-acc__label">Transportation</span>
-                <span class="legal-acc__chevron" aria-hidden="true">
+                <span class="legal-acc__label">Transportation</span><span class="legal-acc__chevron" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </span>
               </summary>
@@ -1873,8 +1735,7 @@
                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                   </svg>
                 </span>
-                <span class="legal-acc__label">Finance & Accounting</span>
-                <span class="legal-acc__chevron" aria-hidden="true">
+                <span class="legal-acc__label">Finance & Accounting</span><span class="legal-acc__chevron" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </span>
               </summary>
@@ -1899,8 +1760,7 @@
                     <path d="M16 7V4h-4v3h4z"></path>
                   </svg>
                 </span>
-                <span class="legal-acc__label">Administrative & Welfare Services</span>
-                <span class="legal-acc__chevron" aria-hidden="true">
+                <span class="legal-acc__label">Administrative & Welfare Services</span><span class="legal-acc__chevron" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </span>
               </summary>
@@ -1926,8 +1786,7 @@
                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                   </svg>
                 </span>
-                <span class="legal-acc__label">Trading & Marketing</span>
-                <span class="legal-acc__chevron" aria-hidden="true">
+                <span class="legal-acc__label">Trading & Marketing</span><span class="legal-acc__chevron" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </span>
               </summary>
@@ -1951,6 +1810,11 @@
       </div>
     </section>
 
+
+
+    <!-- ======================================================================
+         ۴.۱۲ بخش تماس با ما (Contact Section)
+         ====================================================================== -->
     <section id="contact" class="site-page section" aria-label="Contact Qazvin Tasvir Company">
       <div class="container">
         <div class="section-header reveal">
@@ -2092,10 +1956,7 @@
               <div class="map-preview-box__title">A strategic location in Qazvin's industrial hub</div>
               <p class="map-preview-box__text">Quick access to the Alborz, Caspian, Lia, Heydarieh and Khorramdasht industrial parks, the north-west transit corridors and the country's customs offices.</p>
               <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Caspian Park</span>
-                <span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Alborz Park</span>
-                <span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Lia Park</span>
-                <span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Qazvin Customs</span>
+                <span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Caspian Park</span><span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Alborz Park</span><span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Lia Park</span><span style="font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);">Qazvin Customs</span>
               </div>
             </div>
           </div>
@@ -2121,8 +1982,7 @@
                    loading="lazy" decoding="async">
             </div>
             <div class="brand-logo__text">
-              <span class="brand-logo__title" style="color: #FFFFFF;">Qazvin Tasvir Company</span>
-              <span class="brand-logo__subtitle" style="color: #94A3B8;">Limited liability — founded 1995</span>
+              <span class="brand-logo__title" style="color: #FFFFFF;">Qazvin Tasvir Company</span><span class="brand-logo__subtitle" style="color: #94A3B8;">Limited liability — founded 1995</span>
             </div>
           </div>
           <p class="footer__about-text">Provider of specialist trading, import and export services, staff transport and shuttle services, and staff catering and corporate meals for factories and industrial companies — with more than 31 years of proven experience and under the management of Saeed Aminzadeh.</p>
@@ -2134,18 +1994,16 @@
           <ul class="footer__links">
             <li><a href="#hero" class="footer__link">Home</a></li>
             <li><a href="#about" class="footer__link">About Qazvin Tasvir</a></li>
-            <li><a href="#services" class="footer__link">Specialist services</a></li>
+            <li><a href="../services/index.html" class="footer__link">Specialist services</a></li>
             <li><a href="#fleet" class="footer__link">Transport fleet</a></li>
             <li><a href="../services/urban-vip.html" class="footer__link">Fleet technical specifications</a></li>
             <li><a href="../services/personnel-food.html" class="footer__link">Staff catering</a></li>
-            <li><a href="../services/personnel-food.html" class="footer__link">Corporate meal menu</a></li>
-            <li><a href="../services/personnel-food.html" class="footer__link">Request a catering contract</a></li>
-            <li><a href="#brands" class="footer__link">Partner Brands</a></li>
-            <li><a href="#why-us" class="footer__link">Why Qazvin Tasvir?</a></li>
-            <li><a href="#trust" class="footer__link">Credentials and registration details</a></li>
-            <li><a href="#resume" class="footer__link">Company Resume</a></li>
-            <li><a href="#legal" class="footer__link">Legal Credentials</a></li>
-            <li><a href="#contact" class="footer__link">Contact Us</a></li>
+            <li><a href="#brands" class="footer__link">Corporate meal menu</a></li>
+            <li><a href="#why-us" class="footer__link">Request a catering contract</a></li>
+            <li><a href="#trust" class="footer__link">Partner Brands</a></li>
+            <li><a href="#resume" class="footer__link">Why Qazvin Tasvir?</a></li>
+            <li><a href="#legal" class="footer__link">Credentials and registration details</a></li>
+            <li><a href="#contact" class="footer__link">Company Resume</a></li>
           </ul>
         </div>
 
@@ -2153,14 +2011,15 @@
         <div>
           <h4 class="footer__col-title">Specialist services</h4>
           <ul class="footer__links">
-            <li><a href="../services/import-export.html" class="footer__link">Import and export of permitted goods</a></li>
-            <li><a href="../services/customs-port.html" class="footer__link">Customs clearance and port operations</a></li>
-            <li><a href="../services/sourcing.html" class="footer__link">Sourcing of raw materials and equipment</a></li>
-            <li><a href="../services/factory-transport.html" class="footer__link">Factory staff transport</a></li>
-            <li><a href="../services/urban-vip.html" class="footer__link">Urban transport & VIP services</a></li>
-            <li><a href="../services/school-office.html" class="footer__link">Service for schools, offices and companies</a></li>
-            <li><a href="../services/personnel-food.html" class="footer__link">Staff catering and corporate meals</a></li>
-            <li><a href="../services/trade-consulting.html" class="footer__link">Trading advice and opening letters of credit (LC)</a></li>
+            <li><a href="../services/index.html" class="footer__link">Import and export of permitted goods</a></li>
+            <li><a href="../services/import-export.html" class="footer__link">Legal Credentials</a></li>
+            <li><a href="../services/customs-port.html" class="footer__link">Contact Us</a></li>
+            <li><a href="../services/sourcing.html" class="footer__link">Customs clearance and port operations</a></li>
+            <li><a href="../services/factory-transport.html" class="footer__link">Sourcing of raw materials and equipment</a></li>
+            <li><a href="../services/urban-vip.html" class="footer__link">Factory staff transport</a></li>
+            <li><a href="../services/school-office.html" class="footer__link">Urban transport & VIP services</a></li>
+            <li><a href="../services/personnel-food.html" class="footer__link">Service for schools, offices and companies</a></li>
+            <li><a href="../services/trade-consulting.html" class="footer__link">Staff catering and corporate meals</a></li>
           </ul>
         </div>
 
@@ -2169,15 +2028,13 @@
           <h4 class="footer__col-title">Contact details</h4>
           <ul class="footer__links">
             <li style="display: flex; flex-direction: column; gap: 4px;">
-              <span style="font-size: 0.8125rem; color: #94A3B8;">Telephone:</span>
-              <a href="tel:+989122815189" class="footer__link" style="font-size: 1.1rem; color: var(--amber-light); font-weight: 800; direction: ltr;">0912 281 5189</a>
+              <span style="font-size: 0.8125rem; color: #94A3B8;">Telephone:</span><a href="tel:+989122815189" class="footer__link" style="font-size: 1.1rem; color: var(--amber-light); font-weight: 800; direction: ltr;">0912 281 5189</a>
             </li>
             <li style="display: flex; flex-direction: column; gap: 4px; margin-top: 8px;">
-              <span style="font-size: 0.8125rem; color: #94A3B8;">Office address:</span>
-              <span style="font-size: 0.875rem; color: #CBD5E1; line-height: 1.7;">Qazvin, beginning of Ferdowsi St., Abadgaran Complex, 6th floor, room 604</span>
+              <span style="font-size: 0.8125rem; color: #94A3B8;">Trading advice and opening letters of credit (LC)</span><span style="font-size: 0.875rem; color: #CBD5E1; line-height: 1.7;">Qazvin, beginning of Ferdowsi St., Abadgaran Complex, 6th floor, room 604</span>
             </li>
             <li style="margin-top: 12px;">
-              <a href="https://rasmio.com/company/10861415215/قزوین-تصویر/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-glass btn-sm" style="font-size: 0.8rem; width: 100%;">Official profile on Rasmiyo ↗</a>
+              <a href="https://rasmio.com/company/10861415215/قزوین-تصویر/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-glass btn-sm" style="font-size: 0.8rem; width: 100%;">Office address:</a>
             </li>
           </ul>
         </div>
@@ -2185,15 +2042,7 @@
 
       <!-- نوار اطلاعات ثبتی در فوتر -->
       <div class="footer__registry-strip">
-        <span><strong>National ID:</strong> 10861415215</span>
-        <span>•</span>
-        <span><strong>Registration number:</strong> 2749</span>
-        <span>•</span>
-        <span><strong>Economic code:</strong> 411386837665</span>
-        <span>•</span>
-        <span><strong>Founding date:</strong> 1374/02/14</span>
-        <span>•</span>
-        <span><strong>CEO:</strong>Saeed Aminzadeh</span>
+        <span><strong>National ID:</strong> 10861415215</span><span>•</span><span><strong>Registration number:</strong> 2749</span><span>•</span><span><strong>Economic code:</strong> 411386837665</span><span>•</span><span><strong>Founding date:</strong> 1374/02/14</span><span>•</span><span><strong>CEO:</strong>Saeed Aminzadeh</span>
       </div>
 
       <!-- نوار پایینی و کپی‌رایت -->
@@ -2201,46 +2050,7 @@
         <div class="footer__copyright">© All material and intellectual property rights belong to <strong>Qazvin Tasvir Company</strong> (limited liability — managed by Saeed Aminzadeh) — 1404 / 2026</div>
 
         <!-- اعتبار طراحی و توسعه: کارن سافت (انیمیشنی — لوگوی اصلی برند به صورت تصویر) -->
-        <a class="ks-credit"
-           id="ks-credit"
-           href="https://www.karen-soft.ir"
-           target="_blank"
-           rel="noopener noreferrer"
-           title="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir"
-           aria-label="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir">
-
-          <span class="ks-label ks-label--fa" lang="fa" dir="rtl">
-            <span class="ks-label__word ks-label-gradient">Design</span>
-            <span class="ks-label__word ks-label-gradient">and</span>
-            <span class="ks-label__word ks-label-gradient">development:</span>
-          </span>
-          <span class="ks-label ks-label--en" lang="en" dir="ltr">
-            <span class="ks-label__word ks-label-gradient">Designed</span>
-            <span class="ks-label__word ks-label-gradient">&amp;</span>
-            <span class="ks-label__word ks-label-gradient">Developed</span>
-            <span class="ks-label__word ks-label-gradient">by</span>
-          </span>
-
-          <span class="ks-card-border">
-            <span class="ks-ring" aria-hidden="true"></span>
-
-            <span class="ks-card" dir="ltr">
-              <span class="ks-shine" aria-hidden="true"></span>
-
-              <span class="ks-logo-wrap">
-                <span class="ks-ripple" aria-hidden="true"></span>
-                <span class="ks-ripple ks-ripple--2" aria-hidden="true"></span>
-                <span class="ks-logo-ring" aria-hidden="true"></span>
-                <span class="ks-orbit" aria-hidden="true"><span class="ks-orbit__dot"></span></span>
-                <span class="ks-inner-bg" aria-hidden="true"></span>
-
-                <span class="ks-mark">
-                  <span class="ks-particle ks-particle--1" aria-hidden="true"></span>
-                  <span class="ks-particle ks-particle--2" aria-hidden="true"></span>
-                  <span class="ks-particle ks-particle--3" aria-hidden="true"></span>
-                  <span class="ks-particle ks-particle--4" aria-hidden="true"></span>
-                  <span class="ks-mark-img">
-                    <span class="ks-mark-spin">
+        <a class="ks-credit" id="ks-credit" href="https://www.karen-soft.ir" target="_blank" rel="noopener noreferrer" title="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir" aria-label="طراحی و توسعه: کارن سافت | KarenSoft — www.karen-soft.ir"><span class="ks-label ks-label--fa" lang="fa" dir="rtl"><span class="ks-label__word ks-label-gradient">Design</span><span class="ks-label__word ks-label-gradient">and</span><span class="ks-label__word ks-label-gradient">development:</span></span><span class="ks-label ks-label--en" lang="en" dir="ltr"><span class="ks-label__word ks-label-gradient">Designed</span><span class="ks-label__word ks-label-gradient">&amp;</span><span class="ks-label__word ks-label-gradient">Developed</span><span class="ks-label__word ks-label-gradient">by</span></span><span class="ks-card-border"><span class="ks-ring" aria-hidden="true"></span><span class="ks-card" dir="ltr"><span class="ks-shine" aria-hidden="true"></span><span class="ks-logo-wrap"><span class="ks-ripple" aria-hidden="true"></span><span class="ks-ripple ks-ripple--2" aria-hidden="true"></span><span class="ks-logo-ring" aria-hidden="true"></span><span class="ks-orbit" aria-hidden="true"><span class="ks-orbit__dot"></span></span><span class="ks-inner-bg" aria-hidden="true"></span><span class="ks-mark"><span class="ks-particle ks-particle--1" aria-hidden="true"></span><span class="ks-particle ks-particle--2" aria-hidden="true"></span><span class="ks-particle ks-particle--3" aria-hidden="true"></span><span class="ks-particle ks-particle--4" aria-hidden="true"></span><span class="ks-mark-img"><span class="ks-mark-spin">
                       <img class="ks-float ks-mark-logo"
                            src="../assets/images/karensoft/mark.png"
                            width="36" height="36"
@@ -2333,6 +2143,7 @@
   </div>
 
   <!-- اسکریپت جاوااسکریپت اصلی -->
+  <script src="../assets/js/navigation.js"></script>
   <script>
   /* عنوان و توضیح هر مسیر به زبان این صفحه — ساختهٔ tools/build-i18n-site.py */
   window.QT_ROUTE_META = {
@@ -2345,7 +2156,7 @@
         "desc": "Qazvin Tasvir Company (limited liability) began official operations in May 1995 under the leadership of Mr Saeed Aminzadeh. Over more than three decades of continuous service to the country's manufacturing and commercial sectors, we have become one of the most reputable and reliable names in two vital fields: trading, import and export, and transport and factory staff transport."
     },
     "services": {
-        "title": "Eight Specialist Services of Qazvin Tasvir | Qazvin Tasvir Company",
+        "title": "Specialized Services of Qazvin Tasvir | Qazvin Tasvir Company",
         "desc": "Eight clear service paths across permitted trade, customs, industrial sourcing, staff transport, VIP mobility, school and office shuttles, corporate catering and trade consulting."
     },
     "fleet": {
