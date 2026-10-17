@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 869,
+  "count": 874,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -160,86 +160,111 @@
       "ctx": "li.ul.nav-menu"
     },
     "chrome.028": {
-      "fa": "درخواست مشاوره از قزوین تصویر",
+      "fa": "تغییر تم سایت",
       "kind": "attr:aria-label",
       "ctx": "div.div.navbar__inner"
     },
     "chrome.029": {
-      "fa": "درخواست مشاوره",
-      "kind": "text",
+      "fa": "انتخاب تم رنگی سایت",
+      "kind": "attr:aria-label",
       "ctx": "div.div.navbar__inner"
     },
     "chrome.030": {
+      "fa": "روشن",
+      "kind": "text",
+      "ctx": "div.div.navbar__inner"
+    },
+    "chrome.031": {
+      "fa": "تیره",
+      "kind": "text",
+      "ctx": "svg.button.theme-option"
+    },
+    "chrome.032": {
+      "fa": "اقیانوسی",
+      "kind": "text",
+      "ctx": "svg.button.theme-option"
+    },
+    "chrome.033": {
+      "fa": "درخواست مشاوره از قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "svg.button.theme-option"
+    },
+    "chrome.034": {
+      "fa": "درخواست مشاوره",
+      "kind": "text",
+      "ctx": "svg.button.theme-option"
+    },
+    "chrome.035": {
       "fa": "باز کردن منوی موبایل",
       "kind": "attr:aria-label",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.031": {
+    "chrome.036": {
       "fa": "خانه",
       "kind": "text",
       "ctx": "button.div.navbar__actions"
     },
-    "chrome.032": {
+    "chrome.037": {
       "fa": "درباره قزوین تصویر",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.033": {
+    "chrome.038": {
       "fa": "خدمات بازرگانی و ترابری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.034": {
+    "chrome.039": {
       "fa": "تأمین غذای پرسنل و کیترینگ سازمانی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.035": {
+    "chrome.040": {
       "fa": "ناوگان ترابری (اتوبوس، مینی‌بوس، ون)",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.036": {
+    "chrome.041": {
       "fa": "مشخصات فنی ناوگان و سرویس‌های VIP",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.037": {
+    "chrome.042": {
       "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.038": {
+    "chrome.043": {
       "fa": "چرا ما؟",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.039": {
+    "chrome.044": {
       "fa": "مشتریان و همکاران تجاری",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.040": {
+    "chrome.045": {
       "fa": "اعتبار و استعلام رسمی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.041": {
+    "chrome.046": {
       "fa": "رزومه شرکت",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.042": {
+    "chrome.047": {
       "fa": "اعتبارنامه حقوقی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.043": {
+    "chrome.048": {
       "fa": "تماس با شرکت",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
-    "chrome.044": {
+    "chrome.049": {
       "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.mobile-drawer",
@@ -247,7 +272,7 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "chrome.045": {
+    "chrome.050": {
       "fa": "ارتباط در واتساپ رسمی",
       "kind": "text",
       "ctx": "a.div.mobile-drawer__footer"
@@ -1635,82 +1660,82 @@
       "ctx": "p.div.section-header.reveal"
     },
     "clients.005": {
-      "fa": "لوگوی نستله",
+      "fa": "لوگوی یاتاقان بوش ایران",
       "kind": "attr:alt",
       "ctx": "div.div.container"
     },
     "clients.006": {
-      "fa": "نستله",
+      "fa": "یاتاقان بوش ایران",
       "kind": "text",
       "ctx": "div.div.container"
     },
     "clients.007": {
-      "fa": "Nestlé",
+      "fa": "Yataqan Bosh Iran",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.008": {
-      "fa": "صنایع غذایی بین‌المللی",
+      "fa": "صنایع یاتاقان و قطعات صنعتی",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.009": {
-      "fa": "لوگوی ال‌جی",
+      "fa": "لوگوی شیر سحر",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.010": {
-      "fa": "ال‌جی",
+      "fa": "شیر سحر",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.011": {
-      "fa": "LG Electronics",
+      "fa": "Shir Sahar",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.012": {
-      "fa": "لوازم خانگی و الکترونیک",
+      "fa": "صنایع لبنی",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.013": {
-      "fa": "لوگوی گلدایران",
+      "fa": "لوگوی AGT",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.014": {
-      "fa": "گلدایران",
+      "fa": "AGT",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.015": {
-      "fa": "Goldiran",
+      "fa": "AGT",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.016": {
-      "fa": "همکار رسمی ال‌جی در ایران",
+      "fa": "شرکت صنعتی",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.017": {
-      "fa": "لوگوی یونیلیور",
+      "fa": "لوگوی آسان پک",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.018": {
-      "fa": "یونیلیور",
+      "fa": "آسان پک",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.019": {
-      "fa": "Unilever",
+      "fa": "Asan Pack",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.020": {
-      "fa": "محصولات بهداشتی و غذایی",
+      "fa": "صنایع کارتن و بسته‌بندی",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
@@ -1735,162 +1760,162 @@
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.025": {
-      "fa": "لوگوی شرکت بریتیش آمریکن تاباکو",
+      "fa": "لوگوی یونیلیور",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.026": {
-      "fa": "BAT",
+      "fa": "یونیلیور",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.027": {
-      "fa": "British American Tobacco",
+      "fa": "Unilever",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.028": {
-      "fa": "گروه صنعتی بین‌المللی",
+      "fa": "محصولات بهداشتی و غذایی",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.029": {
-      "fa": "لوگوی آلکاپلاستیک",
+      "fa": "لوگوی شرکت بریتیش آمریکن تاباکو",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.030": {
-      "fa": "آلکاپلاستیک",
+      "fa": "BAT",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.031": {
-      "fa": "Alkaplastik",
+      "fa": "British American Tobacco",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.032": {
-      "fa": "صنایع پلاستیک و پلیمر",
+      "fa": "گروه صنعتی بین‌المللی",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.033": {
-      "fa": "لوگوی کابل البرز",
+      "fa": "لوگوی گلدایران",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.034": {
-      "fa": "کابل البرز",
+      "fa": "گلدایران",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.035": {
-      "fa": "Alborz Cable",
+      "fa": "Goldiran",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.036": {
-      "fa": "صنایع سیم و کابل",
+      "fa": "همکار رسمی ال‌جی در ایران",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.037": {
-      "fa": "لوگوی شیر سحر",
+      "fa": "لوگوی ال‌جی",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.038": {
-      "fa": "شیر سحر",
+      "fa": "ال‌جی",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.039": {
-      "fa": "Shir Sahar",
+      "fa": "LG Electronics",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.040": {
-      "fa": "صنایع لبنی",
+      "fa": "لوازم خانگی و الکترونیک",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.041": {
-      "fa": "لوگوی AGT",
+      "fa": "لوگوی کابل البرز",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.042": {
-      "fa": "AGT",
+      "fa": "کابل البرز",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.043": {
-      "fa": "AGT",
+      "fa": "Alborz Cable",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.044": {
-      "fa": "شرکت صنعتی",
+      "fa": "صنایع سیم و کابل",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.045": {
-      "fa": "لوگوی آسان پک",
+      "fa": "لوگوی آلکاپلاستیک",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.046": {
-      "fa": "آسان پک",
+      "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.047": {
-      "fa": "Asan Pack",
+      "fa": "Alkaplastik",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.048": {
-      "fa": "صنایع کارتن و بسته‌بندی",
+      "fa": "صنایع پلاستیک و پلیمر",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.049": {
-      "fa": "لوگوی یاتاقان بوش ایران",
+      "fa": "لوگوی نستله",
       "kind": "attr:alt",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.050": {
-      "fa": "یاتاقان بوش ایران",
+      "fa": "نستله",
       "kind": "text",
       "ctx": "div.div.clients-grid.reveal"
     },
     "clients.051": {
-      "fa": "Yataqan Bosh Iran",
+      "fa": "Nestlé",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.052": {
-      "fa": "صنایع یاتاقان و قطعات صنعتی",
+      "fa": "صنایع غذایی بین‌المللی",
       "kind": "text",
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.053": {
-      "fa": "نستله ایران",
+      "fa": "یاتاقان بوش ایران",
       "kind": "text",
       "ctx": "div.div.container"
     },
     "clients.054": {
-      "fa": "گلدایران",
+      "fa": "شیر سحر",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.055": {
-      "fa": "ال‌جی",
+      "fa": "AGT",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.056": {
-      "fa": "یونیلیور",
+      "fa": "آسان پک",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
@@ -1900,57 +1925,57 @@
       "ctx": "span.div.clients-marquee"
     },
     "clients.058": {
-      "fa": "BAT",
+      "fa": "یونیلیور",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.059": {
-      "fa": "آلکاپلاستیک",
+      "fa": "BAT",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.060": {
-      "fa": "کابل البرز",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.061": {
-      "fa": "شیر سحر",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.062": {
-      "fa": "AGT",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.063": {
-      "fa": "آسان پک",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.064": {
-      "fa": "یاتاقان بوش ایران",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.065": {
-      "fa": "نستله ایران",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.066": {
       "fa": "گلدایران",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.067": {
+    "clients.061": {
       "fa": "ال‌جی",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
+    "clients.062": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.063": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.064": {
+      "fa": "نستله ایران",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.065": {
+      "fa": "یاتاقان بوش ایران",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.066": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.067": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
     "clients.068": {
-      "fa": "یونیلیور",
+      "fa": "آسان پک",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
@@ -1960,37 +1985,37 @@
       "ctx": "span.div.clients-marquee"
     },
     "clients.070": {
-      "fa": "BAT",
+      "fa": "یونیلیور",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.071": {
-      "fa": "آلکاپلاستیک",
+      "fa": "BAT",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.072": {
-      "fa": "کابل البرز",
+      "fa": "گلدایران",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.073": {
-      "fa": "شیر سحر",
+      "fa": "ال‌جی",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.074": {
-      "fa": "AGT",
+      "fa": "کابل البرز",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.075": {
-      "fa": "آسان پک",
+      "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.076": {
-      "fa": "یاتاقان بوش ایران",
+      "fa": "نستله ایران",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },

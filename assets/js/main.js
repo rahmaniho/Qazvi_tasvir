@@ -814,3 +814,48 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', updateParallax);
   updateParallax();
 })();
+
+// ۱۵. سیستم تم (Theme System) — روشن / تیره / اقیانوسی
+//     انتخاب کاربر روی <html data-theme="..."> اعمال و در localStorage ذخیره
+//     می‌شود؛ اسکریپت ابتدای <head> همان تم را پیش از رندر برمی‌گرداند.
+(function () {
+  const themeSwitch = document.querySelector('.theme-switch');
+  const themeOptions = document.querySelectorAll('.theme-option');
+  if (!themeOptions.length) return;
+
+  const syncUI = () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    themeOptions.forEach(btn => {
+      btn.setAttribute('aria-pressed',
+        btn.getAttribute('data-theme-value') === current ? 'true' : 'false');
+    });
+  };
+
+  themeOptions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const theme = btn.getAttribute('data-theme-value');
+      if (theme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+      try { localStorage.setItem('qt-theme', theme); } catch (e) { /* حالت ناشناس */ }
+      syncUI();
+      if (themeSwitch) themeSwitch.removeAttribute('open');
+    });
+  });
+
+  syncUI();
+
+  // بستن پنل با کلیک بیرون یا کلید Escape
+  document.addEventListener('click', (e) => {
+    if (themeSwitch && !themeSwitch.contains(e.target)) {
+      themeSwitch.removeAttribute('open');
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && themeSwitch) {
+      themeSwitch.removeAttribute('open');
+    }
+  });
+})();

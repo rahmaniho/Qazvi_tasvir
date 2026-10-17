@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    /* اعمال تم ذخیره‌شدهٔ کاربر پیش از رندر — جلوگیری از فلش رنگی (FOUC) */
+    (function () {
+      try {
+        var t = localStorage.getItem('qt-theme');
+        if (t === 'dark' || t === 'ocean') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <title>قزوین تصویر | بازرگانی، واردات و صادرات، ترابری و تأمین غذای پرسنل — تأسیس ۱۳۷۴</title>
   
   <!-- سئو و متادیتا (SEO & Meta) -->
@@ -382,7 +393,37 @@
 
         <!-- دکمه CTA و دکمه موبایل -->
         <div class="navbar__actions">
-          <!-- QT:LANG-SWITCH:BEGIN -->
+          <!-- سوییچر تم (Theme Switch) — روشن / تیره / اقیانوسی -->
+        <details class="theme-switch">
+          <summary class="theme-switch__btn" aria-label="تغییر تم سایت">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="13.5" cy="6.5" r="1.5"></circle>
+              <circle cx="17.5" cy="10.5" r="1.5"></circle>
+              <circle cx="8.5" cy="7.5" r="1.5"></circle>
+              <circle cx="6.5" cy="12.5" r="1.5"></circle>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+            </svg>
+          </summary>
+          <div class="theme-switch__panel" role="group" aria-label="انتخاب تم رنگی سایت">
+            <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
+              <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span>
+              <span class="theme-option__name">روشن</span>
+              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
+              <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span>
+              <span class="theme-option__name">تیره</span>
+              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
+              <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span>
+              <span class="theme-option__name">اقیانوسی</span>
+              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+          </div>
+        </details>
+
+        <!-- QT:LANG-SWITCH:BEGIN -->
         <details class="lang-switch">
           <summary class="lang-switch__btn" aria-label="تغییر زبان سایت">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -1649,87 +1690,17 @@
 
         <!-- گرید ۱۱ برند مشتری: ۶ کارت با لوگوی رسمی + ۵ کارت آیکونی (در انتظار لوگو) -->
         <div class="clients-grid reveal">
-          <!-- ۱. نستله (Nestlé) -->
+          <!-- ۲. یاتاقان بوش ایران -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/nestle.png" alt="لوگوی نستله" width="439" height="454" loading="lazy" decoding="async">
+              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/yataqan-bosh.png" alt="لوگوی یاتاقان بوش ایران" width="245" height="317" loading="lazy" decoding="async">
             </div>
-            <h3 class="client-card__name">نستله</h3>
-            <span class="client-card__name-en">Nestlé</span>
-            <span class="client-card__tag">صنایع غذایی بین‌المللی</span>
+            <h3 class="client-card__name">یاتاقان بوش ایران</h3>
+            <span class="client-card__name-en">Yataqan Bosh Iran</span>
+            <span class="client-card__tag">صنایع یاتاقان و قطعات صنعتی</span>
           </div>
 
-          <!-- ۲. ال‌جی (LG) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--wide" src="assets/images/clients/lg.png" alt="لوگوی ال‌جی" width="480" height="122" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">ال‌جی</h3>
-            <span class="client-card__name-en">LG Electronics</span>
-            <span class="client-card__tag">لوازم خانگی و الکترونیک</span>
-          </div>
-
-          <!-- ۳. گلدایران (Goldiran) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/goldiran.png" alt="لوگوی گلدایران" width="474" height="420" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">گلدایران</h3>
-            <span class="client-card__name-en">Goldiran</span>
-            <span class="client-card__tag">همکار رسمی ال‌جی در ایران</span>
-          </div>
-
-          <!-- ۴. یونیلیور (Unilever) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/unilever.png" alt="لوگوی یونیلیور" width="434" height="480" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">یونیلیور</h3>
-            <span class="client-card__name-en">Unilever</span>
-            <span class="client-card__tag">محصولات بهداشتی و غذایی</span>
-          </div>
-
-          <!-- ۵. هنکل (Henkel) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/henkel.png" alt="لوگوی هنکل" width="316" height="262" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">هنکل</h3>
-            <span class="client-card__name-en">Henkel</span>
-            <span class="client-card__tag">صنایع شیمیایی و بهداشتی</span>
-          </div>
-
-          <!-- ۶. بریتیش آمریکن تاباکو (BAT) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--mid" src="assets/images/clients/bat.png" alt="لوگوی شرکت بریتیش آمریکن تاباکو" width="451" height="257" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">BAT</h3>
-            <span class="client-card__name-en">British American Tobacco</span>
-            <span class="client-card__tag">گروه صنعتی بین‌المللی</span>
-          </div>
-
-          <!-- ۷. آلکاپلاستیک -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--mid" src="assets/images/clients/alkaplastik.png" alt="لوگوی آلکاپلاستیک" width="349" height="230" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">آلکاپلاستیک</h3>
-            <span class="client-card__name-en">Alkaplastik</span>
-            <span class="client-card__tag">صنایع پلاستیک و پلیمر</span>
-          </div>
-
-          <!-- ۸. کابل البرز -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--wide" src="assets/images/clients/alborz-cable.png" alt="لوگوی کابل البرز" width="480" height="148" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">کابل البرز</h3>
-            <span class="client-card__name-en">Alborz Cable</span>
-            <span class="client-card__tag">صنایع سیم و کابل</span>
-          </div>
-
-          <!-- ۹. شیر سحر -->
+          <!-- ۳. شیر سحر -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
               <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/sahar.png" alt="لوگوی شیر سحر" width="442" height="342" loading="lazy" decoding="async">
@@ -1739,7 +1710,7 @@
             <span class="client-card__tag">صنایع لبنی</span>
           </div>
 
-          <!-- ۱۰. AGT -->
+          <!-- ۴. AGT -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
               <img class="client-card__logo-img client-card__logo-img--mid" src="assets/images/clients/agt.png" alt="لوگوی AGT" width="291" height="117" loading="lazy" decoding="async">
@@ -1749,7 +1720,7 @@
             <span class="client-card__tag">شرکت صنعتی</span>
           </div>
 
-          <!-- ۱۱. آسان پک -->
+          <!-- ۵. آسان پک -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
               <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/asanpack.png" alt="لوگوی آسان پک" width="405" height="313" loading="lazy" decoding="async">
@@ -1759,44 +1730,112 @@
             <span class="client-card__tag">صنایع کارتن و بسته‌بندی</span>
           </div>
 
-          <!-- ۱۲. یاتاقان بوش ایران -->
+          <!-- ۶. هنکل -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/yataqan-bosh.png" alt="لوگوی یاتاقان بوش ایران" width="245" height="317" loading="lazy" decoding="async">
+              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/henkel.png" alt="لوگوی هنکل" width="316" height="262" loading="lazy" decoding="async">
             </div>
-            <h3 class="client-card__name">یاتاقان بوش ایران</h3>
-            <span class="client-card__name-en">Yataqan Bosh Iran</span>
-            <span class="client-card__tag">صنایع یاتاقان و قطعات صنعتی</span>
+            <h3 class="client-card__name">هنکل</h3>
+            <span class="client-card__name-en">Henkel</span>
+            <span class="client-card__tag">صنایع شیمیایی و بهداشتی</span>
           </div>
-        </div>
 
-        <!-- نوار متحرک مشتریان (Marquee) — تکرار تزئینی نام همکاران برای اثبات اجتماعی -->
+          <!-- ۷. یونیلیور -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/unilever.png" alt="لوگوی یونیلیور" width="434" height="480" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">یونیلیور</h3>
+            <span class="client-card__name-en">Unilever</span>
+            <span class="client-card__tag">محصولات بهداشتی و غذایی</span>
+          </div>
+
+          <!-- ۸. BAT -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--mid" src="assets/images/clients/bat.png" alt="لوگوی شرکت بریتیش آمریکن تاباکو" width="451" height="257" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">BAT</h3>
+            <span class="client-card__name-en">British American Tobacco</span>
+            <span class="client-card__tag">گروه صنعتی بین‌المللی</span>
+          </div>
+
+          <!-- ۹. گلدایران -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/goldiran.png" alt="لوگوی گلدایران" width="474" height="420" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">گلدایران</h3>
+            <span class="client-card__name-en">Goldiran</span>
+            <span class="client-card__tag">همکار رسمی ال‌جی در ایران</span>
+          </div>
+
+          <!-- ۰. ال‌جی -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--wide" src="assets/images/clients/lg.png" alt="لوگوی ال‌جی" width="480" height="122" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">ال‌جی</h3>
+            <span class="client-card__name-en">LG Electronics</span>
+            <span class="client-card__tag">لوازم خانگی و الکترونیک</span>
+          </div>
+
+          <!-- ۲۱. کابل البرز -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--wide" src="assets/images/clients/alborz-cable.png" alt="لوگوی کابل البرز" width="480" height="148" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">کابل البرز</h3>
+            <span class="client-card__name-en">Alborz Cable</span>
+            <span class="client-card__tag">صنایع سیم و کابل</span>
+          </div>
+
+          <!-- ۲۲. آلکاپلاستیک -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--mid" src="assets/images/clients/alkaplastik.png" alt="لوگوی آلکاپلاستیک" width="349" height="230" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">آلکاپلاستیک</h3>
+            <span class="client-card__name-en">Alkaplastik</span>
+            <span class="client-card__tag">صنایع پلاستیک و پلیمر</span>
+          </div>
+
+          <!-- ۲۳. نستله -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--square" src="assets/images/clients/nestle.png" alt="لوگوی نستله" width="439" height="454" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">نستله</h3>
+            <span class="client-card__name-en">Nestlé</span>
+            <span class="client-card__tag">صنایع غذایی بین‌المللی</span>
+          </div>
+        </div><!-- نوار متحرک مشتریان (Marquee) — تکرار تزئینی نام همکاران برای اثبات اجتماعی -->
         <div class="clients-marquee-wrapper reveal" aria-hidden="true">
           <div class="clients-marquee">
-            <span class="clients-marquee__chip">نستله ایران</span>
-            <span class="clients-marquee__chip">گلدایران</span>
-            <span class="clients-marquee__chip">ال‌جی</span>
-            <span class="clients-marquee__chip">یونیلیور</span>
-            <span class="clients-marquee__chip">هنکل</span>
-            <span class="clients-marquee__chip">BAT</span>
-            <span class="clients-marquee__chip">آلکاپلاستیک</span>
-            <span class="clients-marquee__chip">کابل البرز</span>
+            <span class="clients-marquee__chip">یاتاقان بوش ایران</span>
             <span class="clients-marquee__chip">شیر سحر</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">آسان پک</span>
-            <span class="clients-marquee__chip">یاتاقان بوش ایران</span>
-            <span class="clients-marquee__chip">نستله ایران</span>
+            <span class="clients-marquee__chip">هنکل</span>
+            <span class="clients-marquee__chip">یونیلیور</span>
+            <span class="clients-marquee__chip">BAT</span>
             <span class="clients-marquee__chip">گلدایران</span>
             <span class="clients-marquee__chip">ال‌جی</span>
-            <span class="clients-marquee__chip">یونیلیور</span>
-            <span class="clients-marquee__chip">هنکل</span>
-            <span class="clients-marquee__chip">BAT</span>
-            <span class="clients-marquee__chip">آلکاپلاستیک</span>
             <span class="clients-marquee__chip">کابل البرز</span>
+            <span class="clients-marquee__chip">آلکاپلاستیک</span>
+            <span class="clients-marquee__chip">نستله ایران</span>
+            <span class="clients-marquee__chip">یاتاقان بوش ایران</span>
             <span class="clients-marquee__chip">شیر سحر</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">آسان پک</span>
-            <span class="clients-marquee__chip">یاتاقان بوش ایران</span>
+            <span class="clients-marquee__chip">هنکل</span>
+            <span class="clients-marquee__chip">یونیلیور</span>
+            <span class="clients-marquee__chip">BAT</span>
+            <span class="clients-marquee__chip">گلدایران</span>
+            <span class="clients-marquee__chip">ال‌جی</span>
+            <span class="clients-marquee__chip">کابل البرز</span>
+            <span class="clients-marquee__chip">آلکاپلاستیک</span>
+            <span class="clients-marquee__chip">نستله ایران</span>
           </div>
         </div>
         <!-- نظرات مشتریان — نمونه‌هایی از بازخورد مشتریان سازمانی -->

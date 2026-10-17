@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    /* اعمال تم ذخیره‌شدهٔ کاربر پیش از رندر — جلوگیری از فلش رنگی (FOUC) */
+    (function () {
+      try {
+        var t = localStorage.getItem('qt-theme');
+        if (t === 'dark' || t === 'ocean') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <title>Qazvin Tasvir Company | Trading, Import & Export, Transport and Staff Catering — Founded 1995</title>
   
   <!-- سئو و متادیتا (SEO & Meta) -->
@@ -383,7 +394,37 @@
 
         <!-- دکمه CTA و دکمه موبایل -->
         <div class="navbar__actions">
-          <!-- QT:LANG-SWITCH:BEGIN -->
+          <!-- سوییچر تم (Theme Switch) — روشن / تیره / اقیانوسی -->
+        <details class="theme-switch">
+          <summary class="theme-switch__btn" aria-label="Change site theme">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="13.5" cy="6.5" r="1.5"></circle>
+              <circle cx="17.5" cy="10.5" r="1.5"></circle>
+              <circle cx="8.5" cy="7.5" r="1.5"></circle>
+              <circle cx="6.5" cy="12.5" r="1.5"></circle>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+            </svg>
+          </summary>
+          <div class="theme-switch__panel" role="group" aria-label="Choose the site color theme">
+            <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
+              <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span>
+              <span class="theme-option__name">Light</span>
+              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
+              <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span>
+              <span class="theme-option__name">Dark</span>
+              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
+              <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span>
+              <span class="theme-option__name">Ocean</span>
+              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+          </div>
+        </details>
+
+        <!-- QT:LANG-SWITCH:BEGIN -->
         <details class="lang-switch">
           <summary class="lang-switch__btn" aria-label="Change language">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -521,7 +562,7 @@
       <!-- تصویر پس‌زمینهٔ هیرو (تزئینی) -->
       <div class="hero__photo" aria-hidden="true">
         <picture>
-<source srcset="assets/img/sections/hero-port.webp" type="image/webp">
+<source srcset="../assets/img/sections/hero-port.webp" type="image/webp">
 <img src="../assets/img/sections/hero-port.jpg" alt="" width="1536" height="1024" loading="eager" decoding="async" fetchpriority="high">
 </picture>
       </div>
@@ -747,7 +788,7 @@
               <div class="ceo-card__header">
                 <div class="ceo-avatar">
                   <picture>
-                    <source srcset="assets/images/saeed-aminzadeh-avatar.webp" type="image/webp">
+                    <source srcset="../assets/images/saeed-aminzadeh-avatar.webp" type="image/webp">
                     <img src="../assets/images/saeed-aminzadeh-avatar.jpg" alt="Saeed Aminzadeh, CEO of Qazvin Tasvir" width="240" height="288" loading="lazy" decoding="async">
                   </picture>
                 </div>
@@ -792,7 +833,7 @@
       <!-- باند تصویری بین درباره و خدمات (تزئینی) -->
       <div class="photo-band reveal" aria-hidden="true">
         <picture>
-<source srcset="assets/img/sections/about-office.webp" type="image/webp">
+<source srcset="../assets/img/sections/about-office.webp" type="image/webp">
 <img src="../assets/img/sections/about-office.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
 </picture>
     </div>
@@ -816,7 +857,7 @@
           <article class="service-mini-card reveal">
             <div class="service-mini-card__media" aria-hidden="true">
               <picture>
-                <source srcset="assets/images/bus-fleet.webp" type="image/webp">
+                <source srcset="../assets/images/bus-fleet.webp" type="image/webp">
                 <img src="../assets/images/bus-fleet.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async">
               </picture>
             </div>
@@ -840,7 +881,7 @@
           <article class="service-mini-card reveal">
             <div class="service-mini-card__media" aria-hidden="true">
               <picture>
-                <source srcset="assets/img/personnel-food/hero-kitchen.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/hero-kitchen.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/hero-kitchen.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
               </picture>
             </div>
@@ -860,7 +901,7 @@
           <article class="service-mini-card reveal">
             <div class="service-mini-card__media" aria-hidden="true">
               <picture>
-                <source srcset="assets/img/sections/trade-customs.webp" type="image/webp">
+                <source srcset="../assets/img/sections/trade-customs.webp" type="image/webp">
                 <img src="../assets/img/sections/trade-customs.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
               </picture>
             </div>
@@ -880,7 +921,7 @@
           <article class="service-mini-card reveal">
             <div class="service-mini-card__media" aria-hidden="true">
               <picture>
-                <source srcset="assets/img/sections/contact-city.webp" type="image/webp">
+                <source srcset="../assets/img/sections/contact-city.webp" type="image/webp">
                 <img src="../assets/img/sections/contact-city.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
               </picture>
             </div>
@@ -923,7 +964,7 @@
           <li class="fleet-card reveal">
             <div class="fleet-card__media">
               <picture>
-                <source srcset="assets/images/bus-fleet.webp" type="image/webp">
+                <source srcset="../assets/images/bus-fleet.webp" type="image/webp">
                 <img class="fleet-card__img"
                      src="../assets/images/bus-fleet.jpg"
                      alt="Qazvin Tasvir staff bus"
@@ -952,7 +993,7 @@
           <li class="fleet-card reveal">
             <div class="fleet-card__media">
               <picture>
-                <source srcset="assets/images/minibus-fleet.webp" type="image/webp">
+                <source srcset="../assets/images/minibus-fleet.webp" type="image/webp">
                 <img class="fleet-card__img"
                      src="../assets/images/minibus-fleet.jpg"
                      alt="Qazvin Tasvir staff minibus"
@@ -981,7 +1022,7 @@
           <li class="fleet-card reveal">
             <div class="fleet-card__media">
               <picture>
-                <source srcset="assets/images/van-fleet.webp" type="image/webp">
+                <source srcset="../assets/images/van-fleet.webp" type="image/webp">
                 <img class="fleet-card__img"
                      src="../assets/images/van-fleet.jpg"
                      alt="Qazvin Tasvir staff van"
@@ -1288,7 +1329,7 @@
           <div class="fleet-gallery">
             <figure class="fleet-gallery__item fleet-gallery__item--wide reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-02.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-02.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-02.jpg"
                      alt="Photo of Qazvin Tasvir Company's urban transport fleet"
                      width="1280" height="810" loading="lazy" decoding="async">
@@ -1301,7 +1342,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-01.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-01.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-01.jpg"
                      alt="Photo of Qazvin Tasvir Company's passenger fleet from the official resume"
                      width="814" height="525" loading="lazy" decoding="async">
@@ -1313,7 +1354,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-03.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-03.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-03.jpg"
                      alt="Staff shuttle service with the Qazvin Tasvir fleet"
                      width="1280" height="960" loading="lazy" decoding="async">
@@ -1325,7 +1366,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/vip-seats.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/vip-seats.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/vip-seats.jpg"
                      alt="VIP seats with fabric upholstery and seat belts in the staff shuttle"
                      width="960" height="1280" loading="lazy" decoding="async">
@@ -1338,7 +1379,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/vip-catering.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/vip-catering.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/vip-catering.jpg"
                      alt="Refreshment basket and passenger catering on VIP services"
                      width="960" height="1280" loading="lazy" decoding="async">
@@ -1351,7 +1392,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-04.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-04.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-04.jpg"
                      alt="Photo of Qazvin Tasvir Company's company-owned fleet from the official resume"
                      width="960" height="870" loading="lazy" decoding="async">
@@ -1364,7 +1405,7 @@
 
             <figure class="fleet-gallery__item fleet-gallery__item--wide reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-05.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-05.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-05.jpg"
                      alt="Photo of a passenger service and fleet equipment of Qazvin Tasvir"
                      width="1280" height="721" loading="lazy" decoding="async">
@@ -1377,7 +1418,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-06.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-06.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-06.jpg"
                      alt="Photo of an industrial staff service from the Qazvin Tasvir resume"
                      width="899" height="960" loading="lazy" decoding="async">
@@ -1389,7 +1430,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-07.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-07.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-07.jpg"
                      alt="Photo of Qazvin Tasvir Company's insured fleet"
                      width="1280" height="720" loading="lazy" decoding="async">
@@ -1401,7 +1442,7 @@
 
             <figure class="fleet-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/fleet-specs/fleet-photo-08.webp" type="image/webp">
+                <source srcset="../assets/img/fleet-specs/fleet-photo-08.webp" type="image/webp">
                 <img src="../assets/img/fleet-specs/fleet-photo-08.jpg"
                      alt="Photo showing the service quality of Qazvin Tasvir's staff transport"
                      width="817" height="720" loading="lazy" decoding="async">
@@ -1472,7 +1513,7 @@
       <!-- نوار تصویری بالای بخش مزایا (تزئینی) -->
       <div class="why-banner reveal" aria-hidden="true">
         <picture>
-<source srcset="assets/img/sections/why-banner.webp" type="image/webp">
+<source srcset="../assets/img/sections/why-banner.webp" type="image/webp">
 <img src="../assets/img/sections/why-banner.jpg" alt="" width="1600" height="718" loading="lazy" decoding="async">
 </picture>
       </div>
@@ -1571,7 +1612,7 @@
             <div class="quote-block__author">
               <span class="quote-block__author-avatar" aria-hidden="true">
                 <picture>
-                  <source srcset="assets/images/saeed-aminzadeh-avatar.webp" type="image/webp">
+                  <source srcset="../assets/images/saeed-aminzadeh-avatar.webp" type="image/webp">
                   <img src="../assets/images/saeed-aminzadeh-avatar.jpg" alt="" width="240" height="288" loading="lazy" decoding="async">
                 </picture>
               </span>
@@ -1597,87 +1638,17 @@
 
         <!-- گرید ۱۱ برند مشتری: ۶ کارت با لوگوی رسمی + ۵ کارت آیکونی (در انتظار لوگو) -->
         <div class="clients-grid reveal">
-          <!-- ۱. نستله (Nestlé) -->
+          <!-- ۲. یاتاقان بوش ایران -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/nestle.png" alt="Nestlé logo" width="439" height="454" loading="lazy" decoding="async">
+              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/yataqan-bosh.png" alt="Yataqan Bosh Iran logo" width="245" height="317" loading="lazy" decoding="async">
             </div>
-            <h3 class="client-card__name">Nestlé</h3>
-            <span class="client-card__name-en">Nestlé</span>
-            <span class="client-card__tag">International food industry</span>
+            <h3 class="client-card__name">Yataqan Bosh Iran</h3>
+            <span class="client-card__name-en">Yataqan Bosh Iran</span>
+            <span class="client-card__tag">Bearing and industrial parts industry</span>
           </div>
 
-          <!-- ۲. ال‌جی (LG) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--wide" src="../assets/images/clients/lg.png" alt="LG logo" width="480" height="122" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">LG</h3>
-            <span class="client-card__name-en">LG Electronics</span>
-            <span class="client-card__tag">Home appliances & electronics</span>
-          </div>
-
-          <!-- ۳. گلدایران (Goldiran) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/goldiran.png" alt="Goldiran logo" width="474" height="420" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">Goldiran</h3>
-            <span class="client-card__name-en">Goldiran</span>
-            <span class="client-card__tag">Official LG partner in Iran</span>
-          </div>
-
-          <!-- ۴. یونیلیور (Unilever) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/unilever.png" alt="Unilever logo" width="434" height="480" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">Unilever</h3>
-            <span class="client-card__name-en">Unilever</span>
-            <span class="client-card__tag">Personal care & food products</span>
-          </div>
-
-          <!-- ۵. هنکل (Henkel) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/henkel.png" alt="Henkel logo" width="316" height="262" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">Henkel</h3>
-            <span class="client-card__name-en">Henkel</span>
-            <span class="client-card__tag">Chemical & consumer goods industry</span>
-          </div>
-
-          <!-- ۶. بریتیش آمریکن تاباکو (BAT) -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/bat.png" alt="British American Tobacco logo" width="451" height="257" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">BAT</h3>
-            <span class="client-card__name-en">British American Tobacco</span>
-            <span class="client-card__tag">International industrial group</span>
-          </div>
-
-          <!-- ۷. آلکاپلاستیک -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/alkaplastik.png" alt="Alkaplastik logo" width="349" height="230" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">Alkaplastik</h3>
-            <span class="client-card__name-en">Alkaplastik</span>
-            <span class="client-card__tag">Plastics & polymer industries</span>
-          </div>
-
-          <!-- ۸. کابل البرز -->
-          <div class="client-card client-card--logo">
-            <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--wide" src="../assets/images/clients/alborz-cable.png" alt="Alborz Cable logo" width="480" height="148" loading="lazy" decoding="async">
-            </div>
-            <h3 class="client-card__name">Alborz Cable</h3>
-            <span class="client-card__name-en">Alborz Cable</span>
-            <span class="client-card__tag">Wire & cable industries</span>
-          </div>
-
-          <!-- ۹. شیر سحر -->
+          <!-- ۳. شیر سحر -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/sahar.png" alt="Shir Sahar logo" width="442" height="342" loading="lazy" decoding="async">
@@ -1687,7 +1658,7 @@
             <span class="client-card__tag">Dairy industries</span>
           </div>
 
-          <!-- ۱۰. AGT -->
+          <!-- ۴. AGT -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
               <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/agt.png" alt="AGT logo" width="291" height="117" loading="lazy" decoding="async">
@@ -1697,7 +1668,7 @@
             <span class="client-card__tag">Industrial company</span>
           </div>
 
-          <!-- ۱۱. آسان پک -->
+          <!-- ۵. آسان پک -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
               <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/asanpack.png" alt="Asan Pack logo" width="405" height="313" loading="lazy" decoding="async">
@@ -1707,44 +1678,112 @@
             <span class="client-card__tag">Carton and packaging industry</span>
           </div>
 
-          <!-- ۱۲. یاتاقان بوش ایران -->
+          <!-- ۶. هنکل -->
           <div class="client-card client-card--logo">
             <div class="client-card__logo-wrap">
-              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/yataqan-bosh.png" alt="Yataqan Bosh Iran logo" width="245" height="317" loading="lazy" decoding="async">
+              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/henkel.png" alt="Henkel logo" width="316" height="262" loading="lazy" decoding="async">
             </div>
-            <h3 class="client-card__name">Yataqan Bosh Iran</h3>
-            <span class="client-card__name-en">Yataqan Bosh Iran</span>
-            <span class="client-card__tag">Bearing and industrial parts industry</span>
+            <h3 class="client-card__name">Henkel</h3>
+            <span class="client-card__name-en">Henkel</span>
+            <span class="client-card__tag">Chemical & consumer goods industry</span>
           </div>
-        </div>
 
-        <!-- نوار متحرک مشتریان (Marquee) — تکرار تزئینی نام همکاران برای اثبات اجتماعی -->
+          <!-- ۷. یونیلیور -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/unilever.png" alt="Unilever logo" width="434" height="480" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">Unilever</h3>
+            <span class="client-card__name-en">Unilever</span>
+            <span class="client-card__tag">Personal care & food products</span>
+          </div>
+
+          <!-- ۸. BAT -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/bat.png" alt="British American Tobacco logo" width="451" height="257" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">BAT</h3>
+            <span class="client-card__name-en">British American Tobacco</span>
+            <span class="client-card__tag">International industrial group</span>
+          </div>
+
+          <!-- ۹. گلدایران -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/goldiran.png" alt="Goldiran logo" width="474" height="420" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">Goldiran</h3>
+            <span class="client-card__name-en">Goldiran</span>
+            <span class="client-card__tag">Official LG partner in Iran</span>
+          </div>
+
+          <!-- ۰. ال‌جی -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--wide" src="../assets/images/clients/lg.png" alt="LG logo" width="480" height="122" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">LG</h3>
+            <span class="client-card__name-en">LG Electronics</span>
+            <span class="client-card__tag">Home appliances & electronics</span>
+          </div>
+
+          <!-- ۲۱. کابل البرز -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--wide" src="../assets/images/clients/alborz-cable.png" alt="Alborz Cable logo" width="480" height="148" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">Alborz Cable</h3>
+            <span class="client-card__name-en">Alborz Cable</span>
+            <span class="client-card__tag">Wire & cable industries</span>
+          </div>
+
+          <!-- ۲۲. آلکاپلاستیک -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--mid" src="../assets/images/clients/alkaplastik.png" alt="Alkaplastik logo" width="349" height="230" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">Alkaplastik</h3>
+            <span class="client-card__name-en">Alkaplastik</span>
+            <span class="client-card__tag">Plastics & polymer industries</span>
+          </div>
+
+          <!-- ۲۳. نستله -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img client-card__logo-img--square" src="../assets/images/clients/nestle.png" alt="Nestlé logo" width="439" height="454" loading="lazy" decoding="async">
+            </div>
+            <h3 class="client-card__name">Nestlé</h3>
+            <span class="client-card__name-en">Nestlé</span>
+            <span class="client-card__tag">International food industry</span>
+          </div>
+        </div><!-- نوار متحرک مشتریان (Marquee) — تکرار تزئینی نام همکاران برای اثبات اجتماعی -->
         <div class="clients-marquee-wrapper reveal" aria-hidden="true">
           <div class="clients-marquee">
-            <span class="clients-marquee__chip">Nestlé Iran</span>
-            <span class="clients-marquee__chip">Goldiran</span>
-            <span class="clients-marquee__chip">LG</span>
-            <span class="clients-marquee__chip">Unilever</span>
-            <span class="clients-marquee__chip">Henkel</span>
-            <span class="clients-marquee__chip">BAT</span>
-            <span class="clients-marquee__chip">Alkaplastik</span>
-            <span class="clients-marquee__chip">Alborz Cable</span>
+            <span class="clients-marquee__chip">Yataqan Bosh Iran</span>
             <span class="clients-marquee__chip">Shir Sahar</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">Asan Pack</span>
-            <span class="clients-marquee__chip">Yataqan Bosh Iran</span>
-            <span class="clients-marquee__chip">Nestlé Iran</span>
+            <span class="clients-marquee__chip">Henkel</span>
+            <span class="clients-marquee__chip">Unilever</span>
+            <span class="clients-marquee__chip">BAT</span>
             <span class="clients-marquee__chip">Goldiran</span>
             <span class="clients-marquee__chip">LG</span>
-            <span class="clients-marquee__chip">Unilever</span>
-            <span class="clients-marquee__chip">Henkel</span>
-            <span class="clients-marquee__chip">BAT</span>
-            <span class="clients-marquee__chip">Alkaplastik</span>
             <span class="clients-marquee__chip">Alborz Cable</span>
+            <span class="clients-marquee__chip">Alkaplastik</span>
+            <span class="clients-marquee__chip">Nestlé Iran</span>
+            <span class="clients-marquee__chip">Yataqan Bosh Iran</span>
             <span class="clients-marquee__chip">Shir Sahar</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">Asan Pack</span>
-            <span class="clients-marquee__chip">Yataqan Bosh Iran</span>
+            <span class="clients-marquee__chip">Henkel</span>
+            <span class="clients-marquee__chip">Unilever</span>
+            <span class="clients-marquee__chip">BAT</span>
+            <span class="clients-marquee__chip">Goldiran</span>
+            <span class="clients-marquee__chip">LG</span>
+            <span class="clients-marquee__chip">Alborz Cable</span>
+            <span class="clients-marquee__chip">Alkaplastik</span>
+            <span class="clients-marquee__chip">Nestlé Iran</span>
           </div>
         </div>
         <!-- نظرات مشتریان — نمونه‌هایی از بازخورد مشتریان سازمانی -->
@@ -2446,7 +2485,7 @@
             <div class="food-hero__media reveal">
               <figure class="food-hero__frame">
                 <picture>
-                  <source srcset="assets/img/personnel-food/hero-kitchen.webp" type="image/webp">
+                  <source srcset="../assets/img/personnel-food/hero-kitchen.webp" type="image/webp">
                   <img class="food-hero__img"
                        src="../assets/img/personnel-food/hero-kitchen.jpg"
                        alt="A hygienic industrial kitchen with uniformed chefs, hairnets and stainless-steel surfaces for preparing staff meals"
@@ -2641,7 +2680,7 @@
           <div class="food-menu__header reveal">
             <figure class="food-menu__header-media">
               <picture>
-                <source srcset="assets/img/personnel-food/catering-menu.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/catering-menu.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/catering-menu.jpg"
                      alt="Sample corporate catering menu design on a wooden table"
                      width="1408" height="768" loading="lazy" decoding="async">
@@ -2707,7 +2746,7 @@
                 <div class="food-panel__grid">
                   <figure class="food-panel__feature">
                     <picture>
-                      <source srcset="assets/img/personnel-food/menu-breakfast.webp" type="image/webp">
+                      <source srcset="../assets/img/personnel-food/menu-breakfast.webp" type="image/webp">
                       <img src="../assets/img/personnel-food/menu-breakfast.jpg"
                            alt="Corporate breakfast with fresh bread, cheese, walnuts, honey and tea"
                            width="1408" height="768" loading="lazy" decoding="async">
@@ -2773,7 +2812,7 @@
                 <div class="food-panel__grid">
                   <figure class="food-panel__feature">
                     <picture>
-                      <source srcset="assets/img/personnel-food/menu-lunch.webp" type="image/webp">
+                      <source srcset="../assets/img/personnel-food/menu-lunch.webp" type="image/webp">
                       <img src="../assets/img/personnel-food/menu-lunch.jpg"
                            alt="Corporate lunch with kubideh kebab, saffron rice, grilled tomato and salad"
                            width="1408" height="768" loading="lazy" decoding="async">
@@ -2839,7 +2878,7 @@
                 <div class="food-panel__grid">
                   <figure class="food-panel__feature">
                     <picture>
-                      <source srcset="assets/img/personnel-food/menu-dinner.webp" type="image/webp">
+                      <source srcset="../assets/img/personnel-food/menu-dinner.webp" type="image/webp">
                       <img src="../assets/img/personnel-food/menu-dinner.jpg"
                            alt="Corporate dinner with ghormeh sabzi, rice, warm bread and salad in hygienic packaging"
                            width="1408" height="768" loading="lazy" decoding="async">
@@ -2905,7 +2944,7 @@
                 <div class="food-panel__grid">
                   <figure class="food-panel__feature">
                     <picture>
-                      <source srcset="assets/img/personnel-food/menu-snack.webp" type="image/webp">
+                      <source srcset="../assets/img/personnel-food/menu-snack.webp" type="image/webp">
                       <img src="../assets/img/personnel-food/menu-snack.jpg"
                            alt="Hygienic snack packs with fruit, sandwiches, cake and a drink"
                            width="1408" height="768" loading="lazy" decoding="async">
@@ -2987,7 +3026,7 @@
           <div class="food-gallery">
             <figure class="food-gallery__item food-gallery__item--wide reveal">
               <picture>
-                <source srcset="assets/img/personnel-food/hygienic-kitchen.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/hygienic-kitchen.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/hygienic-kitchen.jpg"
                      alt="Hygienic commercial kitchen with stainless-steel equipment and staff wearing gloves and masks"
                      width="1376" height="768" loading="lazy" decoding="async">
@@ -3000,7 +3039,7 @@
 
             <figure class="food-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/personnel-food/personnel-meal.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/personnel-meal.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/personnel-meal.jpg"
                      alt="Staff meal box with rice, kebab, salad and yoghurt in hygienic packaging"
                      width="1408" height="768" loading="lazy" decoding="async">
@@ -3012,7 +3051,7 @@
 
             <figure class="food-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/personnel-food/food-delivery.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/food-delivery.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/food-delivery.jpg"
                      alt="A catering vehicle delivering meal boxes to factory workers"
                      width="1408" height="768" loading="lazy" decoding="async">
@@ -3024,7 +3063,7 @@
 
             <figure class="food-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/personnel-food/buffet-setup.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/buffet-setup.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/buffet-setup.jpg"
                      alt="Corporate buffet table arranged with hygienic serving stations and Iranian dishes"
                      width="1408" height="768" loading="lazy" decoding="async">
@@ -3036,7 +3075,7 @@
 
             <figure class="food-gallery__item food-gallery__item--wide reveal">
               <picture>
-                <source srcset="assets/img/personnel-food/catering-menu.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/catering-menu.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/catering-menu.jpg"
                      alt="Sample designed corporate catering menu featuring Iranian dishes"
                      width="1408" height="768" loading="lazy" decoding="async">
@@ -3049,7 +3088,7 @@
 
             <figure class="food-gallery__item reveal">
               <picture>
-                <source srcset="assets/img/personnel-food/menu-lunch.webp" type="image/webp">
+                <source srcset="../assets/img/personnel-food/menu-lunch.webp" type="image/webp">
                 <img src="../assets/img/personnel-food/menu-lunch.jpg"
                      alt="Iranian lunch with kubideh kebab, saffron rice and fresh salad"
                      width="1408" height="768" loading="lazy" decoding="async">
@@ -3402,7 +3441,7 @@
           <div class="contact-info-card reveal">
             <div class="contact-info-card__media" aria-hidden="true">
               <picture>
-<source srcset="assets/img/sections/contact-city.webp" type="image/webp">
+<source srcset="../assets/img/sections/contact-city.webp" type="image/webp">
 <img src="../assets/img/sections/contact-city.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
 </picture>
             </div>
