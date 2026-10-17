@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 862,
+  "count": 869,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -1855,342 +1855,342 @@
       "ctx": "span.div.client-card.client-card--logo"
     },
     "clients.049": {
+      "fa": "لوگوی یاتاقان بوش ایران",
+      "kind": "attr:alt",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.050": {
+      "fa": "یاتاقان بوش ایران",
+      "kind": "text",
+      "ctx": "div.div.clients-grid.reveal"
+    },
+    "clients.051": {
+      "fa": "Yataqan Bosh Iran",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.052": {
+      "fa": "صنایع یاتاقان و قطعات صنعتی",
+      "kind": "text",
+      "ctx": "span.div.client-card.client-card--logo"
+    },
+    "clients.053": {
       "fa": "نستله ایران",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "clients.050": {
-      "fa": "گلدایران",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.051": {
-      "fa": "ال‌جی",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.052": {
-      "fa": "یونیلیور",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.053": {
-      "fa": "هنکل",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
     "clients.054": {
-      "fa": "BAT",
+      "fa": "گلدایران",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
     "clients.055": {
-      "fa": "آلکاپلاستیک",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.056": {
-      "fa": "کابل البرز",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.057": {
-      "fa": "شیر سحر",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.058": {
-      "fa": "AGT",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.059": {
-      "fa": "آسان پک",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.060": {
-      "fa": "نستله ایران",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.061": {
-      "fa": "گلدایران",
-      "kind": "text",
-      "ctx": "span.div.clients-marquee"
-    },
-    "clients.062": {
       "fa": "ال‌جی",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.063": {
+    "clients.056": {
       "fa": "یونیلیور",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.064": {
+    "clients.057": {
       "fa": "هنکل",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.065": {
+    "clients.058": {
       "fa": "BAT",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.066": {
+    "clients.059": {
       "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.067": {
+    "clients.060": {
       "fa": "کابل البرز",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.068": {
+    "clients.061": {
       "fa": "شیر سحر",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.069": {
+    "clients.062": {
       "fa": "AGT",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
-    "clients.070": {
+    "clients.063": {
       "fa": "آسان پک",
       "kind": "text",
       "ctx": "span.div.clients-marquee"
     },
+    "clients.064": {
+      "fa": "یاتاقان بوش ایران",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.065": {
+      "fa": "نستله ایران",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.066": {
+      "fa": "گلدایران",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.067": {
+      "fa": "ال‌جی",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.068": {
+      "fa": "یونیلیور",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.069": {
+      "fa": "هنکل",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.070": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
     "clients.071": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.072": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.073": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.074": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.075": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.076": {
+      "fa": "یاتاقان بوش ایران",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.077": {
       "fa": "نظرات مشتریان",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "clients.072": {
+    "clients.078": {
       "fa": "امتیاز ۵ از ۵ ستاره",
       "kind": "attr:aria-label",
       "ctx": "div.div.testimonials.reveal"
     },
-    "clients.073": {
+    "clients.079": {
       "fa": "«سه سال است سرویس ایاب‌وذهاب پرسنل کارخانه ما با ناوگان قزوین تصویر انجام می‌شود؛ نظم زمان‌بندی و سلامت خودروها در تمام فصول سال چشمگیر است.»",
       "kind": "text",
       "ctx": "div.div.testimonials.reveal"
     },
-    "clients.074": {
+    "clients.080": {
       "fa": "ر",
       "kind": "text",
       "ctx": "footer.article.testimonial-card"
     },
-    "clients.075": {
+    "clients.081": {
       "fa": "مهندس رضا کریمی",
       "kind": "text",
       "ctx": "div.footer.testimonial-card__author"
     },
-    "clients.076": {
+    "clients.082": {
       "fa": "مدیر لجستیک، شرکت تولیدی صنایع غذایی",
       "kind": "text",
       "ctx": "span.footer.testimonial-card__author"
     },
-    "clients.077": {
+    "clients.083": {
       "fa": "امتیاز ۵ از ۵ ستاره",
       "kind": "attr:aria-label",
       "ctx": "article.div.testimonials__grid"
     },
-    "clients.078": {
+    "clients.084": {
       "fa": "«از عقد قرارداد تا شروع سرویس همه‌چیز شفاف و مستند پیش رفت؛ پاسخگویی سریع مدیریت، عاملی شد که قراردادمان را تمدید کنیم.»",
       "kind": "text",
       "ctx": "article.div.testimonials__grid"
     },
-    "clients.079": {
+    "clients.085": {
       "fa": "س",
       "kind": "text",
       "ctx": "footer.article.testimonial-card"
     },
-    "clients.080": {
+    "clients.086": {
       "fa": "خانم سارا محمدی",
       "kind": "text",
       "ctx": "div.footer.testimonial-card__author"
     },
-    "clients.081": {
+    "clients.087": {
       "fa": "مدیر منابع انسانی، هلدینگ صنعتی",
       "kind": "text",
       "ctx": "span.footer.testimonial-card__author"
     },
-    "clients.082": {
+    "clients.088": {
       "fa": "امتیاز ۵ از ۵ ستاره",
       "kind": "attr:aria-label",
       "ctx": "article.div.testimonials__grid"
     },
-    "clients.083": {
+    "clients.089": {
       "fa": "«تأمین وعده‌های غذایی شیفت شب کارخانه سال‌هاست بر عهده تیم قزوین تصویر است؛ کیفیت منو و پایبندی به نکات بهداشتی رضایت پرسنل را جلب کرده است.»",
       "kind": "text",
       "ctx": "article.div.testimonials__grid"
     },
-    "clients.084": {
+    "clients.090": {
       "fa": "م",
       "kind": "text",
       "ctx": "footer.article.testimonial-card"
     },
-    "clients.085": {
+    "clients.091": {
       "fa": "آقای مهدی رستمی",
       "kind": "text",
       "ctx": "div.footer.testimonial-card__author"
     },
-    "clients.086": {
+    "clients.092": {
       "fa": "مدیر تدارکات، مجتمع صنعتی",
       "kind": "text",
       "ctx": "span.footer.testimonial-card__author"
     },
-    "clients.087": {
+    "clients.093": {
       "fa": "نمونه‌کار",
       "kind": "text",
       "ctx": "article.div.container"
     },
-    "clients.088": {
+    "clients.094": {
       "fa": "مدیریت ایاب‌وذهاب ۵۰۰ پرسنل در شهرک صنعتی کاسپین",
       "kind": "text",
       "ctx": "h3.div.case-study__content"
     },
-    "clients.089": {
+    "clients.095": {
       "fa": "طراحی و اجرای سامانه رفت‌وآمد روزانه پرسنل یک مجموعه صنعتی بزرگ در شهرک صنعتی کاسپین؛ شامل برنامه‌ریزی مسیرها بر مبنای محل سکونت کارکنان، تخصیص ناوگان مینی‌بوس و اتوبوس، و پایش روزانه حضور رانندگان — همه‌روزه و در دو شیفت کاری.",
       "kind": "text",
       "ctx": "p.div.case-study__content"
     },
-    "clients.090": {
+    "clients.096": {
       "fa": "درخواست مشاوره برای سرویس پرسنل",
       "kind": "text",
       "ctx": "a.div.case-study__content"
     },
-    "clients.091": {
+    "clients.097": {
       "fa": "پرسنل تحت پوشش",
       "kind": "text",
       "ctx": "dl.article.case-study.reveal"
     },
-    "clients.092": {
+    "clients.098": {
       "fa": "شیفت کاری روزانه",
       "kind": "text",
       "ctx": "div.dl.case-study__stats"
     },
-    "clients.093": {
+    "clients.099": {
       "fa": "۲ شیفت",
       "kind": "text",
       "ctx": "dd.div.case-study__stat"
     },
-    "clients.094": {
+    "clients.100": {
       "fa": "پوشش خدمت",
       "kind": "text",
       "ctx": "div.dl.case-study__stats"
     },
-    "clients.095": {
+    "clients.101": {
       "fa": "۷ روز هفته",
       "kind": "text",
       "ctx": "dd.div.case-study__stat"
     },
-    "clients.096": {
+    "clients.102": {
       "fa": "از رزومه رسمی شرکت",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "clients.097": {
+    "clients.103": {
       "fa": "سوابق همکاری قراردادی",
       "kind": "text",
       "ctx": "h3.div.section-header.reveal"
     },
-    "clients.098": {
+    "clients.104": {
       "fa": "شرکتی که سرویس ایاب‌وذهاب پرسنل‌شان در طول سال‌های فعالیت، با ناوگان و رانندگان قزوین تصویر انجام شده است؛ به‌همراه تعداد دستگاه‌های واگذارشده و بازهٔ همکاری.",
       "kind": "text",
       "ctx": "p.div.section-header.reveal"
     },
-    "clients.099": {
+    "clients.105": {
       "fa": "سوابق همکاری قراردادی شرکت قزوین تصویر با شرکت‌های صنعتی و تولیدی",
       "kind": "text",
       "ctx": "div.div.clients-history"
     },
-    "clients.100": {
+    "clients.106": {
       "fa": "شرکت",
       "kind": "text",
       "ctx": "thead.table.history-table"
     },
-    "clients.101": {
+    "clients.107": {
       "fa": "ناوگان واگذارشده",
       "kind": "text",
       "ctx": "th.table.history-table"
     },
-    "clients.102": {
+    "clients.108": {
       "fa": "بازهٔ همکاری",
       "kind": "text",
       "ctx": "th.table.history-table"
     },
-    "clients.103": {
+    "clients.109": {
       "fa": "نستله ایران",
       "kind": "text",
       "ctx": "tbody.table.history-table"
     },
-    "clients.104": {
+    "clients.110": {
       "fa": "۵ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.105": {
+    "clients.111": {
       "fa": "۱۳۸۹ تا ۱۳۹۸",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.106": {
+    "clients.112": {
       "fa": "گلدایران (ال‌جی)",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.107": {
+    "clients.113": {
       "fa": "۹ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.108": {
+    "clients.114": {
       "fa": "۱۳۹۰ تا ۱۴۰۲",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.109": {
+    "clients.115": {
       "fa": "یونیلیور",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
-    "clients.110": {
-      "fa": "۹ دستگاه + ۳ دستگاه سرویس VIP",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.111": {
-      "fa": "۱۳۹۳ تا ۱۳۹۶",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.112": {
-      "fa": "هنکل",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.113": {
-      "fa": "۲ دستگاه",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.114": {
-      "fa": "۱۳۹۴ تا ۱۳۹۷",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.115": {
-      "fa": "BAT",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
     "clients.116": {
-      "fa": "۷ دستگاه + ۱۰ دستگاه VIP",
+      "fa": "۹ دستگاه + ۳ دستگاه سرویس VIP",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
@@ -2200,96 +2200,126 @@
       "ctx": "td.table.history-table"
     },
     "clients.118": {
-      "fa": "آلکاپلاستیک",
+      "fa": "هنکل",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
     "clients.119": {
-      "fa": "۶ دستگاه",
+      "fa": "۲ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.120": {
-      "fa": "۱۳۸۹ تا ۱۳۹۵",
+      "fa": "۱۳۹۴ تا ۱۳۹۷",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.121": {
-      "fa": "کابل البرز",
+      "fa": "BAT",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
     "clients.122": {
-      "fa": "۷ دستگاه",
+      "fa": "۷ دستگاه + ۱۰ دستگاه VIP",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.123": {
-      "fa": "۱۳۹۰ تا ۱۳۹۶",
+      "fa": "۱۳۹۳ تا ۱۳۹۶",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.124": {
-      "fa": "شیر سحر",
+      "fa": "آلکاپلاستیک",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
     "clients.125": {
-      "fa": "۸ دستگاه",
+      "fa": "۶ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.126": {
-      "fa": "۱۴۰۲ تا کنون",
+      "fa": "۱۳۸۹ تا ۱۳۹۵",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.127": {
-      "fa": "AGT",
+      "fa": "کابل البرز",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
     "clients.128": {
-      "fa": "۹ دستگاه",
+      "fa": "۷ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.129": {
-      "fa": "۱۴۰۰ تا ۱۴۰۲",
+      "fa": "۱۳۹۰ تا ۱۳۹۶",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.130": {
-      "fa": "آسان پک",
+      "fa": "شیر سحر",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
     "clients.131": {
-      "fa": "۱۷ دستگاه مینی‌بوس و اتوبوس",
+      "fa": "۸ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.132": {
-      "fa": "۱۳۹۷ تا کنون",
+      "fa": "۱۴۰۲ تا کنون",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.133": {
-      "fa": "یاتاقان بوش ایران",
+      "fa": "AGT",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
     "clients.134": {
-      "fa": "۹ دستگاه مینی‌بوس",
+      "fa": "۹ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.135": {
-      "fa": "۱۴۰۳ تا کنون",
+      "fa": "۱۴۰۰ تا ۱۴۰۲",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.136": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.137": {
+      "fa": "۱۷ دستگاه مینی‌بوس و اتوبوس",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.138": {
+      "fa": "۱۳۹۷ تا کنون",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.139": {
+      "fa": "یاتاقان بوش ایران",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.140": {
+      "fa": "۹ دستگاه مینی‌بوس",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.141": {
+      "fa": "۱۴۰۳ تا کنون",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.142": {
       "fa": "جمع‌اً ۱۰۱ دستگاه خودرو در قالب این قراردادها به شرکت‌های بالا واگذار شده است.",
       "kind": "text",
       "ctx": "p.div.clients-history",
@@ -2647,36 +2677,41 @@
       "ctx": "li.ul.amenity-chips"
     },
     "resume.058": {
+      "fa": "یاتاقان بوش ایران",
+      "kind": "text",
+      "ctx": "li.ul.amenity-chips"
+    },
+    "resume.059": {
       "fa": "مشاهده جدول کامل سوابق همکاری",
       "kind": "attr:aria-label",
       "ctx": "a.div.resume-clients.reveal"
     },
-    "resume.059": {
+    "resume.060": {
       "fa": "جدول کامل سوابق همکاری و تعداد دستگاه‌ها ←",
       "kind": "text",
       "ctx": "a.div.resume-clients.reveal"
     },
-    "resume.060": {
+    "resume.061": {
       "fa": "فایل رزومه رسمی شرکت (PDF) شامل مشخصات فنی کامل ناوگان، تجهیزات و سوابق همکاری را دریافت کنید.",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "resume.061": {
+    "resume.062": {
       "fa": "دریافت فایل رزومه شرکت قزوین تصویر در قالب PDF",
       "kind": "attr:aria-label",
       "ctx": "div.div.fleet-specs-cta.fleet-specs-cta--end"
     },
-    "resume.062": {
+    "resume.063": {
       "fa": "دریافت رزومه شرکت (PDF)",
       "kind": "text",
       "ctx": "div.div.fleet-specs-cta.fleet-specs-cta--end"
     },
-    "resume.063": {
+    "resume.064": {
       "fa": "تماس و درخواست مشاوره",
       "kind": "attr:aria-label",
       "ctx": "a.div.fleet-specs-cta__actions"
     },
-    "resume.064": {
+    "resume.065": {
       "fa": "تماس و درخواست مشاوره",
       "kind": "text",
       "ctx": "a.div.fleet-specs-cta__actions"
