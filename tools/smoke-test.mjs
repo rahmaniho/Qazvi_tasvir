@@ -161,8 +161,15 @@ function testSharedNavigation(rel) {
   const check = (ok, msg) => { if (!ok) errors.push(`[${rel}] ${msg}`); };
   const toggle = doc.querySelector('.menu-toggle');
   const nav = doc.querySelector('.site-nav');
+  const header = toggle?.closest('.site-header');
   check(toggle !== null && nav !== null, 'shared menu toggle/nav missing');
   if (!toggle || !nav) return;
+  check(nav.querySelector('.site-nav__search-input') !== null,
+        'shared navigation search input missing');
+  check(nav.querySelector('.site-nav__messages') !== null,
+        'shared navigation messages section missing');
+  check(nav.querySelector('.site-nav__profile') !== null,
+        'shared navigation profile card missing');
 
   toggle.click();
   check(nav.classList.contains('is-open'), 'mobile menu did not open');
@@ -198,7 +205,23 @@ function testSharedNavigation(rel) {
   window.innerWidth = 1280;
   window.dispatchEvent(new window.Event('resize'));
   check(!nav.classList.contains('is-open'), 'resize did not reset mobile menu');
-  check(toggle.getAttribute('aria-expanded') === 'false', 'resize did not reset aria-expanded');
+  check(toggle.getAttribute('aria-expanded') === 'true', 'resize did not restore expanded sidebar state');
+
+  toggle.click();
+  check(header.classList.contains('is-collapsed'), 'desktop toggle did not collapse sidebar');
+  check(toggle.getAttribute('aria-expanded') === 'false', 'collapsed sidebar aria-expanded is not false');
+
+  const collapsedItem = nav.querySelector('.site-nav__item--services');
+  const collapsedTrigger = collapsedItem?.querySelector(':scope > .site-nav__link');
+  const collapsedPanel = collapsedItem?.querySelector(':scope > .site-nav__dropdown');
+  if (collapsedTrigger && collapsedPanel) {
+    collapsedTrigger.click();
+    check(collapsedItem.classList.contains('is-open'), 'collapsed services flyout did not open');
+    check(collapsedPanel.getAttribute('aria-hidden') === 'false', 'collapsed flyout aria-hidden is not false');
+  }
+  toggle.click();
+  check(!header.classList.contains('is-collapsed'), 'desktop toggle did not expand sidebar');
+  check(toggle.getAttribute('aria-expanded') === 'true', 'expanded sidebar aria-expanded is not true');
 
   const desktopItem = nav.querySelector('.site-nav__item--services');
   const desktopTrigger = desktopItem?.querySelector(':scope > .site-nav__link');

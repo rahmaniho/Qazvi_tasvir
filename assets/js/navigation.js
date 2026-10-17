@@ -45,12 +45,191 @@
       .map(toggle => ({
         toggle,
         nav: findNav(toggle),
+        header: toggle.closest('.site-header'),
         lastFocusedElement: null,
         openLabel: toggle.getAttribute('aria-label') || 'Open mobile menu',
         closeLabel: toggle.getAttribute('data-menu-close-label') ||
-          (document.documentElement.lang === 'en' ? 'Close mobile menu' : 'بستن منوی موبایل')
+          (document.documentElement.lang === 'en' ? 'Close mobile menu' : 'بستن منوی موبایل'),
+        collapseLabel: document.documentElement.lang === 'en'
+          ? 'Collapse sidebar' : 'بستن نوار کناری',
+        expandLabel: document.documentElement.lang === 'en'
+          ? 'Expand sidebar' : 'باز کردن نوار کناری'
       }))
       .filter(controller => controller.nav);
+
+    function pageCopy() {
+      return document.documentElement.lang === 'en' ? {
+        searchLabel: 'Search',
+        searchPlaceholder: 'Search site',
+        main: 'Main',
+        messages: 'Messages',
+        addMessage: 'New message',
+        profileRole: 'Managing Director',
+        profileAction: 'Open contact section',
+        messagesList: [
+          ['QT', 'Consultation requests'],
+          ['FL', 'Fleet coordination'],
+          ['FO', 'Catering operations']
+        ]
+      } : {
+        searchLabel: 'جستجو',
+        searchPlaceholder: 'جستجو در سایت',
+        main: 'اصلی',
+        messages: 'پیام‌ها',
+        addMessage: 'پیام جدید',
+        profileRole: 'مدیریت شرکت',
+        profileAction: 'رفتن به بخش تماس',
+        messagesList: [
+          ['ق', 'درخواست‌های مشاوره'],
+          ['ن', 'هماهنگی ناوگان'],
+          ['غ', 'عملیات غذای سازمانی']
+        ]
+      };
+    }
+
+    function assetUrl(relativePath) {
+      const nested = /\/(?:services|en)(?:\/|$)/.test(window.location.pathname);
+      return new URL((nested ? '../' : './') + relativePath, document.baseURI).href;
+    }
+
+    function enhanceSidebar(controller) {
+      const nav = controller.nav;
+      const copy = pageCopy();
+      const contact = nav.querySelector('a[href*="#contact"]');
+      const contactHref = contact ? contact.getAttribute('href') : '#contact';
+
+      let searchInput = nav.querySelector('.site-nav__search-input');
+      if (!searchInput) {
+        const search = document.createElement('div');
+        search.className = 'site-nav__search';
+        search.setAttribute('role', 'search');
+        const label = document.createElement('label');
+        label.className = 'visually-hidden';
+        label.setAttribute('for', `${nav.id || 'site-nav'}-search`);
+        label.textContent = copy.searchLabel;
+        searchInput = document.createElement('input');
+        searchInput.className = 'site-nav__search-input';
+        searchInput.id = `${nav.id || 'site-nav'}-search`;
+        searchInput.type = 'search';
+        searchInput.placeholder = copy.searchPlaceholder;
+        searchInput.setAttribute('autocomplete', 'off');
+        const shortcut = document.createElement('span');
+        shortcut.className = 'site-nav__search-shortcut';
+        shortcut.setAttribute('aria-hidden', 'true');
+        shortcut.innerHTML = '<kbd>⌘</kbd><kbd>K</kbd>';
+        search.append(label, searchInput, shortcut);
+        nav.prepend(search);
+      }
+
+      if (!nav.querySelector('.site-nav__section-label')) {
+        const label = document.createElement('div');
+        label.className = 'site-nav__section-label';
+        label.textContent = copy.main;
+        const firstLink = nav.querySelector('.site-nav__link');
+        if (firstLink) nav.insertBefore(label, firstLink);
+        else nav.append(label);
+      }
+
+      if (!nav.querySelector('.site-nav__messages')) {
+        const messages = document.createElement('section');
+        messages.className = 'site-nav__messages';
+        messages.setAttribute('aria-label', copy.messages);
+        const heading = document.createElement('div');
+        heading.className = 'site-nav__messages-heading';
+        const title = document.createElement('span');
+        title.textContent = copy.messages;
+        const add = document.createElement('a');
+        add.className = 'site-nav__message-add';
+        add.href = contactHref;
+        add.setAttribute('aria-label', copy.addMessage);
+        add.textContent = '+';
+        heading.append(title, add);
+        const list = document.createElement('div');
+        list.className = 'site-nav__message-list';
+        copy.messagesList.forEach(([initials, text], index) => {
+          const message = document.createElement('a');
+          message.className = 'site-nav__message';
+          message.href = contactHref;
+          message.innerHTML = `<span class="site-nav__avatar site-nav__avatar--${index + 1}" aria-hidden="true">${initials}</span>`
+            + `<span class="site-nav__message-text">${text}</span>`
+            + '<span class="site-nav__message-status" aria-hidden="true"></span>';
+          list.append(message);
+        });
+        messages.append(heading, list);
+        nav.append(messages);
+      }
+
+      if (!nav.querySelector('.site-nav__profile')) {
+        const profile = document.createElement('a');
+        profile.className = 'site-nav__profile';
+        profile.href = contactHref;
+        profile.setAttribute('aria-label', copy.profileAction);
+        profile.innerHTML = `<img src="${assetUrl('assets/images/saeed-aminzadeh-avatar.webp')}" alt="" width="38" height="38">`
+          + `<span class="site-nav__profile-copy"><strong>${document.documentElement.lang === 'en' ? 'Saeed Aminzadeh' : 'سعید امین‌زاده'}</strong><small>${copy.profileRole}</small></span>`
+          + '<span class="site-nav__profile-chevron" aria-hidden="true">⌄</span>';
+        nav.append(profile);
+      }
+
+      const primaryLinks = Array.from(nav.querySelectorAll(
+        ':scope > .site-nav__link, :scope > .site-nav__cta'
+      ));
+      const serviceItem = nav.querySelector(':scope > .site-nav__item--services');
+      const serviceLinks = serviceItem
+        ? Array.from(serviceItem.querySelectorAll('.site-nav__dropdown a'))
+        : [];
+      const messages = nav.querySelector('.site-nav__messages');
+      const messageLinks = messages ? Array.from(messages.querySelectorAll('a')) : [];
+      const profile = nav.querySelector('.site-nav__profile');
+
+      const matches = element => element && element.textContent
+        .toLocaleLowerCase()
+        .includes(searchInput.value.trim().toLocaleLowerCase());
+
+      const updateSearch = () => {
+        const query = searchInput.value.trim();
+        primaryLinks.forEach(link => {
+          link.hidden = Boolean(query) && !matches(link);
+        });
+        if (serviceItem) {
+          const serviceTrigger = serviceItem.querySelector('.site-nav__link');
+          const servicePanel = serviceItem.querySelector('.site-nav__dropdown');
+          const serviceMatch = !query || matches(serviceTrigger) || serviceLinks.some(matches);
+          const matchingService = query && serviceLinks.some(matches);
+          serviceItem.hidden = !serviceMatch;
+          serviceLinks.forEach(link => {
+            link.hidden = Boolean(query) && !matches(link);
+          });
+          if (serviceTrigger && servicePanel && matchingService) {
+            serviceItem.classList.add('is-open');
+            serviceTrigger.setAttribute('aria-expanded', 'true');
+            servicePanel.setAttribute('aria-hidden', 'false');
+          } else if (serviceTrigger && servicePanel && (!query || !matchingService)) {
+            serviceItem.classList.remove('is-open');
+            serviceTrigger.setAttribute('aria-expanded', 'false');
+            servicePanel.setAttribute('aria-hidden', 'true');
+          }
+        }
+        if (messages) {
+          messages.hidden = Boolean(query) && !messageLinks.some(matches);
+        }
+        if (profile) {
+          profile.hidden = Boolean(query) && !matches(profile);
+        }
+      };
+
+      searchInput.addEventListener('input', updateSearch);
+      searchInput.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          searchInput.value = '';
+          updateSearch();
+          searchInput.blur();
+        }
+      });
+      return searchInput;
+    }
+
+    controllers.forEach(enhanceSidebar);
+    document.body.classList.add('qt-sidebar-shell');
 
     const dropdowns = Array.from(document.querySelectorAll(
       '.nav-menu__item--has-dd, .site-nav__item--services'
@@ -79,6 +258,31 @@
     function syncBodyLock() {
       const open = controllers.some(controller => controller.nav.classList.contains('is-open'));
       document.body.classList.toggle('service-nav-open', open);
+    }
+
+    function syncSidebarToggle(controller) {
+      if (!controller.header || isMobile()) {
+        controller.toggle.setAttribute('aria-expanded',
+          controller.nav.classList.contains('is-open') ? 'true' : 'false');
+        controller.toggle.setAttribute('aria-label', controller.nav.classList.contains('is-open')
+          ? controller.closeLabel : controller.openLabel);
+        return;
+      }
+      const collapsed = controller.header.classList.contains('is-collapsed');
+      controller.toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      controller.toggle.setAttribute('aria-label', collapsed
+        ? controller.expandLabel : controller.collapseLabel);
+    }
+
+    function toggleSidebar(controller) {
+      if (!controller.header) return;
+      closeDropdowns(false);
+      controller.header.classList.toggle('is-collapsed');
+      controller.header.setAttribute('data-sidebar-state',
+        controller.header.classList.contains('is-collapsed') ? 'collapsed' : 'expanded');
+      document.body.classList.toggle('qt-sidebar-collapsed',
+        controller.header.classList.contains('is-collapsed'));
+      syncSidebarToggle(controller);
     }
 
     function setDropdown(instance, open, focusTrigger) {
@@ -128,6 +332,7 @@
       }
       controller.lastFocusedElement = null;
       syncBodyLock();
+      syncSidebarToggle(controller);
     }
 
     function closeDrawers(restoreFocus) {
@@ -159,6 +364,10 @@
     }
 
     function toggleDrawer(controller) {
+      if (!isMobile()) {
+        toggleSidebar(controller);
+        return;
+      }
       if (controller.nav.classList.contains('is-open')) {
         closeEverything(false);
       } else {
@@ -175,7 +384,12 @@
     }
 
     controllers.forEach(controller => {
-      controller.toggle.setAttribute('aria-expanded', 'false');
+      if (controller.header && !isMobile()) {
+        controller.header.classList.remove('is-collapsed');
+        controller.header.setAttribute('data-sidebar-state', 'expanded');
+      }
+      document.body.classList.remove('qt-sidebar-collapsed');
+      syncSidebarToggle(controller);
       controller.toggle.addEventListener('click', () => toggleDrawer(controller));
 
       controller.nav.querySelectorAll('a').forEach(link => {
@@ -283,6 +497,15 @@
     });
 
     document.addEventListener('keydown', event => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        const search = controllers[0] && controllers[0].nav.querySelector('.site-nav__search-input');
+        if (search) {
+          event.preventDefault();
+          search.focus({ preventScroll: true });
+        }
+        return;
+      }
+
       const openController = controllers.find(controller =>
         controller.nav.classList.contains('is-open')
       );
@@ -316,9 +539,18 @@
 
     const resetOnResize = () => {
       closeEverything(false);
+      document.body.classList.remove('qt-sidebar-collapsed');
       controllers.forEach(controller => {
-        controller.toggle.setAttribute('aria-expanded', 'false');
-        controller.toggle.setAttribute('aria-label', controller.openLabel);
+        if (controller.header) {
+          if (isMobile()) {
+            controller.header.classList.remove('is-collapsed');
+            controller.header.setAttribute('data-sidebar-state', 'mobile');
+          } else {
+            controller.header.classList.remove('is-collapsed');
+            controller.header.setAttribute('data-sidebar-state', 'expanded');
+          }
+        }
+        syncSidebarToggle(controller);
       });
     };
     window.addEventListener('resize', resetOnResize, { passive: true });
