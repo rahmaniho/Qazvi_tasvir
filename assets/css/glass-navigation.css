@@ -267,7 +267,8 @@
 
 .site-nav__link:hover,
 .site-nav__link:focus-visible,
-.site-nav__link.is-active {
+.site-nav__link.is-active,
+.site-nav__link.active {
   border-color: rgba(14, 165, 233, 0.18);
   background: rgba(255, 255, 255, 0.55);
   color: var(--glass-nav-text);
@@ -795,7 +796,8 @@
 .nav-menu > li > .nav-menu__link[href="#fleet"]::before,
 .site-nav > .site-nav__link[href*="#fleet"]::before { background-position: 84.615% center; }
 .nav-menu > li > .nav-menu__link[href="#brands"]::before,
-.site-nav > .site-nav__link[href*="#clients"]::before { background-position: 92.307% center; }
+.site-nav > .site-nav__link[href*="#clients"]::before,
+.site-nav > .site-nav__link[href*="#brands"]::before { background-position: 92.307% center; }
 .nav-menu > li > .nav-menu__link[href="#contact"]::before,
 .site-nav > .site-nav__link[href*="#contact"]::before { background-position: 100% center; }
 
@@ -1129,5 +1131,245 @@
 @media (max-width: 560px) {
   .site-header .site-nav.is-open {
     inset: 76px 6px 6px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Shared header geometry — the homepage uses the exact same DOM pattern as
+   /services/ now; this block supplies the small base layer that service-pages
+   previously received from service-pages.css alone.
+   -------------------------------------------------------------------------- */
+.site-header .header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 70px;
+  gap: 20px;
+  padding-inline: 18px;
+}
+
+.site-header .brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  min-width: 216px;
+  color: inherit;
+}
+
+.site-header .brand-mark {
+  display: grid;
+  flex: 0 0 44px;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--navy-950, #061829);
+}
+
+.site-header .brand-mark img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.site-header .brand-copy {
+  display: grid;
+  gap: 0;
+}
+
+.site-header .brand-copy strong {
+  color: var(--navy-900, #0a2540);
+  font-size: 1.02rem;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.site-header .brand-copy small {
+  color: var(--glass-nav-muted);
+  font-size: .66rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.site-header .site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-inline-start: auto;
+}
+
+.site-header .site-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 12px;
+  border-radius: 11px;
+  font-size: .84rem;
+  line-height: 1.4;
+}
+
+.site-header .site-nav__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  margin-inline-start: 8px;
+  padding: 8px 15px;
+  border-radius: 12px;
+  gap: 7px;
+  background: var(--navy-900, #0a2540);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(10, 37, 64, .17);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.site-header .site-nav__cta:hover,
+.site-header .site-nav__cta:focus-visible {
+  background: var(--navy-800, #123a5e);
+  box-shadow: 0 14px 28px rgba(10, 37, 64, .24);
+  transform: translateY(-2px);
+}
+
+.site-header .site-nav > .site-nav__link::after {
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 3px;
+  height: 2px;
+  border-radius: 4px;
+  background: var(--glass-nav-accent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(.4);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.site-header .site-nav > .site-nav__link.is-active::after,
+.site-header .site-nav > .site-nav__link.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.site-header__tools {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+}
+
+.site-header__tools .theme-switch,
+.site-header__tools .lang-switch {
+  margin-inline-start: 0;
+}
+
+.site-header .menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid rgba(14, 165, 233, .18);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, .64);
+  color: var(--glass-nav-text);
+  cursor: pointer;
+}
+
+.site-header .menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 360ms var(--qt-glass-spring), opacity 220ms ease;
+}
+
+.site-header .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.site-header .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.site-header .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 1180px) and (min-width: 1024px) {
+  .site-header .header-inner { gap: 10px; padding-inline: 12px; }
+  .site-header .brand { min-width: 188px; }
+  .site-header .brand-copy small { display: none; }
+  .site-header .site-nav { gap: 1px; }
+  .site-header .site-nav__link { padding-inline: 8px; font-size: .78rem; }
+  .site-header .site-nav__cta { margin-inline-start: 3px; padding-inline: 10px; font-size: .76rem; }
+  .site-header .site-nav__link::before { flex-basis: 19px; width: 19px; height: 19px; }
+}
+
+@media (max-width: 1023px) {
+  .site-header .header-inner {
+    min-height: 62px;
+    padding-inline: 12px;
+  }
+
+  .site-header .brand {
+    min-width: 0;
+  }
+
+  .site-header .brand-copy small {
+    display: none;
+  }
+
+  .site-header__tools .theme-switch,
+  .site-header__tools .lang-switch {
+    display: block;
+  }
+
+  .site-header .menu-toggle {
+    display: inline-flex;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-header .site-nav__link::before {
+    flex-basis: 22px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .menu-toggle span {
+    transition: none;
+  }
+}
+
+/* The base geometry above is intentionally shared; these final mobile rules
+   win over the desktop display declaration and the legacy compatibility layer. */
+@media (max-width: 1023px) {
+  .site-header .site-nav {
+    position: absolute;
+    inset-inline: 12px;
+    top: calc(100% + 10px);
+    display: none;
+  }
+
+  .site-header .site-nav.is-open {
+    position: fixed;
+    inset: 78px 8px 8px;
+    display: flex;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header .site-nav.is-open {
+    inset: 72px 8px 8px;
+    padding: 15px;
   }
 }

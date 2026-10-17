@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 489,
+  "count": 464,
   "countStructured": 38,
   "strings": {
     "chrome.001": {
@@ -85,131 +85,65 @@
       "ctx": "meta",
       "html": "<a href=\"#main-content\" class=\"skip-link\">پرش به محتوای اصلی صفحه</a>"
     },
-    "chrome.013": {
-      "fa": "منوی اصلی ناوبری",
-      "kind": "attr:aria-label",
-      "ctx": "nav.nav.navbar"
-    },
-    "chrome.014": {
+    "chrome.088": {
       "fa": "صفحه اصلی شرکت قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "nav.nav.navbar"
+      "ctx": "header.header.site-header"
     },
-    "chrome.055": {
-      "fa": "قزوین تصویربازرگانی • ترابری • تأمین غذای پرسنل",
+    "chrome.089": {
+      "fa": "قزوین تصویربازرگانی • ترابری • غذای سازمانی",
       "kind": "text",
-      "ctx": "div.a.brand-logo",
-      "html": "<span class=\"brand-logo__title\">قزوین تصویر</span><span class=\"brand-logo__subtitle\">بازرگانی • ترابری • تأمین غذای پرسنل</span>"
+      "ctx": "img.span.brand-mark",
+      "html": "<span class=\"brand-copy\"><strong>قزوین تصویر</strong><small>بازرگانی • ترابری • غذای سازمانی</small></span>"
     },
-    "chrome.056": {
-      "fa": "خانه",
+    "chrome.090": {
+      "fa": "منوی اصلی سایت",
+      "kind": "attr:aria-label",
+      "ctx": "nav.div.container.header-inner"
+    },
+    "chrome.091": {
+      "fa": "خانهدرباره ما",
       "kind": "text",
-      "ctx": "ul.div.navbar__inner",
-      "html": "<a href=\"#hero\" class=\"nav-menu__link active\" role=\"menuitem\">خانه</a>"
+      "ctx": "nav.div.container.header-inner",
+      "html": "<a class=\"site-nav__link\" href=\"#hero\" aria-current=\"page\">خانه</a><a class=\"site-nav__link\" href=\"#about\">درباره ما</a>"
     },
-    "chrome.057": {
-      "fa": "درباره ما",
-      "kind": "text",
-      "ctx": "li.ul.nav-menu",
-      "html": "<a href=\"#about\" class=\"nav-menu__link\" role=\"menuitem\">درباره ما</a>"
-    },
-    "chrome.058": {
+    "chrome.092": {
       "fa": "خدمات",
       "kind": "text",
-      "ctx": "li.ul.nav-menu",
-      "html": "<a href=\"services/index.html\" class=\"nav-menu__link\" role=\"menuitem\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"main-services-menu\"> خدمات"
+      "ctx": "div.nav.site-nav",
+      "html": "<a class=\"site-nav__link\" href=\"services/index.html\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"main-services-menu\">خدمات</a>"
     },
-    "chrome.059": {
-      "fa": "صفحه‌های مستقل خدمات",
+    "chrome.093": {
+      "fa": "هشت خدمت تخصصی",
       "kind": "attr:aria-label",
-      "ctx": "svg.a.nav-menu__link"
+      "ctx": "div.div.site-nav__item--services"
     },
-    "chrome.060": {
-      "fa": "فهرست هشت خدمت تخصصی",
+    "chrome.094": {
+      "fa": "فهرست هشت خدمت تخصصیواردات و صادرات کالاهای مجازترخیص گمرکی و امور بندریتأمین مواد اولیه و تجهیزاتترابری پرسنل کارخانجاتحمل‌ونقل درون‌شهری و سرویس‌های VIPسرویس مدارس، ادارات و شرکت‌هاتأمین غذای پرسنل و وعده‌های سازمانیمشاوره بازرگانی و گشایش",
       "kind": "text",
-      "ctx": "svg.a.nav-menu__link",
-      "html": "<a href=\"services/index.html\" class=\"nav-dropdown__link nav-dropdown__link--all\" role=\"menuitem\">فهرست هشت خدمت تخصصی</a>"
+      "ctx": "div.div.site-nav__item--services",
+      "html": "<a role=\"menuitem\" href=\"services/index.html\">فهرست هشت خدمت تخصصی</a><a role=\"menuitem\" href=\"services/import-export.html\">واردات و صادرات کالاهای مجاز</a><a role=\"menuitem\" href=\"services/customs-port.html\">ترخیص گمرکی و امور بندری</a><a role=\"menuitem\" href=\"services/sourcing.html\">تأمین مواد اولیه و تجهیزات</a><a role=\"menuitem\" href=\"services/factory-transport.html\">ترابری پرسنل کارخانجات</a><a role=\"menuitem\" href=\"services/urban-vip.html\">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a><a role=\"menuitem\" href=\"services/school-office.html\">سرویس مدارس، ادارات و شرکت‌ها</a><a role=\"menuitem\" href=\"services/personnel-food.html\">تأمین غذای پرسنل و وعده‌های سازمانی</a><a role=\"menuitem\" href=\"services/trade-consulting.html\">مشاوره بازرگانی و گشایش</a>"
     },
-    "chrome.061": {
-      "fa": "واردات و صادرات کالاهای مجاز",
+    "chrome.100": {
+      "fa": "ناوگانبرندهاتماس با مادرخواست مشاوره",
       "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/import-export.html\" class=\"nav-dropdown__link\" role=\"menuitem\">واردات و صادرات کالاهای مجاز</a>"
+      "ctx": "nav.nav.site-nav",
+      "html": "<a class=\"site-nav__link\" href=\"#fleet\">ناوگان</a><a class=\"site-nav__link\" href=\"#brands\">برندها</a><a class=\"site-nav__link\" href=\"#contact\">تماس با ما</a><a class=\"site-nav__cta\" href=\"#contact\">درخواست مشاوره"
     },
-    "chrome.062": {
-      "fa": "ترخیص گمرکی و امور بندری",
-      "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/customs-port.html\" class=\"nav-dropdown__link\" role=\"menuitem\">ترخیص گمرکی و امور بندری</a>"
-    },
-    "chrome.063": {
-      "fa": "تأمین مواد اولیه و تجهیزات",
-      "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/sourcing.html\" class=\"nav-dropdown__link\" role=\"menuitem\">تأمین مواد اولیه و تجهیزات</a>"
-    },
-    "chrome.064": {
-      "fa": "ترابری پرسنل کارخانجات",
-      "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/factory-transport.html\" class=\"nav-dropdown__link\" role=\"menuitem\">ترابری پرسنل کارخانجات</a>"
-    },
-    "chrome.065": {
-      "fa": "حمل‌ونقل درون‌شهری و سرویس‌های VIP",
-      "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/urban-vip.html\" class=\"nav-dropdown__link\" role=\"menuitem\">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a>"
-    },
-    "chrome.066": {
-      "fa": "سرویس مدارس، ادارات و شرکت‌ها",
-      "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/school-office.html\" class=\"nav-dropdown__link\" role=\"menuitem\">سرویس مدارس، ادارات و شرکت‌ها</a>"
-    },
-    "chrome.067": {
-      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
-      "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/personnel-food.html\" class=\"nav-dropdown__link\" role=\"menuitem\">تأمین غذای پرسنل و وعده‌های سازمانی</a>"
-    },
-    "chrome.068": {
-      "fa": "مشاوره بازرگانی و گشایش",
-      "kind": "text",
-      "ctx": "li.ul.nav-dropdown",
-      "html": "<a href=\"services/trade-consulting.html\" class=\"nav-dropdown__link\" role=\"menuitem\">مشاوره بازرگانی و گشایش</a>"
-    },
-    "chrome.069": {
-      "fa": "ناوگان",
-      "kind": "text",
-      "ctx": "li.ul.nav-menu",
-      "html": "<a href=\"#fleet\" class=\"nav-menu__link\" role=\"menuitem\">ناوگان</a>"
-    },
-    "chrome.070": {
-      "fa": "برندها",
-      "kind": "text",
-      "ctx": "li.ul.nav-menu",
-      "html": "<a href=\"#brands\" class=\"nav-menu__link\" role=\"menuitem\">برندها</a>"
-    },
-    "chrome.071": {
-      "fa": "تماس با ما",
-      "kind": "text",
-      "ctx": "li.ul.nav-menu",
-      "html": "<a href=\"#contact\" class=\"nav-menu__link\" role=\"menuitem\">تماس با ما</a>"
-    },
-    "chrome.028": {
+    "chrome.101": {
       "fa": "تغییر تم سایت",
       "kind": "attr:aria-label",
-      "ctx": "div.div.navbar__inner"
+      "ctx": "svg.a.site-nav__cta"
     },
-    "chrome.029": {
+    "chrome.102": {
       "fa": "انتخاب تم رنگی سایت",
       "kind": "attr:aria-label",
-      "ctx": "div.div.navbar__inner"
+      "ctx": "svg.a.site-nav__cta"
     },
-    "chrome.072": {
+    "chrome.103": {
       "fa": "روشن",
       "kind": "text",
-      "ctx": "div.div.navbar__inner",
+      "ctx": "svg.a.site-nav__cta",
       "html": "<span class=\"theme-option__swatch theme-option__swatch--light\" aria-hidden=\"true\"></span><span class=\"theme-option__name\">روشن</span>"
     },
     "chrome.073": {
@@ -224,94 +158,10 @@
       "ctx": "svg.button.theme-option",
       "html": "<span class=\"theme-option__swatch theme-option__swatch--ocean\" aria-hidden=\"true\"></span><span class=\"theme-option__name\">اقیانوسی</span>"
     },
-    "chrome.033": {
-      "fa": "درخواست مشاوره از قزوین تصویر",
-      "kind": "attr:aria-label",
-      "ctx": "svg.button.theme-option"
-    },
-    "chrome.075": {
-      "fa": "درخواست مشاوره",
-      "kind": "text",
-      "ctx": "svg.a.btn.btn-primary",
-      "html": "<span>درخواست مشاوره</span>"
-    },
-    "chrome.035": {
+    "chrome.099": {
       "fa": "باز کردن منوی موبایل",
       "kind": "attr:aria-label",
-      "ctx": "button.div.navbar__actions"
-    },
-    "chrome.076": {
-      "fa": "منوی سایتقزوین تصویر",
-      "kind": "text",
-      "ctx": "div.div.mobile-drawer",
-      "html": "<span>منوی سایت</span><span>قزوین تصویر</span>"
-    },
-    "chrome.077": {
-      "fa": "خانه۰۱",
-      "kind": "text",
-      "ctx": "ul.div.mobile-drawer",
-      "html": "<a href=\"#hero\" class=\"mobile-drawer__link\"><span>خانه</span><span class=\"mobile-drawer__num\">۰۱</span></a>"
-    },
-    "chrome.078": {
-      "fa": "درباره قزوین تصویر۰۲",
-      "kind": "text",
-      "ctx": "li.ul.mobile-drawer__list",
-      "html": "<a href=\"#about\" class=\"mobile-drawer__link\"><span>درباره قزوین تصویر</span><span class=\"mobile-drawer__num\">۰۲</span></a>"
-    },
-    "chrome.079": {
-      "fa": "همه خدمات تخصصی۰۳",
-      "kind": "text",
-      "ctx": "li.ul.mobile-drawer__list",
-      "html": "<a href=\"services/index.html\" class=\"mobile-drawer__link\"><span>همه خدمات تخصصی</span><span class=\"mobile-drawer__num\">۰۳</span></a>"
-    },
-    "chrome.080": {
-      "fa": "ناوگان ترابری۰۴",
-      "kind": "text",
-      "ctx": "li.ul.mobile-drawer__list",
-      "html": "<a href=\"#fleet\" class=\"mobile-drawer__link\"><span>ناوگان ترابری</span><span class=\"mobile-drawer__num\">۰۴</span></a>"
-    },
-    "chrome.081": {
-      "fa": "برندهای همکار۰۵",
-      "kind": "text",
-      "ctx": "li.ul.mobile-drawer__list",
-      "html": "<a href=\"#brands\" class=\"mobile-drawer__link\"><span>برندهای همکار</span><span class=\"mobile-drawer__num\">۰۵</span></a>"
-    },
-    "chrome.082": {
-      "fa": "چرا قزوین تصویر؟۰۶",
-      "kind": "text",
-      "ctx": "li.ul.mobile-drawer__list",
-      "html": "<a href=\"#why-us\" class=\"mobile-drawer__link\"><span>چرا قزوین تصویر؟</span><span class=\"mobile-drawer__num\">۰۶</span></a>"
-    },
-    "chrome.083": {
-      "fa": "تماس با شرکت۰۷",
-      "kind": "text",
-      "ctx": "li.ul.mobile-drawer__list",
-      "html": "<a href=\"#contact\" class=\"mobile-drawer__link\"><span>تماس با شرکت</span><span class=\"mobile-drawer__num\">۰۷</span></a>"
-    },
-    "chrome.084": {
-      "fa": "خدمات مشخص",
-      "kind": "text",
-      "ctx": "section.div.mobile-drawer"
-    },
-    "chrome.085": {
-      "fa": "واردات و صادرات کالاهای مجازترخیص گمرکی و امور بندریتأمین مواد اولیه و تجهیزاتترابری پرسنل کارخانجاتحمل‌ونقل درون‌شهری و سرویس‌های VIPسرویس مدارس، ادارات و شرکت‌هاتأمین غذای پرسنل و وعده‌های سازمانیمشاوره بازرگانی و گشایش",
-      "kind": "text",
-      "ctx": "div.section.mobile-drawer__section",
-      "html": "<a href=\"services/import-export.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">واردات و صادرات کالاهای مجاز</a><a href=\"services/customs-port.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">ترخیص گمرکی و امور بندری</a><a href=\"services/sourcing.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">تأمین مواد اولیه و تجهیزات</a><a href=\"services/factory-transport.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">ترابری پرسنل کارخانجات</a><a href=\"services/urban-vip.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a><a href=\"services/school-office.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">سرویس مدارس، ادارات و شرکت‌ها</a><a href=\"services/personnel-food.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">تأمین غذای پرسنل و وعده‌های سازمانی</a><a href=\"services/trade-consulting.html\" class=\"mobile-drawer__service-link mobile-drawer__link\">مشاوره بازرگانی و گشایش</a>"
-    },
-    "chrome.086": {
-      "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
-      "kind": "text",
-      "ctx": "svg.a.btn.btn-primary",
-      "keepVerbatim": [
-        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
-      ]
-    },
-    "chrome.087": {
-      "fa": "ارتباط در واتساپ رسمی",
-      "kind": "text",
-      "ctx": "div.div.mobile-drawer__footer",
-      "html": "<a href=\"https://wa.me/989122815189\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn btn-outline-glass btn-full\" style=\"color: #25D366; border-color: rgba(37,211,102,0.4);\">ارتباط در واتساپ رسمی</a>"
+      "ctx": "svg.button.theme-option"
     },
     "hero.001": {
       "fa": "معرفی اصلی قزوین تصویر",

@@ -261,78 +261,51 @@
   <!-- ========================================================================
        ۴.۲ هدر چسبان (Sticky Navbar)
        ======================================================================== -->
-  <nav class="navbar" aria-label="Main navigation menu">
-    <div class="container">
-      <div class="navbar__inner">
-        <!-- لوگو برند -->
-        <a href="#hero" class="brand-logo" aria-label="Qazvin Tasvir Company — home page">
-          <div class="brand-logo__emblem">
-            <!-- لوگوی رسمی قزوین تصویر (برش از فایل اصلی برند) -->
-            <img class="brand-logo__mark"
-                 src="../assets/images/brand/qazvin-tasvir-mark.png"
-                 width="44" height="44"
-                 alt=""
-                 decoding="async">
-          </div>
-          <div class="brand-logo__text">
-            <span class="brand-logo__title">Qazvin Tasvir Company</span><span class="brand-logo__subtitle">Trading • Transport • Staff Catering</span>
-          </div>
-        </a>
 
-        <!-- منو وسط (دسکتاپ) -->
-        <ul class="nav-menu" role="menubar">
-          <li role="none"><a href="#hero" class="nav-menu__link active" role="menuitem">Home</a></li>
-          <li role="none"><a href="#about" class="nav-menu__link" role="menuitem">About Us</a></li>
-          <li role="none" class="nav-menu__item--has-dd">
-            <a href="../services/index.html" class="nav-menu__link" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="main-services-menu">Services<svg class="nav-menu__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul id="main-services-menu" class="nav-dropdown" role="menu" aria-label="Eight services submenu" aria-hidden="true">
-              <li role="none"><a href="../services/index.html" class="nav-dropdown__link nav-dropdown__link--all" role="menuitem">Open the eight-service directory</a></li>
-              <li role="none"><a href="../services/import-export.html" class="nav-dropdown__link" role="menuitem">Permitted goods import and export</a></li>
-              <li role="none"><a href="../services/customs-port.html" class="nav-dropdown__link" role="menuitem">Customs clearance and port affairs</a></li>
-              <li role="none"><a href="../services/sourcing.html" class="nav-dropdown__link" role="menuitem">Raw materials and equipment sourcing</a></li>
-              <li role="none"><a href="../services/factory-transport.html" class="nav-dropdown__link" role="menuitem">Factory staff transportation</a></li>
-              <li role="none"><a href="../services/urban-vip.html" class="nav-dropdown__link" role="menuitem">Urban transport and VIP services</a></li>
-              <li role="none"><a href="../services/school-office.html" class="nav-dropdown__link" role="menuitem">School, office and company shuttles</a></li>
-              <li role="none"><a href="../services/personnel-food.html" class="nav-dropdown__link" role="menuitem">Staff meals and corporate catering</a></li>
-              <li role="none"><a href="../services/trade-consulting.html" class="nav-dropdown__link" role="menuitem">Trade consulting and opening</a></li>
-            </ul>
-          </li>
-          <li role="none"><a href="#fleet" class="nav-menu__link" role="menuitem">Fleet</a></li>
-          <li role="none"><a href="#brands" class="nav-menu__link" role="menuitem">Brands</a></li>
-          <li role="none"><a href="#contact" class="nav-menu__link" role="menuitem">Contact Us</a></li>
-        </ul>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#hero" aria-label="Qazvin Tasvir Company home page">
+      <span class="brand-mark"><img src="../assets/images/brand/qazvin-tasvir-mark.png" alt="" width="44" height="44"></span>
+      <span class="brand-copy"><strong>Qazvin Tasvir</strong><small>Trade • Transport • Corporate Catering</small></span>
+    </a>
+    <nav class="site-nav" id="main-site-nav" aria-label="Main site navigation">
+      <a class="site-nav__link" href="#hero" aria-current="page">Home</a><a class="site-nav__link" href="#about">About us</a>
+      <div class="site-nav__item--services">
+        <a class="site-nav__link" href="../services/index.html" aria-haspopup="true" aria-expanded="false" aria-controls="main-services-menu">Services</a>
+        <div id="main-services-menu" class="site-nav__dropdown" role="menu" aria-label="Eight specialist services" aria-hidden="true">
 
-        <!-- دکمه CTA و دکمه موبایل -->
-        <div class="navbar__actions">
-          <!-- سوییچر تم (Theme Switch) — روشن / تیره / اقیانوسی -->
-        <details class="theme-switch">
-          <summary class="theme-switch__btn" aria-label="Change site theme">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="13.5" cy="6.5" r="1.5"></circle>
-              <circle cx="17.5" cy="10.5" r="1.5"></circle>
-              <circle cx="8.5" cy="7.5" r="1.5"></circle>
-              <circle cx="6.5" cy="12.5" r="1.5"></circle>
-              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
-            </svg>
-          </summary>
-          <div class="theme-switch__panel" role="group" aria-label="Choose the site color theme">
-            <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
-              <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span><span class="theme-option__name">Light</span>
-              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
-              <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span><span class="theme-option__name">Dark</span>
-              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
-              <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span><span class="theme-option__name">Ocean</span>
-              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-          </div>
-        </details>
-
-        <!-- QT:LANG-SWITCH:BEGIN -->
+        <a role="menuitem" href="../services/index.html">All eight specialist services</a><a role="menuitem" href="../services/import-export.html">Permitted goods import and export</a><a role="menuitem" href="../services/customs-port.html">Customs clearance and port affairs</a><a role="menuitem" href="../services/sourcing.html">Raw materials and equipment sourcing</a><a role="menuitem" href="../services/factory-transport.html">Factory staff transportation</a><a role="menuitem" href="../services/urban-vip.html">Urban transport and VIP services</a><a role="menuitem" href="../services/school-office.html">School, office and company shuttles</a><a role="menuitem" href="../services/personnel-food.html">Staff meals and corporate catering</a><a role="menuitem" href="../services/trade-consulting.html">Trade consulting and letters of credit</a>
+        </div>
+      </div>
+      <a class="site-nav__link" href="#fleet">Fleet</a><a class="site-nav__link" href="#brands">Brands</a><a class="site-nav__link" href="#contact">Contact us</a><a class="site-nav__cta" href="#contact">Request a consultation<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+    </nav>
+    <div class="site-header__tools">
+      <details class="theme-switch">
+        <summary class="theme-switch__btn" aria-label="Change site theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="13.5" cy="6.5" r="1.5"></circle>
+            <circle cx="17.5" cy="10.5" r="1.5"></circle>
+            <circle cx="8.5" cy="7.5" r="1.5"></circle>
+            <circle cx="6.5" cy="12.5" r="1.5"></circle>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+          </svg>
+        </summary>
+        <div class="theme-switch__panel" role="group" aria-label="Choose a colour theme">
+          <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
+            <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span><span class="theme-option__name">Light</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
+            <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span><span class="theme-option__name">Dark</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
+            <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span><span class="theme-option__name">Ocean</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+        </div>
+      </details>
+      <!-- QT:LANG-SWITCH:BEGIN -->
         <details class="lang-switch">
           <summary class="lang-switch__btn" aria-label="Change language">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -344,76 +317,12 @@
           </nav>
         </details>
         <!-- QT:LANG-SWITCH:END -->
-
-          <a href="#contact" class="btn btn-primary btn-sm" aria-label="Request a consultation from Qazvin Tasvir">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              <line x1="9" y1="9" x2="15" y2="9"></line>
-              <line x1="9" y1="13" x2="13" y2="13"></line>
-            </svg>
-            <span>Request a Consultation</span>
-          </a>
-
-          <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="Open the mobile menu" aria-expanded="false" aria-controls="mobile-drawer">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- منوی شیشه‌ای موبایل؛ لینک‌های پرتکرار و هشت خدمت مشخص -->
-  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true" inert>
-    <div class="mobile-drawer__head" aria-hidden="true">
-      <span>Home</span><span>Qazvin Tasvir</span>
-    </div>
-    <ul class="mobile-drawer__list">
-      <li class="mobile-drawer__item">
-        <a href="#hero" class="mobile-drawer__link"><span>Home</span><span class="mobile-drawer__num">01</span></a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#about" class="mobile-drawer__link"><span>About Qazvin Tasvir</span><span class="mobile-drawer__num">02</span></a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="../services/index.html" class="mobile-drawer__link"><span>All eight services</span><span class="mobile-drawer__num">03</span></a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#fleet" class="mobile-drawer__link"><span>Transport fleet</span><span class="mobile-drawer__num">04</span></a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#brands" class="mobile-drawer__link"><span>Partner brands</span><span class="mobile-drawer__num">05</span></a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#why-us" class="mobile-drawer__link"><span>Why us?</span><span class="mobile-drawer__num">06</span></a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#contact" class="mobile-drawer__link"><span>Clients and business partners</span><span class="mobile-drawer__num">07</span></a>
-      </li>
-    </ul>
-
-    <section class="mobile-drawer__section" aria-labelledby="mobile-services-title">
-      <h2 id="mobile-services-title" class="mobile-drawer__section-title">Eight direct service pages</h2>
-      <div class="mobile-drawer__services">
-        <a href="../services/import-export.html" class="mobile-drawer__service-link mobile-drawer__link">Permitted goods import and export</a><a href="../services/customs-port.html" class="mobile-drawer__service-link mobile-drawer__link">Customs clearance and port affairs</a><a href="../services/sourcing.html" class="mobile-drawer__service-link mobile-drawer__link">Raw materials and equipment sourcing</a><a href="../services/factory-transport.html" class="mobile-drawer__service-link mobile-drawer__link">Factory staff transportation</a><a href="../services/urban-vip.html" class="mobile-drawer__service-link mobile-drawer__link">Urban transport and VIP services</a><a href="../services/school-office.html" class="mobile-drawer__service-link mobile-drawer__link">School, office and company shuttles</a><a href="../services/personnel-food.html" class="mobile-drawer__service-link mobile-drawer__link">Staff meals and corporate catering</a><a href="../services/trade-consulting.html" class="mobile-drawer__service-link mobile-drawer__link">Trade consulting and opening</a>
-      </div>
-    </section>
-
-    <div class="mobile-drawer__footer">
-      <a href="tel:+989122815189" class="btn btn-primary btn-full">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>Direct call: 0912 281 5189</a>
-      <a href="https://wa.me/989122815189" target="_blank" rel="noopener noreferrer" class="btn btn-outline-glass btn-full" style="color: #25D366; border-color: rgba(37,211,102,0.4);">Chat on our official WhatsApp</a>
-      <!-- QT:LANG-SWITCH-DRAWER:BEGIN -->
-      <nav class="lang-switch lang-switch--drawer" aria-label="Change language">
-        <a class="lang-switch__item" href="../" hreflang="fa" lang="fa" dir="rtl">فارسی</a>
-        <a class="lang-switch__item" href="./" hreflang="en" lang="en" dir="ltr" aria-current="true">English</a>
-      </nav>
-      <!-- QT:LANG-SWITCH-DRAWER:END -->
+      <button class="menu-toggle" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="main-site-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+</header>
 
   <main id="main-content">
     <!-- ======================================================================
@@ -2144,6 +2053,7 @@
 
   <!-- اسکریپت جاوااسکریپت اصلی -->
   <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/service-pages.js"></script>
   <script>
   /* عنوان و توضیح هر مسیر به زبان این صفحه — ساختهٔ tools/build-i18n-site.py */
   window.QT_ROUTE_META = {

@@ -73,8 +73,9 @@ function testPage(rel, lang, dir) {
   }
   check(visible === routes.length, `${routes.length - visible}/${routes.length} hash routes stayed hidden`);
 
-  // there are two switchers (navbar dropdown + mobile drawer): each must mark
-  // exactly one language as current, and it must be this page's language
+  // The shared header keeps one native language switcher; the same
+  // site-nav becomes the mobile drawer at the responsive breakpoint. The
+  // switcher must mark exactly one language as current.
   const items = doc.querySelectorAll('.lang-switch__item');
   const navbarSwitch = doc.querySelector('details.lang-switch');
   const active = navbarSwitch.querySelectorAll('.lang-switch__item[aria-current="true"]');
@@ -101,18 +102,16 @@ function testPage(rel, lang, dir) {
           `switcher item lang=${l} has dir=${a.getAttribute('dir')} (expected ${want})`);
   }
 
-  // the mobile drawer must offer the same languages (the navbar row is cramped there)
-  const drawer = doc.querySelector('.mobile-drawer');
-  check(drawer !== null, 'mobile drawer missing');
-  const drawerActive = drawer ? drawer.querySelectorAll('.lang-switch__item[aria-current="true"]') : [];
-  check(drawerActive.length === 1,
-        `mobile drawer marks ${drawerActive.length} languages as active`);
-  check(drawerActive[0]?.getAttribute('lang') === lang,
-        `mobile drawer marks the wrong language as active`);
+  // The shared site-nav is the responsive drawer for both homepage and
+  // service pages. It must still contain the complete primary navigation.
+  const drawer = doc.querySelector('.site-nav');
+  check(drawer !== null, 'shared mobile site-nav/drawer missing');
+  const drawerLinks = drawer ? drawer.querySelectorAll('a') : [];
+  check(drawerLinks.length >= 8,
+        `shared mobile drawer has only ${drawerLinks.length} links`);
 
-  const drawerItems = doc.querySelectorAll('.mobile-drawer .lang-switch__item').length;
   console.log(`  ${rel.padEnd(14)} lang=${lang} dir=${dir} routes=${visible}/${routes.length} ` +
-              `switcher=${items.length}(drawer ${drawerItems}) hreflang=${alt.join(',')} ` +
+              `switcher=${items.length}(shared drawer links ${drawerLinks.length}) hreflang=${alt.join(',')} ` +
               `title="${doc.title.slice(0, 40)}…"`);
 }
 

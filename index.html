@@ -258,84 +258,66 @@
   <!-- ========================================================================
        ۴.۲ هدر چسبان (Sticky Navbar)
        ======================================================================== -->
-  <nav class="navbar" aria-label="منوی اصلی ناوبری">
-    <div class="container">
-      <div class="navbar__inner">
-        <!-- لوگو برند -->
-        <a href="#hero" class="brand-logo" aria-label="صفحه اصلی شرکت قزوین تصویر">
-          <div class="brand-logo__emblem">
-            <!-- لوگوی رسمی قزوین تصویر (برش از فایل اصلی برند) -->
-            <img class="brand-logo__mark"
-                 src="assets/images/brand/qazvin-tasvir-mark.png"
-                 width="44" height="44"
-                 alt=""
-                 decoding="async">
-          </div>
-          <div class="brand-logo__text">
-            <span class="brand-logo__title">قزوین تصویر</span>
-            <span class="brand-logo__subtitle">بازرگانی • ترابری • تأمین غذای پرسنل</span>
-          </div>
-        </a>
 
-        <!-- منو وسط (دسکتاپ) -->
-        <ul class="nav-menu" role="menubar">
-          <li role="none"><a href="#hero" class="nav-menu__link active" role="menuitem">خانه</a></li>
-          <li role="none"><a href="#about" class="nav-menu__link" role="menuitem">درباره ما</a></li>
-          <li role="none" class="nav-menu__item--has-dd">
-            <a href="services/index.html" class="nav-menu__link" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="main-services-menu">
-              خدمات
-              <svg class="nav-menu__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul id="main-services-menu" class="nav-dropdown" role="menu" aria-label="صفحه‌های مستقل خدمات" aria-hidden="true">
-              <li role="none"><a href="services/index.html" class="nav-dropdown__link nav-dropdown__link--all" role="menuitem">فهرست هشت خدمت تخصصی</a></li>
-              <li role="none"><a href="services/import-export.html" class="nav-dropdown__link" role="menuitem">واردات و صادرات کالاهای مجاز</a></li>
-              <li role="none"><a href="services/customs-port.html" class="nav-dropdown__link" role="menuitem">ترخیص گمرکی و امور بندری</a></li>
-              <li role="none"><a href="services/sourcing.html" class="nav-dropdown__link" role="menuitem">تأمین مواد اولیه و تجهیزات</a></li>
-              <li role="none"><a href="services/factory-transport.html" class="nav-dropdown__link" role="menuitem">ترابری پرسنل کارخانجات</a></li>
-              <li role="none"><a href="services/urban-vip.html" class="nav-dropdown__link" role="menuitem">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a></li>
-              <li role="none"><a href="services/school-office.html" class="nav-dropdown__link" role="menuitem">سرویس مدارس، ادارات و شرکت‌ها</a></li>
-              <li role="none"><a href="services/personnel-food.html" class="nav-dropdown__link" role="menuitem">تأمین غذای پرسنل و وعده‌های سازمانی</a></li>
-              <li role="none"><a href="services/trade-consulting.html" class="nav-dropdown__link" role="menuitem">مشاوره بازرگانی و گشایش</a></li>
-            </ul>
-          </li>
-          <li role="none"><a href="#fleet" class="nav-menu__link" role="menuitem">ناوگان</a></li>
-          <li role="none"><a href="#brands" class="nav-menu__link" role="menuitem">برندها</a></li>
-          <li role="none"><a href="#contact" class="nav-menu__link" role="menuitem">تماس با ما</a></li>
-        </ul>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#hero" aria-label="صفحه اصلی شرکت قزوین تصویر">
+      <span class="brand-mark"><img src="assets/images/brand/qazvin-tasvir-mark.png" alt="" width="44" height="44"></span>
+      <span class="brand-copy"><strong>قزوین تصویر</strong><small>بازرگانی • ترابری • غذای سازمانی</small></span>
+    </a>
+    <nav class="site-nav" id="main-site-nav" aria-label="منوی اصلی سایت">
+      <a class="site-nav__link" href="#hero" aria-current="page">خانه</a>
+      <a class="site-nav__link" href="#about">درباره ما</a>
+      <div class="site-nav__item--services">
+        <a class="site-nav__link" href="services/index.html" aria-haspopup="true" aria-expanded="false" aria-controls="main-services-menu">خدمات</a>
+        <div id="main-services-menu" class="site-nav__dropdown" role="menu" aria-label="هشت خدمت تخصصی" aria-hidden="true">
 
-        <!-- دکمه CTA و دکمه موبایل -->
-        <div class="navbar__actions">
-          <!-- سوییچر تم (Theme Switch) — روشن / تیره / اقیانوسی -->
-        <details class="theme-switch">
-          <summary class="theme-switch__btn" aria-label="تغییر تم سایت">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="13.5" cy="6.5" r="1.5"></circle>
-              <circle cx="17.5" cy="10.5" r="1.5"></circle>
-              <circle cx="8.5" cy="7.5" r="1.5"></circle>
-              <circle cx="6.5" cy="12.5" r="1.5"></circle>
-              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
-            </svg>
-          </summary>
-          <div class="theme-switch__panel" role="group" aria-label="انتخاب تم رنگی سایت">
-            <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
-              <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span>
-              <span class="theme-option__name">روشن</span>
-              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
-              <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span>
-              <span class="theme-option__name">تیره</span>
-              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
-              <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span>
-              <span class="theme-option__name">اقیانوسی</span>
-              <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-          </div>
-        </details>
-
-        <!-- QT:LANG-SWITCH:BEGIN -->
+        <a role="menuitem" href="services/index.html">فهرست هشت خدمت تخصصی</a>
+        <a role="menuitem" href="services/import-export.html">واردات و صادرات کالاهای مجاز</a>
+        <a role="menuitem" href="services/customs-port.html">ترخیص گمرکی و امور بندری</a>
+        <a role="menuitem" href="services/sourcing.html">تأمین مواد اولیه و تجهیزات</a>
+        <a role="menuitem" href="services/factory-transport.html">ترابری پرسنل کارخانجات</a>
+        <a role="menuitem" href="services/urban-vip.html">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a>
+        <a role="menuitem" href="services/school-office.html">سرویس مدارس، ادارات و شرکت‌ها</a>
+        <a role="menuitem" href="services/personnel-food.html">تأمین غذای پرسنل و وعده‌های سازمانی</a>
+        <a role="menuitem" href="services/trade-consulting.html">مشاوره بازرگانی و گشایش</a>
+        </div>
+      </div>
+      <a class="site-nav__link" href="#fleet">ناوگان</a>
+      <a class="site-nav__link" href="#brands">برندها</a>
+      <a class="site-nav__link" href="#contact">تماس با ما</a>
+      <a class="site-nav__cta" href="#contact">درخواست مشاوره <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+    </nav>
+    <div class="site-header__tools">
+      <details class="theme-switch">
+        <summary class="theme-switch__btn" aria-label="تغییر تم سایت">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="13.5" cy="6.5" r="1.5"></circle>
+            <circle cx="17.5" cy="10.5" r="1.5"></circle>
+            <circle cx="8.5" cy="7.5" r="1.5"></circle>
+            <circle cx="6.5" cy="12.5" r="1.5"></circle>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+          </svg>
+        </summary>
+        <div class="theme-switch__panel" role="group" aria-label="انتخاب تم رنگی سایت">
+          <button type="button" class="theme-option" data-theme-value="light" aria-pressed="true">
+            <span class="theme-option__swatch theme-option__swatch--light" aria-hidden="true"></span>
+            <span class="theme-option__name">روشن</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-value="dark" aria-pressed="false">
+            <span class="theme-option__swatch theme-option__swatch--dark" aria-hidden="true"></span>
+            <span class="theme-option__name">تیره</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-value="ocean" aria-pressed="false">
+            <span class="theme-option__swatch theme-option__swatch--ocean" aria-hidden="true"></span>
+            <span class="theme-option__name">اقیانوسی</span>
+          <svg class="theme-option__check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+        </div>
+      </details>
+      <!-- QT:LANG-SWITCH:BEGIN -->
         <details class="lang-switch">
           <summary class="lang-switch__btn" aria-label="تغییر زبان سایت">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -347,100 +329,12 @@
           </nav>
         </details>
         <!-- QT:LANG-SWITCH:END -->
-
-          <a href="#contact" class="btn btn-primary btn-sm" aria-label="درخواست مشاوره از قزوین تصویر">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              <line x1="9" y1="9" x2="15" y2="9"></line>
-              <line x1="9" y1="13" x2="13" y2="13"></line>
-            </svg>
-            <span>درخواست مشاوره</span>
-          </a>
-
-          <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="mobile-drawer">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- منوی شیشه‌ای موبایل؛ لینک‌های پرتکرار و هشت خدمت مشخص -->
-  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true" inert>
-    <div class="mobile-drawer__head" aria-hidden="true">
-      <span>منوی سایت</span>
-      <span>قزوین تصویر</span>
-    </div>
-    <ul class="mobile-drawer__list">
-      <li class="mobile-drawer__item">
-        <a href="#hero" class="mobile-drawer__link">
-          <span>خانه</span><span class="mobile-drawer__num">۰۱</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#about" class="mobile-drawer__link">
-          <span>درباره قزوین تصویر</span><span class="mobile-drawer__num">۰۲</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="services/index.html" class="mobile-drawer__link">
-          <span>همه خدمات تخصصی</span><span class="mobile-drawer__num">۰۳</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#fleet" class="mobile-drawer__link">
-          <span>ناوگان ترابری</span><span class="mobile-drawer__num">۰۴</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#brands" class="mobile-drawer__link">
-          <span>برندهای همکار</span><span class="mobile-drawer__num">۰۵</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#why-us" class="mobile-drawer__link">
-          <span>چرا قزوین تصویر؟</span><span class="mobile-drawer__num">۰۶</span>
-        </a>
-      </li>
-      <li class="mobile-drawer__item">
-        <a href="#contact" class="mobile-drawer__link">
-          <span>تماس با شرکت</span><span class="mobile-drawer__num">۰۷</span>
-        </a>
-      </li>
-    </ul>
-
-    <section class="mobile-drawer__section" aria-labelledby="mobile-services-title">
-      <h2 id="mobile-services-title" class="mobile-drawer__section-title">خدمات مشخص</h2>
-      <div class="mobile-drawer__services">
-        <a href="services/import-export.html" class="mobile-drawer__service-link mobile-drawer__link">واردات و صادرات کالاهای مجاز</a>
-        <a href="services/customs-port.html" class="mobile-drawer__service-link mobile-drawer__link">ترخیص گمرکی و امور بندری</a>
-        <a href="services/sourcing.html" class="mobile-drawer__service-link mobile-drawer__link">تأمین مواد اولیه و تجهیزات</a>
-        <a href="services/factory-transport.html" class="mobile-drawer__service-link mobile-drawer__link">ترابری پرسنل کارخانجات</a>
-        <a href="services/urban-vip.html" class="mobile-drawer__service-link mobile-drawer__link">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a>
-        <a href="services/school-office.html" class="mobile-drawer__service-link mobile-drawer__link">سرویس مدارس، ادارات و شرکت‌ها</a>
-        <a href="services/personnel-food.html" class="mobile-drawer__service-link mobile-drawer__link">تأمین غذای پرسنل و وعده‌های سازمانی</a>
-        <a href="services/trade-consulting.html" class="mobile-drawer__service-link mobile-drawer__link">مشاوره بازرگانی و گشایش</a>
-      </div>
-    </section>
-
-    <div class="mobile-drawer__footer">
-      <a href="tel:+989122815189" class="btn btn-primary btn-full">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
-        تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹
-      </a>
-      <a href="https://wa.me/989122815189" target="_blank" rel="noopener noreferrer" class="btn btn-outline-glass btn-full" style="color: #25D366; border-color: rgba(37,211,102,0.4);">ارتباط در واتساپ رسمی</a>
-      <!-- QT:LANG-SWITCH-DRAWER:BEGIN -->
-      <nav class="lang-switch lang-switch--drawer" aria-label="تغییر زبان سایت">
-        <a class="lang-switch__item" href="./" hreflang="fa" lang="fa" dir="rtl" aria-current="true">فارسی</a>
-        <a class="lang-switch__item" href="en/" hreflang="en" lang="en" dir="ltr">English</a>
-      </nav>
-      <!-- QT:LANG-SWITCH-DRAWER:END -->
+      <button class="menu-toggle" type="button" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="main-site-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+</header>
 
   <main id="main-content">
     <!-- ======================================================================
@@ -2363,6 +2257,7 @@
 
   <!-- اسکریپت جاوااسکریپت اصلی -->
   <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/service-pages.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -49,87 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ۲. منوی موبایل (Mobile Drawer)
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  const drawerLinks = document.querySelectorAll('.mobile-drawer__link');
-
-  function toggleMobileMenu(forceState) {
-    const isOpen = typeof forceState === 'boolean' ? forceState : !mobileDrawer.classList.contains('is-open');
-    if (isOpen) {
-      hamburgerBtn.classList.add('is-active');
-      hamburgerBtn.setAttribute('aria-expanded', 'true');
-      hamburgerBtn.setAttribute('aria-label', 'بستن منوی موبایل');
-      mobileDrawer.classList.add('is-open');
-      mobileDrawer.setAttribute('aria-hidden', 'false'); // اعلام وضعیت باز به صفحه‌خوان‌ها
-      mobileDrawer.inert = false;
-      document.body.style.overflow = 'hidden';
-
-      // انتقال فوکوس به اولین لینک منو برای ناوبری کامل با کیبورد
-      const firstLink = mobileDrawer.querySelector('.mobile-drawer__link');
-      if (firstLink) firstLink.focus({ preventScroll: true });
-    } else {
-      hamburgerBtn.classList.remove('is-active');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-      hamburgerBtn.setAttribute('aria-label', 'باز کردن منوی موبایل');
-      mobileDrawer.classList.remove('is-open');
-      mobileDrawer.setAttribute('aria-hidden', 'true');
-      mobileDrawer.inert = true;
-      document.body.style.overflow = '';
-    }
-  }
-
-  if (hamburgerBtn && mobileDrawer) {
-    hamburgerBtn.addEventListener('click', () => toggleMobileMenu());
-
-    drawerLinks.forEach(link => {
-      link.addEventListener('click', () => toggleMobileMenu(false));
-    });
-
-    // کلیک روی لایهٔ تاریکِ اطراف محتوای drawer نیز آن را می‌بندد؛ کلیک
-    // روی خود لینک‌ها در handlerهای بالا به مسیر مقصد منتقل می‌شود.
-    mobileDrawer.addEventListener('click', (event) => {
-      if (event.target === mobileDrawer) {
-        toggleMobileMenu(false);
-        hamburgerBtn.focus({ preventScroll: true });
-      }
-    });
-
-    // بستن منو با دکمه Escape، حلقهٔ فوکوس و بازگرداندن فوکوس به دکمه منو
-    document.addEventListener('keydown', (e) => {
-      if (!mobileDrawer.classList.contains('is-open')) return;
-
-      if (e.key === 'Escape') {
-        toggleMobileMenu(false);
-        hamburgerBtn.focus({ preventScroll: true });
-        return;
-      }
-
-      if (e.key !== 'Tab') return;
-      const focusable = Array.from(mobileDrawer.querySelectorAll(
-        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      )).filter(element => !element.hidden && !element.closest('[hidden]'));
-      if (!focusable.length) {
-        e.preventDefault();
-        return;
-      }
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus({ preventScroll: true });
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus({ preventScroll: true });
-      }
-    });
-  }
-
-  // ۳. (حذف شد) اسکرول‌اسپای — با مسیریابی هشی، هر بخش صفحهٔ مستقل خودش را دارد و
+  // ۲. (حذف شد) اسکرول‌اسپای — با مسیریابی هشی، هر بخش صفحهٔ مستقل خودش را دارد و
   // لینک فعال منو توسط روتر (بخش ۱۴) بر اساس صفحهٔ جاری تعیین می‌شود. این کار یک
   // شنوندهٔ scroll سراسری را هم حذف می‌کند.
 
-  // ۴. انیمیشن ورود بخش‌ها با Intersection Observer
+  // ۳. انیمیشن ورود بخش‌ها با Intersection Observer
   const revealElements = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -659,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // لنگرهای داخلی هر صفحه در این فهرست قرار ندارند؛ لینک‌های جزئیات خدمات
     // اکنون به صفحهٔ مستقل همان خدمت می‌روند، پس وضعیت منو اشتباه نمی‌گیرد.
     const menuLinks = Array.from(
-      document.querySelectorAll('.nav-menu__link, .mobile-drawer__link, .footer__link')
+      document.querySelectorAll('.nav-menu__link, .site-nav__link, .mobile-drawer__link, .footer__link')
     );
 
     // اعلام تغییر صفحه برای صفحه‌خوان‌ها

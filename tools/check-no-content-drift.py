@@ -25,6 +25,11 @@ TARGET = ROOT / "index.html"
 
 
 def visible_text(html: str) -> str:
+    # The navigation is shared chrome, not page copy. Its DOM was deliberately
+    # migrated from the legacy homepage navbar/drawer to the service-page
+    # header, so compare the actual page content below it rather than treating
+    # a navigation refactor as content loss.
+    html = re.sub(r'<(?:nav class="navbar"|header class="site-header")[\s\S]*?(?=<main id="main-content">)', " ", html, count=1)
     html = mask_generated_regions(html)
     html = re.sub(r"<(script|style|head)\b[^>]*>.*?</\1>", " ", html, flags=re.S)
     html = re.sub(r"<!--.*?-->", " ", html, flags=re.S)
