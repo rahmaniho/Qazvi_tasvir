@@ -202,6 +202,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ۷.ب تبدیل ارقام فارسی/عربی به لاتین (برای پیام واتساپ و اعتبارسنجی)
+  function toLatinDigits(value) {
+    const persianDigits = { '۰': '0', '۱': '1', '۲': '2', '۳': '3', '۴': '4', '۵': '5', '۶': '6', '۷': '7', '۸': '8', '۹': '9' };
+    const arabicDigits = { '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4', '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9' };
+    return String(value).replace(/[۰-۹٠-٩]/g, d => persianDigits[d] || arabicDigits[d] || d);
+  }
+
+  // ۷.الف ارسال فرم‌ها به واتساپ رسمی شرکت — پس از اعتبارسنجی، اطلاعات فرم
+  //     به‌صورت پیام از پیش آماده در واتساپ (wa.me) باز می‌شود.
+  const WHATSAPP_NUMBER = '989122815189';
+
+  function openWhatsApp(message) {
+    // باید مستقیم در ژست کاربر صدا زده شود تا مسدودکنندهٔ پاپ‌آپ جلوی آن را نگیرد
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+  }
+
   // ۸. اعتبارسنجی و ارسال فرم تماس اصلی (Contact Form)
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -223,10 +239,10 @@ document.addEventListener('DOMContentLoaded', () => {
         nameInput.classList.remove('is-invalid');
       }
 
-      // اعتبارسنجی تلفن همراه (شروع با ۰۹ یا +989 یا 09)
-      const phoneVal = phoneInput.value.trim();
+      // اعتبارسنجی تلفن همراه (شروع با ۰۹ یا +989 یا 09 — ارقام فارسی/عربی هم پذیرفته می‌شود)
+      const phoneVal = toLatinDigits(phoneInput.value.trim()).replace(/[\s\-()]/g, '');
       const phoneRegex = /^(\+98|0)?9\d{9}$/;
-      if (!phoneRegex.test(phoneVal.replace(/\s+/g, ''))) {
+      if (!phoneRegex.test(phoneVal)) {
         phoneInput.classList.add('is-invalid');
         isValid = false;
       } else {
@@ -238,32 +254,33 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // وضعیت لودینگ ارسال فرم
+      // ساخت پیام واتساپ از اطلاعات فرم و باز کردن آن
       const originalBtnText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <svg class="spinner" width="20" height="20" viewBox="0 0 50 50" style="animation: spin 1s linear infinite;">
-          <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="31.415, 31.415" stroke-dashoffset="0"></circle>
-        </svg>
-        در حال ثبت درخواست...
-      `;
+      const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text.trim();
+      const whatsappLines = [
+        'درخواست مشاوره — وب‌سایت قزوین تصویر',
+        '',
+        'نام / شرکت: ' + nameInput.value.trim(),
+        'شماره تماس: ' + toLatinDigits(phoneInput.value.trim()),
+        'نوع خدمت: ' + serviceText
+      ];
+      const extraMessage = messageInput.value.trim();
+      if (extraMessage) whatsappLines.push('توضیحات: ' + extraMessage);
 
-      // شبیه‌سازی ارسال موفق
+      openWhatsApp(whatsappLines.join('\n'));
+
+      submitBtn.innerHTML = '✓ درخواست شما به واتساپ ارسال شد';
+      submitBtn.style.background = '#10B981';
+      submitBtn.style.color = '#FFFFFF';
+
+      showToast('درخواست شما در واتساپ آماده شد؛ لطفاً در صفحهٔ باز شده دکمهٔ ارسال را بزنید.');
+
       setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `✓ درخواست شما ثبت شد`;
-        submitBtn.style.background = '#10B981';
-        submitBtn.style.color = '#FFFFFF';
-
-        showToast('پیام شما با موفقیت دریافت شد. کارشناسان قزوین تصویر به زودی تماس خواهند گرفت.');
-
-        setTimeout(() => {
-          contactForm.reset();
-          submitBtn.innerHTML = originalBtnText;
-          submitBtn.style.background = '';
-          submitBtn.style.color = '';
-        }, 4000);
-      }, 1200);
+        contactForm.reset();
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.style.background = '';
+        submitBtn.style.color = '';
+      }, 4000);
     });
   }
 
@@ -357,13 +374,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const foodForm = document.getElementById('personnel-food-form');
 
   if (foodForm) {
-    // تبدیل ارقام فارسی/عربی به لاتین برای اعتبارسنجی دقیق شماره و تعداد
-    function toLatinDigits(value) {
-      const persianDigits = { '۰': '0', '۱': '1', '۲': '2', '۳': '3', '۴': '4', '۵': '5', '۶': '6', '۷': '7', '۸': '8', '۹': '9' };
-      const arabicDigits = { '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4', '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9' };
-      return String(value).replace(/[۰-۹٠-٩]/g, d => persianDigits[d] || arabicDigits[d] || d);
-    }
-
     const foodFields = [
       {
         el: foodForm.querySelector('#food-company'),
@@ -441,26 +451,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = foodForm.querySelector('#food-submit-btn');
       const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
 
-      function setFoodBtnLoading(text) {
-        if (!submitBtn) return;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-          <svg class="spinner" width="20" height="20" viewBox="0 0 50 50" style="animation: spin 1s linear infinite;">
-            <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="31.415, 31.415" stroke-dashoffset="0"></circle>
-          </svg>
-          ${text}
-        `;
-      }
-
       function showFoodFormSuccess() {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = '✓ درخواست قرارداد شما ثبت شد';
+          submitBtn.innerHTML = '✓ درخواست شما به واتساپ ارسال شد';
           submitBtn.style.background = '#10B981';
           submitBtn.style.color = '#FFFFFF';
         }
 
-        showToast('درخواست تأمین غذای پرسنل ثبت شد. کارشناس ما حداکثر تا ۲ ساعت کاری تماس می‌گیرد.');
+        showToast('درخواست شما در واتساپ آماده شد؛ لطفاً در صفحهٔ باز شده دکمهٔ ارسال را بزنید.');
 
         setTimeout(() => {
           foodForm.reset();
@@ -476,38 +475,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4500);
       }
 
-      // ارسال به سرویس فرم آنلاین (Formspree / Netlify Forms) در صورت تنظیم action سازنده
-      const isEndpointConfigured = foodForm.action.indexOf('YOUR_FORM_ID') === -1;
+      // ساخت پیام واتساپ از اطلاعات فرم و باز کردن آن
+      const pickedMealsText = pickedMeals.map(input => input.value).join('، ');
+      const foodWhatsappLines = [
+        'درخواست قرارداد تأمین غذای پرسنل — وب‌سایت قزوین تصویر',
+        '',
+        'نام شرکت / کارخانه: ' + foodFields[0].el.value.trim(),
+        'نام رابط: ' + foodFields[1].el.value.trim(),
+        'شماره تماس: ' + toLatinDigits(foodFields[2].el.value.trim()),
+        'تعداد پرسنل: ' + toLatinDigits(foodFields[3].el.value.trim()),
+        'وعده‌های مورد نیاز: ' + pickedMealsText,
+        'آدرس محل توزیع: ' + foodFields[4].el.value.trim()
+      ];
+      const foodNotesText = (foodForm.querySelector('#food-notes') || {}).value || '';
+      if (foodNotesText.trim()) foodWhatsappLines.push('توضیحات: ' + foodNotesText.trim());
 
-      if (!isEndpointConfigured) {
-        // حالت پیش‌فرض: سرویس فرم هنوز تنظیم نشده است — پیام موفقیت نمایش داده می‌شود
-        // برای اتصال واقعی، مقدار action فرم را در index.html با شناسه فرم خود جایگزین کنید.
-        setFoodBtnLoading('در حال ثبت درخواست...');
-        setTimeout(showFoodFormSuccess, 1200);
-        return;
-      }
+      openWhatsApp(foodWhatsappLines.join('\n'));
 
-      setFoodBtnLoading('در حال ثبت درخواست...');
-
-      fetch(foodForm.action, {
-        method: foodForm.method || 'POST',
-        body: new FormData(foodForm),
-        headers: { Accept: 'application/json' }
-      })
-        .then(response => {
-          if (response.ok) {
-            showFoodFormSuccess();
-            return;
-          }
-          throw new Error('Form endpoint responded with ' + response.status);
-        })
-        .catch(() => {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-          }
-          showToast('ارسال خودکار درخواست انجام نشد؛ لطفاً به صورت تلفنی یا واتساپی درخواست خود را ثبت کنید.');
-        });
+      showFoodFormSuccess();
     });
   }
   // ۱۳. اعتبار انیمیشنی «طراحی و توسعه: کارن سافت» در نوار پایین فوتر (KarenSoft Credit)

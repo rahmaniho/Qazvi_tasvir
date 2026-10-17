@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 875,
+  "count": 877,
   "countStructured": 57,
   "strings": {
     "chrome.001": {
@@ -3821,131 +3821,136 @@
       "ctx": "button.div.food-request__form-card.reveal"
     },
     "personnel-food.158": {
-      "fa": "اطلاعات شما محرمانه است و صرفاً برای تنظیم پیشنهاد قرارداد استفاده می‌شود.",
+      "fa": "با کلیک روی دکمه، اطلاعات فرم در واتساپ آمادهٔ ارسال می‌شود.",
       "kind": "text",
       "ctx": "svg.button.btn.btn-primary"
     },
     "personnel-food.159": {
+      "fa": "اطلاعات شما محرمانه است و صرفاً برای تنظیم پیشنهاد قرارداد استفاده می‌شود.",
+      "kind": "text",
+      "ctx": "p.div.food-request__form-card.reveal"
+    },
+    "personnel-food.160": {
       "fa": "راه‌های ارتباطی و تضامین خدمات",
       "kind": "attr:aria-label",
       "ctx": "aside.div.food-request"
     },
-    "personnel-food.160": {
+    "personnel-food.161": {
       "fa": "تضامین همکاری",
       "kind": "text",
       "ctx": "aside.div.food-request"
     },
-    "personnel-food.161": {
+    "personnel-food.162": {
       "fa": "قرارداد رسمی با تعهدات شفاف دو طرف",
       "kind": "text",
       "ctx": "ul.div.food-trust-card"
     },
-    "personnel-food.162": {
+    "personnel-food.163": {
       "fa": "بازدید کارشناسی رایگان از محل توزیع",
       "kind": "text",
       "ctx": "li.ul.food-trust-card__list"
     },
-    "personnel-food.163": {
+    "personnel-food.164": {
       "fa": "کنترل کیفی و نمونه‌برداری روزانه غذا",
       "kind": "text",
       "ctx": "li.ul.food-trust-card__list"
     },
-    "personnel-food.164": {
+    "personnel-food.165": {
       "fa": "پشتیبانی اختصاصی و پاسخ‌گویی مستمر",
       "kind": "text",
       "ctx": "li.ul.food-trust-card__list"
     },
-    "personnel-food.165": {
+    "personnel-food.166": {
       "fa": "ثبت درخواست تلفنی و واتساپی",
       "kind": "text",
       "ctx": "div.aside.food-request__aside.reveal"
     },
-    "personnel-food.166": {
+    "personnel-food.167": {
       "fa": "گفتگو در واتساپ",
       "kind": "text",
       "ctx": "a.div.food-request__contact-card"
     },
-    "personnel-food.167": {
+    "personnel-food.168": {
       "fa": "سوالات متداول",
       "kind": "text",
       "ctx": "div.section.site-page.food-section"
     },
-    "personnel-food.168": {
+    "personnel-food.169": {
       "fa": "پرسش‌های مدیران کارخانه‌ها و واحدهای رفاهی",
       "kind": "text",
       "ctx": "h3.div.section-header.reveal"
     },
-    "personnel-food.169": {
+    "personnel-food.170": {
       "fa": "اگر پاسخ پرسش شما در این بخش نبود، کارشناسان ما آماده پاسخ‌گویی تلفنی و واتساپی هستند",
       "kind": "text",
       "ctx": "p.div.section-header.reveal"
     },
-    "personnel-food.170": {
+    "personnel-food.171": {
       "fa": "حداقل تعداد پرس برای انعقاد قرارداد چقدر است؟",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "personnel-food.171": {
+    "personnel-food.172": {
       "fa": "معمولاً از ۵۰ پرس به بالا؛ برای مجموعه‌های کوچک‌تر نیز با توجه به فاصله محل توزیع و تعداد وعده‌ها، امکان تعریف قرارداد یا پرس‌های ترکیبی وجود دارد. کارشناس ما پس از بازدید، دقیق‌ترین برآورد را ارائه می‌کند.",
       "kind": "text",
       "ctx": "span.summary.food-faq__question"
     },
-    "personnel-food.172": {
+    "personnel-food.173": {
       "fa": "آیا منو قابل تغییر است؟",
       "kind": "text",
       "ctx": "details.div.food-faq"
     },
-    "personnel-food.173": {
+    "personnel-food.174": {
       "fa": "بله؛ منوی هفتگی و فصلی است و بر اساس سلیقه پرسنل، بودجه شما و شرایط تولید قابل بازبینی است. آیتم‌های غیرمحبوب حذف یا جایگزین می‌شوند و می‌توانید گزینه‌های رژیمی، گیاهی یا کم‌نمک را به منو اضافه کنید.",
       "kind": "text",
       "ctx": "span.summary.food-faq__question"
     },
-    "personnel-food.174": {
+    "personnel-food.175": {
       "fa": "غذای سازمانی جزو حقوق و دستمزد محسوب می‌شود؟",
       "kind": "text",
       "ctx": "details.div.food-faq"
     },
-    "personnel-food.175": {
+    "personnel-food.176": {
       "fa": "طبق قانون کار، غذای ارائه‌شده به پرسنل جزو مزایای غیرنقدی محسوب می‌شود و شرایط و آثار بیمه‌ای و مالیاتی خاص خود را دارد. در قرارداد، نحوه محاسبه و مستندسازی وعده‌ها مشخص می‌شود و توصیه می‌کنیم پیش از امضا با مشاور مالی و بیمه‌ای مجموعه خود نیز هماهنگ کنید.",
       "kind": "text",
       "ctx": "span.summary.food-faq__question"
     },
-    "personnel-food.176": {
+    "personnel-food.177": {
       "fa": "زمان توزیع وعده‌ها چگونه تنظیم می‌شود؟",
       "kind": "text",
       "ctx": "details.div.food-faq"
     },
-    "personnel-food.177": {
+    "personnel-food.178": {
       "fa": "طبق شیفت‌های کاری شما؛ برنامه توزیع در قرارداد تعیین می‌شود و برای شیفت‌های شب، تعطیلات و روزهای پیک تولید نیز قابل تنظیم است. تغییرات موقت برنامه با هماهنگی قبلی و در کوتاه‌ترین زمان اعمال می‌شود.",
       "kind": "text",
       "ctx": "span.summary.food-faq__question"
     },
-    "personnel-food.178": {
+    "personnel-food.179": {
       "fa": "آماده انعقاد قرارداد",
       "kind": "text",
       "ctx": "div.section.site-page.food-section"
     },
-    "personnel-food.179": {
+    "personnel-food.180": {
       "fa": "امروز قرارداد تأمین غذای پرسنل خود را نهایی کنید",
       "kind": "text",
       "ctx": "h3.div.food-cta__body"
     },
-    "personnel-food.180": {
+    "personnel-food.181": {
       "fa": "یک تماس کافی است؛ بازدید کارشناسی، ارائه منوی نمونه و پیشنهاد قیمت شفاف را به عهده ما بگذارید. غذای گرم، بهداشتی و باکیفیت را در محل شما توزیع می‌کنیم.",
       "kind": "text",
       "ctx": "p.div.food-cta__body"
     },
-    "personnel-food.181": {
+    "personnel-food.182": {
       "fa": "تماس مستقیم با کارشناس تأمین غذا",
       "kind": "text",
       "ctx": "div.div.food-cta__body"
     },
-    "personnel-food.182": {
+    "personnel-food.183": {
       "fa": "ارسال درخواست قرارداد",
       "kind": "text",
       "ctx": "a.div.food-cta__actions"
     },
-    "personnel-food.183": {
+    "personnel-food.184": {
       "fa": "پیشنهاد قیمت و بازدید محل توزیع کاملاً رایگان است • پوشش استان قزوین و شهرک‌های صنعتی",
       "kind": "text",
       "ctx": "svg.a.btn.btn-primary"
@@ -4031,377 +4036,382 @@
       "ctx": "button.div.contact-form-card.reveal"
     },
     "contact.017": {
-      "fa": "تلفن تماس مستقیم و رسمی",
+      "fa": "با کلیک روی دکمه، اطلاعات فرم در واتساپ آمادهٔ ارسال می‌شود.",
       "kind": "text",
       "ctx": "svg.button.btn.btn-primary"
     },
     "contact.018": {
+      "fa": "تلفن تماس مستقیم و رسمی",
+      "kind": "text",
+      "ctx": "div.div.contact__grid"
+    },
+    "contact.019": {
       "fa": "کپی شماره تماس",
       "kind": "attr:aria-label",
       "ctx": "button.div.contact-detail-box__value"
     },
-    "contact.019": {
+    "contact.020": {
       "fa": "کپی شماره",
       "kind": "text",
       "ctx": "button.div.contact-detail-box__value"
     },
-    "contact.020": {
+    "contact.021": {
       "fa": "ارتباط مستقیم در واتساپ",
       "kind": "text",
       "ctx": "div.div.contact-detail-box"
     },
-    "contact.021": {
+    "contact.022": {
       "fa": "گفتگو با پشتیبانی در واتساپ ↗",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.022": {
+    "contact.023": {
       "fa": "نشانی دفتر مرکزی",
       "kind": "text",
       "ctx": "div.div.contact-detail-box"
     },
-    "contact.023": {
+    "contact.024": {
       "fa": "قزوین، اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.024": {
+    "contact.025": {
       "fa": "کد پستی: ۳۴۱۳۶۹۱۵۸۹",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.025": {
+    "contact.026": {
       "fa": "ساعات پاسخگویی اداری و پشتیبانی",
       "kind": "text",
       "ctx": "div.div.contact-detail-box"
     },
-    "contact.026": {
+    "contact.027": {
       "fa": "شنبه تا پنجشنبه: ۸:۰۰ صبح الی ۲۰:۰۰ شب",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.027": {
+    "contact.028": {
       "fa": "عملیات ترابری و شیفت شب: ۲۴ ساعته شبانه‌روزی",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.028": {
+    "contact.029": {
       "fa": "موقعیت استراتژیک در قطب صنعتی قزوین",
       "kind": "text",
       "ctx": "div.div.contact-info-card.reveal"
     },
-    "contact.029": {
+    "contact.030": {
       "fa": "دسترسی سریع به شهرک‌های صنعتی البرز، کاسپین، لیا، حیدریه، خرمدشت و شاهراه‌های ترانزیتی شمال‌غرب و گمرکات کشور.",
       "kind": "text",
       "ctx": "p.div.map-preview-box"
     },
-    "contact.030": {
+    "contact.031": {
       "fa": "شهرک کاسپین",
       "kind": "text",
       "ctx": "div.div.map-preview-box"
     },
-    "contact.031": {
+    "contact.032": {
       "fa": "شهرک البرز",
       "kind": "text",
       "ctx": "span.div.map-preview-box"
     },
-    "contact.032": {
+    "contact.033": {
       "fa": "شهرک لیا",
       "kind": "text",
       "ctx": "span.div.map-preview-box"
     },
-    "contact.033": {
+    "contact.034": {
       "fa": "گمرک قزوین",
       "kind": "text",
       "ctx": "span.div.map-preview-box"
     },
-    "contact.034": {
+    "contact.035": {
       "fa": "پاورقی سایت",
       "kind": "attr:aria-label",
       "ctx": "footer.footer.footer"
     },
-    "contact.035": {
+    "contact.036": {
       "fa": "شرکت قزوین تصویر",
       "kind": "text",
       "ctx": "footer.footer.footer"
     },
-    "contact.036": {
+    "contact.037": {
       "fa": "با مسئولیت محدود — تأسیس ۱۳۷۴",
       "kind": "text",
       "ctx": "span.div.brand-logo__text"
     },
-    "contact.037": {
+    "contact.038": {
       "fa": "ارائه‌دهنده خدمات تخصصی بازرگانی، واردات و صادرات کالا، ترابری و سرویس ایاب و ذهاب پرسنل و تأمین غذای پرسنل و وعده‌های سازمانی کارخانه‌ها و شرکت‌های صنعتی، با بیش از ۳۱ سال سابقه درخشان و با مدیریت سعید امین‌زاده.",
       "kind": "text",
       "ctx": "p.div.footer__grid"
     },
-    "contact.038": {
+    "contact.039": {
       "fa": "دسترسی سریع",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.039": {
+    "contact.040": {
       "fa": "صفحه اصلی",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.040": {
+    "contact.041": {
       "fa": "درباره قزوین تصویر",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.041": {
-      "fa": "خدمات تخصصی",
-      "kind": "text",
-      "ctx": "li.ul.footer__links"
-    },
     "contact.042": {
-      "fa": "ناوگان ترابری",
+      "fa": "خدمات تخصصی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.043": {
-      "fa": "مشخصات فنی ناوگان",
+      "fa": "ناوگان ترابری",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.044": {
-      "fa": "تأمین غذای پرسنل",
+      "fa": "مشخصات فنی ناوگان",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.045": {
-      "fa": "منوی وعده‌های سازمانی",
+      "fa": "تأمین غذای پرسنل",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.046": {
-      "fa": "درخواست قرارداد غذا",
+      "fa": "منوی وعده‌های سازمانی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.047": {
-      "fa": "برندهای همکار",
+      "fa": "درخواست قرارداد غذا",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.048": {
-      "fa": "چرا قزوین تصویر؟",
+      "fa": "برندهای همکار",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.049": {
-      "fa": "اعتبار و اطلاعات ثبتی",
+      "fa": "چرا قزوین تصویر؟",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.050": {
-      "fa": "رزومه شرکت",
+      "fa": "اعتبار و اطلاعات ثبتی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.051": {
-      "fa": "اعتبارنامه حقوقی",
+      "fa": "رزومه شرکت",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.052": {
-      "fa": "تماس با ما",
+      "fa": "اعتبارنامه حقوقی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.053": {
+      "fa": "تماس با ما",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.054": {
       "fa": "خدمات تخصصی",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.054": {
+    "contact.055": {
       "fa": "واردات و صادرات کالاهای مجاز",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.055": {
+    "contact.056": {
       "fa": "ترخیص گمرکی و امور بندری",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.056": {
+    "contact.057": {
       "fa": "تأمین مواد اولیه و تجهیزات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.057": {
+    "contact.058": {
       "fa": "ترابری پرسنل کارخانجات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.058": {
+    "contact.059": {
       "fa": "حمل‌ونقل درون‌شهری و سرویس‌های VIP",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.059": {
+    "contact.060": {
       "fa": "سرویس مدارس، ادارات و شرکت‌ها",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.060": {
+    "contact.061": {
       "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.061": {
+    "contact.062": {
       "fa": "مشاوره بازرگانی و گشایش LC",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.062": {
+    "contact.063": {
       "fa": "اطلاعات تماس",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.063": {
+    "contact.064": {
       "fa": "تلفن تماس:",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.064": {
+    "contact.065": {
       "fa": "نشانی دفتر:",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.065": {
+    "contact.066": {
       "fa": "قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "span.ul.footer__links"
     },
-    "contact.066": {
+    "contact.067": {
       "fa": "پروفایل رسمی در رسمیو ↗",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.067": {
+    "contact.068": {
       "fa": "شناسه ملی:",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "contact.068": {
+    "contact.069": {
       "fa": "شماره ثبت:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.069": {
+    "contact.070": {
       "fa": "کد اقتصادی:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.070": {
+    "contact.071": {
       "fa": "تاریخ تأسیس:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.071": {
+    "contact.072": {
       "fa": "مدیرعامل:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.072": {
+    "contact.073": {
       "fa": "سعید امین‌زاده",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.073": {
+    "contact.074": {
       "fa": "© کلیه حقوق مادی و معنوی متعلق به شرکت قزوین تصویر (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶",
       "kind": "text",
       "ctx": "div.div.container",
       "html": "© کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶"
     },
-    "contact.074": {
+    "contact.075": {
       "fa": "طراحی",
       "kind": "text",
       "ctx": "a.div.footer__bottom-bar"
     },
-    "contact.075": {
+    "contact.076": {
       "fa": "و",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.076": {
+    "contact.077": {
       "fa": "توسعه:",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.077": {
+    "contact.078": {
       "fa": "Designed",
       "kind": "text",
       "ctx": "span.a.ks-credit"
     },
-    "contact.078": {
+    "contact.079": {
       "fa": "&amp;",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.079": {
+    "contact.080": {
       "fa": "Developed",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.080": {
+    "contact.081": {
       "fa": "by",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.081": {
+    "contact.082": {
       "fa": "کارن سافت",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.082": {
+    "contact.083": {
       "fa": "KarenSoft",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.083": {
+    "contact.084": {
       "fa": "تماس تلفنی با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.084": {
+    "contact.085": {
       "fa": "تماس تلفنی",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.085": {
+    "contact.086": {
       "fa": "ارتباط در واتساپ",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.086": {
+    "contact.087": {
       "fa": "واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.087": {
+    "contact.088": {
       "fa": "دکمه‌های تماس سریع شناور",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.088": {
+    "contact.089": {
       "fa": "ارتباط مستقیم در واتساپ قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.089": {
+    "contact.090": {
       "fa": "ارتباط مستقیم در واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.090": {
+    "contact.091": {
       "fa": "تماس مستقیم با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.091": {
+    "contact.092": {
       "fa": "تماس تلفنی با ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit",
@@ -4409,17 +4419,17 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "contact.092": {
+    "contact.093": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.093": {
+    "contact.094": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.094": {
+    "contact.095": {
       "fa": "شماره ۰۹۱۲۲۸۱۵۱۸۹ با موفقیت کپی شد!",
       "kind": "text",
       "ctx": "span.a.ks-credit",

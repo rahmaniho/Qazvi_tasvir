@@ -3194,14 +3194,9 @@
 
           <div class="food-request">
             <div class="food-request__form-card reveal">
-              <!-- برای اتصال فرم به سرویس آنلاین (Formspree / Netlify Forms) مقدار
-                   action را با آدرس فرم خود جایگزین کنید؛ نمونه:
-                   action="https://formspree.io/f/abcdwxyz"
-                   در صورت باقی ماندن YOUR_FORM_ID، ارسال به‌صورت محلی شبیه‌سازی می‌شود. -->
-              <form id="personnel-food-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-                <input type="hidden" name="_subject" value="درخواست قرارداد تأمین غذای پرسنل — وب‌سایت قزوین تصویر">
+              <!-- پس از اعتبارسنجی، اطلاعات فرم به واتساپ رسمی شرکت (wa.me) ارسال می‌شود -->
+              <form id="personnel-food-form" novalidate>
                 <input type="hidden" name="service" id="food-meals-mirror" value="">
-                <input type="text" name="_gotcha" class="food-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
                 <div class="food-form-grid">
                   <!-- نام شرکت -->
@@ -3227,7 +3222,7 @@
 
                   <!-- تعداد پرسنل -->
                   <div class="form-group">
-                    <input type="number" id="food-headcount" name="headcount" class="form-control" placeholder=" " min="10" max="50000" step="1" required dir="ltr" style="text-align: right;" aria-describedby="food-headcount-feedback">
+                    <input type="text" id="food-headcount" name="headcount" class="form-control" placeholder=" " inputmode="numeric" required dir="ltr" style="text-align: right;" aria-describedby="food-headcount-feedback">
                     <label for="food-headcount" class="form-label">تعداد پرسنل *</label>
                     <span class="form-feedback" id="food-headcount-feedback" data-feedback-for="food-headcount" role="alert">تعداد پرسنل را وارد کنید (حداقل ۱۰ نفر).</span>
                   </div>
@@ -3311,6 +3306,11 @@
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                   </svg>
                 </button>
+
+                <p class="form-whatsapp-hint">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"></path></svg>
+                  <span>با کلیک روی دکمه، اطلاعات فرم در واتساپ آمادهٔ ارسال می‌شود.</span>
+                </p>
 
                 <p class="food-form-note">
                   اطلاعات شما محرمانه است و صرفاً برای تنظیم پیشنهاد قرارداد استفاده می‌شود.
@@ -3534,6 +3534,11 @@
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
               </button>
+
+              <p class="form-whatsapp-hint">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"></path></svg>
+                  <span>با کلیک روی دکمه، اطلاعات فرم در واتساپ آمادهٔ ارسال می‌شود.</span>
+                </p>
             </form>
           </div>
 
