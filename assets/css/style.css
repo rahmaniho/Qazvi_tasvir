@@ -349,6 +349,25 @@ button, input, select, textarea {
   box-shadow: var(--shadow-glow-amber);
   color: var(--navy-deep);
 }
+/* ردّ نور گذرا روی دکمهٔ اصلی (micro-interaction) */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.5) 50%, transparent 68%);
+  transform: translateX(-160%);
+  transition: transform 0.8s var(--ease-quint);
+  pointer-events: none;
+}
+.btn-primary:hover::after,
+.btn-primary:focus-visible::after {
+  transform: translateX(160%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary::after {
+    display: none;
+  }
+}
 
 .btn-outline-glass {
   background: rgba(255, 255, 255, 0.08);
@@ -1481,23 +1500,50 @@ button, input, select, textarea {
   width: 100%;
   overflow: hidden;
   padding-block: 12px;
+  margin-top: 36px;
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .clients-marquee {
   display: flex;
-  gap: 24px;
   width: max-content;
-  animation: marqueeScroll 35s linear infinite;
+  animation: marqueeScroll 40s linear infinite;
 }
 .clients-marquee:hover {
   animation-play-state: paused;
+}
+.clients-marquee__chip {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-end: 24px;
+  padding: 8px 18px;
+  border-radius: var(--r-full);
+  background: var(--surface-bg);
+  border: 1px solid var(--line-soft);
+  color: var(--primary-navy);
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1.7;
 }
 
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(50%); }
+}
+/* در صفحهٔ چپ‌چین (en) نوار در جهت خواندن حرکت می‌کند */
+[dir="ltr"] .clients-marquee {
+  animation-name: marqueeScrollLtr;
+}
+@keyframes marqueeScrollLtr {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee {
+    animation: none;
+  }
 }
 
 .clients-grid {
@@ -2623,51 +2669,6 @@ html[dir="ltr"] .history-table td {
   padding: 5px 12px;
   border-radius: var(--r-full);
   white-space: nowrap;
-}
-
-/* نوار ترکیب سهام (Shares Bar) */
-.legal-shares {
-  margin-top: 18px;
-}
-.legal-shares__bar {
-  display: flex;
-  gap: 3px;
-  height: 10px;
-  border-radius: var(--r-full);
-  overflow: hidden;
-}
-.legal-shares__seg--ceo {
-  background: var(--grad-sky);
-}
-.legal-shares__seg--chair {
-  background: var(--grad-navy);
-}
-.legal-shares__legend {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 10px;
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  line-height: 1.8;
-}
-.legal-shares__legend li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.legal-shares__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.legal-shares__dot--ceo {
-  background: var(--sky-blue);
-}
-.legal-shares__dot--chair {
-  background: var(--primary-navy);
 }
 
 /* زمینه‌های فعالیت — آکاردئون (details/summary) */

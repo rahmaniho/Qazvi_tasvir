@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 816,
+  "count": 836,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -1795,177 +1795,177 @@
       "ctx": "span.div.client-card"
     },
     "clients.041": {
-      "fa": "از رزومه رسمی شرکت",
+      "fa": "نستله ایران",
       "kind": "text",
       "ctx": "div.div.container"
     },
     "clients.042": {
+      "fa": "گلدایران (ال‌جی)",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.043": {
+      "fa": "یونیلیور",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.044": {
+      "fa": "هنکل",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.045": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.046": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.047": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.048": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.049": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.050": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.051": {
+      "fa": "نیروگاه شهید رجایی",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.052": {
+      "fa": "نیرومحرکه",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.053": {
+      "fa": "نستله ایران",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.054": {
+      "fa": "گلدایران (ال‌جی)",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.055": {
+      "fa": "یونیلیور",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.056": {
+      "fa": "هنکل",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.057": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.058": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.059": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.060": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.061": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.062": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.063": {
+      "fa": "نیروگاه شهید رجایی",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.064": {
+      "fa": "نیرومحرکه",
+      "kind": "text",
+      "ctx": "span.div.clients-marquee"
+    },
+    "clients.065": {
+      "fa": "از رزومه رسمی شرکت",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "clients.066": {
       "fa": "سوابق همکاری قراردادی",
       "kind": "text",
       "ctx": "h3.div.section-header.reveal"
     },
-    "clients.043": {
+    "clients.067": {
       "fa": "شرکتی که سرویس ایاب‌وذهاب پرسنل‌شان در طول سال‌های فعالیت، با ناوگان و رانندگان قزوین تصویر انجام شده است؛ به‌همراه تعداد دستگاه‌های واگذارشده و بازهٔ همکاری.",
       "kind": "text",
       "ctx": "p.div.section-header.reveal"
     },
-    "clients.044": {
+    "clients.068": {
       "fa": "سوابق همکاری قراردادی شرکت قزوین تصویر با شرکت‌های صنعتی و تولیدی",
       "kind": "text",
       "ctx": "div.div.clients-history"
     },
-    "clients.045": {
+    "clients.069": {
       "fa": "شرکت",
       "kind": "text",
       "ctx": "thead.table.history-table"
     },
-    "clients.046": {
+    "clients.070": {
       "fa": "ناوگان واگذارشده",
       "kind": "text",
       "ctx": "th.table.history-table"
     },
-    "clients.047": {
+    "clients.071": {
       "fa": "بازهٔ همکاری",
       "kind": "text",
       "ctx": "th.table.history-table"
     },
-    "clients.048": {
+    "clients.072": {
       "fa": "نستله ایران",
       "kind": "text",
       "ctx": "tbody.table.history-table"
     },
-    "clients.049": {
+    "clients.073": {
       "fa": "۵ دستگاه",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.050": {
+    "clients.074": {
       "fa": "۱۳۸۹ تا ۱۳۹۸",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
-    "clients.051": {
-      "fa": "گلدایران (ال‌جی)",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.052": {
-      "fa": "۹ دستگاه",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.053": {
-      "fa": "۱۳۹۰ تا ۱۴۰۲",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.054": {
-      "fa": "یونیلیور",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.055": {
-      "fa": "۹ دستگاه + ۳ دستگاه سرویس VIP",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.056": {
-      "fa": "۱۳۹۳ تا ۱۳۹۶",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.057": {
-      "fa": "هنکل",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.058": {
-      "fa": "۲ دستگاه",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.059": {
-      "fa": "۱۳۹۴ تا ۱۳۹۷",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.060": {
-      "fa": "BAT",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.061": {
-      "fa": "۷ دستگاه + ۱۰ دستگاه VIP",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.062": {
-      "fa": "۱۳۹۳ تا ۱۳۹۶",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.063": {
-      "fa": "آلکاپلاستیک",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.064": {
-      "fa": "۶ دستگاه",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.065": {
-      "fa": "۱۳۸۹ تا ۱۳۹۵",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.066": {
-      "fa": "کابل البرز",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.067": {
-      "fa": "۷ دستگاه",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.068": {
-      "fa": "۱۳۹۰ تا ۱۳۹۶",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.069": {
-      "fa": "شیر سحر",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.070": {
-      "fa": "۸ دستگاه",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.071": {
-      "fa": "۱۴۰۲ تا کنون",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.072": {
-      "fa": "AGT",
-      "kind": "text",
-      "ctx": "tr.table.history-table"
-    },
-    "clients.073": {
-      "fa": "۹ دستگاه",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
-    "clients.074": {
-      "fa": "۱۴۰۰ تا ۱۴۰۲",
-      "kind": "text",
-      "ctx": "td.table.history-table"
-    },
     "clients.075": {
-      "fa": "آسان پک",
+      "fa": "گلدایران (ال‌جی)",
       "kind": "text",
       "ctx": "tr.table.history-table"
     },
@@ -1975,11 +1975,131 @@
       "ctx": "td.table.history-table"
     },
     "clients.077": {
-      "fa": "۱۳۹۷ تا کنون",
+      "fa": "۱۳۹۰ تا ۱۴۰۲",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
     "clients.078": {
+      "fa": "یونیلیور",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.079": {
+      "fa": "۹ دستگاه + ۳ دستگاه سرویس VIP",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.080": {
+      "fa": "۱۳۹۳ تا ۱۳۹۶",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.081": {
+      "fa": "هنکل",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.082": {
+      "fa": "۲ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.083": {
+      "fa": "۱۳۹۴ تا ۱۳۹۷",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.084": {
+      "fa": "BAT",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.085": {
+      "fa": "۷ دستگاه + ۱۰ دستگاه VIP",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.086": {
+      "fa": "۱۳۹۳ تا ۱۳۹۶",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.087": {
+      "fa": "آلکاپلاستیک",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.088": {
+      "fa": "۶ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.089": {
+      "fa": "۱۳۸۹ تا ۱۳۹۵",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.090": {
+      "fa": "کابل البرز",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.091": {
+      "fa": "۷ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.092": {
+      "fa": "۱۳۹۰ تا ۱۳۹۶",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.093": {
+      "fa": "شیر سحر",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.094": {
+      "fa": "۸ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.095": {
+      "fa": "۱۴۰۲ تا کنون",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.096": {
+      "fa": "AGT",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.097": {
+      "fa": "۹ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.098": {
+      "fa": "۱۴۰۰ تا ۱۴۰۲",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.099": {
+      "fa": "آسان پک",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.100": {
+      "fa": "۹ دستگاه",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.101": {
+      "fa": "۱۳۹۷ تا کنون",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.102": {
       "fa": "جمع‌اً ۸۴ دستگاه خودرو در قالب این قراردادها به شرکت‌های بالا واگذار شده است؛ نیروگاه شهید رجایی و نیرومحرکه نیز از دیگر مشتریان قزوین تصویر هستند.",
       "kind": "text",
       "ctx": "p.div.clients-history",
@@ -2442,7 +2562,7 @@
       "ctx": "div.dl.spec-card__list"
     },
     "legal.014": {
-      "fa": "قزوین، خیابان فردوسی، مجتمع تجاری ایلداگران، طبقه ششم، اتاق ۶۰۴",
+      "fa": "قزوین، اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "dd.div.spec-row"
     },
@@ -2467,7 +2587,7 @@
       "ctx": "span.li.legal-person"
     },
     "legal.019": {
-      "fa": "غلامرضا امین‌زاده",
+      "fa": "اصغر تقی‌لو",
       "kind": "text",
       "ctx": "li.ul.legal-people"
     },
@@ -2477,206 +2597,186 @@
       "ctx": "p.div.legal-person__info"
     },
     "legal.021": {
-      "fa": "دارای ۹,۰۰۰,۰۰۰ سهم",
-      "kind": "text",
-      "ctx": "span.li.legal-person"
-    },
-    "legal.022": {
-      "fa": "ترکیب سهامداران: سعید امین‌زاده ۴,۰۰۰,۰۰۰ سهم و غلامرضا امین‌زاده ۹,۰۰۰,۰۰۰ سهم از مجموع ۱۳,۰۰۰,۰۰۰ سهم",
-      "kind": "attr:aria-label",
-      "ctx": "div.article.legal-card.reveal"
-    },
-    "legal.023": {
-      "fa": "سعید امین‌زاده — ۴,۰۰۰,۰۰۰ سهم",
-      "kind": "text",
-      "ctx": "div.article.legal-card.reveal"
-    },
-    "legal.024": {
-      "fa": "غلامرضا امین‌زاده — ۹,۰۰۰,۰۰۰ سهم",
-      "kind": "text",
-      "ctx": "li.ul.legal-shares__legend"
-    },
-    "legal.025": {
       "fa": "زمینه‌های فعالیت (موضوعات ثبت‌شده)",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "legal.026": {
+    "legal.022": {
       "fa": "فهرست کامل موضوعات فعالیت شرکت طبق اسناد ثبتی؛ برای مشاهدهٔ جزئیات، روی هر عنوان کلیک کنید.",
       "kind": "text",
       "ctx": "p.div.legal-fields.reveal"
     },
-    "legal.027": {
+    "legal.023": {
       "fa": "حمل و نقل",
       "kind": "text",
       "ctx": "div.div.legal-fields.reveal"
     },
-    "legal.028": {
+    "legal.024": {
       "fa": "حمل و نقل مسافربری درون‌شهری",
       "kind": "text",
       "ctx": "span.summary.legal-acc__summary"
     },
-    "legal.029": {
+    "legal.025": {
       "fa": "باربری",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.030": {
+    "legal.026": {
       "fa": "حمل بار اینترنتی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.031": {
+    "legal.027": {
       "fa": "سرویس مدارس و دانش‌آموزان",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.032": {
+    "legal.028": {
       "fa": "اتوبوس و مینی‌بوس‌رانی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.033": {
+    "legal.029": {
       "fa": "تاکسی اینترنتی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.034": {
+    "legal.030": {
       "fa": "پیک موتوری",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.035": {
+    "legal.031": {
       "fa": "پخش غذا",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.036": {
+    "legal.032": {
       "fa": "امور مالی و حسابداری",
       "kind": "text",
       "ctx": "details.div.legal-accordion"
     },
-    "legal.037": {
+    "legal.033": {
       "fa": "انجام امور حسابداری",
       "kind": "text",
       "ctx": "span.summary.legal-acc__summary"
     },
-    "legal.038": {
+    "legal.034": {
       "fa": "مشاوره مالیاتی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.039": {
+    "legal.035": {
       "fa": "تنظیم اظهارنامه‌های مالیاتی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.040": {
+    "legal.036": {
       "fa": "حسابرسی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.041": {
+    "legal.037": {
       "fa": "طراحی سیستم‌های مالی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.042": {
+    "legal.038": {
       "fa": "آموزش نرم‌افزارهای حسابداری",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.043": {
+    "legal.039": {
       "fa": "ارزیابی مالی پروژه‌ها",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.044": {
+    "legal.040": {
       "fa": "خدمات اداری و رفاهی",
       "kind": "text",
       "ctx": "details.div.legal-accordion"
     },
-    "legal.045": {
+    "legal.041": {
       "fa": "خدمات پرسنلی",
       "kind": "text",
       "ctx": "span.summary.legal-acc__summary"
     },
-    "legal.046": {
+    "legal.042": {
       "fa": "محاسبه حقوق و دستمزد",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.047": {
+    "legal.043": {
       "fa": "کارگزینی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.048": {
+    "legal.044": {
       "fa": "رستوران‌داری",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.049": {
+    "legal.045": {
       "fa": "تالار پذیرایی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.050": {
+    "legal.046": {
       "fa": "آشپزی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.051": {
+    "legal.047": {
       "fa": "تأمین غذای ادارات و مدارس",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.052": {
+    "legal.048": {
       "fa": "بازرگانی و بازاریابی",
       "kind": "text",
       "ctx": "details.div.legal-accordion"
     },
-    "legal.053": {
+    "legal.049": {
       "fa": "واردات و صادرات کالاهای مجاز",
       "kind": "text",
       "ctx": "span.summary.legal-acc__summary"
     },
-    "legal.054": {
+    "legal.050": {
       "fa": "ماشین‌آلات راهسازی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.055": {
+    "legal.051": {
       "fa": "تجهیزات الکترونیک",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.056": {
+    "legal.052": {
       "fa": "بازاریابی غیرهرمی",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.057": {
+    "legal.053": {
       "fa": "گشایش اعتبارات اسنادی (LC)",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.058": {
+    "legal.054": {
       "fa": "شرکت در مناقصات و مزایده‌ها",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.059": {
+    "legal.055": {
       "fa": "اخذ نمایندگی‌ها",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.060": {
+    "legal.056": {
       "fa": "مشارکت در تولید",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "legal.061": {
+    "legal.057": {
       "fa": "تأمین نیروی انسانی متخصص",
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
