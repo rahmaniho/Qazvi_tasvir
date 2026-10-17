@@ -4776,18 +4776,6 @@ html[dir="ltr"] .history-table td {
 }
 
 /* فیلد پنهان ضد اسپم */
-.food-honeypot {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 /* --- گروه وعده‌ها --- */
 .food-panels {
   position: relative;
@@ -4906,6 +4894,22 @@ html[dir="ltr"] .history-table td {
 .food-form-contact__item a {
   color: var(--primary-navy);
   font-weight: 700;
+}
+
+.form-whatsapp-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--whatsapp);
+}
+
+.form-whatsapp-hint svg {
+  flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .food-form-note {
