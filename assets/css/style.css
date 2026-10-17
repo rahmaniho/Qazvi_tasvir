@@ -1085,6 +1085,15 @@ button, input, select, textarea {
   border: 3px solid rgba(245, 158, 11, 0.4);
   box-shadow: var(--shadow-sm);
   flex-shrink: 0;
+  overflow: hidden;
+}
+/* عکس واقعی مدیرعامل (پرترهٔ بارگذاری‌شده) در دایرهٔ آواتار */
+.ceo-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
 }
 
 .ceo-info__name {
@@ -1472,9 +1481,29 @@ button, input, select, textarea {
   line-height: 1.7;
 }
 .quote-block__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 0.9rem;
   color: var(--amber-light);
   font-weight: 600;
+}
+/* آواتار مدیرعامل کنار امضای نقل‌قول */
+.quote-block__author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(252, 211, 77, 0.5);
+  box-shadow: 0 4px 14px rgba(2, 8, 20, 0.35);
+}
+.quote-block__author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
 }
 @media (max-width: 640px) {
   .quote-block {
