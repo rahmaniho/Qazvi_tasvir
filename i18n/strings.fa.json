@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 859,
+  "count": 862,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -2265,7 +2265,7 @@
       "ctx": "tr.table.history-table"
     },
     "clients.131": {
-      "fa": "۹ دستگاه",
+      "fa": "۱۷ دستگاه مینی‌بوس و اتوبوس",
       "kind": "text",
       "ctx": "td.table.history-table"
     },
@@ -2275,10 +2275,25 @@
       "ctx": "td.table.history-table"
     },
     "clients.133": {
-      "fa": "جمع‌اً ۸۴ دستگاه خودرو در قالب این قراردادها به شرکت‌های بالا واگذار شده است.",
+      "fa": "یاتاقان بوش ایران",
+      "kind": "text",
+      "ctx": "tr.table.history-table"
+    },
+    "clients.134": {
+      "fa": "۹ دستگاه مینی‌بوس",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.135": {
+      "fa": "۱۴۰۳ تا کنون",
+      "kind": "text",
+      "ctx": "td.table.history-table"
+    },
+    "clients.136": {
+      "fa": "جمع‌اً ۱۰۱ دستگاه خودرو در قالب این قراردادها به شرکت‌های بالا واگذار شده است.",
       "kind": "text",
       "ctx": "p.div.clients-history",
-      "html": "جمع‌اً <strong>۸۴ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است."
+      "html": "جمع‌اً <strong>۱۰۱ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است."
     },
     "trust.001": {
       "fa": "اعتبار و شناسه ثبتی شرکت",
