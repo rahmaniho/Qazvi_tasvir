@@ -585,20 +585,12 @@ document.addEventListener('DOMContentLoaded', () => {
         desc: 'شرکت قزوین تصویر (با مسئولیت محدود — تأسیس ۱۳۷۴) به مدیریت سعید امین‌زاده؛ بازرگانی، واردات و صادرات، ترابری پرسنل صنایع و تأمین غذای سازمانی.'
       },
       services: {
-        title: 'خدمات تخصصی | حمل و نقل مسافربری، تهیه و پخش غذا، واردات و صادرات، خرید و فروش کالا — قزوین تصویر',
-        desc: 'چهار حوزه اصلی فعالیت شرکت قزوین تصویر: حمل و نقل مسافربری، خدمات و تشریفات و تهیه و پخش غذا، واردات و صادرات و خرید و فروش کالاهای مجاز.'
+        title: 'خدمات تخصصی | هشت خدمت بازرگانی، ترابری و غذای سازمانی — قزوین تصویر',
+        desc: 'هشت خدمت مشخص شرکت قزوین تصویر: واردات و صادرات، ترخیص گمرکی، تأمین صنعتی، ترابری پرسنل، سرویس‌های VIP و سازمانی، غذای پرسنل و مشاوره بازرگانی.'
       },
       fleet: {
         title: 'ناوگان ترابری | اتوبوس، مینی‌بوس و ون سرویس پرسنل — قزوین تصویر',
         desc: 'ناوگان ملکی اتوبوس، مینی‌بوس و ون با بیمه کامل سرنشین برای سرویس ایاب‌وذهاب پرسنل کارخانه‌ها، ادارات و مدارس استان قزوین.'
-      },
-      'fleet-specs': {
-        title: 'مشخصات فنی ناوگان | موتور D4AL، ۱۷+۱ صندلی و سرویس‌های VIP — قزوین تصویر',
-        desc: 'مشخصات فنی کامل مینی‌بوس‌های ۱۷+۱ نفرهٔ ناوگان حمل‌ونقل درون‌شهری قزوین تصویر (موتور توربودیزل D4AL، گیربکس M3S5) و تصاویر واقعی سرویس‌ها؛ برگرفته از رزومه رسمی شرکت.'
-      },
-      'personnel-food': {
-        title: 'تأمین غذای پرسنل و کیترینگ سازمانی | صبحانه، ناهار، شام — قزوین تصویر',
-        desc: 'تأمین غذای پرسنل کارخانه‌ها و شرکت‌ها با منوی متنوع، استانداردهای بهداشتی HACCP و توزیع در محل؛ درخواست قرارداد و دریافت پیش‌فاکتور.'
       },
       brands: {
         title: 'برندهای همکار ناوگان | اسکانیا، ولوو، مرسدس بنز و ایویکو — قزوین تصویر',
@@ -632,8 +624,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const metaDescription = document.querySelector('meta[name="description"]');
     // لینک‌های منو (دسکتاپ، موبایل و فوتر) صفحهٔ جاری را نشان می‌دهند؛ لینک‌های
-    // لنگرِ داخلی (مثل #food-menu که داخل صفحهٔ غذاست) هیچ‌وقت با شناسهٔ یک صفحه
-    // یکی نمی‌شوند، پس وضعیت اشتباه نمی‌گیرند.
+    // لنگرهای داخلی هر صفحه در این فهرست قرار ندارند؛ لینک‌های جزئیات خدمات
+    // اکنون به صفحهٔ مستقل همان خدمت می‌روند، پس وضعیت منو اشتباه نمی‌گیرد.
     const menuLinks = Array.from(
       document.querySelectorAll('.nav-menu__link, .mobile-drawer__link, .footer__link')
     );
@@ -735,15 +727,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // مسیرهای قدیمی که پس از چندصفحه‌ای شدن خدمات، صفحهٔ مستقل دارند.
+    // به‌جای نمایش دوبارهٔ صفحهٔ خانه، لینک‌های قدیمی را به مقصد canonical می‌فرستیم.
+    const servicePathPrefix = window.location.pathname.includes('/en/') ? '../services/' : 'services/';
+    const LEGACY_SERVICE_ROUTES = {
+      'fleet-specs': `${servicePathPrefix}urban-vip.html`,
+      'personnel-food': `${servicePathPrefix}personnel-food.html`,
+      'food-menu': `${servicePathPrefix}personnel-food.html`,
+      'food-gallery': `${servicePathPrefix}personnel-food.html`,
+      'food-request': `${servicePathPrefix}personnel-food.html`,
+      'food-faq': `${servicePathPrefix}personnel-food.html`
+    };
+
     // مسیر اولیه: کلاس js-pages در <head> اضافه شده تا پیش از اولین رنگ‌آمیزی
     // بخش‌های غیرجاری پنهان بمانند (بدون پرش محتوا)
     function routeFromHash(options) {
       const hash = currentHash();
+      if (LEGACY_SERVICE_ROUTES[hash] && !document.getElementById(hash)) {
+        window.location.replace(LEGACY_SERVICE_ROUTES[hash]);
+        return;
+      }
       showRoute(hash, Object.assign({ target: hash ? document.getElementById(hash) : null }, options));
     }
 
     window.addEventListener('hashchange', () => {
       const hash = currentHash();
+      if (LEGACY_SERVICE_ROUTES[hash] && !document.getElementById(hash)) {
+        window.location.replace(LEGACY_SERVICE_ROUTES[hash]);
+        return;
+      }
       const target = hash ? document.getElementById(hash) : null;
       showRoute(hash, { target: target, moveFocus: true });
     });

@@ -19,11 +19,18 @@
   window.addEventListener('scroll', updateScroll, { passive: true });
   updateScroll();
 
-  function closeMenu() {
+  let lastFocusedElement = null;
+
+  function closeMenu(restoreFocus) {
     if (!toggle || !nav) return;
     nav.classList.remove('is-open');
+    document.body.classList.remove('service-nav-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'باز کردن منوی موبایل');
+    if (restoreFocus && lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus({ preventScroll: true });
+    }
+    lastFocusedElement = null;
   }
 
   if (toggle && nav) {
@@ -31,14 +38,22 @@
       const isOpen = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(isOpen));
       toggle.setAttribute('aria-label', isOpen ? 'بستن منوی موبایل' : 'باز کردن منوی موبایل');
+      document.body.classList.toggle('service-nav-open', isOpen);
+      if (isOpen) {
+        lastFocusedElement = document.activeElement;
+        const firstLink = nav.querySelector('a');
+        if (firstLink) firstLink.focus({ preventScroll: true });
+      } else {
+        lastFocusedElement = null;
+      }
     });
 
     nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', function () { closeMenu(false); });
     });
 
     document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) closeMenu(true);
     });
 
     document.addEventListener('click', function (event) {
