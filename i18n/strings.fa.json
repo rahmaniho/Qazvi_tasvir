@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 753,
+  "count": 816,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -210,11 +210,16 @@
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.038": {
-      "fa": "تماس با شرکت",
+      "fa": "اعتبارنامه حقوقی",
       "kind": "text",
       "ctx": "li.ul.mobile-drawer__list"
     },
     "chrome.039": {
+      "fa": "تماس با شرکت",
+      "kind": "text",
+      "ctx": "li.ul.mobile-drawer__list"
+    },
+    "chrome.040": {
       "fa": "تماس مستقیم: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.mobile-drawer",
@@ -222,7 +227,7 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "chrome.040": {
+    "chrome.041": {
       "fa": "ارتباط در واتساپ رسمی",
       "kind": "text",
       "ctx": "a.div.mobile-drawer__footer"
@@ -2371,6 +2376,311 @@
       "kind": "text",
       "ctx": "a.div.fleet-specs-cta__actions"
     },
+    "legal.001": {
+      "fa": "اعتبارنامه و شناسنامه حقوقی شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "section.section.site-page.section"
+    },
+    "legal.002": {
+      "fa": "مستندات رسمی و اسناد ثبتی",
+      "kind": "text",
+      "ctx": "section.section.site-page.section"
+    },
+    "legal.003": {
+      "fa": "اعتبارنامه و شناسنامه حقوقی شرکت",
+      "kind": "text",
+      "ctx": "h2.div.section-header.reveal"
+    },
+    "legal.004": {
+      "fa": "اطلاعات حقوقی و ثبتی شرکت قزوین تصویر، عیناً استخراج‌شده از اسناد رسمی و آگهی‌های ثبتی — شامل شناسنامه شرکت، ترکیب مدیریت و سهامداران و زمینه‌های کامل فعالیت مجاز.",
+      "kind": "text",
+      "ctx": "p.div.section-header.reveal"
+    },
+    "legal.005": {
+      "fa": "شناسنامه شرکت",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "legal.006": {
+      "fa": "نام شرکت",
+      "kind": "text",
+      "ctx": "dl.article.legal-card.reveal"
+    },
+    "legal.007": {
+      "fa": "قزوین تصویر (با مسئولیت محدود)",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "legal.008": {
+      "fa": "شماره ثبت",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "legal.009": {
+      "fa": "شناسه ملی",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "legal.010": {
+      "fa": "سرمایه ثبتی",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "legal.011": {
+      "fa": "۱۳,۰۰۰,۰۰۰ ریال",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "legal.012": {
+      "fa": "تاریخ ثبت",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "legal.013": {
+      "fa": "مرکز اصلی",
+      "kind": "text",
+      "ctx": "div.dl.spec-card__list"
+    },
+    "legal.014": {
+      "fa": "قزوین، خیابان فردوسی، مجتمع تجاری ایلداگران، طبقه ششم، اتاق ۶۰۴",
+      "kind": "text",
+      "ctx": "dd.div.spec-row"
+    },
+    "legal.015": {
+      "fa": "مدیریت و سهامداران",
+      "kind": "text",
+      "ctx": "article.div.legal-grid"
+    },
+    "legal.016": {
+      "fa": "سعید امین‌زاده",
+      "kind": "text",
+      "ctx": "ul.article.legal-card.reveal"
+    },
+    "legal.017": {
+      "fa": "مدیرعامل و عضو هیئت مدیره",
+      "kind": "text",
+      "ctx": "p.div.legal-person__info"
+    },
+    "legal.018": {
+      "fa": "دارای ۴,۰۰۰,۰۰۰ سهم",
+      "kind": "text",
+      "ctx": "span.li.legal-person"
+    },
+    "legal.019": {
+      "fa": "غلامرضا امین‌زاده",
+      "kind": "text",
+      "ctx": "li.ul.legal-people"
+    },
+    "legal.020": {
+      "fa": "رئیس هیئت مدیره",
+      "kind": "text",
+      "ctx": "p.div.legal-person__info"
+    },
+    "legal.021": {
+      "fa": "دارای ۹,۰۰۰,۰۰۰ سهم",
+      "kind": "text",
+      "ctx": "span.li.legal-person"
+    },
+    "legal.022": {
+      "fa": "ترکیب سهامداران: سعید امین‌زاده ۴,۰۰۰,۰۰۰ سهم و غلامرضا امین‌زاده ۹,۰۰۰,۰۰۰ سهم از مجموع ۱۳,۰۰۰,۰۰۰ سهم",
+      "kind": "attr:aria-label",
+      "ctx": "div.article.legal-card.reveal"
+    },
+    "legal.023": {
+      "fa": "سعید امین‌زاده — ۴,۰۰۰,۰۰۰ سهم",
+      "kind": "text",
+      "ctx": "div.article.legal-card.reveal"
+    },
+    "legal.024": {
+      "fa": "غلامرضا امین‌زاده — ۹,۰۰۰,۰۰۰ سهم",
+      "kind": "text",
+      "ctx": "li.ul.legal-shares__legend"
+    },
+    "legal.025": {
+      "fa": "زمینه‌های فعالیت (موضوعات ثبت‌شده)",
+      "kind": "text",
+      "ctx": "div.div.container"
+    },
+    "legal.026": {
+      "fa": "فهرست کامل موضوعات فعالیت شرکت طبق اسناد ثبتی؛ برای مشاهدهٔ جزئیات، روی هر عنوان کلیک کنید.",
+      "kind": "text",
+      "ctx": "p.div.legal-fields.reveal"
+    },
+    "legal.027": {
+      "fa": "حمل و نقل",
+      "kind": "text",
+      "ctx": "div.div.legal-fields.reveal"
+    },
+    "legal.028": {
+      "fa": "حمل و نقل مسافربری درون‌شهری",
+      "kind": "text",
+      "ctx": "span.summary.legal-acc__summary"
+    },
+    "legal.029": {
+      "fa": "باربری",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.030": {
+      "fa": "حمل بار اینترنتی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.031": {
+      "fa": "سرویس مدارس و دانش‌آموزان",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.032": {
+      "fa": "اتوبوس و مینی‌بوس‌رانی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.033": {
+      "fa": "تاکسی اینترنتی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.034": {
+      "fa": "پیک موتوری",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.035": {
+      "fa": "پخش غذا",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.036": {
+      "fa": "امور مالی و حسابداری",
+      "kind": "text",
+      "ctx": "details.div.legal-accordion"
+    },
+    "legal.037": {
+      "fa": "انجام امور حسابداری",
+      "kind": "text",
+      "ctx": "span.summary.legal-acc__summary"
+    },
+    "legal.038": {
+      "fa": "مشاوره مالیاتی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.039": {
+      "fa": "تنظیم اظهارنامه‌های مالیاتی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.040": {
+      "fa": "حسابرسی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.041": {
+      "fa": "طراحی سیستم‌های مالی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.042": {
+      "fa": "آموزش نرم‌افزارهای حسابداری",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.043": {
+      "fa": "ارزیابی مالی پروژه‌ها",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.044": {
+      "fa": "خدمات اداری و رفاهی",
+      "kind": "text",
+      "ctx": "details.div.legal-accordion"
+    },
+    "legal.045": {
+      "fa": "خدمات پرسنلی",
+      "kind": "text",
+      "ctx": "span.summary.legal-acc__summary"
+    },
+    "legal.046": {
+      "fa": "محاسبه حقوق و دستمزد",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.047": {
+      "fa": "کارگزینی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.048": {
+      "fa": "رستوران‌داری",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.049": {
+      "fa": "تالار پذیرایی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.050": {
+      "fa": "آشپزی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.051": {
+      "fa": "تأمین غذای ادارات و مدارس",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.052": {
+      "fa": "بازرگانی و بازاریابی",
+      "kind": "text",
+      "ctx": "details.div.legal-accordion"
+    },
+    "legal.053": {
+      "fa": "واردات و صادرات کالاهای مجاز",
+      "kind": "text",
+      "ctx": "span.summary.legal-acc__summary"
+    },
+    "legal.054": {
+      "fa": "ماشین‌آلات راهسازی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.055": {
+      "fa": "تجهیزات الکترونیک",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.056": {
+      "fa": "بازاریابی غیرهرمی",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.057": {
+      "fa": "گشایش اعتبارات اسنادی (LC)",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.058": {
+      "fa": "شرکت در مناقصات و مزایده‌ها",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.059": {
+      "fa": "اخذ نمایندگی‌ها",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.060": {
+      "fa": "مشارکت در تولید",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
+    "legal.061": {
+      "fa": "تأمین نیروی انسانی متخصص",
+      "kind": "text",
+      "ctx": "li.ul.legal-acc__list"
+    },
     "personnel-food.001": {
       "fa": "تأمین غذای پرسنل و وعده‌های سازمانی شرکت قزوین تصویر",
       "kind": "attr:aria-label",
@@ -3552,202 +3862,207 @@
       "ctx": "li.ul.footer__links"
     },
     "contact.050": {
-      "fa": "تماس با ما",
+      "fa": "اعتبارنامه حقوقی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
     "contact.051": {
+      "fa": "تماس با ما",
+      "kind": "text",
+      "ctx": "li.ul.footer__links"
+    },
+    "contact.052": {
       "fa": "خدمات تخصصی",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.052": {
+    "contact.053": {
       "fa": "واردات و صادرات کالاهای مجاز",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.053": {
+    "contact.054": {
       "fa": "ترخیص گمرکی و امور بندری",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.054": {
+    "contact.055": {
       "fa": "تأمین مواد اولیه و تجهیزات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.055": {
+    "contact.056": {
       "fa": "ترابری پرسنل کارخانجات",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.056": {
+    "contact.057": {
       "fa": "حمل‌ونقل درون‌شهری و سرویس‌های VIP",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.057": {
+    "contact.058": {
       "fa": "سرویس مدارس، ادارات و شرکت‌ها",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.058": {
+    "contact.059": {
       "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.059": {
+    "contact.060": {
       "fa": "مشاوره بازرگانی و گشایش LC",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.060": {
+    "contact.061": {
       "fa": "اطلاعات تماس",
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.061": {
+    "contact.062": {
       "fa": "تلفن تماس:",
       "kind": "text",
       "ctx": "ul.div.footer__grid"
     },
-    "contact.062": {
+    "contact.063": {
       "fa": "نشانی دفتر:",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.063": {
+    "contact.064": {
       "fa": "قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "span.ul.footer__links"
     },
-    "contact.064": {
+    "contact.065": {
       "fa": "پروفایل رسمی در رسمیو ↗",
       "kind": "text",
       "ctx": "li.ul.footer__links"
     },
-    "contact.065": {
+    "contact.066": {
       "fa": "شناسه ملی:",
       "kind": "text",
       "ctx": "div.div.container"
     },
-    "contact.066": {
+    "contact.067": {
       "fa": "شماره ثبت:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.067": {
+    "contact.068": {
       "fa": "کد اقتصادی:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.068": {
+    "contact.069": {
       "fa": "تاریخ تأسیس:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.069": {
+    "contact.070": {
       "fa": "مدیرعامل:",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.070": {
+    "contact.071": {
       "fa": "سعید امین‌زاده",
       "kind": "text",
       "ctx": "span.div.footer__registry-strip"
     },
-    "contact.071": {
+    "contact.072": {
       "fa": "© کلیه حقوق مادی و معنوی متعلق به شرکت قزوین تصویر (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶",
       "kind": "text",
       "ctx": "div.div.container",
       "html": "© کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶"
     },
-    "contact.072": {
+    "contact.073": {
       "fa": "طراحی",
       "kind": "text",
       "ctx": "a.div.footer__bottom-bar"
     },
-    "contact.073": {
+    "contact.074": {
       "fa": "و",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.074": {
+    "contact.075": {
       "fa": "توسعه:",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--fa"
     },
-    "contact.075": {
+    "contact.076": {
       "fa": "Designed",
       "kind": "text",
       "ctx": "span.a.ks-credit"
     },
-    "contact.076": {
+    "contact.077": {
       "fa": "&amp;",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.077": {
+    "contact.078": {
       "fa": "Developed",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.078": {
+    "contact.079": {
       "fa": "by",
       "kind": "text",
       "ctx": "span.span.ks-label.ks-label--en"
     },
-    "contact.079": {
+    "contact.080": {
       "fa": "کارن سافت",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.080": {
+    "contact.081": {
       "fa": "KarenSoft",
       "kind": "attr:alt",
       "ctx": "span.a.ks-credit"
     },
-    "contact.081": {
+    "contact.082": {
       "fa": "تماس تلفنی با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.082": {
+    "contact.083": {
       "fa": "تماس تلفنی",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.083": {
+    "contact.084": {
       "fa": "ارتباط در واتساپ",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.084": {
+    "contact.085": {
       "fa": "واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.085": {
+    "contact.086": {
       "fa": "دکمه‌های تماس سریع شناور",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.086": {
+    "contact.087": {
       "fa": "ارتباط مستقیم در واتساپ قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.087": {
+    "contact.088": {
       "fa": "ارتباط مستقیم در واتساپ",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.088": {
+    "contact.089": {
       "fa": "تماس مستقیم با قزوین تصویر",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.089": {
+    "contact.090": {
       "fa": "تماس تلفنی با ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit",
@@ -3755,17 +4070,17 @@
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "contact.090": {
+    "contact.091": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:aria-label",
       "ctx": "span.a.ks-credit"
     },
-    "contact.091": {
+    "contact.092": {
       "fa": "بازگشت به بالای صفحه",
       "kind": "attr:title",
       "ctx": "span.a.ks-credit"
     },
-    "contact.092": {
+    "contact.093": {
       "fa": "شماره ۰۹۱۲۲۸۱۵۱۸۹ با موفقیت کپی شد!",
       "kind": "text",
       "ctx": "span.a.ks-credit",
@@ -3773,62 +4088,62 @@
         "۰۹۱۲۲۸۱۵۱۸۹"
       ]
     },
-    "contact.093": {
+    "contact.094": {
       "fa": "بستن پنجره مشاوره",
       "kind": "attr:aria-label",
       "ctx": "div.div.modal-overlay"
     },
-    "contact.094": {
+    "contact.095": {
       "fa": "مشاوره رایگان تخصصی",
       "kind": "text",
       "ctx": "div.div.modal-overlay"
     },
-    "contact.095": {
+    "contact.096": {
       "fa": "درخواست مشاوره و استعلام قیمت",
       "kind": "text",
       "ctx": "h3.div.modal-container"
     },
-    "contact.096": {
+    "contact.097": {
       "fa": "شماره خود را ثبت کنید تا کارشناسان ما سریعاً با شما تماس حاصل فرمایند.",
       "kind": "text",
       "ctx": "p.div.modal-container"
     },
-    "contact.097": {
+    "contact.098": {
       "fa": "نام یا نام شرکت",
       "kind": "text",
       "ctx": "form.div.modal-container"
     },
-    "contact.098": {
+    "contact.099": {
       "fa": "شماره تماس همراه (۰۹...) *",
       "kind": "text",
       "ctx": "div.div.modal-container"
     },
-    "contact.099": {
+    "contact.100": {
       "fa": "بازرگانی و ترابری (هر دو)",
       "kind": "text",
       "ctx": "div.div.modal-container"
     },
-    "contact.100": {
+    "contact.101": {
       "fa": "بازرگانی و واردات/صادرات",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
-    "contact.101": {
+    "contact.102": {
       "fa": "ترابری و سرویس پرسنل",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
-    "contact.102": {
+    "contact.103": {
       "fa": "حوزه مشاوره",
       "kind": "text",
       "ctx": "label.div.form-group"
     },
-    "contact.103": {
+    "contact.104": {
       "fa": "ثبت درخواست مشاوره رایگان",
       "kind": "text",
       "ctx": "button.div.modal-container"
     },
-    "contact.104": {
+    "contact.105": {
       "fa": "یا تماس مستقیم با: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "div.div.modal-container",
