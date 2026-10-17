@@ -26,20 +26,16 @@
 
 ## ناوبری و تجربهٔ کاربری
 
-- منوی اصلی فارسی، منوی خدمات و drawer موبایل با ظاهر شیشه‌ای، backdrop blur، مرز گرادیانی، انیمیشن ورود، hover/focus و breakpoint ریسپانسیو مشترک هستند.
-- لایهٔ ناوبری مشترک در [`assets/css/glass-navigation.css`](assets/css/glass-navigation.css) قرار دارد و در صفحهٔ فارسی، نسخهٔ انگلیسی و صفحه‌های مستقل خدمات استفاده می‌شود.
-- منوی خدمات، هر هشت خدمت را با لینک مستقیم نمایش می‌دهد؛ drawer موبایل همان معماری را به شکل قابل لمس ارائه می‌کند.
-- `Escape`، کلیک روی backdrop، قفل اسکرول، `aria-expanded`، `aria-controls`، `aria-hidden` و `focus-visible` برای منوی موبایل پیاده‌سازی شده‌اند.
-- برای `prefers-reduced-motion: reduce` انیمیشن‌های ناوبری و اسکرول نرم غیرفعال یا کوتاه می‌شوند.
+- Sidebar، هدر ناوبری، dropdown خدمات، drawer موبایل و toggle منو از همهٔ صفحات حذف شده‌اند.
+- پیوندهای داخلی در محتوای اصلی و فوتر باقی مانده‌اند تا مسیرهای سایت و SEO حفظ شوند.
+- language switcher فقط به‌صورت utility در فوتر نگه داشته شده و hreflangهای فارسی/انگلیسی بدون تغییر کار می‌کنند.
 - محتوای فارسی با `dir="rtl"` و محتوای انگلیسی با `dir="ltr"` ارائه می‌شود.
 
 ## طراحی و دارایی‌ها
 
-- [`assets/css/style.css`](assets/css/style.css) — سیستم طراحی و بخش‌های صفحهٔ اصلی.
+- [`assets/css/style.css`](assets/css/style.css) — سیستم طراحی، صفحات اصلی و فوتر.
 - [`assets/css/service-pages.css`](assets/css/service-pages.css) — ظاهر صفحات مستقل خدمات.
-- [`assets/css/glass-navigation.css`](assets/css/glass-navigation.css) — ناوبری شیشه‌ای مشترک.
 - [`assets/js/main.js`](assets/js/main.js) — تم، فرم تماس، رفتار صفحهٔ اصلی و routeهای hash.
-- [`assets/js/navigation.js`](assets/js/navigation.js) — controller مشترک header، dropdown خدمات، drawer موبایل، Escape، focus و resize.
 - [`assets/js/service-pages.js`](assets/js/service-pages.js) — اسکرول، reveal و سال فوتر صفحات خدمات.
 - `assets/fonts/` — فونت‌های محلی Vazirmatn و Inter؛ سایت به CDN وابسته نیست.
 - `assets/img/sections/` — تصاویر hero و بخش‌های اصلی.
