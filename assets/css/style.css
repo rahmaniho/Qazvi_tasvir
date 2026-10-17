@@ -567,6 +567,8 @@ button, input, select, textarea {
   border-radius: var(--r-md);
   box-shadow: var(--shadow-md);
   padding: 8px;
+  max-height: min(70vh, 480px);
+  overflow-y: auto;
   list-style: none;
   opacity: 0;
   visibility: hidden;
@@ -1455,7 +1457,9 @@ button, input, select, textarea {
 
 .services__cta {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 12px;
   margin-top: 40px;
 }
 
