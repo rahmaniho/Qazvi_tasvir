@@ -977,7 +977,15 @@ button, input, select, textarea {
   overflow: hidden;
   background: linear-gradient(180deg, rgba(18, 58, 94, 0.6) 0%, rgba(6, 24, 41, 0.8) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 24px;
+  padding: 14px;
+}
+
+.hero__illustration picture,
+.hero__illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--r-lg) - 8px);
 }
 
 /* کارت‌های شناور */
