@@ -15,60 +15,78 @@
     <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://qazvintasvir.ir/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/"/>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qazvintasvir.ir/services/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://qazvintasvir.ir/services/</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://qazvintasvir.ir/services/import-export.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/import-export.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/import-export.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qazvintasvir.ir/services/customs-port.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/customs-port.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/customs-port.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qazvintasvir.ir/services/sourcing.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/sourcing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/sourcing.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qazvintasvir.ir/services/factory-transport.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/factory-transport.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/factory-transport.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qazvintasvir.ir/services/urban-vip.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/urban-vip.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/urban-vip.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qazvintasvir.ir/services/school-office.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/school-office.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/school-office.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qazvintasvir.ir/services/personnel-food.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/personnel-food.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/personnel-food.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qazvintasvir.ir/services/trade-consulting.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://qazvintasvir.ir/services/trade-consulting.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qazvintasvir.ir/services/trade-consulting.html"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -151,7 +151,14 @@ class _Scanner(HTMLParser):
             return
         protected = sorted({k for k in KEEP_VERBATIM if k in fa})
         if protected and len(fa) < 60 and len(fa.split()) <= 2:
-            return                                  # a bare protected value
+            remainder = fa
+            for token in protected:
+                remainder = remainder.replace(token, "")
+            # Keep a short label-plus-identifier run (for example
+            # "شناسه ملی ۱۰۸۶۱۴۱۵۲۱۵"); drop only a genuinely bare machine
+            # value such as the identifier by itself.
+            if not re.search(r"[A-Za-z\u0600-\u06ff]", remainder):
+                return
         # a string that mixes Persian and ASCII digits on purpose (e.g. the
         # dual-calendar copyright ۱۴۰۴ / 2026) keeps its digits exactly as typed
         digit_locked = bool(re.search(r"[۰-۹٠-٩]", fa)) and bool(re.search(r"[0-9]", fa))
@@ -187,18 +194,29 @@ class _Scanner(HTMLParser):
         if self.skip_depth:
             self.stack.append((tag, a))
             return
+        tag_end = self.tag_span(start)[1]
         if tag not in INLINE_TAGS or tag in ("br", "img"):
             self._flush()                            # block boundary ends the run
         if self.buf:
             parts = "".join(f' {k}="{v}"' for k, v in attrs if v is not None)
             self.buf.append(("markup", f"<{tag}{parts}>"))
             self.nested += 1
-            self.last_end = self.tag_span(start)[1]
+            self.last_end = tag_end
+        elif tag in INLINE_TAGS and tag not in ("br", "img"):
+            # Keep an inline element at the beginning of a run attached to the
+            # following text. Without this, a translation such as
+            # <strong>Qazvin Tasvir</strong> would create an extra scan record
+            # and make a valid generated language page fail its next build.
+            parts = "".join(f' {k}="{v}"' for k, v in attrs if v is not None)
+            self.buf_start = start
+            self._ensure_ctx()
+            self.buf.append(("markup", f"<{tag}{parts}>"))
+            self.nested = 1
+            self.last_end = tag_end
         elif self.ctx is None:
             self.ctx = None
             self._ensure_ctx(tag, a)
         self.stack.append((tag, a))
-        tag_end = self.tag_span(start)[1]
         # attributes worth translating
         for name in ATTRS:
             if a.get(name):
@@ -313,7 +331,7 @@ def self_check(html: str, records: "list[Record]") -> None:
                 f"{rec.key}: slice carries tags the record does not own\n"
                 f"    slice: {slice_[:90]!r}\n    run  : {(rec.html or rec.fa)[:90]!r}")
         if rec.end > rec.start and rec.fa and rec.fa.split()[0] not in slice_ \
-                and rec.kind == "text":
+                and rec.kind == "text" and not slice_.lstrip().startswith("<"):
             raise AssertionError(f"{rec.key}: slice does not start at the text")
 
 

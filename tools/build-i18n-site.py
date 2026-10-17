@@ -29,6 +29,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import hashlib
 import json
 import re
@@ -49,6 +50,10 @@ I18N = ROOT / "i18n"
 SITE_ORIGIN = "https://qazvintasvir.ir"
 
 PUBLIC_DIRS = {"assets", "i18n", "tools", ".git", "node_modules"}
+SERVICE_SLUGS = (
+    "import-export", "customs-port", "sourcing", "factory-transport",
+    "urban-vip", "school-office", "personnel-food", "trade-consulting",
+)
 
 STRUCTURED: dict = {}          # jsonld.* keys, filled from strings.fa.json
 
@@ -218,7 +223,8 @@ def validate(lang: str, strings: dict, translations: dict,
                 errors.append(f"{key}: protected value {keep} missing from the translation")
         # digits follow the language automatically, so compare (and script-check)
         # with every digit form reduced to ASCII
-        if info["dir"] == "ltr" and RTL_SCRIPTS.search(normalize_digits(str(tr))):
+        visible_translation = re.sub(r"<[^>]*>", " ", str(tr))
+        if info["dir"] == "ltr" and RTL_SCRIPTS.search(normalize_digits(visible_translation)):
             errors.append(f"{key}: Arabic-script letters in an LTR language: {str(tr)[:40]!r}")
     if snapshot is not None:
         changed = []
@@ -255,7 +261,18 @@ def apply_translations(html: str, records, translations: dict, digits: str,
     """Write translations back into the exact spans the scanner recorded."""
     locked = locked or set()
     out, pos, protected = [], 0, []
+    text_ranges = [
+        (rec.start, rec.end) for rec in records if rec.kind == "text"
+    ]
     for rec in sorted(records, key=lambda r: r.start):
+        # A text run may begin with an inline <a>/<span> tag. Its translated
+        # HTML owns the tag's attributes too, so applying a second replacement
+        # for an aria-label nested inside that run would overlap byte ranges.
+        if rec.kind.startswith("attr:") and any(
+            start <= rec.start and rec.end <= end
+            for start, end in text_ranges
+        ):
+            continue
         value = translations.get(rec.key)
         if value is None:
             continue
@@ -350,6 +367,11 @@ def build_language(lang: str, master: str, strings: dict,
     if len(records) != len(strings):
         raise SystemExit(f"{lang}: {len(records)} runs after chrome edits, "
                          f"expected {len(strings)} — string map is stale")
+    # The extractor deliberately keeps stable ids when source copy changes.
+    # The scanner itself can only count runs, so bind the current document
+    # order to the ledger order before applying translations.
+    for record, key in zip(records, strings):
+        record.key = key
     locked_keys = {k for k, v in strings.items() if v.get("digitLocked")}
     for key, value in STRUCTURED.items():
         if str(value.get("fa", "")).strip():
@@ -373,6 +395,10 @@ def build_language(lang: str, master: str, strings: dict,
     # asset paths are relative → one level deeper needs a prefix
     if lang != "fa":
         html = re.sub(r'(href|src|srcset)="assets/', rf'\1="../assets/', html)
+        # The master page lives at / while the generated language page lives
+        # one directory deeper. Service routes must follow the same relative
+        # path rule or /en/ links incorrectly resolve to /en/services/.
+        html = re.sub(r'(href|src|srcset)="services/', rf'\1="../services/', html)
         html = html.replace('href="robots.txt"', 'href="../robots.txt"')
         html = html.replace("url('../images/karensoft/", "url('../../assets/images/karensoft/")
     return html
@@ -506,6 +532,8 @@ def write_sitemap(available: list[str]) -> None:
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
              '        xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    lastmod = dt.date.today().isoformat()
+
     for code in available:
         url = f'{SITE_ORIGIN}/' if code == "fa" else f'{SITE_ORIGIN}/{code}/'
         lines.append("  <url>")
@@ -514,10 +542,29 @@ def write_sitemap(available: list[str]) -> None:
             alt_url = f'{SITE_ORIGIN}/' if alt == "fa" else f'{SITE_ORIGIN}/{alt}/'
             lines.append(f'    <xhtml:link rel="alternate" hreflang="{LANGS[alt]["hreflang"]}" href="{alt_url}"/>')
         lines.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE_ORIGIN}/"/>')
-        lines.append("    <lastmod>2026-10-13</lastmod>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
         lines.append("    <changefreq>monthly</changefreq>")
         lines.append(f'    <priority>{"1.0" if code == "fa" else "0.9"}</priority>')
         lines.append("  </url>")
+
+    # The language generator owns the home pages, while the service-page
+    # generator owns their content. Keep both route families in one sitemap so
+    # a multilingual rebuild cannot silently remove the service directory.
+    service_urls = [f"{SITE_ORIGIN}/services/"] + [
+        f"{SITE_ORIGIN}/services/{slug}.html" for slug in SERVICE_SLUGS
+    ]
+    for url in service_urls:
+        lines.extend([
+            "  <url>",
+            f"    <loc>{url}</loc>",
+            f'    <xhtml:link rel="alternate" hreflang="fa" href="{url}"/>',
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url}"/>',
+            f"    <lastmod>{lastmod}</lastmod>",
+            "    <changefreq>monthly</changefreq>",
+            "    <priority>0.8</priority>",
+            "  </url>",
+        ])
+
     lines.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
 

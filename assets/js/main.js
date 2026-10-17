@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburgerBtn.setAttribute('aria-label', 'بستن منوی موبایل');
       mobileDrawer.classList.add('is-open');
       mobileDrawer.setAttribute('aria-hidden', 'false'); // اعلام وضعیت باز به صفحه‌خوان‌ها
+      mobileDrawer.inert = false;
       document.body.style.overflow = 'hidden';
 
       // انتقال فوکوس به اولین لینک منو برای ناوبری کامل با کیبورد
@@ -73,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburgerBtn.setAttribute('aria-label', 'باز کردن منوی موبایل');
       mobileDrawer.classList.remove('is-open');
       mobileDrawer.setAttribute('aria-hidden', 'true');
+      mobileDrawer.inert = true;
       document.body.style.overflow = '';
     }
   }
@@ -84,11 +86,41 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => toggleMobileMenu(false));
     });
 
-    // بستن منو با دکمه Escape و بازگرداندن فوکوس به دکمه منو
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
+    // کلیک روی لایهٔ تاریکِ اطراف محتوای drawer نیز آن را می‌بندد؛ کلیک
+    // روی خود لینک‌ها در handlerهای بالا به مسیر مقصد منتقل می‌شود.
+    mobileDrawer.addEventListener('click', (event) => {
+      if (event.target === mobileDrawer) {
         toggleMobileMenu(false);
         hamburgerBtn.focus({ preventScroll: true });
+      }
+    });
+
+    // بستن منو با دکمه Escape، حلقهٔ فوکوس و بازگرداندن فوکوس به دکمه منو
+    document.addEventListener('keydown', (e) => {
+      if (!mobileDrawer.classList.contains('is-open')) return;
+
+      if (e.key === 'Escape') {
+        toggleMobileMenu(false);
+        hamburgerBtn.focus({ preventScroll: true });
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(mobileDrawer.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )).filter(element => !element.hidden && !element.closest('[hidden]'));
+      if (!focusable.length) {
+        e.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus({ preventScroll: true });
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus({ preventScroll: true });
       }
     });
   }
