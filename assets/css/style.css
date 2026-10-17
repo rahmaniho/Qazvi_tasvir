@@ -6257,3 +6257,194 @@ html[dir="ltr"] .why-banner::after {
     display: none;
   }
 }
+
+/* ==========================================================================
+   ۲۲. سیستم تم (Theme System) — روشن / تیره / اقیانوسی
+   رنگ‌ها بر پایهٔ توکن‌های :root هستند؛ هر تم فقط توکن‌ها را بازنویسی
+   می‌کند. انتخاب کاربر در localStorage ذخیره و پیش از رندر اعمال می‌شود
+   (اسکریپت کوچک ابتدای <head>) تا فلش رنگی رخ ندهد.
+   ========================================================================== */
+
+/* ── تم تیره ─────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --primary-navy: #A9C9F0;   /* عنوان‌ها: آبی فولادی روشن برای خوانایی روی سطوح تیره */
+  --sky-blue: #38BDF8;
+  --surface-bg: #0C1626;
+  --surface-white: #14243C;
+  --line-soft: #263A58;
+  --text-primary: #E4EAF3;
+  --text-muted: #9FB2CC;
+  --text-light: #7C90AC;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.60);
+  color-scheme: dark;
+}
+[data-theme="dark"] body {
+  background-color: var(--surface-bg);
+}
+
+/* سطوحی که رنگ روشن را هاردکد دارند — معادل تیرهٔ هرکدام */
+[data-theme="dark"] .navbar {
+  background: rgba(12, 22, 38, 0.92);
+}
+[data-theme="dark"] .navbar.scrolled {
+  background: rgba(12, 22, 38, 0.97);
+}
+[data-theme="dark"] .nav-menu__link:hover,
+[data-theme="dark"] .nav-dropdown__link:hover,
+[data-theme="dark"] .nav-dropdown__link:focus-visible {
+  background: rgba(169, 201, 240, 0.10);
+}
+[data-theme="dark"] .nav-dropdown {
+  background: #16273F;
+}
+[data-theme="dark"] .hamburger-btn {
+  background: #1B2E4A;
+}
+[data-theme="dark"] .ceo-card,
+[data-theme="dark"] .why-card,
+[data-theme="dark"] .contact-form-card,
+[data-theme="dark"] .contact-detail-box,
+[data-theme="dark"] .registry-card:hover,
+[data-theme="dark"] .client-card:hover,
+[data-theme="dark"] .food-meal__box {
+  background: var(--surface-white);
+}
+[data-theme="dark"] .food-meal__box {
+  border-color: var(--line-soft);
+}
+[data-theme="dark"] .clients-section,
+[data-theme="dark"] .registry-section {
+  background: var(--surface-bg);
+}
+[data-theme="dark"] .fleet-card {
+  background: rgba(20, 35, 60, 0.75);
+}
+[data-theme="dark"] .fleet-strip {
+  background: rgba(20, 35, 60, 0.65);
+}
+[data-theme="dark"] .form-control:focus {
+  background: #1B2E4A;
+}
+[data-theme="dark"] .form-control:not(:placeholder-shown) ~ .form-label {
+  background: #1B2E4A;
+}
+[data-theme="dark"] .food-hero__chip {
+  background: rgba(20, 35, 60, 0.94);
+}
+[data-theme="dark"] .lang-switch__btn {
+  background: var(--surface-white);
+}
+[data-theme="dark"] .lang-switch__panel {
+  background: #16273F;
+}
+/* نکته: کاشی لوگوی مشتریان (.client-card__logo-wrap) در همهٔ تم‌ها سفید
+   می‌ماند — لوگوهای تیره‌رنگ (نستله، AGT و…) به پس‌زمینهٔ روشن نیاز دارند. */
+
+/* ── تم اقیانوسی ─────────────────────────────────────────────────────── */
+[data-theme="ocean"] {
+  --primary-navy: #155E75;
+  --navy-mid: #0E7490;
+  --teal-industrial: #0F766E;
+  --sky-blue: #0891B2;
+  --sky-light: #22D3EE;
+  --surface-bg: #EFF7FA;
+  --surface-white: #FFFFFF;
+  --line-soft: #D4E7EE;
+  --grad-navy: linear-gradient(135deg, #155E75 0%, #0F766E 100%);
+  --grad-hero: linear-gradient(155deg, #083344 0%, #155E75 50%, #0F766E 100%);
+  --grad-glow-sky: radial-gradient(circle at bottom left, rgba(34, 211, 238, 0.25) 0%, rgba(34, 211, 238, 0) 65%);
+}
+
+/* ── سوییچر تم در نوار بالا (هم‌النگوی سوییچر زبان) ──────────────────── */
+.theme-switch {
+  position: relative;
+  margin-inline-start: 4px;
+}
+.theme-switch__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line-soft);
+  background: var(--surface-white);
+  color: var(--primary-navy);
+  cursor: pointer;
+  list-style: none;
+  transition: all var(--dur-fast) ease;
+}
+.theme-switch__btn::-webkit-details-marker { display: none; }
+.theme-switch__btn:hover,
+.theme-switch[open] .theme-switch__btn {
+  border-color: var(--sky-blue);
+  color: var(--sky-blue);
+}
+.theme-switch__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  min-width: 190px;
+  padding: 8px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line-soft);
+  background: var(--surface-white);
+  box-shadow: var(--shadow-lg);
+  z-index: 1001;
+  display: grid;
+  gap: 2px;
+}
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: none;
+  border-radius: var(--r-xs);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: start;
+  transition: background var(--dur-fast) ease;
+}
+.theme-option:hover {
+  background: #EEF4FB;
+}
+[data-theme="dark"] .theme-option:hover {
+  background: rgba(169, 201, 240, 0.10);
+}
+.theme-option__swatch {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--line-soft);
+}
+.theme-option__swatch--light {
+  background: linear-gradient(135deg, #FFFFFF 50%, #0A2540 50%);
+}
+.theme-option__swatch--dark {
+  background: linear-gradient(135deg, #14243C 50%, #F59E0B 50%);
+}
+.theme-option__swatch--ocean {
+  background: linear-gradient(135deg, #EFF7FA 50%, #0F766E 50%);
+}
+.theme-option__check {
+  margin-inline-start: auto;
+  color: var(--success);
+  opacity: 0;
+  transition: opacity var(--dur-fast) ease;
+}
+.theme-option[aria-pressed="true"] .theme-option__check {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-option__check { transition: none; }
+}

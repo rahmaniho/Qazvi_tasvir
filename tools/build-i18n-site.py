@@ -372,7 +372,7 @@ def build_language(lang: str, master: str, strings: dict,
 
     # asset paths are relative → one level deeper needs a prefix
     if lang != "fa":
-        html = re.sub(r'(href|src)="assets/', rf'\1="../assets/', html)
+        html = re.sub(r'(href|src|srcset)="assets/', rf'\1="../assets/', html)
         html = html.replace('href="robots.txt"', 'href="../robots.txt"')
         html = html.replace("url('../images/karensoft/", "url('../../assets/images/karensoft/")
     return html
