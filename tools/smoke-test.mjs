@@ -2,9 +2,9 @@
 /**
  * Runtime smoke test for the generated pages.
  *
- * The site intentionally has no header/sidebar menu. This test therefore
- * verifies the normal hash routes, language metadata and the absence of the
- * removed navigation shell on every shared route.
+ * The shared navigation is a QT SIDEBAR REFERENCE 4.0 rail on desktop and
+ * an accessible drawer on mobile. This test verifies routes, language metadata,
+ * stylesheet wiring, injected rail content and the two navigation states.
  *
  *   cd /tmp && npm i jsdom && node <repo>/tools/smoke-test.mjs
  */
@@ -45,7 +45,7 @@ if (!fs.existsSync(path.join(ROOT, 'index.html'))) {
 
 const errors = [];
 const mainJs = fs.readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8');
-const servicePagesJs = fs.readFileSync(path.join(ROOT, 'assets/js/service-pages.js'), 'utf8');
+const navigationJs = fs.readFileSync(path.join(ROOT, 'assets/js/navigation.js'), 'utf8');
 
 function testPage(rel, lang, dir) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -111,39 +111,96 @@ function testPage(rel, lang, dir) {
               + `title="${doc.title.slice(0, 40)}…"`);
 }
 
-function testMenuRemoved(rel) {
+function bootNavigation(window, width) {
+  const mobile = width < 1024;
+  Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
+  window.matchMedia = () => ({
+    matches: mobile, addEventListener() {}, removeEventListener() {},
+    addListener() {}, removeListener() {},
+  });
+  window.eval(navigationJs);
+  window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+}
+
+function testNavigation(rel) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const vc = new VirtualConsole();
   vc.on('jsdomError', error => errors.push(`[${rel}] ${error.message}`));
   vc.on('error', (...args) => errors.push(`[${rel}] console.error ${args.join(' ')}`));
-  const dom = new JSDOM(html, {
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] ${message}`); };
+  const legacyNavigationStylesheet = ['glass', 'navigation.css'].join('-');
+  check(!html.includes(legacyNavigationStylesheet), 'legacy navigation stylesheet still referenced');
+  check(fs.existsSync(path.join(ROOT, 'assets/css/nav/nav-tokens.css')), 'nav-tokens.css missing');
+  check(fs.existsSync(path.join(ROOT, 'assets/css/nav/nav-base.css')), 'nav-base.css missing');
+  check(fs.existsSync(path.join(ROOT, 'assets/css/nav/nav-sidebar.css')), 'nav-sidebar.css missing');
+  check(html.includes('nav/nav-tokens.css') && html.includes('nav/nav-base.css')
+    && html.includes('nav/nav-sidebar.css'), 'navigation stylesheet set incomplete');
+  check(html.includes('assets/js/navigation.js'), 'navigation controller script missing');
+
+  const desktop = new JSDOM(html, {
     url: `https://qazvintasvir.ir/${rel}`,
     runScripts: 'outside-only',
     virtualConsole: vc,
     pretendToBeVisual: true,
   });
-  const { window } = dom;
-  window.matchMedia = () => ({
-    matches: false, addEventListener() {}, removeEventListener() {},
-    addListener() {}, removeListener() {},
+  bootNavigation(desktop.window, 1440);
+  const doc = desktop.window.document;
+  check(doc.querySelector('.site-header') !== null, 'site header missing');
+  check(doc.querySelector('.site-nav') !== null, 'site nav missing');
+  check(doc.querySelector('.menu-toggle') !== null, 'menu toggle missing');
+  check(doc.querySelector('.site-nav__search-input') !== null, 'sidebar search not enhanced');
+  check(doc.querySelector('.site-nav__messages') !== null, 'sidebar messages not enhanced');
+  check(doc.querySelector('.site-nav__profile') !== null, 'sidebar profile not enhanced');
+  const header = doc.querySelector('.site-header');
+  const nav = doc.querySelector('.site-nav');
+  const toggle = doc.querySelector('.menu-toggle');
+  check(header?.dataset.sidebarState === 'expanded', 'desktop sidebar did not start expanded');
+  check(toggle?.getAttribute('aria-expanded') === 'true', 'desktop toggle aria state is not expanded');
+  toggle?.click();
+  check(header?.classList.contains('is-collapsed'), 'desktop collapse state missing');
+  check(doc.body.classList.contains('qt-sidebar-collapsed'), 'body collapsed class missing');
+  check(toggle?.getAttribute('aria-expanded') === 'false', 'collapsed toggle aria state is wrong');
+  const services = nav?.querySelector('.site-nav__item--services .site-nav__link');
+  services?.click();
+  check(nav?.querySelector('.site-nav__item--services.is-open') !== null,
+    'collapsed services flyout did not open');
+  toggle?.click();
+  check(!header?.classList.contains('is-collapsed'), 'desktop sidebar did not expand');
+
+  const boundary = new JSDOM(html, {
+    url: `https://qazvintasvir.ir/${rel}`,
+    runScripts: 'outside-only',
+    virtualConsole: vc,
+    pretendToBeVisual: true,
   });
-  try { window.eval(servicePagesJs); } catch (error) {
-    errors.push(`[${rel}] service-pages.js threw: ${error.message}`);
-  }
-  const doc = window.document;
-  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] ${message}`); };
-  for (const selector of ['.site-header', '.site-nav', '.menu-toggle', '.nav-menu', '.mobile-drawer']) {
-    check(doc.querySelector(selector) === null, `${selector} still exists after menu removal`);
-  }
-  check(!html.includes('assets/js/navigation.js'), 'navigation controller script still referenced');
-  check(!html.includes('glass-navigation.css'), 'navigation stylesheet still referenced');
+  bootNavigation(boundary.window, 1024);
+  check(boundary.window.document.querySelector('.site-header')?.dataset.sidebarState === 'expanded',
+    '1024px breakpoint did not keep desktop rail');
+
+  const mobile = new JSDOM(html, {
+    url: `https://qazvintasvir.ir/${rel}`,
+    runScripts: 'outside-only',
+    virtualConsole: vc,
+    pretendToBeVisual: true,
+  });
+  bootNavigation(mobile.window, 375);
+  const mobileDoc = mobile.window.document;
+  const mobileNav = mobileDoc.querySelector('.site-nav');
+  const mobileToggle = mobileDoc.querySelector('.menu-toggle');
+  mobileToggle?.click();
+  check(mobileNav?.classList.contains('is-open'), 'mobile drawer did not open');
+  check(mobileDoc.body.classList.contains('service-nav-open'), 'mobile body lock missing');
+  check(mobileToggle?.getAttribute('aria-expanded') === 'true', 'mobile aria-expanded did not open');
+  mobileDoc.dispatchEvent(new mobile.window.KeyboardEvent('keydown', { key: 'Escape' }));
+  check(!mobileNav?.classList.contains('is-open'), 'Escape did not close mobile drawer');
+  check(!mobileDoc.body.classList.contains('service-nav-open'), 'mobile body lock did not clear');
 }
 
 console.log('runtime smoke test:');
 for (const [rel, lang, dir] of pages()) testPage(rel, lang, dir);
-console.log('menu removal check:');
-for (const rel of sharedPages()) testMenuRemoved(rel);
+console.log('navigation regression check:');
+for (const rel of sharedPages()) testNavigation(rel);
 console.log(errors.length
   ? `\n  ✗ ${errors.length} problem(s):\n    ${errors.slice(0, 12).join('\n    ')}`
-  : '\n  ✓ all pages have no header/sidebar menu');
+  : '\n  ✓ routes, shared sidebar and mobile drawer passed');
 process.exit(errors.length ? 1 : 0);

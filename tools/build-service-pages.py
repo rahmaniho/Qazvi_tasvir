@@ -429,6 +429,48 @@ def picture(service: dict, story: bool = False, eager: bool = False) -> str:
     )
 
 
+def header(current_slug: str = "") -> str:
+    service_links = []
+    for service in SERVICES:
+        current = ' aria-current="page"' if service["slug"] == current_slug else ""
+        service_links.append(
+            f'        <a role="menuitem" href="{escape(service["slug"])}.html"{current}>'
+            f'{escape(service["title"])}</a>'
+        )
+    service_links = "\n".join(service_links)
+    current_hub = current_slug == "index"
+    trigger_current = ' aria-current="page"' if current_hub else ""
+    directory_current = ' aria-current="page"' if current_hub else ""
+    return f'''
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html" aria-label="بازگشت به صفحه اصلی شرکت قزوین تصویر">
+      <span class="brand-mark"><img src="../assets/images/brand/qazvin-tasvir-mark.png" alt="" width="44" height="44"></span>
+      <span class="brand-copy"><strong>قزوین تصویر</strong><small>بازرگانی • ترابری • غذای سازمانی</small></span>
+    </a>
+    <nav class="site-nav" id="service-nav" aria-label="منوی اصلی سایت">
+      <a class="site-nav__link" href="../index.html">خانه</a>
+      <a class="site-nav__link" href="../index.html#about">درباره ما</a>
+      <div class="site-nav__item--services">
+        <a class="site-nav__link is-active" href="index.html"{trigger_current} aria-haspopup="true" aria-expanded="false" aria-controls="service-pages-menu">خدمات</a>
+        <div id="service-pages-menu" class="site-nav__dropdown" role="menu" aria-label="هشت خدمت تخصصی" aria-hidden="true">
+          <a role="menuitem" href="index.html"{directory_current}>فهرست هشت خدمت تخصصی</a>
+{service_links}
+        </div>
+      </div>
+      <a class="site-nav__link" href="../index.html#fleet">ناوگان</a>
+      <a class="site-nav__link" href="../index.html#brands">برندها</a>
+      <a class="site-nav__link" href="../index.html#contact">تماس با ما</a>
+      <a class="site-nav__cta" href="../index.html#contact">درخواست مشاوره {ARROW}</a>
+    </nav>
+    <div class="site-header__tools">
+      <button class="menu-toggle" type="button" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="service-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>'''
+
 
 def footer() -> str:
     return '''
@@ -480,8 +522,11 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <link rel="alternate" hreflang="x-default" href="{canonical_url}">
   <link rel="icon" href="../assets/images/brand/qazvin-tasvir-favicon.png" type="image/png">
 {hero_preload}  <link rel="stylesheet" href="../assets/css/service-pages.css">
+  <link rel="stylesheet" href="../assets/css/nav/nav-tokens.css">
+  <link rel="stylesheet" href="../assets/css/nav/nav-base.css">
+  <link rel="stylesheet" href="../assets/css/nav/nav-sidebar.css">
 {food_styles}</head>
-<body class="{body_class}">
+<body class="qt-sidebar-shell {body_class}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
   <div class="scroll-progress" aria-hidden="true"></div>
 '''
@@ -496,7 +541,7 @@ def detailed_food_page(service: dict) -> str:
         service["theme"],
         service["image_webp"],
         food_page=True,
-    ) + f'''\n  <main id="main-content">
+    ) + header(service["slug"]) + f'''\n  <main id="main-content">
     <nav class="container page-crumbs" aria-label="مسیر صفحه">
       <a href="../index.html">خانه</a><span class="page-crumbs__separator">/</span>
       <a href="index.html">خدمات</a><span class="page-crumbs__separator">/</span>
@@ -505,6 +550,7 @@ def detailed_food_page(service: dict) -> str:
 {detail}
   </main>
 {footer()}
+  <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script type="application/ld+json">
@@ -564,7 +610,7 @@ def service_page(service: dict) -> str:
         for item in related
     )
 
-    return shell_head(service["title"], service["meta"], service["slug"], service["theme"], service["image_webp"]) + f'''
+    return shell_head(service["title"], service["meta"], service["slug"], service["theme"], service["image_webp"]) + header(service["slug"]) + f'''
   <main id="main-content">
     <section class="service-hero" aria-labelledby="service-title">
       <div class="container">
@@ -691,6 +737,7 @@ def service_page(service: dict) -> str:
     </section>
   </main>
 {footer()}
+  <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script type="application/ld+json">
   {{
@@ -740,7 +787,7 @@ def hub_page() -> str:
         "index",
         "theme-trade",
         "../assets/img/sections/hero-graphic.webp",
-    ) + f'''
+    ) + header("index") + f'''
   <main id="main-content">
     <section class="hub-hero" aria-labelledby="services-title">
       <div class="container">
@@ -794,6 +841,7 @@ def hub_page() -> str:
     </section>
   </main>
 {footer()}
+  <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script type="application/ld+json">
   {{

@@ -1,0 +1,46 @@
+/* Qazvin Tasvir navigation — tokens only. No component selectors live here. */
+:root {
+  --qt-dir: 1;
+
+  --qt-sidebar-width: 260px;
+  --qt-sidebar-collapsed-width: 60px;
+  --qt-sidebar-gap: 42px;
+  --qt-sidebar-inset: 20px;
+  --qt-sidebar-radius: 7px;
+  --qt-sidebar-mobile-radius: 24px;
+  --qt-sidebar-mobile-width: 360px;
+
+  --qt-sidebar-surface: #071936;
+  --qt-sidebar-surface-2: #0b2349;
+  --qt-sidebar-surface-3: #102c58;
+  --qt-sidebar-ink: #f7faff;
+  --qt-sidebar-muted: #c0cadb;
+  --qt-sidebar-dim: #6f82a3;
+  --qt-sidebar-line: rgba(202, 218, 247, .12);
+  --qt-sidebar-soft: #0d254b;
+  --qt-sidebar-accent: #0d4fc9;
+  --qt-sidebar-accent-hover: #1763e9;
+  --qt-sidebar-accent-deep: #12356c;
+  --qt-sidebar-pink: #ff84b3;
+  --qt-sidebar-shadow: 0 20px 50px rgba(4, 14, 34, .34), 0 4px 16px rgba(4, 14, 34, .18);
+  --qt-sidebar-ease: cubic-bezier(.2, .8, .2, 1);
+  --qt-sidebar-fast: 180ms ease;
+  --qt-sidebar-drawer: 420ms cubic-bezier(.2, .8, .2, 1);
+
+  --qt-sprite-count: 14;
+  --qt-sprite-step: calc(100% / (var(--qt-sprite-count) - 1));
+  --ico-home: 0%;
+  --ico-about: calc(var(--qt-sprite-step) * 1);
+  --ico-services: calc(var(--qt-sprite-step) * 2);
+  --ico-trade: calc(var(--qt-sprite-step) * 3);
+  --ico-customs: calc(var(--qt-sprite-step) * 4);
+  --ico-sourcing: calc(var(--qt-sprite-step) * 5);
+  --ico-factory: calc(var(--qt-sprite-step) * 6);
+  --ico-vip: calc(var(--qt-sprite-step) * 7);
+  --ico-school: calc(var(--qt-sprite-step) * 8);
+  --ico-food: calc(var(--qt-sprite-step) * 9);
+  --ico-consulting: calc(var(--qt-sprite-step) * 10);
+  --ico-fleet: calc(var(--qt-sprite-step) * 11);
+  --ico-brands: calc(var(--qt-sprite-step) * 12);
+  --ico-contact: 100%;
+}

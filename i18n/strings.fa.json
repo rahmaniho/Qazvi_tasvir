@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 450,
+  "count": 464,
   "countStructured": 38,
   "strings": {
     "chrome.001": {
@@ -84,6 +84,84 @@
       "kind": "text",
       "ctx": "meta",
       "html": "<a href=\"#main-content\" class=\"skip-link\">پرش به محتوای اصلی صفحه</a>"
+    },
+    "chrome.088": {
+      "fa": "صفحه اصلی شرکت قزوین تصویر",
+      "kind": "attr:aria-label",
+      "ctx": "header.header.site-header"
+    },
+    "chrome.089": {
+      "fa": "قزوین تصویربازرگانی • ترابری • غذای سازمانی",
+      "kind": "text",
+      "ctx": "img.span.brand-mark",
+      "html": "<span class=\"brand-copy\"><strong>قزوین تصویر</strong><small>بازرگانی • ترابری • غذای سازمانی</small></span>"
+    },
+    "chrome.090": {
+      "fa": "منوی اصلی سایت",
+      "kind": "attr:aria-label",
+      "ctx": "nav.div.container.header-inner"
+    },
+    "chrome.091": {
+      "fa": "خانهدرباره ما",
+      "kind": "text",
+      "ctx": "nav.div.container.header-inner",
+      "html": "<a class=\"site-nav__link\" href=\"#hero\" aria-current=\"page\">خانه</a><a class=\"site-nav__link\" href=\"#about\">درباره ما</a>"
+    },
+    "chrome.092": {
+      "fa": "خدمات",
+      "kind": "text",
+      "ctx": "div.nav.site-nav",
+      "html": "<a class=\"site-nav__link\" href=\"services/index.html\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"main-services-menu\">خدمات</a>"
+    },
+    "chrome.093": {
+      "fa": "هشت خدمت تخصصی",
+      "kind": "attr:aria-label",
+      "ctx": "div.div.site-nav__item--services"
+    },
+    "chrome.094": {
+      "fa": "فهرست هشت خدمت تخصصیواردات و صادرات کالاهای مجازترخیص گمرکی و امور بندریتأمین مواد اولیه و تجهیزاتترابری پرسنل کارخانجاتحمل‌ونقل درون‌شهری و سرویس‌های VIPسرویس مدارس، ادارات و شرکت‌هاتأمین غذای پرسنل و وعده‌های سازمانیمشاوره بازرگانی و گشایش",
+      "kind": "text",
+      "ctx": "div.div.site-nav__item--services",
+      "html": "<a role=\"menuitem\" href=\"services/index.html\">فهرست هشت خدمت تخصصی</a><a role=\"menuitem\" href=\"services/import-export.html\">واردات و صادرات کالاهای مجاز</a><a role=\"menuitem\" href=\"services/customs-port.html\">ترخیص گمرکی و امور بندری</a><a role=\"menuitem\" href=\"services/sourcing.html\">تأمین مواد اولیه و تجهیزات</a><a role=\"menuitem\" href=\"services/factory-transport.html\">ترابری پرسنل کارخانجات</a><a role=\"menuitem\" href=\"services/urban-vip.html\">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a><a role=\"menuitem\" href=\"services/school-office.html\">سرویس مدارس، ادارات و شرکت‌ها</a><a role=\"menuitem\" href=\"services/personnel-food.html\">تأمین غذای پرسنل و وعده‌های سازمانی</a><a role=\"menuitem\" href=\"services/trade-consulting.html\">مشاوره بازرگانی و گشایش</a>"
+    },
+    "chrome.100": {
+      "fa": "ناوگانبرندهاتماس با مادرخواست مشاوره",
+      "kind": "text",
+      "ctx": "nav.nav.site-nav",
+      "html": "<a class=\"site-nav__link\" href=\"#fleet\">ناوگان</a><a class=\"site-nav__link\" href=\"#brands\">برندها</a><a class=\"site-nav__link\" href=\"#contact\">تماس با ما</a><a class=\"site-nav__cta\" href=\"#contact\">درخواست مشاوره"
+    },
+    "chrome.101": {
+      "fa": "تغییر تم سایت",
+      "kind": "attr:aria-label",
+      "ctx": "svg.a.site-nav__cta"
+    },
+    "chrome.102": {
+      "fa": "انتخاب تم رنگی سایت",
+      "kind": "attr:aria-label",
+      "ctx": "svg.a.site-nav__cta"
+    },
+    "chrome.103": {
+      "fa": "روشن",
+      "kind": "text",
+      "ctx": "svg.a.site-nav__cta",
+      "html": "<span class=\"theme-option__swatch theme-option__swatch--light\" aria-hidden=\"true\"></span><span class=\"theme-option__name\">روشن</span>"
+    },
+    "chrome.073": {
+      "fa": "تیره",
+      "kind": "text",
+      "ctx": "svg.button.theme-option",
+      "html": "<span class=\"theme-option__swatch theme-option__swatch--dark\" aria-hidden=\"true\"></span><span class=\"theme-option__name\">تیره</span>"
+    },
+    "chrome.074": {
+      "fa": "اقیانوسی",
+      "kind": "text",
+      "ctx": "svg.button.theme-option",
+      "html": "<span class=\"theme-option__swatch theme-option__swatch--ocean\" aria-hidden=\"true\"></span><span class=\"theme-option__name\">اقیانوسی</span>"
+    },
+    "chrome.099": {
+      "fa": "باز کردن منوی موبایل",
+      "kind": "attr:aria-label",
+      "ctx": "svg.button.theme-option"
     },
     "hero.001": {
       "fa": "معرفی اصلی قزوین تصویر",

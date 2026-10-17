@@ -341,8 +341,9 @@ def build_language(lang: str, master: str, strings: dict,
     label = translations.get("chrome.langSwitch") or info.get("switch_label", "Change language")
     html = replace_block(html, SWITCH_BEGIN, SWITCH_END,
                          switcher_html(lang, available, label), "language switcher")
-    # Keep support for an optional legacy drawer marker. Current pages keep the
-    # language utility in the footer and do not render a mobile navigation.
+    # The shared site header owns the mobile nav now; unlike the former
+    # homepage-only drawer it has no duplicated language block. Keep support
+    # for older masters so a partial rebuild remains backwards compatible.
     if DRAWER_BEGIN in html and DRAWER_END in html:
         html = replace_block(html, DRAWER_BEGIN, DRAWER_END,
                              drawer_switcher_html(lang, available, label), "drawer switcher")

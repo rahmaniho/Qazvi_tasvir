@@ -7,9 +7,11 @@
   <meta name="description" content="صفحه‌ای که به دنبال آن بودید پیدا نشد. به صفحه اصلی شرکت قزوین تصویر بازگردید.">
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="assets/css/service-pages.css">
+  <link rel="stylesheet" href="assets/css/nav/nav-tokens.css">
+  <link rel="stylesheet" href="assets/css/nav/nav-base.css">
+  <link rel="stylesheet" href="assets/css/nav/nav-sidebar.css">
   <style>
     :root { color-scheme: dark; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       min-height: 100vh;
       display: flex;
@@ -75,29 +77,63 @@
     }
     .meta strong { color: #94A3B8; }
 
-    /* The error page keeps the same typography and actions as the live site. */
     .error-page {
       display: block;
       min-height: 100vh;
       padding: 0;
       overflow-x: hidden;
     }
+    .error-page .site-header {
+      text-align: start;
+    }
     .error-page .box {
       min-height: 100vh;
       max-width: 620px;
       margin-inline: auto;
-      padding: 54px 24px 32px;
+      padding: 96px 24px 32px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    @media (max-width: 1023px) {
-      .error-page .box { padding-top: 36px; }
-    }
   </style>
 </head>
-<body class="error-page">
+<body class="error-page qt-sidebar-shell">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="بازگشت به صفحه اصلی شرکت قزوین تصویر">
+        <span class="brand-mark"><img src="assets/images/brand/qazvin-tasvir-mark.png" alt="" width="44" height="44"></span>
+        <span class="brand-copy"><strong>قزوین تصویر</strong><small>بازرگانی • ترابری • غذای سازمانی</small></span>
+      </a>
+      <nav class="site-nav" id="error-nav" aria-label="منوی اصلی سایت">
+        <a class="site-nav__link" href="index.html">خانه</a>
+        <a class="site-nav__link" href="index.html#about">درباره ما</a>
+        <div class="site-nav__item--services">
+          <a class="site-nav__link" href="services/index.html" aria-haspopup="true" aria-expanded="false" aria-controls="error-services-menu">خدمات</a>
+          <div id="error-services-menu" class="site-nav__dropdown" role="menu" aria-label="هشت خدمت تخصصی" aria-hidden="true">
+            <a role="menuitem" href="services/index.html">فهرست هشت خدمت تخصصی</a>
+            <a role="menuitem" href="services/import-export.html">واردات و صادرات کالاهای مجاز</a>
+            <a role="menuitem" href="services/customs-port.html">ترخیص گمرکی و امور بندری</a>
+            <a role="menuitem" href="services/sourcing.html">تأمین مواد اولیه و تجهیزات</a>
+            <a role="menuitem" href="services/factory-transport.html">ترابری پرسنل کارخانجات</a>
+            <a role="menuitem" href="services/urban-vip.html">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a>
+            <a role="menuitem" href="services/school-office.html">سرویس مدارس، ادارات و شرکت‌ها</a>
+            <a role="menuitem" href="services/personnel-food.html">تأمین غذای پرسنل و وعده‌های سازمانی</a>
+            <a role="menuitem" href="services/trade-consulting.html">مشاوره بازرگانی و گشایش</a>
+          </div>
+        </div>
+        <a class="site-nav__link" href="index.html#fleet">ناوگان</a>
+        <a class="site-nav__link" href="index.html#brands">برندها</a>
+        <a class="site-nav__link" href="index.html#contact">تماس با ما</a>
+        <a class="site-nav__cta" href="index.html#contact">درخواست مشاوره</a>
+      </nav>
+      <div class="site-header__tools">
+        <button class="menu-toggle" type="button" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="error-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
   <main class="box">
     <div class="code" aria-hidden="true">۴۰۴</div>
     <h1>صفحه‌ای که به دنبال آن بودید پیدا نشد</h1>
@@ -112,6 +148,7 @@
       قزوین، اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴ — تلفن ۰۹۱۲ ۲۸۱ ۵۱۸۹
     </p>
   </main>
+  <script src="assets/js/navigation.js" defer></script>
   <script src="assets/js/service-pages.js" defer></script>
 </body>
 </html>
