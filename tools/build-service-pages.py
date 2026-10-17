@@ -522,11 +522,11 @@ def detailed_food_page(service: dict) -> str:
         service["image_webp"],
         food_page=True,
     ) + header() + f'''\n  <main id="main-content">
-    <div class="container page-crumbs" aria-label="مسیر صفحه">
+    <nav class="container page-crumbs" aria-label="مسیر صفحه">
       <a href="../index.html">خانه</a><span class="page-crumbs__separator">/</span>
       <a href="index.html">خدمات</a><span class="page-crumbs__separator">/</span>
       <span aria-current="page">تأمین غذای پرسنل و وعده‌های سازمانی</span>
-    </div>
+    </nav>
 {detail}
   </main>
 {footer()}
