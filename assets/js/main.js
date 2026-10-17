@@ -579,12 +579,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const metaDescription = document.querySelector('meta[name="description"]');
-    // لینک‌های منو (دسکتاپ، موبایل و فوتر) صفحهٔ جاری را نشان می‌دهند؛ لینک‌های
-    // لنگرهای داخلی هر صفحه در این فهرست قرار ندارند؛ لینک‌های جزئیات خدمات
-    // اکنون به صفحهٔ مستقل همان خدمت می‌روند، پس وضعیت منو اشتباه نمی‌گیرد.
-    const menuLinks = Array.from(
-      document.querySelectorAll('.nav-menu__link, .site-nav__link, .mobile-drawer__link, .footer__link')
-    );
+    // پیوندهای فوتر صفحهٔ جاری را نشان می‌دهند؛ لنگرهای داخلی هر صفحه در این
+    // فهرست قرار ندارند و لینک‌های جزئیات خدمات به صفحات مستقل می‌روند.
+    const menuLinks = Array.from(document.querySelectorAll('.footer__link'));
 
     // اعلام تغییر صفحه برای صفحه‌خوان‌ها
     let liveRegion = document.getElementById('route-announcer');

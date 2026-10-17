@@ -3,11 +3,9 @@
   'use strict';
 
   function initServicePageEnhancements() {
-    const header = document.querySelector('.site-header');
     const progress = document.querySelector('.scroll-progress');
     const updateScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
-      if (header) header.classList.toggle('is-scrolled', scrollY > 12);
       if (progress) {
         const max = document.documentElement.scrollHeight - window.innerHeight;
         progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
