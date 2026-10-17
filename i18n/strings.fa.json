@@ -15,7 +15,7 @@
     "fr"
   ],
   "count": 875,
-  "countStructured": 58,
+  "countStructured": 57,
   "strings": {
     "chrome.001": {
       "fa": "قزوین تصویر | بازرگانی، واردات و صادرات، ترابری و تأمین غذای پرسنل — تأسیس ۱۳۷۴",
@@ -3341,15 +3341,14 @@
       "ctx": "div.div.food-menu__tabs-area.reveal"
     },
     "personnel-food.062": {
-      "fa": "نان سنگک، پنیر لیقوان و گردو",
-      "kind": "text",
+      "fa": "نان سنگک تازه با پنیر لیقوان، گردو و چای داغ",
+      "kind": "attr:alt",
       "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.063": {
-      "fa": "از ۶۵٬۰۰۰ تومان",
+      "fa": "نان سنگک، پنیر لیقوان و گردو",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۶۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.064": {
       "fa": "نان سنگک تازه، پنیر لیقوان، گردو، سبزی خوردن و یک لیوان چای پررنگ.",
@@ -3357,15 +3356,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.065": {
-      "fa": "املت گوجه‌فرنگی با تخم‌مرغ محلی",
-      "kind": "text",
+      "fa": "املت گوجه‌فرنگی ایرانی با تخم‌مرغ محلی و نان تست",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.066": {
-      "fa": "از ۷۸٬۰۰۰ تومان",
+      "fa": "املت گوجه‌فرنگی با تخم‌مرغ محلی",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۷۸٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.067": {
       "fa": "املت گرم با تخم‌مرغ تازه، گوجه‌فرنگی و ادویه ملایم، سرو با نان تست.",
@@ -3373,15 +3371,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.068": {
-      "fa": "حلیم گندم با دارچین",
-      "kind": "text",
+      "fa": "حلیم گندم سنتی با کره، دارچین و شکر",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.069": {
-      "fa": "از ۸۵٬۰۰۰ تومان",
+      "fa": "حلیم گندم با دارچین",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۸۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.070": {
       "fa": "حلیم گرم و لعاب‌دار پخته‌شده در آشپزخانه مرکزی، همراه با دارچین، شکر و نان تازه.",
@@ -3389,15 +3386,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.071": {
-      "fa": "صبحانه سبک کارمندی",
-      "kind": "text",
+      "fa": "صبحانه سبک کارمندی با نان بربری، کره، عسل و مربا",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.072": {
-      "fa": "از ۵۵٬۰۰۰ تومان",
+      "fa": "صبحانه سبک کارمندی",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۵۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.073": {
       "fa": "کیک تازه، شیرینی خشک، پنیر بسته‌بندی‌شده و نوشیدنی گرم یا سرد.",
@@ -3415,15 +3411,14 @@
       "ctx": "div.div.food-panels"
     },
     "personnel-food.076": {
-      "fa": "چلوکباب کوبیده",
-      "kind": "text",
+      "fa": "چلوکباب کوبیده با برنج زعفرانی، گوجه کبابی و سماق",
+      "kind": "attr:alt",
       "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.077": {
-      "fa": "از ۱۴۵٬۰۰۰ تومان",
+      "fa": "چلوکباب کوبیده",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۱۴۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.078": {
       "fa": "دو سیخ کوبیده گوشت تازه، برنج ایرانی، گوجه کبابی، کره، سالاد فصل و ماست.",
@@ -3431,15 +3426,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.079": {
-      "fa": "زرشک‌پلو با مرغ",
-      "kind": "text",
+      "fa": "زرشک‌پلو با مرغ زعفرانی، زرشک و پسته",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.080": {
-      "fa": "از ۱۳۵٬۰۰۰ تومان",
+      "fa": "زرشک‌پلو با مرغ",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۱۳۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.081": {
       "fa": "ران مرغ زعفرانی، برنج ایرانی با زرشک و خلال پسته، سالاد شیرازی و ماست.",
@@ -3447,15 +3441,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.082": {
-      "fa": "قیمه بادمجان با برنج ایرانی",
-      "kind": "text",
+      "fa": "قیمه بادمجان با لوبیا و بادمجان سرخ‌شده روی برنج",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.083": {
-      "fa": "از ۱۲۰٬۰۰۰ تومان",
+      "fa": "قیمه بادمجان با برنج ایرانی",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۱۲۰٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.084": {
       "fa": "خورش لپه و گوشت با بادمجان سرخ‌شده، برنج ایرانی، ماست و ترشی خانگی.",
@@ -3463,15 +3456,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.085": {
-      "fa": "چلوجوجه زعفرانی (پرس رژیمی)",
-      "kind": "text",
+      "fa": "چلوجوجه زعفرانی با برنج، گوجه کبابی و سالاد تازه",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.086": {
-      "fa": "از ۱۵۵٬۰۰۰ تومان",
+      "fa": "چلوجوجه زعفرانی (پرس رژیمی)",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۱۵۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.087": {
       "fa": "جوجه بی‌استخوان مزه‌دارشده، کره زعفرانی، گوجه کبابی و سبزیجات بخارپز.",
@@ -3489,15 +3481,14 @@
       "ctx": "div.div.food-panels"
     },
     "personnel-food.090": {
-      "fa": "قورمه‌سبزی با برنج",
-      "kind": "text",
+      "fa": "قورمه‌سبزی با لوبیا قرمز و گوشت روی برنج ایرانی",
+      "kind": "attr:alt",
       "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.091": {
-      "fa": "از ۱۳۵٬۰۰۰ تومان",
+      "fa": "قورمه‌سبزی با برنج",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۱۳۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.092": {
       "fa": "خورش قورمه‌سبزی با گوشت و لوبیا قرمز، برنج ایرانی، ترشی و ماست.",
@@ -3505,15 +3496,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.093": {
-      "fa": "کوکو سبزی با نان سنگک",
-      "kind": "text",
+      "fa": "کوکو سبزی با زرشک و گردو همراه نان سنگک",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.094": {
-      "fa": "از ۹۵٬۰۰۰ تومان",
+      "fa": "کوکو سبزی با نان سنگک",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۹۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.095": {
       "fa": "کوکو سبزی خانگی، نان سنگک تازه، ماست چکیده و سبزیجات تازه.",
@@ -3521,15 +3511,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.096": {
-      "fa": "سوپ جو و سبزیجات",
-      "kind": "text",
+      "fa": "سوپ جو و سبزیجات تازه در کاسه سفالی",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.097": {
-      "fa": "از ۷۸٬۰۰۰ تومان",
+      "fa": "سوپ جو و سبزیجات",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۷۸٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.098": {
       "fa": "سوپ گرم خانگی با نان و پنیر؛ سبک و مناسب وعده شب شیفت‌های کاری.",
@@ -3537,15 +3526,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.099": {
-      "fa": "ماهی قزل‌آلای سرخ‌شده",
-      "kind": "text",
+      "fa": "ماهی قزل‌آلای سرخ‌شده با لیمو و سبزی تازه",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.100": {
-      "fa": "از ۱۶۵٬۰۰۰ تومان",
+      "fa": "ماهی قزل‌آلای سرخ‌شده",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۱۶۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.101": {
       "fa": "فیله ماهی تازه، برنج ایرانی، سبزیجات بخارپز و سالاد؛ روزهای مشخص هفته.",
@@ -3563,15 +3551,14 @@
       "ctx": "div.div.food-panels"
     },
     "personnel-food.104": {
-      "fa": "بسته میوه فصل و آبمیوه",
-      "kind": "text",
+      "fa": "بسته میوه فصل با سیب، پرتقال و آبمیوه طبیعی",
+      "kind": "attr:alt",
       "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.105": {
-      "fa": "از ۴۵٬۰۰۰ تومان",
+      "fa": "بسته میوه فصل و آبمیوه",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۴۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "ul.div.food-panel__grid"
     },
     "personnel-food.106": {
       "fa": "میوه شسته و بسته‌بندی‌شده بهداشتی همراه با آبمیوه طبیعی یا آب معدنی.",
@@ -3579,15 +3566,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.107": {
-      "fa": "ساندویچ مرغ گریل (سرو گرم)",
-      "kind": "text",
+      "fa": "ساندویچ مرغ گریل گرم با سبزیجات و نان تست",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.108": {
-      "fa": "از ۸۵٬۰۰۰ تومان",
+      "fa": "ساندویچ مرغ گریل (سرو گرم)",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۸۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.109": {
       "fa": "نان تازه، فیله مرغ گریل‌شده، سبزیجات تازه و سس خانگی؛ سرو گرم.",
@@ -3595,15 +3581,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.110": {
-      "fa": "بسته خشک خط تولید",
-      "kind": "text",
+      "fa": "بسته خشک آجیل، خرما و کشمش برای خط تولید",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.111": {
-      "fa": "از ۳۵٬۰۰۰ تومان",
+      "fa": "بسته خشک خط تولید",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۳۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.112": {
       "fa": "شکلات، بیسکویت و نوشیدنی بسته‌بندی‌شده؛ مناسب مصرف در خط تولید.",
@@ -3611,15 +3596,14 @@
       "ctx": "p.div.dish-card__body"
     },
     "personnel-food.113": {
-      "fa": "دسر تازه روز",
-      "kind": "text",
+      "fa": "دسر تازه روز؛ شله‌زرد زعفرانی با پسته و بادام",
+      "kind": "attr:alt",
       "ctx": "li.ul.dish-list"
     },
     "personnel-food.114": {
-      "fa": "از ۴۵٬۰۰۰ تومان",
+      "fa": "دسر تازه روز",
       "kind": "text",
-      "ctx": "span.div.dish-card__head",
-      "html": "از ۴۵٬۰۰۰ <small>تومان</small>"
+      "ctx": "li.ul.dish-list"
     },
     "personnel-food.115": {
       "fa": "ژله، حلوا یا کیک خانگی در بسته‌بندی استاندارد بهداشتی؛ تهیه روزانه.",
@@ -4820,16 +4804,6 @@
       ],
       "block": 1,
       "ctx": "termsOfService"
-    },
-    "jsonld.1.offers.priceSpecification.description": {
-      "fa": "قیمت پایه هر پرس میان‌وعده از ۳۵٬۰۰۰ تومان به بالا؛ قیمت نهایی بر اساس منوی توافق‌شده، تعداد پرس روزانه و تعداد وعده‌ها در قرارداد تعیین می‌شود.",
-      "path": [
-        "offers",
-        "priceSpecification",
-        "description"
-      ],
-      "block": 1,
-      "ctx": "description"
     },
     "jsonld.1.offers.areaServed.name": {
       "fa": "استان قزوین",
