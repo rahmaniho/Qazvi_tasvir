@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 874,
+  "count": 875,
   "countStructured": 58,
   "strings": {
     "chrome.001": {
@@ -366,26 +366,31 @@
       "ctx": "span.div.hero__showcase-header"
     },
     "hero.017": {
+      "fa": "تصویر شاخص قزوین تصویر با لوگوی طلایی شرکت؛ صحنه‌های حمل‌ونقل مسافربری VIP، بندر کانتینری واردات و صادرات و سرویس غذای پرسنل",
+      "kind": "attr:alt",
+      "ctx": "div.div.hero__glass-card"
+    },
+    "hero.018": {
       "fa": "مدیرعامل:",
       "kind": "text",
       "ctx": "div.div.hero__glass-card"
     },
-    "hero.018": {
+    "hero.019": {
       "fa": "سعید امین‌زاده",
       "kind": "text",
       "ctx": "div.div.hero__glass-card"
     },
-    "hero.019": {
+    "hero.020": {
       "fa": "ثبت:",
       "kind": "text",
       "ctx": "div.div.hero__glass-card"
     },
-    "hero.020": {
+    "hero.021": {
       "fa": "سرویس پرسنل صنایع",
       "kind": "text",
       "ctx": "div.div.hero__visual-wrap.reveal"
     },
-    "hero.021": {
+    "hero.022": {
       "fa": "ناوگان مجهز، منظم و شیفتی",
       "kind": "text",
       "ctx": "div.div.float-card.float-card--bottom"
