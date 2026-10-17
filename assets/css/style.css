@@ -1642,12 +1642,14 @@ button, input, select, textarea {
 }
 @media (min-width: 640px) {
   .clients-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 @media (min-width: 1024px) {
   .clients-grid {
-    grid-template-columns: repeat(4, 1fr);
+    /* سه ستونه: کارت‌های عریض‌تر و لوگوهای درشت‌تر — بهینه برای دیوار برندها */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1724,10 +1726,22 @@ button, input, select, textarea {
 /* کارت مشتری با لوگوی رسمی برند (PNG شفاف) — رفتار: سیاه‌وسفید و کم‌رنگ در حالت عادی، رنگی و کامل در هاور */
 .client-card--logo .client-card__logo-wrap {
   width: 100%;
-  height: 88px;
+  height: 92px;
   background: #FFFFFF;
   margin-bottom: 14px;
-  padding: 12px 14px;
+  padding: 10px 12px;
+}
+@media (min-width: 640px) {
+  .client-card--logo .client-card__logo-wrap {
+    height: 108px;
+    padding: 12px 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .client-card--logo .client-card__logo-wrap {
+    height: 120px;
+    padding: 14px 18px;
+  }
 }
 .client-card--logo:hover .client-card__logo-wrap,
 .client-card--logo:focus-within .client-card__logo-wrap {
@@ -1738,13 +1752,27 @@ button, input, select, textarea {
   transform: none;
 }
 .client-card__logo-img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   object-position: center;
   filter: grayscale(1);
-  opacity: 0.65;
+  opacity: 0.7;
   transition: filter var(--dur-base) ease, opacity var(--dur-base) ease, transform var(--dur-base) var(--ease-quint);
+}
+/* هم‌سنجی اپتیکی (Optical sizing): لوگوی مربعی از ارتفاع کامل تایل استفاده می‌کند و
+   لوگوی پهن کوتاه‌تر نمایش داده می‌شود تا وزن بصری همهٔ کارت‌ها یکسان دیده شود؛
+   max-width در صورت نیاز خودش را کوچک می‌کند و نسبت ابعاد حفظ می‌شود. */
+.client-card__logo-img--square {
+  height: 100%;
+}
+.client-card__logo-img--mid {
+  height: 82%;
+}
+.client-card__logo-img--wide {
+  height: 64%;
 }
 .client-card--logo:hover .client-card__logo-img,
 .client-card--logo:focus-within .client-card__logo-img {
