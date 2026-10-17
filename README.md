@@ -21,7 +21,7 @@
 4. [ترابری پرسنل کارخانجات](services/factory-transport.html)
 5. [حمل‌ونقل درون‌شهری و سرویس‌های VIP](services/urban-vip.html)
 6. [سرویس مدارس، ادارات و شرکت‌ها](services/school-office.html)
-7. [تأمین غذای پرسنل و وعده‌های سازمانی](services/personnel-food.html)
+7. [تأمین غذای پرسنل و وعده‌های سازمانی](services/personnel-food.html) — صفحهٔ کامل غذا با هیرو تصویری، مزایا، فرآیند پنج‌مرحله‌ای، منوی چهار وعده با ۱۶ آیتم تصویری، گالری، فرم قرارداد و FAQ
 8. [مشاوره بازرگانی و گشایش](services/trade-consulting.html)
 
 ## ناوبری و تجربهٔ کاربری
