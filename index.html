@@ -363,7 +363,17 @@
         <ul class="nav-menu" role="menubar">
           <li role="none"><a href="#hero" class="nav-menu__link active" role="menuitem">خانه</a></li>
           <li role="none"><a href="#about" class="nav-menu__link" role="menuitem">درباره ما</a></li>
-          <li role="none"><a href="#services" class="nav-menu__link" role="menuitem">خدمات</a></li>
+          <li role="none" class="nav-menu__item--has-dd">
+            <a href="#services" class="nav-menu__link" role="menuitem" aria-haspopup="true">
+              خدمات
+              <svg class="nav-menu__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <ul class="nav-dropdown" role="menu" aria-label="زیرشاخه‌های خدمات">
+              <li role="none"><a href="#services" class="nav-dropdown__link" role="menuitem">بازرگانی، واردات و صادرات</a></li>
+              <li role="none"><a href="#fleet" class="nav-dropdown__link" role="menuitem">حمل‌ونقل و سرویس ایاب‌وذهاب پرسنل</a></li>
+              <li role="none"><a href="#personnel-food" class="nav-dropdown__link" role="menuitem">تأمین غذای پرسنل (کیترینگ)</a></li>
+            </ul>
+          </li>
           <li role="none"><a href="#fleet" class="nav-menu__link" role="menuitem">ناوگان</a></li>
           <li role="none"><a href="#personnel-food" class="nav-menu__link" role="menuitem">غذای پرسنل</a></li>
           <li role="none"><a href="#brands" class="nav-menu__link" role="menuitem">برندها</a></li>
@@ -385,12 +395,14 @@
         </details>
         <!-- QT:LANG-SWITCH:END -->
 
-          <button type="button" class="btn btn-primary btn-sm" data-open-modal aria-label="دریافت مشاوره رایگان">
+          <a href="#contact" class="btn btn-primary btn-sm" aria-label="درخواست مشاوره از قزوین تصویر">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <line x1="9" y1="9" x2="15" y2="9"></line>
+              <line x1="9" y1="13" x2="13" y2="13"></line>
             </svg>
-            <span>مشاوره رایگان</span>
-          </button>
+            <span>درخواست مشاوره</span>
+          </a>
 
           <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="باز کردن منوی موبایل" aria-expanded="false" aria-controls="mobile-drawer">
             <span class="hamburger-line"></span>
@@ -1631,20 +1643,16 @@
           </div>
           <h2 class="section-title">برندهای شاخصی که به قزوین تصویر اعتماد کرده‌اند</h2>
           <p class="section-desc">
-            افتخار بیش از ۳ دهه همراهی با بزرگ‌ترین کارخانجات، نیروگاه‌ها و صنایع بین‌المللی و ملی
+            افتخار بیش از ۳ دهه همراهی با بزرگ‌ترین کارخانجات و صنایع بین‌المللی و ملی
           </p>
         </div>
 
-        <!-- گرید ۶ برند معتبر با طراحی مدرن -->
+        <!-- گرید ۱۱ برند مشتری: ۶ کارت با لوگوی رسمی + ۵ کارت آیکونی (در انتظار لوگو) -->
         <div class="clients-grid reveal">
-          <!-- ۱. نستله (Nestle) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5"></path>
-                <path d="M2 12l10 5 10-5"></path>
-              </svg>
+          <!-- ۱. نستله (Nestlé) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="assets/images/clients/nestle.png" alt="لوگوی نستله" width="480" height="131" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">نستله</h3>
             <span class="client-card__name-en">Nestlé</span>
@@ -1652,99 +1660,56 @@
           </div>
 
           <!-- ۲. ال‌جی (LG) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9 8v8h6"></path>
-                <circle cx="9" cy="9" r="1" fill="currentColor"></circle>
-              </svg>
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="assets/images/clients/lg.png" alt="لوگوی ال‌جی" width="480" height="122" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">ال‌جی</h3>
             <span class="client-card__name-en">LG Electronics</span>
             <span class="client-card__tag">لوازم خانگی و الکترونیک</span>
           </div>
 
-          <!-- ۳. نیروگاه شهید رجایی -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-              </svg>
+          <!-- ۳. گلدایران (Goldiran) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="assets/images/clients/goldiran.png" alt="لوگوی گلدایران" width="480" height="161" loading="lazy" decoding="async">
             </div>
-            <h3 class="client-card__name">نیروگاه شهید رجایی</h3>
-            <span class="client-card__name-en">Shahid Rajaei Plant</span>
-            <span class="client-card__tag">تولید برق و صنایع انرژی</span>
+            <h3 class="client-card__name">گلدایران</h3>
+            <span class="client-card__name-en">Goldiran</span>
+            <span class="client-card__tag">همکار رسمی ال‌جی در ایران</span>
           </div>
 
-          <!-- ۴. آسان پک -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
-            </div>
-            <h3 class="client-card__name">آسان پک</h3>
-            <span class="client-card__name-en">Asan Pack</span>
-            <span class="client-card__tag">صنایع کارتن و بسته‌بندی</span>
-          </div>
-
-          <!-- ۵. نیرومحرکه -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-              </svg>
-            </div>
-            <h3 class="client-card__name">نیرومحرکه</h3>
-            <span class="client-card__name-en">Niru Moharreke</span>
-            <span class="client-card__tag">قوای محرکه و گیربکس</span>
-          </div>
-
-          <!-- ۶. یونیلیور (Unilever) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
+          <!-- ۴. یونیلیور (Unilever) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="assets/images/clients/unilever.png" alt="لوگوی یونیلیور" width="434" height="480" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">یونیلیور</h3>
             <span class="client-card__name-en">Unilever</span>
             <span class="client-card__tag">محصولات بهداشتی و غذایی</span>
           </div>
 
-          <!-- ۷. هنکل (Henkel) -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-              </svg>
+          <!-- ۵. هنکل (Henkel) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="assets/images/clients/henkel.png" alt="لوگوی هنکل" width="480" height="261" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">هنکل</h3>
             <span class="client-card__name-en">Henkel</span>
             <span class="client-card__tag">صنایع شیمیایی و بهداشتی</span>
           </div>
 
-          <!-- ۸. BAT -->
-          <div class="client-card">
-            <div class="client-card__logo-wrap" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
+          <!-- ۶. بریتیش آمریکن تاباکو (BAT) -->
+          <div class="client-card client-card--logo">
+            <div class="client-card__logo-wrap">
+              <img class="client-card__logo-img" src="assets/images/clients/bat.png" alt="لوگوی شرکت بریتیش آمریکن تاباکو" width="451" height="257" loading="lazy" decoding="async">
             </div>
             <h3 class="client-card__name">BAT</h3>
-            <span class="client-card__name-en">BAT</span>
+            <span class="client-card__name-en">British American Tobacco</span>
             <span class="client-card__tag">گروه صنعتی بین‌المللی</span>
           </div>
 
-          <!-- ۹. آلکاپلاستیک -->
+          <!-- ۷. آلکاپلاستیک -->
           <div class="client-card">
             <div class="client-card__logo-wrap" aria-hidden="true">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1758,7 +1723,7 @@
             <span class="client-card__tag">صنایع پلاستیک و پلیمر</span>
           </div>
 
-          <!-- ۱۰. کابل البرز -->
+          <!-- ۸. کابل البرز -->
           <div class="client-card">
             <div class="client-card__logo-wrap" aria-hidden="true">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1771,7 +1736,7 @@
             <span class="client-card__tag">صنایع سیم و کابل</span>
           </div>
 
-          <!-- ۱۱. شیر سحر -->
+          <!-- ۹. شیر سحر -->
           <div class="client-card">
             <div class="client-card__logo-wrap" aria-hidden="true">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1791,7 +1756,7 @@
             <span class="client-card__tag">صنایع لبنی</span>
           </div>
 
-          <!-- ۱۲. AGT -->
+          <!-- ۱۰. AGT -->
           <div class="client-card">
             <div class="client-card__logo-wrap" aria-hidden="true">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1804,13 +1769,27 @@
             <span class="client-card__tag">شرکت صنعتی</span>
           </div>
 
+          <!-- ۱۱. آسان پک -->
+          <div class="client-card">
+            <div class="client-card__logo-wrap" aria-hidden="true">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="client-card__name">آسان پک</h3>
+            <span class="client-card__name-en">Asan Pack</span>
+            <span class="client-card__tag">صنایع کارتن و بسته‌بندی</span>
+          </div>
         </div>
 
         <!-- نوار متحرک مشتریان (Marquee) — تکرار تزئینی نام همکاران برای اثبات اجتماعی -->
         <div class="clients-marquee-wrapper reveal" aria-hidden="true">
           <div class="clients-marquee">
             <span class="clients-marquee__chip">نستله ایران</span>
-            <span class="clients-marquee__chip">گلدایران (ال‌جی)</span>
+            <span class="clients-marquee__chip">گلدایران</span>
+            <span class="clients-marquee__chip">ال‌جی</span>
             <span class="clients-marquee__chip">یونیلیور</span>
             <span class="clients-marquee__chip">هنکل</span>
             <span class="clients-marquee__chip">BAT</span>
@@ -1819,10 +1798,9 @@
             <span class="clients-marquee__chip">شیر سحر</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">آسان پک</span>
-            <span class="clients-marquee__chip">نیروگاه شهید رجایی</span>
-            <span class="clients-marquee__chip">نیرومحرکه</span>
             <span class="clients-marquee__chip">نستله ایران</span>
-            <span class="clients-marquee__chip">گلدایران (ال‌جی)</span>
+            <span class="clients-marquee__chip">گلدایران</span>
+            <span class="clients-marquee__chip">ال‌جی</span>
             <span class="clients-marquee__chip">یونیلیور</span>
             <span class="clients-marquee__chip">هنکل</span>
             <span class="clients-marquee__chip">BAT</span>
@@ -1831,10 +1809,97 @@
             <span class="clients-marquee__chip">شیر سحر</span>
             <span class="clients-marquee__chip">AGT</span>
             <span class="clients-marquee__chip">آسان پک</span>
-            <span class="clients-marquee__chip">نیروگاه شهید رجایی</span>
-            <span class="clients-marquee__chip">نیرومحرکه</span>
           </div>
         </div>
+        <!-- نظرات مشتریان — نمونه‌هایی از بازخورد مشتریان سازمانی -->
+        <div class="testimonials reveal">
+          <h3 class="testimonials__title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            نظرات مشتریان
+          </h3>
+          <div class="testimonials__grid">
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" role="img" aria-label="امتیاز ۵ از ۵ ستاره">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+              </div>
+              <p class="testimonial-card__text">«سه سال است سرویس ایاب‌وذهاب پرسنل کارخانه ما با ناوگان قزوین تصویر انجام می‌شود؛ نظم زمان‌بندی و سلامت خودروها در تمام فصول سال چشمگیر است.»</p>
+              <footer class="testimonial-card__author">
+                <span class="testimonial-card__avatar" aria-hidden="true">ر</span>
+                <div>
+                  <span class="testimonial-card__name">مهندس رضا کریمی</span>
+                  <span class="testimonial-card__role">مدیر لجستیک، شرکت تولیدی صنایع غذایی</span>
+                </div>
+              </footer>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" role="img" aria-label="امتیاز ۵ از ۵ ستاره">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+              </div>
+              <p class="testimonial-card__text">«از عقد قرارداد تا شروع سرویس همه‌چیز شفاف و مستند پیش رفت؛ پاسخگویی سریع مدیریت، عاملی شد که قراردادمان را تمدید کنیم.»</p>
+              <footer class="testimonial-card__author">
+                <span class="testimonial-card__avatar" aria-hidden="true">س</span>
+                <div>
+                  <span class="testimonial-card__name">خانم سارا محمدی</span>
+                  <span class="testimonial-card__role">مدیر منابع انسانی، هلدینگ صنعتی</span>
+                </div>
+              </footer>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" role="img" aria-label="امتیاز ۵ از ۵ ستاره">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>
+              </div>
+              <p class="testimonial-card__text">«تأمین وعده‌های غذایی شیفت شب کارخانه سال‌هاست بر عهده تیم قزوین تصویر است؛ کیفیت منو و پایبندی به نکات بهداشتی رضایت پرسنل را جلب کرده است.»</p>
+              <footer class="testimonial-card__author">
+                <span class="testimonial-card__avatar" aria-hidden="true">م</span>
+                <div>
+                  <span class="testimonial-card__name">آقای مهدی رستمی</span>
+                  <span class="testimonial-card__role">مدیر تدارکات، مجتمع صنعتی</span>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+
+        <!-- نمونه‌کار: مطالعه موردی سرویس پرسنل -->
+        <article class="case-study reveal">
+          <div class="case-study__content">
+            <span class="case-study__badge">نمونه‌کار</span>
+            <h3 class="case-study__title">مدیریت ایاب‌وذهاب ۵۰۰ پرسنل در شهرک صنعتی کاسپین</h3>
+            <p class="case-study__text">
+              طراحی و اجرای سامانه رفت‌وآمد روزانه پرسنل یک مجموعه صنعتی بزرگ در شهرک صنعتی کاسپین؛ شامل برنامه‌ریزی مسیرها بر مبنای محل سکونت کارکنان، تخصیص ناوگان مینی‌بوس و اتوبوس، و پایش روزانه حضور رانندگان — همه‌روزه و در دو شیفت کاری.
+            </p>
+            <a href="#contact" class="btn btn-primary">درخواست مشاوره برای سرویس پرسنل</a>
+          </div>
+          <dl class="case-study__stats">
+            <div class="case-study__stat">
+              <dt>پرسنل تحت پوشش</dt>
+              <dd>۵۰۰+</dd>
+            </div>
+            <div class="case-study__stat">
+              <dt>شیفت کاری روزانه</dt>
+              <dd>۲ شیفت</dd>
+            </div>
+            <div class="case-study__stat">
+              <dt>پوشش خدمت</dt>
+              <dd>۷ روز هفته</dd>
+            </div>
+          </dl>
+        </article>
+
 
         <!-- سوابق همکاری قراردادی — برگرفته از رزومه رسمی شرکت -->
         <div class="clients-history">
@@ -1914,7 +1979,7 @@
           </div>
 
           <p class="clients-history__note reveal">
-            جمع‌اً <strong>۸۴ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است؛ نیروگاه شهید رجایی و نیرومحرکه نیز از دیگر مشتریان قزوین تصویر هستند.
+            جمع‌اً <strong>۸۴ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است.
           </p>
         </div>
       </div>
@@ -2011,7 +2076,7 @@
 
         <div style="text-align: center; margin-top: 20px; font-size: 0.875rem; color: var(--text-muted);" class="reveal">
           <strong style="color: var(--primary-navy);">سابقه همکاری با مجموعه‌های پیشرو:</strong>
-          <span>نستله (Nestlé) • ال‌جی (LG) • نیروگاه شهید رجایی • آسان پک • نیرومحرکه و ده‌ها کارخانه صنعتی کشور</span>
+          <span>نستله (Nestlé) • ال‌جی (LG) • گلدایران • یونیلیور • آسان پک و ده‌ها کارخانه صنعتی کشور</span>
         </div>
       </div>
     </section>
@@ -2078,7 +2143,7 @@
               <div class="spec-row"><dt>رئیس هیئت مدیره</dt><dd>اصغر تقی‌لو</dd></div>
               <div class="spec-row"><dt>نشانی</dt><dd>قزوین، اول خیابان فردوسی، مجتمع تجاری آبادگران، طبقه ششم، اتاق ۶۰۴</dd></div>
               <div class="spec-row"><dt>کد پستی</dt><dd>۳۴۱۳۶۹۱۵۸۹</dd></div>
-              <div class="spec-row"><dt>تلفن</dt><dd>۰۹۱۲ ۲۸۱ ۵۱۸۹</dd></div>
+              <div class="spec-row"><dt>تلفن</dt><dd><a href="tel:+989122815189" class="tel-link">۰۹۱۲ ۲۸۱ ۵۱۸۹</a></dd></div>
               <div class="spec-row"><dt>وضعیت</dt><dd>فعال</dd></div>
             </dl>
           </article>
@@ -2144,7 +2209,8 @@
           </h3>
           <ul class="amenity-chips">
             <li class="amenity-chip">نستله ایران</li>
-            <li class="amenity-chip">گلدایران (ال‌جی)</li>
+            <li class="amenity-chip">گلدایران</li>
+            <li class="amenity-chip">ال‌جی</li>
             <li class="amenity-chip">یونیلیور</li>
             <li class="amenity-chip">هنکل</li>
             <li class="amenity-chip">BAT</li>
@@ -2153,8 +2219,6 @@
             <li class="amenity-chip">شیر سحر</li>
             <li class="amenity-chip">AGT</li>
             <li class="amenity-chip">آسان پک</li>
-            <li class="amenity-chip">نیروگاه شهید رجایی</li>
-            <li class="amenity-chip">نیرومحرکه</li>
           </ul>
           <a href="#clients" class="resume-clients__link" aria-label="مشاهده جدول کامل سوابق همکاری">جدول کامل سوابق همکاری و تعداد دستگاه‌ها ←</a>
         </div>
@@ -3439,6 +3503,7 @@
                   <option value="both">هر دو حوزه (بازرگانی و ترابری)</option>
                   <option value="trade">بازرگانی، واردات و صادرات و ترخیص گمرکی</option>
                   <option value="transport">ترابری و سرویس ایاب‌وذهاب پرسنل</option>
+                  <option value="food">تأمین غذای پرسنل (کیترینگ سازمانی)</option>
                   <option value="consultation">مشاوره تخصصی و امور ارزی</option>
                 </select>
                 <label for="contact-service" class="form-label" style="top: -10px; right: 14px; font-size: 0.775rem; font-weight: 700; color: var(--sky-blue); background: #FFFFFF;">نوع خدمت مورد نظر</label>
@@ -3791,55 +3856,6 @@
       <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
     <span id="toast-text">شماره ۰۹۱۲۲۸۱۵۱۸۹ با موفقیت کپی شد!</span>
-  </div>
-
-  <!-- مدال مشاوره رایگان (Quick Consultation Modal) -->
-  <div id="consultation-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-container">
-      <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="بستن پنجره مشاوره">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div style="margin-bottom: 20px;">
-        <span class="section-label" style="font-size: 0.75rem; margin-bottom: 8px;">مشاوره رایگان تخصصی</span>
-        <h3 id="modal-title" style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 6px;">
-          درخواست مشاوره و استعلام قیمت
-        </h3>
-        <p style="font-size: 0.875rem;">شماره خود را ثبت کنید تا کارشناسان ما سریعاً با شما تماس حاصل فرمایند.</p>
-      </div>
-
-      <form id="modal-form">
-        <div class="form-group">
-          <input type="text" id="modal-name" class="form-control" placeholder=" " required>
-          <label for="modal-name" class="form-label">نام یا نام شرکت</label>
-        </div>
-
-        <div class="form-group">
-          <input type="tel" id="modal-phone" class="form-control" placeholder=" " dir="ltr" style="text-align: right;" required>
-          <label for="modal-phone" class="form-label">شماره تماس همراه (۰۹...) *</label>
-        </div>
-
-        <div class="form-group">
-          <select id="modal-service" class="form-control form-select">
-            <option value="both">بازرگانی و ترابری (هر دو)</option>
-            <option value="trade">بازرگانی و واردات/صادرات</option>
-            <option value="transport">ترابری و سرویس پرسنل</option>
-          </select>
-          <label for="modal-service" class="form-label" style="top: -10px; right: 14px; font-size: 0.775rem; font-weight: 700; color: var(--sky-blue); background: #FFFFFF;">حوزه مشاوره</label>
-        </div>
-
-        <button type="submit" id="modal-submit-btn" class="btn btn-primary btn-full" style="padding: 14px;">
-          ثبت درخواست مشاوره رایگان
-        </button>
-
-        <div style="text-align: center; margin-top: 16px; font-size: 0.8125rem; color: var(--text-muted);">
-          یا تماس مستقیم با: <a href="tel:+989122815189" style="color: var(--primary-navy); font-weight: 700;">۰۹۱۲ ۲۸۱ ۵۱۸۹</a>
-        </div>
-      </form>
-    </div>
   </div>
 
   <!-- اسکریپت جاوااسکریپت اصلی -->
