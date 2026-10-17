@@ -14,7 +14,7 @@
     "prs",
     "fr"
   ],
-  "count": 877,
+  "count": 886,
   "countStructured": 57,
   "strings": {
     "chrome.001": {
@@ -607,14 +607,59 @@
       "ctx": "a.article.service-mini-card.reveal"
     },
     "services.021": {
-      "fa": "تماس با ما",
-      "kind": "attr:aria-label",
+      "fa": "صفحات تخصصی هر خدمت",
+      "kind": "text",
       "ctx": "div.div.container"
     },
     "services.022": {
+      "fa": "واردات و صادرات کالاهای مجاز",
+      "kind": "text",
+      "ctx": "div.div.services-pages.reveal"
+    },
+    "services.023": {
+      "fa": "ترخیص گمرکی و امور بندری",
+      "kind": "text",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.024": {
+      "fa": "تأمین مواد اولیه و تجهیزات",
+      "kind": "text",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.025": {
+      "fa": "ترابری پرسنل کارخانجات",
+      "kind": "text",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.026": {
+      "fa": "حمل‌ونقل درون‌شهری و سرویس‌های VIP",
+      "kind": "text",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.027": {
+      "fa": "سرویس مدارس، ادارات و شرکت‌ها",
+      "kind": "text",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.028": {
+      "fa": "تأمین غذای پرسنل و وعده‌های سازمانی",
+      "kind": "text",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.029": {
+      "fa": "مشاوره بازرگانی و گشایش",
+      "kind": "text",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.030": {
+      "fa": "تماس با ما",
+      "kind": "attr:aria-label",
+      "ctx": "span.a.services-pages__link"
+    },
+    "services.031": {
       "fa": "تماس با ما",
       "kind": "text",
-      "ctx": "div.div.container"
+      "ctx": "span.a.services-pages__link"
     },
     "fleet.001": {
       "fa": "ناوگان ترابری شرکت قزوین تصویر",

@@ -373,6 +373,8 @@ def build_language(lang: str, master: str, strings: dict,
     # asset paths are relative → one level deeper needs a prefix
     if lang != "fa":
         html = re.sub(r'(href|src|srcset)="assets/', rf'\1="../assets/', html)
+        # نکته: لینک‌های services/ عمداً دست‌نخورده می‌مانند — en/index.html
+        # و en/services/ هر دو زیر پوشهٔ en/ هستند، پس همان مسیر نسبی درست است.
         html = html.replace('href="robots.txt"', 'href="../robots.txt"')
         html = html.replace("url('../images/karensoft/", "url('../../assets/images/karensoft/")
     return html
@@ -502,6 +504,14 @@ def main() -> None:
     print(f"  ✓ sitemap.xml updated ({len(available)} languages)")
 
 
+def service_pages() -> "list[str]":
+    """اسلاگ صفحات تخصصی خدمات (services/<slug>.html) به ترتیب الفبای مسیر."""
+    d = ROOT / "services"
+    if not d.is_dir():
+        return []
+    return sorted(p.stem for p in d.glob("*.html"))
+
+
 def write_sitemap(available: list[str]) -> None:
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
@@ -518,6 +528,33 @@ def write_sitemap(available: list[str]) -> None:
         lines.append("    <changefreq>monthly</changefreq>")
         lines.append(f'    <priority>{"1.0" if code == "fa" else "0.9"}</priority>')
         lines.append("  </url>")
+
+    # صفحات تخصصی خدمات — هر زبانِ آماده نسخهٔ خودش را دارد
+    for slug in service_pages():
+        for code in available:
+            if code == "fa":
+                url = f"{SITE_ORIGIN}/services/{slug}.html"
+            elif (ROOT / code / "services" / f"{slug}.html").exists():
+                url = f"{SITE_ORIGIN}/{code}/services/{slug}.html"
+            else:
+                continue
+            lines.append("  <url>")
+            lines.append(f"    <loc>{url}</loc>")
+            for alt in available:
+                if code == "fa" and alt == "fa":
+                    alt_url = url
+                elif alt == "fa":
+                    alt_url = f"{SITE_ORIGIN}/services/{slug}.html"
+                elif (ROOT / alt / "services" / f"{slug}.html").exists():
+                    alt_url = f"{SITE_ORIGIN}/{alt}/services/{slug}.html"
+                else:
+                    continue
+                lines.append(f'    <xhtml:link rel="alternate" hreflang="{LANGS[alt]["hreflang"]}" href="{alt_url}"/>')
+            lines.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE_ORIGIN}/services/{slug}.html"/>')
+            lines.append("    <lastmod>2026-10-17</lastmod>")
+            lines.append("    <changefreq>monthly</changefreq>")
+            lines.append(f'    <priority>{"0.9" if code == "fa" else "0.8"}</priority>')
+            lines.append("  </url>")
     lines.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
