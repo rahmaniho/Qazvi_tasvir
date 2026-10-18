@@ -38,7 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // فاز ۴-۵: در حالت کاهش حرکت، اسکرول نرم انجام نمی‌شود
+      const reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   }
 
@@ -757,7 +760,8 @@ document.addEventListener('DOMContentLoaded', () => {
       window.requestAnimationFrame(updateParallax);
     }
   }, { passive: true });
-  window.addEventListener('resize', updateParallax);
+  // فاز ۴-۵: listenerهای scroll/resize باید passive باشند
+  window.addEventListener('resize', updateParallax, { passive: true });
   updateParallax();
 })();
 

@@ -704,3 +704,21 @@ body.qt-sidebar-shell {
     transform: none;
   }
 }
+
+/* فاز ۴-۳ (۲۰۲۶-۱۰-۱۸) — کاهش حرکت جامع: همهٔ انیمیشن‌ها و ترنزیشن‌های حرکتی
+   صفحه (ناوبری + لندینگ + صفحات خدمات) در یک نقطه خاموش می‌شوند. بلاک بالا
+   برای جزئیات ناوبری باقی می‌ماند؛ این بلاک چتری است.
+   دلیل !important: الگوی استاندارد global reduced-motion است و باید بر هر
+   animation/transition تعریف‌شده در شیت‌های دیگر — با هر specificity —
+   غلبه کند تا کاربران با حساسیت حرکتی محافظت شوند؛ جایگزینِ عملیِ بدونِ
+   !important برای پوشش کامل وجود ندارد. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -2258,8 +2258,9 @@
   </div>
 
   <!-- اسکریپت جاوااسکریپت اصلی -->
-  <script src="assets/js/navigation.js"></script>
-  <script src="assets/js/service-pages.js"></script>
-  <script src="assets/js/main.js"></script>
+  <!-- فاز ۴-۲: defer برای یکدستی با 404.html؛ ترتیب اجرا حفظ می‌شود و parse متوقف نمی‌شود -->
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/service-pages.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

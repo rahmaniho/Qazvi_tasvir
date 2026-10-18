@@ -116,7 +116,25 @@
 
 ## فاز ۴ — عملکرد و لود
 
-_(در انتظار اجرا)_
+| مورد | وضعیت |
+|---|---|
+| ۴-۱. تصاویر | ✅ از قبل برقرار (اثبات فاز ۰): همهٔ `<img>`ها `width/height`، تصویر hero با `fetchpriority="high"` + `loading="eager"`، بقیه `loading="lazy"` + `decoding="async"` — بدون تغییر |
+| ۴-۲. defer | ✅ هر ۳ اسکریپت index.html (navigation/service-pages/main) حالا `defer` دارند؛ ترتیب اجرا حفظ می‌شود و با 404.html هماهنگ است. تغییر رفتاری: ناوبری به‌جای اجرای فوری در انتهای parse، درست پیش از DOMContentLoaded اجرا می‌شود — navigation.js و service-pages.js گارد `readyState` دارند و main.js خود در DOMContentLoaded قرار دارد |
+| ۴-۳. prefers-reduced-motion | ✅ بلاک چتری `*` + شبه‌عنصرها در nav-base.css افزوده شد (۴ اعلان `!important` موجه با کامنت دلیل — الگوی استاندارد). انیمیشن‌های ذکرشده در پرامپت (glass-border-flow, glass-sheen, glass-menu-in, qt-glass-sweep, qt-nav-row-in, qt-nav-tap, qt-sidebar-overlay-in) **در کد‌بیس فعلی وجود ندارند** (اثبات grep فاز ۰) — بلاک چتری هر افکت آینده را هم پوشش می‌دهد؛ بلاک جزئی‌نمای قبلی ناوبری هم حفظ شد |
+| ۴-۴. backdrop-filter موبایل | ✅ برای ناوبری برقرار: nav/*.css صفر backdrop-filter دارد و قانون `blur(14px)` روی `.navbar` مرده در فاز ۲ حذف شد. باقی blurها (کارت‌های شیشه‌ای لندینگ در style.css و food-service.css) **بخش‌های غیرناوبری‌اند و تغییرشان خارج از فایل‌های مجاز این پرامپت است** — در سکشن «انجام‌نشده» آمده |
+| ۴-۵. Listeners | ✅ resize پارالاکس main.js → `{ passive: true }` (تنها listener غیرpassive بود). همهٔ scrollها از قبل passive بودند. هر سه IntersectionObserver بعد از اتمام `unobserve`/`disconnect` می‌شوند (از قبل). اسکرول نرم back-to-top حالا به prefers-reduced-motion احترام می‌گذارد |
+
+**اندازه‌گیری بودجه (جایگزین Lighthouse)**:
+
+| معیار | پایه | بعد از فاز ۴ | هدف | وضعیت |
+|---|---|---|---|---|
+| nav CSS مجموع (gzip) | ۵٬۳۴۴ B | ۷٬۵۰۸ B | < ۶۰KB | ✅ (~۸ برابر زیر سقف؛ رشد عمدتاً کامنت‌های فارسی تاریخ‌دار است) |
+| style.css خام | ۱۶۳٬۶۰۲ B | ۱۵۶٬۴۷۵ B (−۷٬۱۲۷ B) | — | ✅ کوچک‌تر |
+| اسکریپت بدون defer | ۳ | ۰ | ۰ | ✅ |
+| listener غیرpassive (scroll/resize) | ۱ (resize پارالاکس) | ۰ | ۰ | ✅ |
+| تصویر بدون width/height | ۰ | ۰ | ۰ | ✅ |
+
+> ⚠️ **Lighthouse قابل اجرا نیست**: محیط فاقد Chrome/Chromium است و دانلود آن با محدودیت شبکه ممکن نیست. امتیازهای Performance ≥90/≥80 و Accessibility ≥95 و CLS < 0.1 به‌صورت استاتیک ردیابی شدند (بودجهٔ بالا + صفر تغییر ابعادی layout-critical + هیچ قانون بازدارندهٔ رندر جدید). اجرای Lighthouse روی خروجی نهایی، در «کارهای باقی» ثبت شد. این یک شرط توقف نیست چون «ناتوانی از رسیدن به هدف با تغییرات مجاز» محقق نشده — خود ابزار در دسترس نیست.
 
 ## فاز ۵ — UX
 
