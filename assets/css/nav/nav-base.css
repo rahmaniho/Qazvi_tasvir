@@ -9,9 +9,12 @@ body.qt-sidebar-shell {
   overflow-x: hidden;
 }
 
+/* فاز ۱-۴: position دیگر به ترتیب لود وابسته نیست — در این فایل فقط داخل
+   @media (max-width: 1023px) مقدار sticky می‌گیرد و نسخهٔ دسکتاپ (fixed)
+   فقط در nav-sidebar.css داخل @media (min-width: 1024px) تعریف می‌شود. */
+/* کلاس .scrolled را main.js با اسکرول > ۴۰px به .site-header می‌افزاید
+   (قلاب حالتی؛ در این شیت عمداً بدون استایل بصری است). */
 .site-header {
-  position: sticky;
-  inset-block-start: 8px;
   z-index: 1200;
   width: calc(100% - 16px);
   min-height: 64px;
@@ -169,7 +172,7 @@ body.qt-sidebar-shell {
   border: 1px solid transparent;
   border-radius: 2px;
   color: var(--qt-sidebar-muted);
-  font-size: .78rem;
+  font-size: .82rem; /* فاز ۳-۲: از .78rem برای خوانایی بهتر */
   font-weight: 700;
   line-height: 1.45;
   transition: background var(--qt-sidebar-fast), border-color var(--qt-sidebar-fast), color var(--qt-sidebar-fast), box-shadow var(--qt-sidebar-fast);
@@ -185,6 +188,34 @@ body.qt-sidebar-shell {
 .site-nav > .site-nav__item--services.is-open > .site-nav__link {
   background: var(--qt-sidebar-accent);
   color: #fff;
+}
+
+/* فاز ۳-۳ — حالت active: گرادیان accentها + نشانگر لبه به‌جای رنگ توپر.
+   لبه با inset روی سمت inline-start می‌نشیند: راست در RTL، چپ در LTR. */
+.site-nav > .site-nav__link.is-active,
+.site-nav > .site-nav__link.active,
+.site-nav > .site-nav__link[aria-current="page"] {
+  background: linear-gradient(90deg, var(--qt-sidebar-accent), var(--qt-sidebar-accent-hover));
+  box-shadow: inset -3px 0 0 var(--qt-sidebar-edge);
+}
+
+[dir="ltr"] .site-nav > .site-nav__link.is-active,
+[dir="ltr"] .site-nav > .site-nav__link.active,
+[dir="ltr"] .site-nav > .site-nav__link[aria-current="page"] {
+  box-shadow: inset 3px 0 0 var(--qt-sidebar-edge);
+}
+
+/* فاز ۲-۱: تریگر کشویی خدمات در index.html و 404.html از ‎<a>‎ به ‎<button>‎
+   تبدیل شد (الگوی Disclosure). این بلاک سبک بومی دکمه را خنثی می‌کند تا
+   دقیقاً همان ظاهر قبلی حفظ شود؛ رنگ، آیکون، اندازه و حالت‌ها از قوانین
+   مشترک ‎.site-nav__link‎ بالا و پایین می‌آیند. */
+.site-nav__item--services > button.site-nav__link {
+  margin: 0;
+  font-family: inherit;
+  letter-spacing: inherit;
+  text-align: start;
+  background: none;
+  cursor: pointer;
 }
 
 .site-nav__item--services {
@@ -552,6 +583,8 @@ body.qt-sidebar-shell {
   }
 
   .site-header {
+    position: sticky; /* فاز ۱-۴: sticky حصری موبایل/تبلت (≤1023px) */
+    inset-block-start: 8px;
     width: calc(100% - 16px);
     margin-block-start: 8px;
   }
@@ -626,8 +659,10 @@ body.qt-sidebar-shell {
     margin-block-start: 8px;
   }
 
+  /* فاز ۵-۵: «پیام‌ها» در دراور موبایل شلوغی غیرضروری بود و مخفی می‌ماند؛
+     پروفایل به‌عنوان میان‌بر ساده (لینک «درباره ما») حفظ می‌شود. */
   .site-nav__messages {
-    margin-block-start: 20px;
+    display: none;
   }
 
   .site-nav__profile {
@@ -669,5 +704,23 @@ body.qt-sidebar-shell {
   .site-nav__profile:hover,
   .site-nav__item--services > .site-nav__link::after {
     transform: none;
+  }
+}
+
+/* فاز ۴-۳ (۲۰۲۶-۱۰-۱۸) — کاهش حرکت جامع: همهٔ انیمیشن‌ها و ترنزیشن‌های حرکتی
+   صفحه (ناوبری + لندینگ + صفحات خدمات) در یک نقطه خاموش می‌شوند. بلاک بالا
+   برای جزئیات ناوبری باقی می‌ماند؛ این بلاک چتری است.
+   دلیل !important: الگوی استاندارد global reduced-motion است و باید بر هر
+   animation/transition تعریف‌شده در شیت‌های دیگر — با هر specificity —
+   غلبه کند تا کاربران با حساسیت حرکتی محافظت شوند؛ جایگزینِ عملیِ بدونِ
+   !important برای پوشش کامل وجود ندارد. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -65,7 +65,7 @@
         messages: 'Messages',
         addMessage: 'New message',
         profileRole: 'Managing Director',
-        profileAction: 'Open contact section',
+        profileAction: 'Open about section',
         messagesList: [
           ['QT', 'Consultation requests'],
           ['FL', 'Fleet coordination'],
@@ -78,7 +78,7 @@
         messages: 'پیام‌ها',
         addMessage: 'پیام جدید',
         profileRole: 'مدیریت شرکت',
-        profileAction: 'رفتن به بخش تماس',
+        profileAction: 'رفتن به بخش دربارهٔ ما',
         messagesList: [
           ['ق', 'درخواست‌های مشاوره'],
           ['ن', 'هماهنگی ناوگان'],
@@ -97,6 +97,10 @@
       const copy = pageCopy();
       const contact = nav.querySelector('a[href*="#contact"]');
       const contactHref = contact ? contact.getAttribute('href') : '#contact';
+      // فاز ۵-۵: پروفایل به بخش «درباره ما» لینک می‌شود (معرفی مدیریت)؛
+      // اگر در صفحه‌ای لینک about نبود، همان مسیر تماس قبلی fallback است.
+      const about = nav.querySelector('a[href*="#about"]');
+      const profileHref = about ? about.getAttribute('href') : contactHref;
 
       let searchInput = nav.querySelector('.site-nav__search-input');
       if (!searchInput) {
@@ -162,7 +166,7 @@
       if (!nav.querySelector('.site-nav__profile')) {
         const profile = document.createElement('a');
         profile.className = 'site-nav__profile';
-        profile.href = contactHref;
+        profile.href = profileHref;
         profile.setAttribute('aria-label', copy.profileAction);
         profile.innerHTML = `<img src="${assetUrl('assets/images/saeed-aminzadeh-avatar.webp')}" alt="" width="38" height="38">`
           + `<span class="site-nav__profile-copy"><strong>${document.documentElement.lang === 'en' ? 'Saeed Aminzadeh' : 'سعید امین‌زاده'}</strong><small>${copy.profileRole}</small></span>`
@@ -231,6 +235,14 @@
     controllers.forEach(enhanceSidebar);
     document.body.classList.add('qt-sidebar-shell');
 
+    // فاز ۵-۱: همگام‌سازی aria-current با مارکر استاتیک is-active — صفحات
+    // خدمات و ۴۰۴ این کلاس را در HTML می‌آورند و فایل ممنوع/دست‌نخورده‌اند،
+    // پس صفت aria-current این‌جا تکمیل می‌شود. در SPA، روترِ main.js همین
+    // صفت را با هر hashchange روی لینک‌های منو مدیریت می‌کند.
+    document.querySelectorAll('.site-nav__link.is-active').forEach(link => {
+      if (!link.hasAttribute('aria-current')) link.setAttribute('aria-current', 'page');
+    });
+
     const dropdowns = Array.from(document.querySelectorAll(
       '.nav-menu__item--has-dd, .site-nav__item--services'
     )).map(item => {
@@ -244,21 +256,16 @@
           : 'service-pages-menu';
       }
 
-      trigger.setAttribute('aria-haspopup', 'true');
+      // فاز ۲-۲: الگوی Disclosure ناوبری — برای زیرمنوی لینک‌ها aria-haspopup و
+      // role="menu" نمی‌گذاریم (آن‌ها برای منوهای اپلیکیشن‌اند، نه ناوبری سایت).
       trigger.setAttribute('aria-expanded', 'false');
       trigger.setAttribute('aria-controls', panel.id);
-      panel.setAttribute('role', 'menu');
       panel.setAttribute('aria-hidden', 'true');
 
       return { item, trigger, panel, ignoreFocusOpen: false };
     }).filter(Boolean);
 
     let openDropdown = null;
-
-    function syncBodyLock() {
-      const open = controllers.some(controller => controller.nav.classList.contains('is-open'));
-      document.body.classList.toggle('service-nav-open', open);
-    }
 
     function syncSidebarToggle(controller) {
       if (!controller.header || isMobile()) {
@@ -272,6 +279,25 @@
       controller.toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
       controller.toggle.setAttribute('aria-label', collapsed
         ? controller.expandLabel : controller.collapseLabel);
+    }
+
+    // فاز ۱-۲: تابع واحد وضعیت منو. کلاس is-open، صفت aria-hidden ناوبری
+    // (فقط در حالت drawer موبایل؛ ریل دسکتاپ همیشه در دسترس است)، وضعیت
+    // aria-expanded/برچسب دکمه (از طریق syncSidebarToggle تا حالت collapse
+    // دسکتاپ هم درست بماند)، کلاس قفل body و overflow این‌لاین — همه در یک
+    // نقطه و هم‌زمان. هر مسیر باز/بسته کردن منو فقط همین تابع را صدا می‌زند.
+    function setMenuState(controller, open) {
+      const nav = controller.nav;
+      nav.classList.toggle('is-open', open);
+      if (isMobile()) {
+        nav.setAttribute('aria-hidden', String(!open));
+      } else {
+        nav.removeAttribute('aria-hidden');
+      }
+      syncSidebarToggle(controller);
+      const anyOpen = controllers.some(item => item.nav.classList.contains('is-open'));
+      document.body.classList.toggle('service-nav-open', anyOpen);
+      document.body.style.overflow = anyOpen && isMobile() ? 'hidden' : '';
     }
 
     function toggleSidebar(controller) {
@@ -321,9 +347,7 @@
 
     function closeDrawer(controller, restoreFocus) {
       if (!controller) return;
-      controller.nav.classList.remove('is-open');
-      controller.toggle.setAttribute('aria-expanded', 'false');
-      controller.toggle.setAttribute('aria-label', controller.openLabel);
+      setMenuState(controller, false);
       if (restoreFocus) {
         const target = controller.lastFocusedElement || controller.toggle;
         if (target && typeof target.focus === 'function') {
@@ -331,8 +355,6 @@
         }
       }
       controller.lastFocusedElement = null;
-      syncBodyLock();
-      syncSidebarToggle(controller);
     }
 
     function closeDrawers(restoreFocus) {
@@ -354,10 +376,7 @@
     function openDrawer(controller) {
       closeDrawers(false);
       controller.lastFocusedElement = controller.toggle;
-      controller.nav.classList.add('is-open');
-      controller.toggle.setAttribute('aria-expanded', 'true');
-      controller.toggle.setAttribute('aria-label', controller.closeLabel);
-      syncBodyLock();
+      setMenuState(controller, true);
 
       const firstLink = controller.nav.querySelector('a[href]');
       if (firstLink) firstLink.focus({ preventScroll: true });
@@ -389,7 +408,8 @@
         controller.header.setAttribute('data-sidebar-state', 'expanded');
       }
       document.body.classList.remove('qt-sidebar-collapsed');
-      syncSidebarToggle(controller);
+      // وضعیت اولیه: منو بسته است؛ aria-hidden/aria-expanded همین‌جا سینک می‌شود
+      setMenuState(controller, false);
       controller.toggle.addEventListener('click', () => toggleDrawer(controller));
 
       controller.nav.querySelectorAll('a').forEach(link => {
@@ -417,10 +437,16 @@
       });
 
       trigger.addEventListener('keydown', event => {
-        if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+        // فاز ۲-۱: تریگر ‎<button>‎ با Enter/Space به‌صورت بومی رویداد click
+        // تولید می‌کند و همان کنترلر toggle را صدا می‌زند؛ رهگیری دستی این دو
+        // کلید فقط برای تریگرهای ‎<a>‎ (صفحات خدمات، خارج از محدودهٔ ویرایش)
+        // لازم است تا Enter به‌جای ناوبری، زیرمنو را باز کند.
+        const isNativeButton = trigger.tagName === 'BUTTON';
+        if (event.key === 'ArrowDown' ||
+            (!isNativeButton && (event.key === 'Enter' || event.key === ' '))) {
           event.preventDefault();
           setDropdown(instance, true, false);
-          const firstItem = panel.querySelector('[role="menuitem"], a, button');
+          const firstItem = panel.querySelector('a[href], button');
           if (firstItem) firstItem.focus({ preventScroll: true });
         } else if (event.key === 'Escape') {
           event.preventDefault();
@@ -432,7 +458,7 @@
 
       panel.addEventListener('keydown', event => {
         const menuItems = Array.from(panel.querySelectorAll(
-          '[role="menuitem"], a, button'
+          'a[href], button'
         )).filter(element => !element.disabled && !element.hidden);
         const currentIndex = menuItems.indexOf(document.activeElement);
         if (event.key === 'ArrowDown' || event.key === 'ArrowUp' ||
@@ -474,20 +500,9 @@
       });
     });
 
-    // Tap feedback is shared by the homepage and service navigation.
-    document.querySelectorAll(
-      '.nav-menu__link, .site-nav__link, .nav-dropdown__link, '
-      + '.site-nav__dropdown a, .mobile-drawer__link, .mobile-drawer__service-link'
-    ).forEach(link => {
-      link.addEventListener('pointerdown', () => {
-        link.classList.remove('is-tapped');
-        void link.offsetWidth;
-        link.classList.add('is-tapped');
-      });
-      link.addEventListener('animationend', event => {
-        if (event.animationName === 'qt-nav-tap') link.classList.remove('is-tapped');
-      });
-    });
+    /* فاز ۲-۴ (۲۰۲۶-۱۰-۱۸): بلاک بازخورد لمسی (.is-tapped / qt-nav-tap) حذف شد —
+       نه keyframes مربوطه در هیچ CSSی وجود داشت نه استایلی برای کلاس؛ در نتیجه
+       رویدادها فقط یک کلاس بدون اثر بصری را روشن/خاموش می‌کردند (کد مرده). */
 
     document.addEventListener('click', event => {
       const insideNavigation = controllers.some(controller =>
