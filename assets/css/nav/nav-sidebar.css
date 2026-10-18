@@ -118,9 +118,9 @@
   .site-header .site-nav > .site-nav__item--services > .site-nav__link,
   .site-header .site-nav > .site-nav__cta {
     width: 100%;
-    min-height: 48px;
+    min-height: 48px; /* فاز ۳-۱: از قبل ≥44px بود و حفظ شد (کاهش به ۴۴ پس‌رفت بود) */
     justify-content: flex-start;
-    padding: 10px 22px;
+    padding: 12px 24px; /* فاز ۳-۱: از 10px 22px برای تنفس بهتر */
     border: 0;
     border-radius: 2px;
     box-shadow: none;
@@ -140,6 +140,19 @@
   .site-header .site-nav > .site-nav__item--services > .site-nav__link:focus-visible,
   .site-header .site-nav > .site-nav__item--services.is-open > .site-nav__link {
     box-shadow: 0 8px 18px rgba(6, 45, 135, .24);
+  }
+
+  /* فاز ۳-۳ (دسکتاپ) — آیتم فعال: نشانگر لبهٔ inline-start + حفظ هالهٔ بیرونی */
+  .site-header .site-nav > .site-nav__link.is-active,
+  .site-header .site-nav > .site-nav__link.active,
+  .site-header .site-nav > .site-nav__link[aria-current="page"] {
+    box-shadow: inset -3px 0 0 var(--qt-sidebar-edge), 0 8px 18px rgba(6, 45, 135, .24);
+  }
+
+  [dir="ltr"] .site-header .site-nav > .site-nav__link.is-active,
+  [dir="ltr"] .site-header .site-nav > .site-nav__link.active,
+  [dir="ltr"] .site-header .site-nav > .site-nav__link[aria-current="page"] {
+    box-shadow: inset 3px 0 0 var(--qt-sidebar-edge), 0 8px 18px rgba(6, 45, 135, .24);
   }
 
   .site-header .site-nav > .site-nav__cta {
@@ -358,20 +371,18 @@
     padding-inline: 5px;
   }
 
+  /* فاز ۳-۵ — حالت collapsed: نام کامل برند که در ریل ۶۰px می‌شکست، با حرف
+     نخست برند نمایش داده می‌شود؛ نام کامل روی title لینک برند در HTML است. */
   .site-header.is-collapsed .brand-copy {
-    display: block;
-    max-width: 52px;
-    text-align: center;
+    display: none;
   }
 
-  .site-header.is-collapsed .brand-copy strong {
-    overflow: hidden;
+  .site-header.is-collapsed .brand::after {
+    content: "ق";
     color: #fff;
-    font-size: .72rem;
+    font-size: 1.35rem;
     font-weight: 800;
-    line-height: 1.35;
-    text-overflow: clip;
-    white-space: normal;
+    line-height: 1;
   }
 
   .site-header.is-collapsed .site-nav__section-label,
