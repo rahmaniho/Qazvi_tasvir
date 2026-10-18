@@ -65,7 +65,7 @@
         messages: 'Messages',
         addMessage: 'New message',
         profileRole: 'Managing Director',
-        profileAction: 'Open contact section',
+        profileAction: 'Open about section',
         messagesList: [
           ['QT', 'Consultation requests'],
           ['FL', 'Fleet coordination'],
@@ -78,7 +78,7 @@
         messages: 'پیام‌ها',
         addMessage: 'پیام جدید',
         profileRole: 'مدیریت شرکت',
-        profileAction: 'رفتن به بخش تماس',
+        profileAction: 'رفتن به بخش دربارهٔ ما',
         messagesList: [
           ['ق', 'درخواست‌های مشاوره'],
           ['ن', 'هماهنگی ناوگان'],
@@ -97,6 +97,10 @@
       const copy = pageCopy();
       const contact = nav.querySelector('a[href*="#contact"]');
       const contactHref = contact ? contact.getAttribute('href') : '#contact';
+      // فاز ۵-۵: پروفایل به بخش «درباره ما» لینک می‌شود (معرفی مدیریت)؛
+      // اگر در صفحه‌ای لینک about نبود، همان مسیر تماس قبلی fallback است.
+      const about = nav.querySelector('a[href*="#about"]');
+      const profileHref = about ? about.getAttribute('href') : contactHref;
 
       let searchInput = nav.querySelector('.site-nav__search-input');
       if (!searchInput) {
@@ -162,7 +166,7 @@
       if (!nav.querySelector('.site-nav__profile')) {
         const profile = document.createElement('a');
         profile.className = 'site-nav__profile';
-        profile.href = contactHref;
+        profile.href = profileHref;
         profile.setAttribute('aria-label', copy.profileAction);
         profile.innerHTML = `<img src="${assetUrl('assets/images/saeed-aminzadeh-avatar.webp')}" alt="" width="38" height="38">`
           + `<span class="site-nav__profile-copy"><strong>${document.documentElement.lang === 'en' ? 'Saeed Aminzadeh' : 'سعید امین‌زاده'}</strong><small>${copy.profileRole}</small></span>`
@@ -230,6 +234,14 @@
 
     controllers.forEach(enhanceSidebar);
     document.body.classList.add('qt-sidebar-shell');
+
+    // فاز ۵-۱: همگام‌سازی aria-current با مارکر استاتیک is-active — صفحات
+    // خدمات و ۴۰۴ این کلاس را در HTML می‌آورند و فایل ممنوع/دست‌نخورده‌اند،
+    // پس صفت aria-current این‌جا تکمیل می‌شود. در SPA، روترِ main.js همین
+    // صفت را با هر hashchange روی لینک‌های منو مدیریت می‌کند.
+    document.querySelectorAll('.site-nav__link.is-active').forEach(link => {
+      if (!link.hasAttribute('aria-current')) link.setAttribute('aria-current', 'page');
+    });
 
     const dropdowns = Array.from(document.querySelectorAll(
       '.nav-menu__item--has-dd, .site-nav__item--services'

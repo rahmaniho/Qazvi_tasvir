@@ -659,8 +659,10 @@ body.qt-sidebar-shell {
     margin-block-start: 8px;
   }
 
+  /* فاز ۵-۵: «پیام‌ها» در دراور موبایل شلوغی غیرضروری بود و مخفی می‌ماند؛
+     پروفایل به‌عنوان میان‌بر ساده (لینک «درباره ما») حفظ می‌شود. */
   .site-nav__messages {
-    margin-block-start: 20px;
+    display: none;
   }
 
   .site-nav__profile {
