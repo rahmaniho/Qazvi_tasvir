@@ -78,7 +78,20 @@
 
 ## فاز ۲ — اصلاحات ساختاری
 
-_(در انتظار اجرا)_
+| مورد | اقدام | فایل |
+|---|---|---|
+| ۲-۱. تریگر خدمات → `<button>` | تبدیل `<a>` به `<button type="button">` (الگوی Disclosure) در index.html و 404.html. chevron `::after` فعلی حفظ شد (به‌جای span جدید — بدون تغییر ظاهر و با انیمیشن موجود). ریست سبک بومی دکمه در nav-base.css تا رندر دقیقاً همان بماند. کنترلر کیبورد navigation.js حالا دوحالته است: برای `<button>` فعال‌سازی بومی click (بدون دوبل-toggle)، برای `<a>` (صفحات خدمات — فایل ممنوع) همان رهگیری Enter/Space قبلی | index.html, 404.html, nav-base.css, navigation.js |
+| ۲-۲. حذف `role="menu/menuitem"` | از هر دو فایل مجاز حذف شد؛ پنل `role="group"` گرفت تا `aria-label` فارسی سنجیده بماند. سِت‌کننده‌های JSِ `role="menu"` و `aria-haspopup="true"` هم حذف شدند. سلکتورهای کیبورد `[role="menuitem"], a, button` → `a[href], button`. services/*.html نقش‌های قدیمی‌شان را نگه می‌دارند (فایل ممنوع) اما JS دیگر القا نمی‌کند | index.html, 404.html, navigation.js |
+| ۲-۳. مهاجرت رنگ‌های inline | ۱۷ خط `style=` با رنگ hardcode → توکن. ۵ رنگ به توکن‌های موجود style.css مپ شد (`--surface-white`, `--text-light`, `--amber-light`, `--sky-light`) و ۷ توکن جدید با مقادیر دقیقاً یکسان در nav-tokens.css تعریف شد (`--qt-slate-300`, `--qt-emerald-bright/tint`, `--qt-whatsapp-tint`, `--qt-glass-tint/line`, `--qt-overlay-dim`). رندر بدون هیچ تغییری | index.html, nav-tokens.css |
+| ۲-۴. حذف کد مرده | **۳۷۷ خط از style.css**: خانواده‌های `.navbar*`، `.nav-menu*`，`.nav-dropdown*`，`.navbar__actions`，`.hamburger-btn*`，`.mobile-drawer*` + overrideهای ریسپانسیو و تیرهٔشان. بازنویسی قاعدهٔ ترکیبی `.brand-logo__subtitle`(زنده) حفظ شد. بلاک JS بازخورد لمسی `.is-tapped/qt-nav-tap` (بدون هیچ CSS) حذف شد. ۳ توکن CSS بدون مصرف حذف شد. تمام حذف‌ها با کامنت تاریخ‌دار و دلیل ثبت شدند؛ حذف فایل: نداشتیم | style.css, navigation.js, nav-tokens.css |
+
+**تست‌های فاز ۲**:
+- ✅ `grep -c '!important' assets/css/nav/*.css` → **۰ ≤ ۲**
+- ✅ `grep -c 'html\[dir=' assets/css/nav/*.css` → **۰ ≤ ۲**
+- ✅ رنگ hardcode در `style=` های index.html → **۰**
+- ✅ brace balance در هر ۴ فایل CSS → ۰؛ `node --check` برای هر دو JS → OK
+- ✅ تمام ارجاع‌ها به selectorهای حذف‌شده در HTML: ۰ (از فاز ۰ اثبات شده)
+- ⚠️ سلکتورهای fallback قدیمی (`.nav-menu*`، `.mobile-drawer*`) آگاهانه در لیست‌های querySelector جاوااسکریپت **ماندند** — هزینهٔ صفر، سازگاری در برابر هر markup قدیمی؛ حذفشان تغییر رفتاری بدون سود بود.
 
 ## فاز ۳ — ارتقای ظاهر
 

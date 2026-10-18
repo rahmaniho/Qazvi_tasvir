@@ -419,34 +419,12 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   ۶. هدر چسبان و ناوبری (Sticky Navbar)
+   ۶. بلوک برند (میراث) — هدر و ناوبری فعلی (site-header / site-nav) در
+   assets/css/nav/*.css نگهداری می‌شود.
+   قوانین نسل قبلی ناوبری (کلاس‌های navbar، nav-menu، nav-dropdown،
+   navbar__actions، hamburger-btn و mobile-drawer) در فاز ۲-۴ (۲۰۲۶-۱۰-۱۸)
+   حذف شدند: هیچ مصرف‌کننده‌ای در هیچ فایل HTML نداشتند.
    -------------------------------------------------------------------------- */
-.navbar {
-  position: sticky;
-  top: 0;
-  height: 76px;
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line-soft);
-  z-index: 999;
-  transition: all var(--dur-base) ease;
-  display: flex;
-  align-items: center;
-}
-
-.navbar.scrolled {
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: var(--shadow-md);
-  border-bottom-color: rgba(10, 37, 64, 0.08);
-}
-
-.navbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
 
 /* لوگو */
 .brand-logo {
@@ -487,251 +465,6 @@ button, input, select, textarea {
   letter-spacing: 0.3px;
 }
 
-/* لینک‌های منو دسکتاپ */
-.nav-menu {
-  display: none;
-}
-@media (min-width: 1024px) {
-  .nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    list-style: none;
-  }
-}
-
-/* چیدمان هفت‌گانه منو در پهنای ۱۰۲۴ تا ۱۱۷۹ پیکسل (فشرده‌سازی ملایم) */
-@media (min-width: 1024px) and (max-width: 1179px) {
-  .nav-menu {
-    gap: 2px;
-  }
-  .nav-menu__link {
-    padding: 8px 10px;
-    font-size: 0.8875rem;
-  }
-  .navbar__actions .btn-sm {
-    padding: 8px 13px;
-    font-size: 0.825rem;
-  }
-}
-
-.nav-menu__link {
-  padding: 8px 16px;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  color: var(--text-primary);
-  border-radius: var(--r-sm);
-  position: relative;
-  transition: all var(--dur-fast) ease;
-}
-
-.nav-menu__link:hover {
-  color: var(--primary-navy);
-  background: #EEF4FB;
-}
-
-.nav-menu__link.active {
-  color: var(--primary-navy);
-  font-weight: 700;
-}
-.nav-menu__link.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  inset-inline-end: 16px;
-  /* حذف شد: با inset-inline جایگزین شد */
-  height: 3px;
-  background: var(--amber-accent);
-  border-radius: var(--r-full);
-}
-
-/* زیرمنوی کشویی «خدمات» — فقط دسکتاپ (nav-menu از ۱۰۲۴px بالا نمایش داده می‌شود) */
-.nav-menu__item--has-dd {
-  position: relative;
-}
-.nav-menu__chevron {
-  margin-inline-start: 5px;
-  transition: transform var(--dur-fast) ease;
-}
-.nav-menu__item--has-dd:hover .nav-menu__chevron,
-.nav-menu__item--has-dd:focus-within .nav-menu__chevron,
-.nav-menu__item--has-dd.is-open .nav-menu__chevron {
-  transform: rotate(180deg);
-}
-.nav-dropdown {
-  position: absolute;
-  top: calc(100% + 6px);
-  inset-inline-start: 0;
-  min-width: 290px;
-  background: #FFFFFF;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow-md);
-  padding: 8px;
-  max-height: min(70vh, 480px);
-  overflow-y: auto;
-  list-style: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity var(--dur-fast) ease, transform var(--dur-fast) ease, visibility var(--dur-fast);
-  z-index: 60;
-}
-.nav-dropdown::before {
-  /* پل نامرئی بین آیتم منو و پنل تا هاور گپ ۶ پیکسلی را نبندد */
-  content: '';
-  position: absolute;
-  top: -8px;
-  right: 0;
-  left: 0;
-  height: 8px;
-}
-.nav-menu__item--has-dd:hover .nav-dropdown,
-.nav-menu__item--has-dd:focus-within .nav-dropdown,
-.nav-menu__item--has-dd.is-open .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.nav-dropdown__link {
-  display: block;
-  padding: 10px 14px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  border-radius: var(--r-sm);
-  transition: all var(--dur-fast) ease;
-}
-.nav-dropdown__link:hover,
-.nav-dropdown__link:focus-visible {
-  background: #EEF4FB;
-  color: var(--primary-navy);
-}
-
-.navbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* دکمه همبرگری موبایل */
-.hamburger-btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--r-sm);
-  background: #EEF4FB;
-  border: none;
-  cursor: pointer;
-  gap: 5px;
-  padding: 8px;
-  transition: background var(--dur-fast) ease;
-}
-.hamburger-btn:hover {
-  background: #E0EBF7;
-}
-@media (min-width: 1024px) {
-  .hamburger-btn {
-    display: none;
-  }
-}
-
-.hamburger-line {
-  width: 22px;
-  height: 2px;
-  background-color: var(--primary-navy);
-  border-radius: 2px;
-  transition: all var(--dur-base) var(--ease-quint);
-}
-
-.hamburger-btn.is-active .hamburger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.hamburger-btn.is-active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-.hamburger-btn.is-active .hamburger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* منوی تمام صفحه موبایل */
-.mobile-drawer {
-  position: fixed;
-  inset: 0;
-  background: rgba(6, 24, 41, 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 998;
-  padding: 100px 24px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity var(--dur-slow) var(--ease-quint), visibility var(--dur-slow);
-}
-.mobile-drawer.is-open {
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
-}
-
-.mobile-drawer__list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.mobile-drawer__item {
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all var(--dur-base) var(--ease-quint);
-}
-.mobile-drawer.is-open .mobile-drawer__item {
-  transform: translateY(0);
-  opacity: 1;
-}
-.mobile-drawer.is-open .mobile-drawer__item:nth-child(1) { transition-delay: 80ms; }
-.mobile-drawer.is-open .mobile-drawer__item:nth-child(2) { transition-delay: 140ms; }
-.mobile-drawer.is-open .mobile-drawer__item:nth-child(3) { transition-delay: 200ms; }
-.mobile-drawer.is-open .mobile-drawer__item:nth-child(4) { transition-delay: 260ms; }
-.mobile-drawer.is-open .mobile-drawer__item:nth-child(5) { transition-delay: 320ms; }
-.mobile-drawer.is-open .mobile-drawer__item:nth-child(6) { transition-delay: 380ms; }
-.mobile-drawer.is-open .mobile-drawer__item:nth-child(7) { transition-delay: 440ms; }
-
-.mobile-drawer__link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #FFFFFF;
-  font-size: 1.35rem;
-  font-weight: 700;
-  padding: 14px 16px;
-  border-radius: var(--r-md);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-}
-.mobile-drawer__link:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--amber-light);
-}
-
-.mobile-drawer__num {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--amber-accent);
-}
-
-.mobile-drawer__footer {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
 
 /* --------------------------------------------------------------------------
    ۷. بخش قهرمان (Hero Section)
@@ -5812,11 +5545,6 @@ html[lang^="en"] .ks-label--fa {
   border: 0;
 }
 
-/* لینک فعال منو در حالت مسیریابی هشی */
-.nav-menu__link[aria-current="page"],
-.mobile-drawer__link[aria-current="page"] {
-  font-weight: 800;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .js-pages .site-page.is-entering {
@@ -6016,16 +5744,9 @@ html[lang="ja"] {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* ناوبری: جلوگیری از شکستن خط منو و تگ‌لاین برند */
-.nav-menu__link {
+/* میراث: جلوگیری از شکستن خط تگ‌لاین برند در فوتر */
+.brand-logo__subtitle {
   white-space: nowrap;
-}
-.navbar__brand-sub, .brand-logo__subtitle, .navbar .brand-logo small {
-  white-space: nowrap;
-}
-@media (min-width: 1024px) and (max-width: 1365px) {
-  .nav-menu { gap: 0; }
-  .nav-menu__link { padding: 8px 9px; font-size: 0.875rem; }
 }
 
 /* --------------------------------------------------------------------------
@@ -6303,24 +6024,6 @@ html[dir="ltr"] .why-banner::after {
   background-color: var(--surface-bg);
 }
 
-/* سطوحی که رنگ روشن را هاردکد دارند — معادل تیرهٔ هرکدام */
-[data-theme="dark"] .navbar {
-  background: rgba(12, 22, 38, 0.92);
-}
-[data-theme="dark"] .navbar.scrolled {
-  background: rgba(12, 22, 38, 0.97);
-}
-[data-theme="dark"] .nav-menu__link:hover,
-[data-theme="dark"] .nav-dropdown__link:hover,
-[data-theme="dark"] .nav-dropdown__link:focus-visible {
-  background: rgba(169, 201, 240, 0.10);
-}
-[data-theme="dark"] .nav-dropdown {
-  background: #16273F;
-}
-[data-theme="dark"] .hamburger-btn {
-  background: #1B2E4A;
-}
 [data-theme="dark"] .ceo-card,
 [data-theme="dark"] .why-card,
 [data-theme="dark"] .contact-form-card,

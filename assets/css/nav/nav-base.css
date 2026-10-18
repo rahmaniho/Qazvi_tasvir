@@ -190,6 +190,19 @@ body.qt-sidebar-shell {
   color: #fff;
 }
 
+/* فاز ۲-۱: تریگر کشویی خدمات در index.html و 404.html از ‎<a>‎ به ‎<button>‎
+   تبدیل شد (الگوی Disclosure). این بلاک سبک بومی دکمه را خنثی می‌کند تا
+   دقیقاً همان ظاهر قبلی حفظ شود؛ رنگ، آیکون، اندازه و حالت‌ها از قوانین
+   مشترک ‎.site-nav__link‎ بالا و پایین می‌آیند. */
+.site-nav__item--services > button.site-nav__link {
+  margin: 0;
+  font-family: inherit;
+  letter-spacing: inherit;
+  text-align: start;
+  background: none;
+  cursor: pointer;
+}
+
 .site-nav__item--services {
   position: relative;
   display: grid;

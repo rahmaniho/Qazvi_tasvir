@@ -10,9 +10,11 @@
   --qt-sidebar-mobile-radius: 24px;
   --qt-sidebar-mobile-width: 360px;
 
+  /* فاز ۲-۴ (۲۰۲۶-۱۰-۱۸): سه توکن بدون هیچ مصرفی در کل مخزن حذف شدند:
+     --qt-sidebar-pink و --qt-sidebar-surface-3 و --qt-sidebar-ease */
+
   --qt-sidebar-surface: #071936;
   --qt-sidebar-surface-2: #0b2349;
-  --qt-sidebar-surface-3: #102c58;
   --qt-sidebar-ink: #f7faff;
   --qt-sidebar-muted: #c0cadb;
   --qt-sidebar-dim: #6f82a3;
@@ -21,9 +23,7 @@
   --qt-sidebar-accent: #0d4fc9;
   --qt-sidebar-accent-hover: #1763e9;
   --qt-sidebar-accent-deep: #12356c;
-  --qt-sidebar-pink: #ff84b3;
   --qt-sidebar-shadow: 0 20px 50px rgba(4, 14, 34, .34), 0 4px 16px rgba(4, 14, 34, .18);
-  --qt-sidebar-ease: cubic-bezier(.2, .8, .2, 1);
   --qt-sidebar-fast: 180ms ease;
   --qt-sidebar-drawer: 420ms cubic-bezier(.2, .8, .2, 1);
 
@@ -45,4 +45,17 @@
   --ico-fleet: calc(var(--qt-sprite-step) * 11);
   --ico-brands: calc(var(--qt-sprite-step) * 12);
   --ico-contact: 100%;
+}
+
+/* فاز ۲-۳ (۲۰۲۶-۱۰-۱۸): توکن‌های سطح صفحه برای مهاجرت رنگ‌های hardcodeِ
+   style= این‌لاین در index.html. مقادیر دقیقاً همان رنگ‌های قبلی‌اند تا
+   رندر هیچ تغییری نکند؛ بقیهٔ رنگ‌ها به توکن‌های موجود style.css مپ شدند. */
+:root {
+  --qt-slate-300: #CBD5E1;
+  --qt-emerald-bright: #34D399;
+  --qt-emerald-tint: rgba(16, 185, 129, 0.2);
+  --qt-whatsapp-tint: rgba(37, 211, 102, 0.1);
+  --qt-glass-tint: rgba(255, 255, 255, 0.12);
+  --qt-glass-line: rgba(255, 255, 255, 0.08);
+  --qt-overlay-dim: rgba(0, 0, 0, 0.25);
 }

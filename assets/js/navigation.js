@@ -244,10 +244,10 @@
           : 'service-pages-menu';
       }
 
-      trigger.setAttribute('aria-haspopup', 'true');
+      // فاز ۲-۲: الگوی Disclosure ناوبری — برای زیرمنوی لینک‌ها aria-haspopup و
+      // role="menu" نمی‌گذاریم (آن‌ها برای منوهای اپلیکیشن‌اند، نه ناوبری سایت).
       trigger.setAttribute('aria-expanded', 'false');
       trigger.setAttribute('aria-controls', panel.id);
-      panel.setAttribute('role', 'menu');
       panel.setAttribute('aria-hidden', 'true');
 
       return { item, trigger, panel, ignoreFocusOpen: false };
@@ -425,10 +425,16 @@
       });
 
       trigger.addEventListener('keydown', event => {
-        if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+        // فاز ۲-۱: تریگر ‎<button>‎ با Enter/Space به‌صورت بومی رویداد click
+        // تولید می‌کند و همان کنترلر toggle را صدا می‌زند؛ رهگیری دستی این دو
+        // کلید فقط برای تریگرهای ‎<a>‎ (صفحات خدمات، خارج از محدودهٔ ویرایش)
+        // لازم است تا Enter به‌جای ناوبری، زیرمنو را باز کند.
+        const isNativeButton = trigger.tagName === 'BUTTON';
+        if (event.key === 'ArrowDown' ||
+            (!isNativeButton && (event.key === 'Enter' || event.key === ' '))) {
           event.preventDefault();
           setDropdown(instance, true, false);
-          const firstItem = panel.querySelector('[role="menuitem"], a, button');
+          const firstItem = panel.querySelector('a[href], button');
           if (firstItem) firstItem.focus({ preventScroll: true });
         } else if (event.key === 'Escape') {
           event.preventDefault();
@@ -440,7 +446,7 @@
 
       panel.addEventListener('keydown', event => {
         const menuItems = Array.from(panel.querySelectorAll(
-          '[role="menuitem"], a, button'
+          'a[href], button'
         )).filter(element => !element.disabled && !element.hidden);
         const currentIndex = menuItems.indexOf(document.activeElement);
         if (event.key === 'ArrowDown' || event.key === 'ArrowUp' ||
@@ -482,20 +488,9 @@
       });
     });
 
-    // Tap feedback is shared by the homepage and service navigation.
-    document.querySelectorAll(
-      '.nav-menu__link, .site-nav__link, .nav-dropdown__link, '
-      + '.site-nav__dropdown a, .mobile-drawer__link, .mobile-drawer__service-link'
-    ).forEach(link => {
-      link.addEventListener('pointerdown', () => {
-        link.classList.remove('is-tapped');
-        void link.offsetWidth;
-        link.classList.add('is-tapped');
-      });
-      link.addEventListener('animationend', event => {
-        if (event.animationName === 'qt-nav-tap') link.classList.remove('is-tapped');
-      });
-    });
+    /* فاز ۲-۴ (۲۰۲۶-۱۰-۱۸): بلاک بازخورد لمسی (.is-tapped / qt-nav-tap) حذف شد —
+       نه keyframes مربوطه در هیچ CSSی وجود داشت نه استایلی برای کلاس؛ در نتیجه
+       رویدادها فقط یک کلاس بدون اثر بصری را روشن/خاموش می‌کردند (کد مرده). */
 
     document.addEventListener('click', event => {
       const insideNavigation = controllers.some(controller =>
