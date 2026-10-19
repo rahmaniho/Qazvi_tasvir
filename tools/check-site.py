@@ -12,6 +12,7 @@ Checks real, user-visible expectations — not just that the build ran:
   * sitemap.xml lists exactly the indexable pages, with matching URLs
   * target="_blank" always ships rel="noopener"
   * every page loads the QT Next layer, then the QT Menu layer, as its last sheets
+  * homepages add the QT Editorial layer last; no other page may load it
   * menu.js ships on every page and runs after the navigation controller
   * every stylesheet has balanced braces (a broken sheet silently kills the UI)
 
@@ -127,15 +128,21 @@ def main() -> int:
         stylesheets = re.findall(
             r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', html
         )
+        is_home = page.name == "index.html" and page.parent in (ROOT, ROOT / "en")
         expected_sheets = ("qt-next.css", "nav/qt-menu.css")
-        tail = tuple(stylesheets[-2:])
-        if len(tail) != 2 or not (
-            tail[0].endswith(expected_sheets[0]) and tail[1].endswith(expected_sheets[1])
+        if is_home:
+            expected_sheets += ("qt-home.css",)
+        tail = tuple(stylesheets[-len(expected_sheets):])
+        if len(tail) != len(expected_sheets) or not all(
+            href.endswith(sheet) for href, sheet in zip(tail, expected_sheets)
         ):
+            chain = " → ".join(expected_sheets)
             errors.append(
-                f"{label}: stylesheet order must end with qt-next.css → nav/qt-menu.css "
+                f"{label}: stylesheet order must end with {chain} "
                 f"(found {tail or 'none'})"
             )
+        if not is_home and any(href.endswith("qt-home.css") for href in stylesheets):
+            errors.append(f"{label}: qt-home.css is homepage-only")
 
         scripts = re.findall(r'<script[^>]+src="([^"]+)"', html)
         menu_script = next((src for src in scripts if src.endswith("menu.js")), None)
