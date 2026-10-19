@@ -12,8 +12,10 @@ Checks real, user-visible expectations — not just that the build ran:
   * sitemap.xml lists exactly the indexable pages, with matching URLs
   * target="_blank" always ships rel="noopener"
   * every page loads the QT Next layer, then the QT Menu layer, as its last sheets
-  * homepages add the QT Editorial layer last; no other page may load it
-  * menu.js ships on every page and runs after the navigation controller
+  * homepages add the QT Editorial and QT Dock layers last; no other page may
+    load them
+  * homepages ship dock.js (deferred) after menu.js; menu.js is deferred and
+    runs after the navigation controller on every page
   * every stylesheet has balanced braces (a broken sheet silently kills the UI)
 
 Usage: python3 tools/check-site.py
@@ -129,9 +131,8 @@ def main() -> int:
             r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', html
         )
         is_home = page.name == "index.html" and page.parent in (ROOT, ROOT / "en")
-        expected_sheets = ("qt-next.css", "nav/qt-menu.css")
-        if is_home:
-            expected_sheets += ("qt-home.css",)
+        home_sheets = ("qt-home.css", "qt-dock.css")
+        expected_sheets = ("qt-next.css", "nav/qt-menu.css") + (home_sheets if is_home else ())
         tail = tuple(stylesheets[-len(expected_sheets):])
         if len(tail) != len(expected_sheets) or not all(
             href.endswith(sheet) for href, sheet in zip(tail, expected_sheets)
@@ -141,8 +142,10 @@ def main() -> int:
                 f"{label}: stylesheet order must end with {chain} "
                 f"(found {tail or 'none'})"
             )
-        if not is_home and any(href.endswith("qt-home.css") for href in stylesheets):
-            errors.append(f"{label}: qt-home.css is homepage-only")
+        if not is_home:
+            for sheet in home_sheets:
+                if any(href.endswith(sheet) for href in stylesheets):
+                    errors.append(f"{label}: {sheet} is homepage-only")
 
         scripts = re.findall(r'<script[^>]+src="([^"]+)"', html)
         menu_script = next((src for src in scripts if src.endswith("menu.js")), None)
@@ -157,6 +160,19 @@ def main() -> int:
             tag = re.search(rf'<script[^>]+src="{re.escape(menu_script)}"[^>]*>', html)
             if tag and "defer" not in tag.group(0):
                 errors.append(f"{label}: menu.js must be deferred")
+
+        dock_script = next((src for src in scripts if src.endswith("dock.js")), None)
+        if is_home:
+            if not dock_script:
+                errors.append(f"{label}: assets/js/dock.js is not loaded")
+            else:
+                if menu_script and scripts.index(dock_script) < scripts.index(menu_script):
+                    errors.append(f"{label}: dock.js must load after menu.js")
+                tag = re.search(rf'<script[^>]+src="{re.escape(dock_script)}"[^>]*>', html)
+                if tag and "defer" not in tag.group(0):
+                    errors.append(f"{label}: dock.js must be deferred")
+        elif dock_script:
+            errors.append(f"{label}: dock.js is homepage-only")
 
         canonical = text_of(html, r'<link\s+rel="canonical"\s+href="([^"]*)"')
         if page.name != "404.html" and not canonical:

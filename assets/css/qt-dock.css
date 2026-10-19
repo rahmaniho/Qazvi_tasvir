@@ -1,0 +1,141 @@
+/**
+ * قزوین تصویر — «QT Dock 7» | داک اقدام سریع موبایل
+ * ---------------------------------------------------------------------------
+ * فقط صفحهٔ اصلی؛ بعد از qt-menu.css و qt-home.css. داک در دسکتاپ دیده
+ * نمی‌شود، هنگام باز بودن دراور پنهان می‌شود و شماره/مقصدی از خودش ندارد.
+ */
+
+.qt-dock {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .qt-dock {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 1100;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    border-block-start: 1px solid rgba(233, 191, 124, 0.24);
+    background: rgba(7, 13, 22, 0.97);
+    box-shadow: 0 -20px 40px -30px rgba(0, 0, 0, 0.95);
+    color: #EAF0F8;
+  }
+}
+
+.qt-dock__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 52px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.qt-dock__item svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+.qt-dock__item:hover,
+.qt-dock__item:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.qt-dock__item:focus-visible {
+  outline: 2px solid var(--qt-brass-bright);
+  outline-offset: -2px;
+}
+
+.qt-dock__item:active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.qt-dock__item--call {
+  color: #F1D6A8;
+}
+
+.qt-dock__item--wa {
+  color: #5BE38F;
+}
+
+.qt-dock__item--call:hover,
+.qt-dock__item--call:focus-visible {
+  color: #FFF3DF;
+}
+
+.qt-dock__item--wa:hover,
+.qt-dock__item--wa:focus-visible {
+  color: #8CF0B4;
+}
+
+/* هنگام باز شدن دراور، داک کاملاً کنار می‌رود (نه فقط پشت پوشش). */
+body.service-nav-open .qt-dock {
+  display: none;
+}
+
+/* فضای امن پایین پاورقی تا داک روی آخرین محتوا نیفتد. */
+@media (max-width: 1023px) {
+  body.qt-dock-ready .footer {
+    padding-block-end: calc(90px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* دکمهٔ «بازگشت به بالا» به‌جای پنهان‌شدن زیر داک، بالای آن می‌نشیند. */
+  body.qt-dock-ready .back-to-top {
+    bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+    inset-inline-start: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .qt-dock {
+    animation: qt-dock-in 300ms var(--ease-quint) both;
+  }
+
+  @keyframes qt-dock-in {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qt-dock__item {
+    transition: none;
+  }
+}
+
+@media print {
+  .qt-dock {
+    display: none !important;
+  }
+  body.qt-dock-ready .footer {
+    padding-block-end: 26px;
+  }
+}

@@ -18,9 +18,11 @@ assets/css/nav/*.css           ناوبری مشترک (توکن، ساختار�
 assets/css/qt-next.css         لایهٔ طراحی «QT Next» (نسل پنجم) — شیت ماقبل آخر
 assets/css/nav/qt-menu.css    «QT Menu 5»: پنل جست‌وجو، گروه خدمات، اقدام سریع — آخرین شیت
 assets/css/qt-home.css        «QT Editorial 6»: چیدمان تحریریهٔ صفحهٔ اصلی — فقط fa/en و آخرین شیت خانه
+assets/css/qt-dock.css        «QT Dock 7»: داک اقدام موبایل — فقط صفحهٔ اصلی و آخرین شیت خانه
 assets/js/main.js              فرم، تم، مسیریابی هش، تعاملات صفحهٔ اصلی
 assets/js/navigation.js        کنترل ناوبری و drawer موبایل
 assets/js/menu.js              جست‌وجوی فازی کل سایت، ARIA combobox، گروه خدمات (افزایشی)
+assets/js/dock.js              داک تماس/واتساپ/منو در موبایل صفحهٔ اصلی (افزایشی)
 assets/js/service-pages.js     تعاملات سبک صفحات خدمات
 assets/fonts/                  Vazirmatn و Inter (محلی، بدون CDN)
 i18n/                          منبع ترجمه و ابزار استخراج رشته‌ها
@@ -93,6 +95,7 @@ node --check assets/js/main.js
 node --check assets/js/navigation.js
 node --check assets/js/service-pages.js
 node --check assets/js/menu.js
+node --check assets/js/dock.js
 ```
 
 `tools/smoke-test.mjs` آزمون زمان اجرا با jsdom است (اختیاری، چون jsdom جزو وابستگی‌های پروژه نیست):
@@ -102,7 +105,7 @@ npm install --no-save --no-package-lock jsdom@24
 node tools/smoke-test.mjs
 ```
 
-این آزمون مسیرهای هش، سوییچر زبان، ریل دسکتاپ، drawer موبایل، Escape، فوکوس‌تراپ و اعتبارسنجی فرم را بررسی می‌کند؛ بلوک `command menu` هم باز/بسته‌شدن پنل، ARIA combobox، جست‌وجوی فازی فارسی/انگلیسی، حالت خالی، ArrowDown/Enter/Escape، رویداد `qt:menu:select`، سه گروه خدمات، ناحیهٔ زندهٔ نتیجه و اقدام سریع موبایل را می‌سنجد.
+این آزمون مسیرهای هش، سوییچر زبان، ریل دسکتاپ، drawer موبایل، Escape، فوکوس‌تراپ و اعتبارسنجی فرم را بررسی می‌کند؛ بلوک `command menu` هم باز/بسته‌شدن پنل، ARIA combobox، جست‌وجوی فازی فارسی/انگلیسی، حالت خالی، ArrowDown/Enter/Escape، رویداد `qt:menu:select`، سه گروه خدمات، ناحیهٔ زندهٔ نتیجه و اقدام سریع موبایل را می‌سنجد. بلوک `mobile dock` هم وجود داک، برچسب‌های fa/en، اتصال به شمارهٔ واقعی صفحه، دکمهٔ منو (باز شدن دراور و پنهان‌شدن داک) و نبودن آن در صفحات غیرصفحهٔ اصلی را بررسی می‌کند.
 
 ## سیستم طراحی «QT Next» (نسل پنجم)
 
@@ -110,12 +113,14 @@ node tools/smoke-test.mjs
 
 ```
 style.css → nav/*.css → service-pages.css / food-service.css → qt-next.css → nav/qt-menu.css
-                                                                          → qt-home.css (فقط صفحهٔ اصلی)
+                                                                          → qt-home.css  (فقط صفحهٔ اصلی)
+                                                                          → qt-dock.css  (فقط صفحهٔ اصلی)
 ```
 
 `tools/check-site.py` تضمین می‌کند در همهٔ صفحات دو شیت `qt-next.css` و سپس `nav/qt-menu.css` آخرین stylesheetها باشند،
-در `index.html` و `en/index.html` شیت سوم `qt-home.css` آخر از همه بیاید و هیچ صفحهٔ دیگری آن را لود نکند؛
-همچنین `menu.js` با `defer` و بعد از `navigation.js` بیاید. اگر در آینده شیتی بعد از آن‌ها اضافه شود، CI شکست می‌خورد.
+در `index.html` و `en/index.html` شیت‌های `qt-home.css` و `qt-dock.css` آخر از همه بیایند و هیچ صفحهٔ دیگری آن‌ها را
+لود نکند؛ همچنین `menu.js` با `defer` و بعد از `navigation.js` و `dock.js` بعد از `menu.js` بیاید. اگر در آینده شیتی
+بعد از آن‌ها اضافه شود، CI شکست می‌خورد.
 
 **چرا یک لایهٔ جدا؟** تا بازطراحی بدون بازنویسی ۱۰٬۰۰۰ خط CSS قبلی و بدون دست‌زدن به HTML تولیدشده انجام شود و در صورت نیاز با حذف یک `<link>` به‌سادگی برگشت‌پذیر بماند.
 
@@ -177,6 +182,22 @@ style.css → nav/*.css → service-pages.css / food-service.css → qt-next.css
 
 **بررسی:** `tools/check-site.py` سومین شیت را فقط برای صفحهٔ اصلی الزامی می‌داند، حضور آن را در ۴۰۴ و صفحات خدمات
 ممنوع می‌کند و ترتیب لود را می‌سنجد؛ هر دو حالت با تست منفی (حذف شیت از خانه / افزودن آن به صفحهٔ خدمات) تأیید شد.
+
+## نسل چهارم: داک موبایل «QT Dock 7»
+
+`assets/css/qt-dock.css` و `assets/js/dock.js` فقط در صفحهٔ اصلی و بعد از لایهٔ تحریریه لود می‌شوند. داک یک نوار ثابت
+پایین صفحه در موبایل (≤1023px) با سه اقدام است:
+
+- **تماس** و **واتساپ** فقط اگر همان صفحه لینک واقعی `tel:`/`wa.me` داشته باشد؛ شماره‌ای در جاوااسکریپت نیست.
+- **منو** همان دکمهٔ `.menu-toggle` موجود را فعال می‌کند؛ هنگام باز شدن دراور، داک با `body.service-nav-open` کاملاً
+  کنار می‌رود تا فوکوس و پوشش دراور دست‌نخورده بماند.
+- دکمهٔ «بازگشت به بالا» در موبایل به بالای داک منتقل می‌شود و پاورقی فضای امن `env(safe-area-inset-bottom)` می‌گیرد.
+- برچسب‌های fa/en از زبان صفحه می‌آیند؛ هر اقدام رویداد `qt:dock:action` (با `detail.action`) منتشر می‌کند.
+- بدون جاوااسکریپت هیچ داکی ساخته نمی‌شود؛ چاپ و «کاهش حرکت» رعایت شده‌اند.
+
+**بررسی:** `check-site.py` چهار شیت پایانی را فقط برای صفحهٔ اصلی الزامی می‌داند، حضور `qt-home.css`/`qt-dock.css` و
+`dock.js` را در بقیهٔ صفحات ممنوع می‌کند و ترتیب `dock.js` بعد از `menu.js` را می‌سنجد؛ هر سه حالت با تست منفی تأیید شد.
+`tools/smoke-test.mjs` هم باز شدن دراور از داک و انتشار رویداد را در fa/en آزمایش می‌کند.
 
 ## انتشار
 

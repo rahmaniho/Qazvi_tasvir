@@ -47,6 +47,7 @@ const errors = [];
 const mainJs = fs.readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8');
 const navigationJs = fs.readFileSync(path.join(ROOT, 'assets/js/navigation.js'), 'utf8');
 const menuJs = fs.readFileSync(path.join(ROOT, 'assets/js/menu.js'), 'utf8');
+const dockJs = fs.readFileSync(path.join(ROOT, 'assets/js/dock.js'), 'utf8');
 
 function testPage(rel, lang, dir) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -225,6 +226,7 @@ function bootMenu(rel, width) {
   window.scrollTo = () => {};
   window.eval(navigationJs);
   window.eval(menuJs);
+  window.eval(dockJs);
   window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
   return { window, doc: window.document };
 }
@@ -330,6 +332,62 @@ function testCommandMenu(rel, lang) {
   }
 }
 
+/**
+ * داک اقدام سریع موبایل — فقط صفحهٔ اصلی، متصل به لینک‌های واقعی همان صفحه.
+ */
+function testDock(rel, lang) {
+  const { window, doc } = bootMenu(rel, 390);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] dock: ${message}`); };
+  const dock = doc.querySelector('.qt-dock');
+  const isHome = rel === 'index.html' || rel === 'en/index.html';
+
+  if (!isHome) {
+    check(dock === null, 'dock was rendered outside the homepage');
+    return;
+  }
+
+  check(window.QTDock?.version === '7.0', 'QTDock API missing');
+  check(dock !== null, 'mobile dock missing');
+  if (!dock) return;
+
+  check(dock.getAttribute('aria-label') === (lang === 'en' ? 'Quick actions' : 'دسترسی سریع'),
+        'dock landmark has no localized label');
+
+  const pagePhone = doc.querySelector('.hero a[href^="tel:"]');
+  const call = dock.querySelector('a[href^="tel:"]');
+  check(pagePhone !== null, 'homepage lost its real phone link');
+  check(call !== null, 'call action missing');
+  if (call && pagePhone) {
+    check(call.getAttribute('href') === pagePhone.getAttribute('href'),
+          'call action does not reuse the real phone number');
+  }
+
+  const wa = dock.querySelector('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+  check(wa !== null, 'WhatsApp action missing');
+  check(wa?.getAttribute('rel')?.includes('noopener'), 'WhatsApp link is not rel=noopener');
+
+  const menu = dock.querySelector('button');
+  check(menu !== null, 'menu action missing');
+  check(menu?.getAttribute('aria-label') === (lang === 'en' ? 'Open the site menu' : 'باز کردن منوی سایت'),
+        'menu button has no localized aria-label');
+
+  const labels = Array.from(dock.querySelectorAll('.qt-dock__item')).map(el => el.textContent.trim());
+  const expected = lang === 'en' ? ['Call', 'WhatsApp', 'Menu'] : ['تماس', 'واتساپ', 'منو'];
+  check(JSON.stringify(labels.slice(0, 3)) === JSON.stringify(expected),
+        `dock labels = ${labels.join(' | ')}`);
+
+  let action = null;
+  const capture = event => { action = event.detail; };
+  doc.addEventListener('qt:dock:action', capture);
+  menu?.click();
+  doc.removeEventListener('qt:dock:action', capture);
+  check(action?.action === 'menu', 'dock did not announce the menu action');
+  check(doc.querySelector('.site-nav')?.classList.contains('is-open'),
+        'dock menu button did not open the drawer');
+  check(doc.body.classList.contains('service-nav-open'),
+        'body did not flag the open drawer (dock would stay visible)');
+}
+
 function testCommandMenuMobile(rel) {
   const { window, doc } = bootMenu(rel, 375);
   const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
@@ -412,6 +470,11 @@ for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
   testCommandMenu(rel, lang);
 }
 testCommandMenuMobile('index.html');
+console.log('mobile dock:');
+for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
+  ['404.html', 'fa'], ['services/sourcing.html', 'fa']]) {
+  testDock(rel, lang);
+}
 console.log(errors.length
   ? `\n  ✗ ${errors.length} problem(s):\n    ${errors.slice(0, 12).join('\n    ')}`
   : '\n  ✓ routes, shared sidebar and mobile drawer passed');
