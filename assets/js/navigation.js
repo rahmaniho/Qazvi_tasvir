@@ -59,14 +59,14 @@
 
     function pageCopy() {
       return document.documentElement.lang === 'en' ? {
-        searchLabel: 'Filter the menu',
-        searchPlaceholder: 'Filter links…',
+        searchLabel: 'Search the whole site',
+        searchPlaceholder: 'Search the site…',
         main: 'Main',
         profileRole: 'Managing Director',
         profileAction: 'Open about section'
       } : {
-        searchLabel: 'فیلتر منوی سایت',
-        searchPlaceholder: 'فیلتر لینک‌ها…',
+        searchLabel: 'جست‌وجو در کل سایت',
+        searchPlaceholder: 'جست‌وجو در سایت…',
         main: 'اصلی',
         profileRole: 'مدیریت شرکت',
         profileAction: 'رفتن به بخش دربارهٔ ما'

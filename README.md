@@ -15,9 +15,11 @@ services/*.html                هشت صفحهٔ مستقل خدمات — تو�
 assets/css/style.css           سیستم طراحی صفحهٔ اصلی
 assets/css/service-pages.css   طراحی صفحات خدمات
 assets/css/nav/*.css           ناوبری مشترک (توکن، ساختار، ریل دسکتاپ)
-assets/css/qt-next.css         لایهٔ طراحی «QT Next» (نسل پنجم) — آخرین شیت هر صفحه
+assets/css/qt-next.css         لایهٔ طراحی «QT Next» (نسل پنجم) — شیت ماقبل آخر
+assets/css/nav/qt-menu.css    «QT Menu 5»: پنل جست‌وجو، گروه خدمات، اقدام سریع — آخرین شیت
 assets/js/main.js              فرم، تم، مسیریابی هش، تعاملات صفحهٔ اصلی
 assets/js/navigation.js        کنترل ناوبری و drawer موبایل
+assets/js/menu.js              جست‌وجوی فازی کل سایت، ARIA combobox، گروه خدمات (افزایشی)
 assets/js/service-pages.js     تعاملات سبک صفحات خدمات
 assets/fonts/                  Vazirmatn و Inter (محلی، بدون CDN)
 i18n/                          منبع ترجمه و ابزار استخراج رشته‌ها
@@ -89,6 +91,7 @@ python3 -m py_compile tools/*.py
 node --check assets/js/main.js
 node --check assets/js/navigation.js
 node --check assets/js/service-pages.js
+node --check assets/js/menu.js
 ```
 
 `tools/smoke-test.mjs` آزمون زمان اجرا با jsdom است (اختیاری، چون jsdom جزو وابستگی‌های پروژه نیست):
@@ -98,17 +101,17 @@ npm install --no-save --no-package-lock jsdom@24
 node tools/smoke-test.mjs
 ```
 
-این آزمون مسیرهای هش، سوییچر زبان، ریل دسکتاپ، drawer موبایل، Escape، فوکوس‌تراپ و اعتبارسنجی فرم را بررسی می‌کند.
+این آزمون مسیرهای هش، سوییچر زبان، ریل دسکتاپ، drawer موبایل، Escape، فوکوس‌تراپ و اعتبارسنجی فرم را بررسی می‌کند؛ بلوک `command menu` هم باز/بسته‌شدن پنل، ARIA combobox، جست‌وجوی فازی فارسی/انگلیسی، حالت خالی، ArrowDown/Enter/Escape، رویداد `qt:menu:select`، سه گروه خدمات، ناحیهٔ زندهٔ نتیجه و اقدام سریع موبایل را می‌سنجد.
 
 ## سیستم طراحی «QT Next» (نسل پنجم)
 
-`assets/css/qt-next.css` تنها لایهٔ ظاهری تازه است و **بعد از** همهٔ شیت‌های دیگر لود می‌شود؛ همین ترتیب لود، قرارداد اصلی است:
+`assets/css/qt-next.css` پایهٔ لایهٔ ظاهری تازه است و **بعد از** همهٔ شیت‌های قدیمی لود می‌شود؛ شیت منوی نسل‌جدید (`nav/qt-menu.css`) آخرین حلقهٔ همین زنجیره است. همین ترتیب لود، قرارداد اصلی است:
 
 ```
-style.css → nav/*.css → service-pages.css / food-service.css → qt-next.css
+style.css → nav/*.css → service-pages.css / food-service.css → qt-next.css → nav/qt-menu.css
 ```
 
-`tools/check-site.py` تضمین می‌کند در هر صفحه `qt-next.css` آخرین stylesheet باشد؛ اگر در آینده شیتی بعد از آن اضافه شود، CI شکست می‌خورد.
+`tools/check-site.py` تضمین می‌کند در هر صفحه دو شیت `qt-next.css` و سپس `nav/qt-menu.css` آخرین stylesheetها باشند و `menu.js` با `defer` و بعد از `navigation.js` بیاید؛ اگر در آینده شیتی بعد از آن‌ها اضافه شود، CI شکست می‌خورد.
 
 **چرا یک لایهٔ جدا؟** تا بازطراحی بدون بازنویسی ۱۰٬۰۰۰ خط CSS قبلی و بدون دست‌زدن به HTML تولیدشده انجام شود و در صورت نیاز با حذف یک `<link>` به‌سادگی برگشت‌پذیر بماند.
 
@@ -122,6 +125,37 @@ style.css → nav/*.css → service-pages.css / food-service.css → qt-next.css
 - در RTL/LTR فقط از ویژگی‌های منطقی (`margin-inline`, `inset-inline`, `border-start-*`) استفاده کنید؛ `direction` را در این فایل تعریف نکنید (`tools/check-css-direction.py` همین را می‌سنجد).
 - حرکت‌ها باید داخل `@media (prefers-reduced-motion: reduce)` خاموش شوند.
 - شمارهٔ بخش‌ها با CSS counter ساخته می‌شود؛ برای همین به markup اضافه نشده است.
+
+## منوی نسل‌جدید «QT Menu 5»
+
+نسل دوم بازطراحی رابط (پس از `qt-next.css`) یک لایهٔ افزایشی است، نه جایگزین: `assets/js/menu.js` و
+`assets/css/nav/qt-menu.css` روی همان ریل دسکتاپ و دراور موبایل سوار می‌شوند. اگر این دو فایل حذف شوند،
+ناوبری قبلی دقیقاً مثل قبل کار می‌کند.
+
+**سه بخش**
+
+1. **پنل جست‌وجوی کل سایت** زیر فیلد جست‌وجو، با الگوی ARIA combobox. فهرست مقصدها هنگام لود از خود DOM ساخته می‌شود
+   (لینک‌های `.site-nav` و بخش‌های `.site-page[id]`)؛ عنوان‌ها و مقصدها از DOM خوانده می‌شوند و تنها نگاشت
+   گروهی سه‌گانه بر پایهٔ نام فایل خدمت است.
+2. **گروه‌بندی سه‌گانهٔ خدمات** (بازرگانی و تأمین، ترابری و جابه‌جایی، خدمات سازمانی) داخل همان پنل کشویی خدمات.
+3. **اقدام سریع در دراور موبایل**: اگر در صفحه لینک `tel:` یا واتساپ واقعی وجود داشته باشد همان‌ها نمایش داده می‌شوند؛
+   در صفحه‌هایی که شماره ندارند، پیوند «تماس با ما»ی خودِ ریل. هیچ شماره یا مقصدی ساخته نمی‌شود.
+
+**جزئیات پیاده‌سازی**
+
+- نرمال‌سازی فارسی/انگلیسی: `ي/ك/آ/ة`، اعراب، کشیده و ارقام فارسی/عربی؛ جست‌وجو با فاصله و نیم‌فاصله هم کار می‌کند.
+- رتبه‌بندی: تطبیق کامل > پیشوند > شروع واژه > زیررشته > زیردنبالهٔ فازی، با وزن گروه (ریل، زیرمنو، خدمت، بخش صفحه)؛
+  حداکثر ۸ پیشنهاد و ۱۲ نتیجه.
+- صفحه‌کلید: `↑`/`↓`، `Home`/`End`، `Enter`، `Escape` و `⌘K`/`Ctrl+K`؛ در موبایل باز شدن پنل دراور را هم باز می‌کند
+  و `Escape` فوکوس را به فیلد برمی‌گرداند.
+- ARIA: `role="combobox"`، `aria-expanded`، `aria-controls`، `aria-activedescendant`، `role="listbox"`/`option`
+  و ناحیهٔ زندهٔ `role="status"` برای اعلام تعداد نتیجه یا «نتیجه‌ای پیدا نشد».
+- رویداد `qt:menu:select` (cancelable، با `detail: {href, title}`) برای اتصال لایهٔ آمار/تحلیل بدون تغییر این فایل.
+- احترام به `prefers-reduced-motion`، مخفی‌شدن در چاپ، فوکوس دیدنی و کنتراست AA؛ پنل `position: fixed` است تا از
+  `overflow` ریل بیرون بزند.
+
+**بررسی‌ها:** `tools/check-site.py` وجود و ترتیب دو شیت و `menu.js` را می‌سنجد؛ `tools/smoke-test.mjs` رفتار زمان اجرا را
+در چهار صفحه (فارسی، انگلیسی، ۴۰۴ و یک صفحهٔ خدمات) و یک سناریوی موبایل آزمایش می‌کند.
 
 ## انتشار
 

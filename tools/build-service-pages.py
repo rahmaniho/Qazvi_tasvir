@@ -620,6 +620,7 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <link rel="stylesheet" href="../assets/css/nav/nav-base.css">
   <link rel="stylesheet" href="../assets/css/nav/nav-sidebar.css">
 {food_styles}  <link rel="stylesheet" href="../assets/css/qt-next.css">
+  <link rel="stylesheet" href="../assets/css/nav/qt-menu.css">
 </head>
 <body class="qt-sidebar-shell {body_class}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
@@ -646,6 +647,7 @@ def detailed_food_page(service: dict) -> str:
   </main>
 {footer()}
   <script src="../assets/js/navigation.js" defer></script>
+  <script src="../assets/js/menu.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script type="application/ld+json">
@@ -820,6 +822,7 @@ def service_page(service: dict) -> str:
   </main>
 {footer()}
   <script src="../assets/js/navigation.js" defer></script>
+  <script src="../assets/js/menu.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script type="application/ld+json">
 {service_jsonld(service, f"https://qazvintasvir.ir/services/{service['slug']}.html")}
@@ -912,6 +915,7 @@ def hub_page() -> str:
   </main>
 {footer()}
   <script src="../assets/js/navigation.js" defer></script>
+  <script src="../assets/js/menu.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script type="application/ld+json">
   {{

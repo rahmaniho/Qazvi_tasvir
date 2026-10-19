@@ -46,6 +46,7 @@ if (!fs.existsSync(path.join(ROOT, 'index.html'))) {
 const errors = [];
 const mainJs = fs.readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8');
 const navigationJs = fs.readFileSync(path.join(ROOT, 'assets/js/navigation.js'), 'utf8');
+const menuJs = fs.readFileSync(path.join(ROOT, 'assets/js/menu.js'), 'utf8');
 
 function testPage(rel, lang, dir) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -198,6 +199,149 @@ function testNavigation(rel) {
   check(!mobileDoc.body.classList.contains('service-nav-open'), 'mobile body lock did not clear');
 }
 
+/**
+ * منوی نسل‌جدید — جست‌وجوی کل سایت، گروه‌بندی خدمات و اقدام سریع موبایل.
+ */
+function bootMenu(rel, width) {
+  const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const vc = new VirtualConsole();
+  vc.on('jsdomError', error => errors.push(`[${rel}] ${error.message}`));
+  vc.on('error', (...args) => errors.push(`[${rel}] console.error ${args.join(' ')}`));
+  const dom = new JSDOM(html, {
+    url: `https://qazvintasvir.ir/${rel}`,
+    runScripts: 'outside-only',
+    virtualConsole: vc,
+    pretendToBeVisual: true,
+  });
+  const { window } = dom;
+  const mobile = width < 1024;
+  Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
+  window.matchMedia = query => ({
+    matches: mobile && /max-width/.test(query),
+    media: query,
+    addEventListener() {}, removeEventListener() {},
+    addListener() {}, removeListener() {},
+  });
+  window.scrollTo = () => {};
+  window.eval(navigationJs);
+  window.eval(menuJs);
+  window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+  return { window, doc: window.document };
+}
+
+function testCommandMenu(rel, lang) {
+  const { window, doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
+
+  check(typeof window.QTMenu === 'object', 'QTMenu API missing');
+  if (typeof window.QTMenu !== 'object') return;
+
+  const input = doc.querySelector('.site-nav__search-input');
+  check(input !== null, 'search field missing');
+  check(input?.getAttribute('role') === 'combobox', 'search field is not a combobox');
+  check(input?.getAttribute('aria-controls') === 'qt-cmd-list', 'combobox is not wired to the list');
+  check(input?.getAttribute('aria-expanded') === 'false', 'combobox starts expanded');
+
+  check(doc.querySelectorAll('.qt-menu-group').length === 3,
+        `services panel has ${doc.querySelectorAll('.qt-menu-group').length} groups (expected 3)`);
+  check(doc.querySelectorAll('.qt-menu-group a').length === 8,
+        'service groups do not hold all eight services');
+  check(doc.querySelector('.qt-quick') !== null, 'mobile quick actions missing');
+  const dialable = doc.querySelector('a[href^="tel:"]') !== null;
+  if (dialable) {
+    const call = doc.querySelector('.qt-quick__btn[href^="tel:"]');
+    check(call !== null, 'quick call action is not backed by a real tel: link');
+  } else {
+    const reach = doc.querySelector('.qt-quick__btn[href$="#contact"]');
+    check(reach !== null, 'a page without a phone number should fall back to the contact link');
+  }
+
+  input?.dispatchEvent(new window.FocusEvent('focus'));
+  check(window.QTMenu.isOpen(), 'menu did not open on focus');
+  check(doc.querySelector('.qt-cmd')?.dataset.open === 'true', 'panel is not visible');
+  check(input?.getAttribute('aria-expanded') === 'true', 'combobox aria-expanded did not follow');
+
+  let snapshot = window.QTMenu.snapshot();
+  check(snapshot.items.length > 0 && snapshot.items.length <= 8,
+        `suggestions = ${snapshot.items.length} (expected 1…8)`);
+  const titles = snapshot.items.map(item => item.title).join(' | ');
+
+  const type = value => {
+    input.value = value;
+    input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  };
+  const key = keyName => input.dispatchEvent(
+    new window.KeyboardEvent('keydown', { key: keyName, bubbles: true, cancelable: true })
+  );
+
+  type(lang === 'en' ? 'customs' : 'گمرک');
+  snapshot = window.QTMenu.snapshot();
+  check(snapshot.items.some(item => item.href.includes('customs-port')),
+        `search did not find the customs page: ${snapshot.items.map(i => i.title).join(' | ')}`);
+
+  type(lang === 'en' ? 'catering' : 'غذا');
+  check(window.QTMenu.snapshot().items.some(item => item.href.includes('personnel-food')),
+        'search did not find the staff-catering service');
+
+  type(lang === 'en' ? 'resume' : 'رزومه');
+  check(window.QTMenu.snapshot().items.some(item => item.href.endsWith('#resume'))
+        || rel !== 'index.html',
+        'a homepage section without a rail link is not searchable');
+
+  type('zzzqqq');
+  check(window.QTMenu.snapshot().items.length === 0, 'nonsense query returned results');
+  check(doc.querySelector('.qt-cmd__empty')?.hidden === false, 'empty state did not appear');
+  const status = doc.querySelector('.qt-cmd__status');
+  check(status?.getAttribute('role') === 'status', 'result count has no live region');
+  check((status?.textContent || '').trim().length > 0,
+        'live region stayed silent on an empty result set');
+
+  type('');
+  key('ArrowDown');
+  check(input.getAttribute('aria-activedescendant') !== null,
+        'ArrowDown did not move the active option');
+  check(doc.querySelectorAll('[role="option"][aria-selected="true"]').length === 1,
+        'exactly one option must be selected');
+
+  let chosen = null;
+  const stop = event => { chosen = event.detail; event.preventDefault(); };
+  doc.addEventListener('qt:menu:select', stop);
+  key('Enter');
+  doc.removeEventListener('qt:menu:select', stop);
+  check(chosen !== null, 'Enter did not dispatch qt:menu:select');
+  check(!window.QTMenu.isOpen(), 'menu stayed open after choosing a destination');
+
+  input.dispatchEvent(new window.FocusEvent('focus'));
+  check(window.QTMenu.isOpen(), 'menu did not reopen after closing');
+  key('Escape');
+  check(!window.QTMenu.isOpen(), 'Escape did not close the menu');
+  check(input.getAttribute('aria-expanded') === 'false', 'combobox stayed expanded after Escape');
+
+  if (lang === 'en') {
+    check(/result/.test(doc.querySelector('.qt-cmd__count')?.textContent || ''),
+          'English result count copy missing');
+  } else {
+    check(!/[0-9]/.test(doc.querySelector('.qt-cmd__count')?.textContent || ''),
+          'Persian result count leaked Latin digits');
+  }
+
+  if (rel === 'index.html') {
+    check(titles.length > 0, 'suggestions were empty');
+  }
+}
+
+function testCommandMenuMobile(rel) {
+  const { window, doc } = bootMenu(rel, 375);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
+  const nav = doc.querySelector('.site-nav');
+  check(!nav.classList.contains('is-open'), 'drawer should start closed');
+  window.QTMenu.open();
+  check(nav.classList.contains('is-open'), 'opening the menu on mobile did not open the drawer');
+  check(window.QTMenu.isOpen(), 'menu did not open on mobile');
+  check(doc.querySelector('.qt-quick') !== null, 'quick actions missing on mobile');
+  check(doc.querySelectorAll('.qt-quick__btn').length >= 1, 'quick row is empty');
+}
+
 function testContactForm(rel, lang) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const vc = new VirtualConsole();
@@ -262,6 +406,12 @@ console.log('contact form validation:');
 for (const [rel] of [[ 'index.html', 'fa' ], [ 'en/index.html', 'en' ]]) testContactForm(rel, 'fa');
 console.log('navigation regression check:');
 for (const rel of sharedPages()) testNavigation(rel);
+console.log('command menu:');
+for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
+  ['404.html', 'fa'], ['services/sourcing.html', 'fa']]) {
+  testCommandMenu(rel, lang);
+}
+testCommandMenuMobile('index.html');
 console.log(errors.length
   ? `\n  ✗ ${errors.length} problem(s):\n    ${errors.slice(0, 12).join('\n    ')}`
   : '\n  ✓ routes, shared sidebar and mobile drawer passed');

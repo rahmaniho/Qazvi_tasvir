@@ -11,7 +11,8 @@ Checks real, user-visible expectations — not just that the build ran:
   * fa/en hreflang is reciprocal and the language switcher points both ways
   * sitemap.xml lists exactly the indexable pages, with matching URLs
   * target="_blank" always ships rel="noopener"
-  * every page loads the QT Next layer as its last stylesheet
+  * every page loads the QT Next layer, then the QT Menu layer, as its last sheets
+  * menu.js ships on every page and runs after the navigation controller
   * every stylesheet has balanced braces (a broken sheet silently kills the UI)
 
 Usage: python3 tools/check-site.py
@@ -126,10 +127,29 @@ def main() -> int:
         stylesheets = re.findall(
             r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', html
         )
-        if not stylesheets or not stylesheets[-1].endswith("qt-next.css"):
+        expected_sheets = ("qt-next.css", "nav/qt-menu.css")
+        tail = tuple(stylesheets[-2:])
+        if len(tail) != 2 or not (
+            tail[0].endswith(expected_sheets[0]) and tail[1].endswith(expected_sheets[1])
+        ):
             errors.append(
-                f"{label}: qt-next.css must load last (found {stylesheets[-1:] or 'none'})"
+                f"{label}: stylesheet order must end with qt-next.css → nav/qt-menu.css "
+                f"(found {tail or 'none'})"
             )
+
+        scripts = re.findall(r'<script[^>]+src="([^"]+)"', html)
+        menu_script = next((src for src in scripts if src.endswith("menu.js")), None)
+        nav_script = next((src for src in scripts if src.endswith("navigation.js")), None)
+        if not menu_script:
+            errors.append(f"{label}: assets/js/menu.js is not loaded")
+        if not nav_script:
+            errors.append(f"{label}: navigation.js is not loaded")
+        if menu_script and nav_script:
+            if scripts.index(menu_script) < scripts.index(nav_script):
+                errors.append(f"{label}: menu.js must load after navigation.js")
+            tag = re.search(rf'<script[^>]+src="{re.escape(menu_script)}"[^>]*>', html)
+            if tag and "defer" not in tag.group(0):
+                errors.append(f"{label}: menu.js must be deferred")
 
         canonical = text_of(html, r'<link\s+rel="canonical"\s+href="([^"]*)"')
         if page.name != "404.html" and not canonical:
