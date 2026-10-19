@@ -575,12 +575,24 @@ def footer() -> str:
 </footer>'''
 
 
-def shell_head(title: str, description: str, canonical: str, theme: str, hero_webp: str | None = None, food_page: bool = False) -> str:
+def service_bar(service: dict) -> str:
+    """نوار درخواست چسبان موبایل — مقصدش همان CTA موجود هر صفحه است."""
+    return f'''  <nav class="qt-service-bar" aria-label="اقدام سریع">
+    <a class="qt-service-bar__cta" href="../index.html?service={escape(service["form_service"])}#contact">
+      <span>درخواست بررسی نیاز</span>
+      {ARROW}
+    </a>
+    <a class="qt-service-bar__link" href="index.html">همه خدمات</a>
+  </nav>'''
+
+
+def shell_head(title: str, description: str, canonical: str, theme: str, hero_webp: str | None = None, food_page: bool = False, detail_page: bool = False) -> str:
     hero_preload = (
         f'  <link rel="preload" href="{escape(hero_webp)}" as="image" type="image/webp" fetchpriority="high">\n'
         if hero_webp else ""
     )
     food_styles = '  <link rel="stylesheet" href="../assets/css/food-service.css">\n' if food_page else ""
+    service_styles = '  <link rel="stylesheet" href="../assets/css/qt-service.css">\n' if detail_page else ""
     body_class = f'food-service-page {escape(theme)}' if food_page else escape(theme)
     canonical_url = (
         "https://qazvintasvir.ir/services/"
@@ -621,7 +633,7 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <link rel="stylesheet" href="../assets/css/nav/nav-sidebar.css">
 {food_styles}  <link rel="stylesheet" href="../assets/css/qt-next.css">
   <link rel="stylesheet" href="../assets/css/nav/qt-menu.css">
-</head>
+{service_styles}</head>
 <body class="qt-sidebar-shell {body_class}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -637,6 +649,7 @@ def detailed_food_page(service: dict) -> str:
         service["theme"],
         service["image_webp"],
         food_page=True,
+        detail_page=True,
     ) + header(service["slug"]) + f'''\n  <main id="main-content">
     <nav class="container page-crumbs" aria-label="مسیر صفحه">
       <a href="../index.html">خانه</a><span class="page-crumbs__separator">/</span>
@@ -645,6 +658,7 @@ def detailed_food_page(service: dict) -> str:
     </nav>
 {detail}
   </main>
+{service_bar(service)}
 {footer()}
   <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/menu.js" defer></script>
@@ -694,7 +708,7 @@ def service_page(service: dict) -> str:
         for item in related
     )
 
-    return shell_head(service["title"], service["meta"], service["slug"], service["theme"], service["image_webp"]) + header(service["slug"]) + f'''
+    return shell_head(service["title"], service["meta"], service["slug"], service["theme"], service["image_webp"], detail_page=True) + header(service["slug"]) + f'''
   <main id="main-content">
     <section class="service-hero" aria-labelledby="service-title">
       <div class="container">
@@ -820,6 +834,7 @@ def service_page(service: dict) -> str:
       </div>
     </section>
   </main>
+{service_bar(service)}
 {footer()}
   <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/menu.js" defer></script>

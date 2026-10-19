@@ -14,6 +14,7 @@ Checks real, user-visible expectations — not just that the build ran:
   * every page loads the QT Next layer, then the QT Menu layer, as its last sheets
   * homepages add the QT Editorial and QT Dock layers last; no other page may
     load them
+  * service detail pages add the QT Service layer last; no other page may load it
   * homepages ship dock.js (deferred) after menu.js; menu.js is deferred and
     runs after the navigation controller on every page
   * every stylesheet has balanced braces (a broken sheet silently kills the UI)
@@ -131,8 +132,10 @@ def main() -> int:
             r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', html
         )
         is_home = page.name == "index.html" and page.parent in (ROOT, ROOT / "en")
+        is_service_detail = page.parent == ROOT / "services" and page.name != "index.html"
         home_sheets = ("qt-home.css", "qt-dock.css")
-        expected_sheets = ("qt-next.css", "nav/qt-menu.css") + (home_sheets if is_home else ())
+        layer_sheets = home_sheets if is_home else (("qt-service.css",) if is_service_detail else ())
+        expected_sheets = ("qt-next.css", "nav/qt-menu.css") + layer_sheets
         tail = tuple(stylesheets[-len(expected_sheets):])
         if len(tail) != len(expected_sheets) or not all(
             href.endswith(sheet) for href, sheet in zip(tail, expected_sheets)
@@ -146,6 +149,10 @@ def main() -> int:
             for sheet in home_sheets:
                 if any(href.endswith(sheet) for href in stylesheets):
                     errors.append(f"{label}: {sheet} is homepage-only")
+        if not is_service_detail and any(
+            href.endswith("qt-service.css") for href in stylesheets
+        ):
+            errors.append(f"{label}: qt-service.css is service-detail-only")
 
         scripts = re.findall(r'<script[^>]+src="([^"]+)"', html)
         menu_script = next((src for src in scripts if src.endswith("menu.js")), None)

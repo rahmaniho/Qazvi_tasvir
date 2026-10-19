@@ -388,6 +388,34 @@ function testDock(rel, lang) {
         'body did not flag the open drawer (dock would stay visible)');
 }
 
+/**
+ * نوار درخواست چسبان صفحات خدمات — لینک هر صفحه به فرم همان خدمت.
+ */
+function testServiceBar(rel, expectedService) {
+  const { doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] service bar: ${message}`); };
+  const bar = doc.querySelector('.qt-service-bar');
+
+  if (!expectedService) {
+    check(bar === null, 'service bar was rendered outside a service detail page');
+    return;
+  }
+
+  check(bar !== null, 'sticky inquiry bar missing');
+  if (!bar) return;
+
+  check(bar.getAttribute('aria-label') === 'اقدام سریع', 'bar landmark has no label');
+  const cta = bar.querySelector('.qt-service-bar__cta');
+  check(cta !== null, 'primary inquiry action missing');
+  const href = cta?.getAttribute('href') || '';
+  check(href.includes(`?service=${expectedService}#contact`),
+        `inquiry link does not preselect ${expectedService}: ${href}`);
+  check((cta?.textContent || '').includes('درخواست بررسی نیاز'), 'inquiry copy changed');
+
+  const back = bar.querySelector('.qt-service-bar__link');
+  check(back?.getAttribute('href') === 'index.html', 'back-to-services link is wrong');
+}
+
 function testCommandMenuMobile(rel) {
   const { window, doc } = bootMenu(rel, 375);
   const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
@@ -474,6 +502,12 @@ console.log('mobile dock:');
 for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
   ['404.html', 'fa'], ['services/sourcing.html', 'fa']]) {
   testDock(rel, lang);
+}
+console.log('service inquiry bar:');
+for (const [rel, service] of [['services/import-export.html', 'trade'],
+  ['services/sourcing.html', 'sourcing'], ['services/personnel-food.html', 'food'],
+  ['services/index.html', null], ['index.html', null], ['404.html', null]]) {
+  testServiceBar(rel, service);
 }
 console.log(errors.length
   ? `\n  ✗ ${errors.length} problem(s):\n    ${errors.slice(0, 12).join('\n    ')}`
