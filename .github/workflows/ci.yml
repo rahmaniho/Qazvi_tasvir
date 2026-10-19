@@ -45,6 +45,7 @@ jobs:
           node --check assets/js/menu.js
           node --check assets/js/dock.js
           node --check assets/js/hub.js
+          node --check assets/js/contact.js
 
       - name: HTML structure
         run: python3 tools/check-html.py index.html en/index.html 404.html services/*.html

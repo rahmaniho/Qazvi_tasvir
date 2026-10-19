@@ -49,6 +49,20 @@ const navigationJs = fs.readFileSync(path.join(ROOT, 'assets/js/navigation.js'),
 const menuJs = fs.readFileSync(path.join(ROOT, 'assets/js/menu.js'), 'utf8');
 const dockJs = fs.readFileSync(path.join(ROOT, 'assets/js/dock.js'), 'utf8');
 const hubJs = fs.readFileSync(path.join(ROOT, 'assets/js/hub.js'), 'utf8');
+const contactJs = fs.readFileSync(path.join(ROOT, 'assets/js/contact.js'), 'utf8');
+
+/**
+ * jsdom scrolling is a no-op that reports «Not implemented» as a jsdomError.
+ * main.js scrolls inside requestAnimationFrame, so those reports can arrive
+ * after a test finished; stub them in every window we build.
+ */
+function stubScrolling(window) {
+  window.scrollTo = () => {};
+  window.scrollBy = () => {};
+  if (window.Element && window.Element.prototype) {
+    window.Element.prototype.scrollIntoView = function () {};
+  }
+}
 
 function testPage(rel, lang, dir) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -62,6 +76,7 @@ function testPage(rel, lang, dir) {
     pretendToBeVisual: true,
   });
   const { window } = dom;
+  stubScrolling(window);
   window.matchMedia = window.matchMedia || (query => ({
     matches: false, media: query, addEventListener() {}, removeEventListener() {},
     addListener() {}, removeListener() {}, onchange: null, dispatchEvent: () => false,
@@ -146,6 +161,7 @@ function testNavigation(rel) {
     virtualConsole: vc,
     pretendToBeVisual: true,
   });
+  stubScrolling(desktop.window);
   bootNavigation(desktop.window, 1440);
   const doc = desktop.window.document;
   check(doc.querySelector('.site-header') !== null, 'site header missing');
@@ -224,11 +240,12 @@ function bootMenu(rel, width) {
     addEventListener() {}, removeEventListener() {},
     addListener() {}, removeListener() {},
   });
-  window.scrollTo = () => {};
+  stubScrolling(window);
   window.eval(navigationJs);
   window.eval(menuJs);
   window.eval(dockJs);
   window.eval(hubJs);
+  window.eval(contactJs);
   window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
   return { window, doc: window.document };
 }
@@ -483,6 +500,59 @@ function testHubFilter(rel) {
   check(filter.getAttribute('aria-label') === 'فیلتر خدمات', 'filter group label is missing');
 }
 
+/**
+ * شمارندهٔ کاراکتر پیام — فقط صفحهٔ اصلی، هم‌خوان با زبان و maxlength.
+ */
+function testContactCounter(rel, lang) {
+  const { window, doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] counter: ${message}`); };
+  const field = doc.getElementById('contact-message');
+  const counter = doc.querySelector('.qt-form-counter');
+  const isHome = rel === 'index.html' || rel === 'en/index.html';
+
+  if (!isHome) {
+    check(counter === null, 'counter was rendered outside the homepage');
+    return;
+  }
+
+  check(window.QTContact?.version === '10.0', 'QTContact API missing');
+  check(field !== null, 'message field missing');
+  check(counter !== null, 'character counter missing');
+  if (!field || !counter) return;
+
+  check(counter.getAttribute('aria-hidden') === 'true',
+        'counter must stay out of the accessibility tree');
+  const max = Number(field.getAttribute('maxlength'));
+  check(max === 1200, `maxlength changed (${field.getAttribute('maxlength')})`);
+  check(counter.textContent.includes(lang === 'en' ? '1200' : '۱۲۰۰'),
+        `counter does not show the limit: ${counter.textContent}`);
+  check(counter.textContent.trim().startsWith(lang === 'en' ? '0' : '۰'),
+        'counter does not start at zero');
+
+  field.value = 'سلام';
+  field.dispatchEvent(new window.Event('input', { bubbles: true }));
+  check(counter.dataset.qtCount === '4', `counter counted ${counter.dataset.qtCount} instead of 4`);
+  check(counter.textContent.trim().startsWith(lang === 'en' ? '4' : '۴'),
+        `counter did not render four characters: ${counter.textContent}`);
+  check(!counter.classList.contains('is-near'), 'four characters cannot be near the limit');
+
+  field.value = 'x'.repeat(1090);
+  field.dispatchEvent(new window.Event('input', { bubbles: true }));
+  check(counter.classList.contains('is-near'), 'counter did not warn near the limit');
+
+  field.value = 'x'.repeat(max);
+  field.dispatchEvent(new window.Event('input', { bubbles: true }));
+  check(counter.classList.contains('is-max'), 'counter did not flag the hard limit');
+
+  doc.getElementById('contact-form').reset();
+  return new Promise(resolve => window.setTimeout(() => {
+    check(counter.textContent.trim().startsWith(lang === 'en' ? '0' : '۰'),
+          'counter did not return to zero after the form reset');
+    check(window.QTContact.snapshot().count === 0, 'snapshot kept the old count');
+    resolve();
+  }, 10));
+}
+
 function testCommandMenuMobile(rel) {
   const { window, doc } = bootMenu(rel, 375);
   const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
@@ -507,6 +577,7 @@ function testContactForm(rel, lang) {
     pretendToBeVisual: true,
   });
   const { window } = dom;
+  stubScrolling(window);
   window.matchMedia = window.matchMedia || (query => ({
     matches: false, media: query, addEventListener() {}, removeEventListener() {},
     addListener() {}, removeListener() {}, onchange: null, dispatchEvent: () => false,
@@ -580,6 +651,13 @@ console.log('services hub filter:');
 for (const rel of ['services/index.html', 'index.html', '404.html', 'services/sourcing.html']) {
   testHubFilter(rel);
 }
+console.log('contact counter:');
+const counterRuns = [];
+for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
+  ['404.html', 'fa'], ['services/sourcing.html', 'fa']]) {
+  counterRuns.push(testContactCounter(rel, lang));
+}
+await Promise.all(counterRuns);
 console.log(errors.length
   ? `\n  ✗ ${errors.length} problem(s):\n    ${errors.slice(0, 12).join('\n    ')}`
   : '\n  ✓ routes, shared sidebar and mobile drawer passed');

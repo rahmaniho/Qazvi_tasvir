@@ -12,8 +12,8 @@ Checks real, user-visible expectations — not just that the build ran:
   * sitemap.xml lists exactly the indexable pages, with matching URLs
   * target="_blank" always ships rel="noopener"
   * every page loads the QT Next layer, then the QT Menu layer, as its last sheets
-  * homepages add the QT Editorial and QT Dock layers last; no other page may
-    load them
+  * homepages add the QT Editorial, QT Dock and QT Contact layers last; no
+    other page may load them
   * service detail pages add the QT Service layer last; no other page may load it
   * the services hub adds the QT Hub layer and hub.js last; nowhere else
   * homepages ship dock.js (deferred) after menu.js; menu.js is deferred and
@@ -135,7 +135,7 @@ def main() -> int:
         is_home = page.name == "index.html" and page.parent in (ROOT, ROOT / "en")
         is_service_detail = page.parent == ROOT / "services" and page.name != "index.html"
         is_service_hub = page == ROOT / "services/index.html"
-        home_sheets = ("qt-home.css", "qt-dock.css")
+        home_sheets = ("qt-home.css", "qt-dock.css", "qt-contact.css")
         if is_home:
             layer_sheets = home_sheets
         elif is_service_detail:
@@ -193,6 +193,19 @@ def main() -> int:
                     errors.append(f"{label}: dock.js must be deferred")
         elif dock_script:
             errors.append(f"{label}: dock.js is homepage-only")
+
+        contact_script = next((src for src in scripts if src.endswith("contact.js")), None)
+        if is_home:
+            if not contact_script:
+                errors.append(f"{label}: assets/js/contact.js is not loaded")
+            else:
+                if menu_script and scripts.index(contact_script) < scripts.index(menu_script):
+                    errors.append(f"{label}: contact.js must load after menu.js")
+                tag = re.search(rf'<script[^>]+src="{re.escape(contact_script)}"[^>]*>', html)
+                if tag and "defer" not in tag.group(0):
+                    errors.append(f"{label}: contact.js must be deferred")
+        elif contact_script:
+            errors.append(f"{label}: contact.js is homepage-only")
 
         hub_script = next((src for src in scripts if src.endswith("hub.js")), None)
         if is_service_hub:
