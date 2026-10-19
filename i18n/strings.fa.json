@@ -14,16 +14,16 @@
     "prs",
     "fr"
   ],
-  "count": 464,
+  "count": 456,
   "countStructured": 38,
   "strings": {
-    "chrome.001": {
-      "fa": "قزوین تصویر | بازرگانی، واردات و صادرات، ترابری و تأمین غذای پرسنل — تأسیس ۱۳۷۴",
+    "chrome.104": {
+      "fa": "قزوین تصویر | بازرگانی، ترابری و تأمین غذای سازمانی",
       "kind": "text",
       "ctx": "html"
     },
-    "chrome.051": {
-      "fa": "شرکت قزوین تصویر (شناسه ملی ۱۰۸۶۱۴۱۵۲۱۵)، با مدیریت سعید امین‌زاده؛ هشت خدمت تخصصی در واردات و صادرات، ترخیص، تأمین صنعتی، ترابری، سرویس VIP و سازمانی، غذای پرسنل و مشاوره بازرگانی. تأسیس ۱۳۷۴. تماس: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
+    "chrome.105": {
+      "fa": "شرکت قزوین تصویر (شناسه ملی ۱۰۸۶۱۴۱۵۲۱۵)؛ بازرگانی، واردات و صادرات، ترخیص گمرکی، ترابری پرسنل و تأمین غذای سازمانی. تأسیس ۱۳۷۴ — ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "meta:description",
       "ctx": "meta.description",
       "keepVerbatim": [
@@ -31,23 +31,18 @@
         "۱۰۸۶۱۴۱۵۲۱۵"
       ]
     },
-    "chrome.003": {
-      "fa": "قزوین تصویر, سعید امین‌زاده, بازرگانی قزوین, واردات و صادرات, ترخیص گمرکی, ترابری کارخانجات قزوین, سرویس ایاب و ذهاب پرسنل, ناوگان ترابری, اتوبوس سرویس پرسنل, مینی‌بوس, ون مسافربری, تأمین غذای پرسنل, کیترینگ سازمانی, وعده‌های سازمانی, غذای کارخانه, پیمان‌کاری غذای پرسنل, صبحانه و ناهار سازمانی, شهرک صنعتی کاسپین, شهرک صنعتی البرز",
-      "kind": "meta:keywords",
-      "ctx": "meta.keywords"
-    },
     "chrome.004": {
       "fa": "شرکت قزوین تصویر",
       "kind": "meta:author",
       "ctx": "meta.author"
     },
-    "chrome.005": {
-      "fa": "قزوین تصویر | بازرگانی، واردات و صادرات، ترابری و تأمین غذای پرسنل",
+    "chrome.106": {
+      "fa": "قزوین تصویر | بازرگانی، ترابری و تأمین غذای سازمانی",
       "kind": "meta:og:title",
       "ctx": "meta.og:title"
     },
-    "chrome.052": {
-      "fa": "شرکت قزوین تصویر با بیش از ۳۱ سال سابقه تحت مدیریت سعید امین‌زاده؛ هشت مسیر خدمت در بازرگانی، ترخیص، تأمین صنعتی، ترابری، سرویس VIP، شاتل سازمانی، کیترینگ و مشاوره.",
+    "chrome.107": {
+      "fa": "بیش از ۳۱ سال تجربه در بازرگانی، ترخیص، تأمین صنعتی، ترابری سازمانی و تأمین غذای پرسنل؛ با مدیریت سعید امین‌زاده.",
       "kind": "meta:og:description",
       "ctx": "meta.og:description"
     },
@@ -61,13 +56,13 @@
       "kind": "meta:og:site_name",
       "ctx": "meta.og:site_name"
     },
-    "chrome.009": {
-      "fa": "قزوین تصویر | بازرگانی، ترابری و تأمین غذای پرسنل",
+    "chrome.108": {
+      "fa": "قزوین تصویر | بازرگانی، ترابری و تأمین غذای سازمانی",
       "kind": "meta:twitter:title",
       "ctx": "meta.twitter:title"
     },
-    "chrome.053": {
-      "fa": "شرکت قزوین تصویر (شناسه ۱۰۸۶۱۴۱۵۲۱۵) — هشت مسیر خدمت تخصصی در بازرگانی، ترخیص، تأمین صنعتی، ترابری، کیترینگ و مشاوره با مدیریت سعید امین‌زاده.",
+    "chrome.109": {
+      "fa": "قزوین تصویر (شناسه ۱۰۸۶۱۴۱۵۲۱۵)؛ بازرگانی، ترخیص، تأمین صنعتی، ترابری و کیترینگ سازمانی — تأسیس ۱۳۷۴.",
       "kind": "meta:twitter:description",
       "ctx": "meta.twitter:description",
       "keepVerbatim": [
@@ -85,10 +80,15 @@
       "ctx": "meta",
       "html": "<a href=\"#main-content\" class=\"skip-link\">پرش به محتوای اصلی صفحه</a>"
     },
-    "chrome.088": {
+    "chrome.110": {
       "fa": "صفحه اصلی شرکت قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "header.header.site-header"
+      "ctx": "header.body.qt-sidebar-shell"
+    },
+    "chrome.111": {
+      "fa": "قزوین تصویر — بازرگانی، ترابری و غذای سازمانی",
+      "kind": "attr:title",
+      "ctx": "header.body.qt-sidebar-shell"
     },
     "chrome.089": {
       "fa": "قزوین تصویربازرگانی • ترابری • غذای سازمانی",
@@ -107,22 +107,21 @@
       "ctx": "nav.div.container.header-inner",
       "html": "<a class=\"site-nav__link\" href=\"#hero\" aria-current=\"page\">خانه</a><a class=\"site-nav__link\" href=\"#about\">درباره ما</a>"
     },
-    "chrome.092": {
+    "chrome.112": {
       "fa": "خدمات",
       "kind": "text",
-      "ctx": "div.nav.site-nav",
-      "html": "<a class=\"site-nav__link\" href=\"services/index.html\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"main-services-menu\">خدمات</a>"
+      "ctx": "div.nav.site-nav"
     },
     "chrome.093": {
       "fa": "هشت خدمت تخصصی",
       "kind": "attr:aria-label",
       "ctx": "div.div.site-nav__item--services"
     },
-    "chrome.094": {
+    "chrome.113": {
       "fa": "فهرست هشت خدمت تخصصیواردات و صادرات کالاهای مجازترخیص گمرکی و امور بندریتأمین مواد اولیه و تجهیزاتترابری پرسنل کارخانجاتحمل‌ونقل درون‌شهری و سرویس‌های VIPسرویس مدارس، ادارات و شرکت‌هاتأمین غذای پرسنل و وعده‌های سازمانیمشاوره بازرگانی و گشایش",
       "kind": "text",
       "ctx": "div.div.site-nav__item--services",
-      "html": "<a role=\"menuitem\" href=\"services/index.html\">فهرست هشت خدمت تخصصی</a><a role=\"menuitem\" href=\"services/import-export.html\">واردات و صادرات کالاهای مجاز</a><a role=\"menuitem\" href=\"services/customs-port.html\">ترخیص گمرکی و امور بندری</a><a role=\"menuitem\" href=\"services/sourcing.html\">تأمین مواد اولیه و تجهیزات</a><a role=\"menuitem\" href=\"services/factory-transport.html\">ترابری پرسنل کارخانجات</a><a role=\"menuitem\" href=\"services/urban-vip.html\">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a><a role=\"menuitem\" href=\"services/school-office.html\">سرویس مدارس، ادارات و شرکت‌ها</a><a role=\"menuitem\" href=\"services/personnel-food.html\">تأمین غذای پرسنل و وعده‌های سازمانی</a><a role=\"menuitem\" href=\"services/trade-consulting.html\">مشاوره بازرگانی و گشایش</a>"
+      "html": "<a href=\"services/index.html\">فهرست هشت خدمت تخصصی</a><a href=\"services/import-export.html\">واردات و صادرات کالاهای مجاز</a><a href=\"services/customs-port.html\">ترخیص گمرکی و امور بندری</a><a href=\"services/sourcing.html\">تأمین مواد اولیه و تجهیزات</a><a href=\"services/factory-transport.html\">ترابری پرسنل کارخانجات</a><a href=\"services/urban-vip.html\">حمل‌ونقل درون‌شهری و سرویس‌های VIP</a><a href=\"services/school-office.html\">سرویس مدارس، ادارات و شرکت‌ها</a><a href=\"services/personnel-food.html\">تأمین غذای پرسنل و وعده‌های سازمانی</a><a href=\"services/trade-consulting.html\">مشاوره بازرگانی و گشایش</a>"
     },
     "chrome.100": {
       "fa": "ناوگانبرندهاتماس با مادرخواست مشاوره",
@@ -163,15 +162,15 @@
       "kind": "attr:aria-label",
       "ctx": "svg.button.theme-option"
     },
-    "hero.001": {
+    "hero.032": {
       "fa": "معرفی اصلی قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "main"
+      "ctx": "main.body.qt-sidebar-shell"
     },
-    "hero.023": {
+    "hero.033": {
       "fa": "هشت مسیر خدمت تخصصی برای تجارت، ترابری و رفاه سازمانی",
       "kind": "text",
-      "ctx": "main",
+      "ctx": "main.body.qt-sidebar-shell",
       "html": "<span class=\"hero__badge-dot\" aria-hidden=\"true\"></span><span>هشت مسیر خدمت تخصصی برای تجارت، ترابری و رفاه سازمانی</span>"
     },
     "hero.003": {
@@ -217,17 +216,17 @@
       "ctx": "div.div.hero__content-col.reveal",
       "html": "<span class=\"hero__stat-number\" data-count=\"31\" data-prefix=\"+\" data-suffix=\"\">+۳۱</span><span class=\"hero__stat-label\">سال سابقه (تأسیس ۱۳۷۴)</span>"
     },
-    "hero.027": {
-      "fa": "+۱۰۰مشتری فعال سازمانی",
+    "hero.034": {
+      "fa": "۱۱قرارداد همکاری سازمانی",
       "kind": "text",
       "ctx": "div.div.hero__stats",
-      "html": "<span class=\"hero__stat-number\" data-count=\"100\" data-prefix=\"+\" data-suffix=\"\">+۱۰۰</span><span class=\"hero__stat-label\">مشتری فعال سازمانی</span>"
+      "html": "<span class=\"hero__stat-number\" data-count=\"11\" data-prefix=\"\" data-suffix=\"\">۱۱</span><span class=\"hero__stat-label\">قرارداد همکاری سازمانی</span>"
     },
-    "hero.028": {
-      "fa": "+۵۰۰پرسنل جابه‌جا شده روزانه",
+    "hero.035": {
+      "fa": "۱۰۱دستگاه خودرو در قراردادها",
       "kind": "text",
       "ctx": "div.div.hero__stats",
-      "html": "<span class=\"hero__stat-number\" data-count=\"500\" data-prefix=\"+\" data-suffix=\"\">+۵۰۰</span><span class=\"hero__stat-label\">پرسنل جابه‌جا شده روزانه</span>"
+      "html": "<span class=\"hero__stat-number\" data-count=\"101\" data-prefix=\"\" data-suffix=\"\">۱۰۱</span><span class=\"hero__stat-label\">دستگاه خودرو در قراردادها</span>"
     },
     "hero.012": {
       "fa": "بازرگانی بین‌الملل",
@@ -252,28 +251,28 @@
         "۱۰۸۶۱۴۱۵۲۱۵"
       ]
     },
-    "hero.029": {
-      "fa": "فعال و دارای مجوز",
+    "hero.038": {
+      "fa": "شرکت فعال",
       "kind": "text",
       "ctx": "div.div.hero__showcase-header",
-      "html": "<span class=\"hero__showcase-badge\">فعال و دارای مجوز</span>"
+      "html": "<span class=\"hero__showcase-badge\">شرکت فعال</span>"
     },
     "hero.017": {
       "fa": "تصویر شاخص قزوین تصویر با لوگوی طلایی شرکت؛ صحنه‌های حمل‌ونقل مسافربری VIP، بندر کانتینری واردات و صادرات و سرویس غذای پرسنل",
       "kind": "attr:alt",
       "ctx": "div.div.hero__glass-card"
     },
-    "hero.030": {
+    "hero.036": {
       "fa": "مدیرعامل: سعید امین‌زاده",
       "kind": "text",
       "ctx": "div.div.hero__glass-card",
-      "html": "<strong style=\"color: #FCD34D;\">مدیرعامل:</strong> سعید امین‌زاده"
+      "html": "<strong style=\"color: var(--amber-light);\">مدیرعامل:</strong> سعید امین‌زاده"
     },
-    "hero.031": {
+    "hero.037": {
       "fa": "ثبت: ۲۷۴۹",
       "kind": "text",
       "ctx": "div.div.hero__glass-card",
-      "html": "<strong style=\"color: #38BDF8;\">ثبت:</strong> ۲۷۴۹",
+      "html": "<strong style=\"color: var(--sky-light);\">ثبت:</strong> ۲۷۴۹",
       "keepVerbatim": [
         "۲۷۴۹"
       ]
@@ -288,15 +287,15 @@
       "kind": "text",
       "ctx": "div.div.float-card.float-card--bottom"
     },
-    "about.001": {
+    "about.033": {
       "fa": "درباره شرکت قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "about.023": {
+    "about.034": {
       "fa": "درباره شرکت قزوین تصویر",
       "kind": "text",
-      "ctx": "section.section.site-page.section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>درباره شرکت قزوین تصویر</span>"
     },
     "about.003": {
@@ -322,11 +321,11 @@
       "ctx": "li.ul.about__checklist",
       "html": "<span>شبکه گسترده تأمین‌کنندگان معتبر داخلی، خارجی و کارگزاران گمرکی</span>"
     },
-    "about.026": {
-      "fa": "پشتیبانی شبانه‌روزی ۲۴/۷ و نظارت مستمر میدانی بر ناوگان ترابری",
+    "about.035": {
+      "fa": "هماهنگی عملیات ترابری در شیفت‌های روز و شب و نظارت میدانی بر سرویس",
       "kind": "text",
       "ctx": "li.ul.about__checklist",
-      "html": "<span>پشتیبانی شبانه‌روزی ۲۴/۷ و نظارت مستمر میدانی بر ناوگان ترابری</span>"
+      "html": "<span>هماهنگی عملیات ترابری در شیفت‌های روز و شب و نظارت میدانی بر سرویس</span>"
     },
     "about.027": {
       "fa": "ارتباط مستقیم با مدیریتمشاهده پرونده ثبتی در رسمیو ↗",
@@ -364,11 +363,11 @@
       "kind": "attr:aria-label",
       "ctx": "div.div.about__cards-column.reveal"
     },
-    "about.028": {
+    "about.036": {
       "fa": "اطلاعات هویتی و ثبتی شرکتوضعیت: فعال",
       "kind": "text",
       "ctx": "div.div.about__cards-column.reveal",
-      "html": "<span>اطلاعات هویتی و ثبتی شرکت</span><span style=\"color: #34D399; font-size: 0.8rem; background: rgba(16,185,129,0.2); padding: 2px 8px; border-radius: 4px;\">وضعیت: فعال</span>"
+      "html": "<span>اطلاعات هویتی و ثبتی شرکت</span><span style=\"color: var(--qt-emerald-bright); font-size: 0.8rem; background: var(--qt-emerald-tint); padding: 2px 8px; border-radius: 4px;\">وضعیت: فعال</span>"
     },
     "about.030": {
       "fa": "شناسه ملی۱۰۸۶۱۴۱۵۲۱۵",
@@ -524,15 +523,15 @@
       "ctx": "div.div.container",
       "html": "<a href=\"services/index.html\" class=\"btn btn-secondary btn-lg\" aria-label=\"مشاهده فهرست هشت خدمت تخصصی\">مشاهده هر ۸ صفحه خدمات</a><a href=\"#contact\" class=\"btn btn-primary btn-lg\" aria-label=\"تماس با ما\">تماس و درخواست همکاری</a>"
     },
-    "fleet.001": {
+    "fleet.043": {
       "fa": "ناوگان ترابری شرکت قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.fleet-section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "fleet.028": {
+    "fleet.044": {
       "fa": "ناوگان ملکی و بیمه‌شده",
       "kind": "text",
-      "ctx": "section.section.site-page.fleet-section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>ناوگان ملکی و بیمه‌شده</span>"
     },
     "fleet.003": {
@@ -749,15 +748,15 @@
       "ctx": "li.ul.brands-grid.reveal",
       "html": "<span class=\"brand-item__name\">ایران خودرو دیزل (IKD)</span>"
     },
-    "why-us.001": {
+    "why-us.021": {
       "fa": "مزایای همکاری با قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "why-us.019": {
+    "why-us.022": {
       "fa": "تمایز و مزیت‌های رقابتی",
       "kind": "text",
-      "ctx": "section.section.site-page.section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>تمایز و مزیت‌های رقابتی</span>"
     },
     "why-us.003": {
@@ -810,13 +809,13 @@
       "kind": "text",
       "ctx": "p.div.why-card.reveal"
     },
-    "why-us.013": {
-      "fa": "پشتیبانی ۲۴/۷ و قراردادهای منعطف",
+    "why-us.023": {
+      "fa": "پاسخگویی عملیاتی و قراردادهای منعطف",
       "kind": "text",
       "ctx": "div.div.why-us__grid"
     },
-    "why-us.014": {
-      "fa": "انعطاف در نحوه تسویه، ساختار قراردادهای ماهانه و سالانه و پاسخگویی بی‌وقفه به تغییرات شیفت کاری.",
+    "why-us.024": {
+      "fa": "انعطاف در نحوه تسویه و ساختار قراردادهای ماهانه و سالانه، همراه با هماهنگی برای تغییرات شیفت کاری.",
       "kind": "text",
       "ctx": "p.div.why-card.reveal"
     },
@@ -825,8 +824,8 @@
       "kind": "text",
       "ctx": "div.div.why-us__grid"
     },
-    "why-us.016": {
-      "fa": "بیش از ۹۰٪ کارخانجات طرف قرارداد بیش از ۵ سال متوالی همکاری خود را با قزوین تصویر تمدید کرده‌اند.",
+    "why-us.025": {
+      "fa": "برخی همکاری‌های سازمانی بیش از یک دهه ادامه داشته‌اند؛ برای نمونه سرویس نستله ایران از ۱۳۸۹ تا ۱۳۹۸.",
       "kind": "text",
       "ctx": "p.div.why-card.reveal"
     },
@@ -841,15 +840,15 @@
       "ctx": "picture.span.quote-block__author-avatar",
       "html": "<span>— سعید امین‌زاده | مدیرعامل شرکت قزوین تصویر</span>"
     },
-    "clients.001": {
+    "clients.166": {
       "fa": "سابقه همکاری با برندهای معتبر صنعتی",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.clients-section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "clients.143": {
+    "clients.167": {
       "fa": "مشتریان و شرکای تجاری",
       "kind": "text",
-      "ctx": "section.section.site-page.clients-section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>مشتریان و شرکای تجاری</span>"
     },
     "clients.003": {
@@ -1059,77 +1058,6 @@
       "kind": "text",
       "ctx": "div.div.container",
       "html": "<span class=\"clients-marquee__chip\">یاتاقان بوش ایران</span><span class=\"clients-marquee__chip\">شیر سحر</span><span class=\"clients-marquee__chip\">AGT</span><span class=\"clients-marquee__chip\">آسان پک</span><span class=\"clients-marquee__chip\">هنکل</span><span class=\"clients-marquee__chip\">یونیلیور</span><span class=\"clients-marquee__chip\">BAT</span><span class=\"clients-marquee__chip\">گلدایران</span><span class=\"clients-marquee__chip\">ال‌جی</span><span class=\"clients-marquee__chip\">کابل البرز</span><span class=\"clients-marquee__chip\">آلکاپلاستیک</span><span class=\"clients-marquee__chip\">نستله ایران</span><span class=\"clients-marquee__chip\">یاتاقان بوش ایران</span><span class=\"clients-marquee__chip\">شیر سحر</span><span class=\"clients-marquee__chip\">AGT</span><span class=\"clients-marquee__chip\">آسان پک</span><span class=\"clients-marquee__chip\">هنکل</span><span class=\"clients-marquee__chip\">یونیلیور</span><span class=\"clients-marquee__chip\">BAT</span><span class=\"clients-marquee__chip\">گلدایران</span><span class=\"clients-marquee__chip\">ال‌جی</span><span class=\"clients-marquee__chip\">کابل البرز</span><span class=\"clients-marquee__chip\">آلکاپلاستیک</span><span class=\"clients-marquee__chip\">نستله ایران</span>"
-    },
-    "clients.077": {
-      "fa": "نظرات مشتریان",
-      "kind": "text",
-      "ctx": "div.div.container"
-    },
-    "clients.078": {
-      "fa": "امتیاز ۵ از ۵ ستاره",
-      "kind": "attr:aria-label",
-      "ctx": "div.div.testimonials.reveal"
-    },
-    "clients.079": {
-      "fa": "«سه سال است سرویس ایاب‌وذهاب پرسنل کارخانه ما با ناوگان قزوین تصویر انجام می‌شود؛ نظم زمان‌بندی و سلامت خودروها در تمام فصول سال چشمگیر است.»",
-      "kind": "text",
-      "ctx": "div.div.testimonials.reveal"
-    },
-    "clients.157": {
-      "fa": "ر",
-      "kind": "text",
-      "ctx": "footer.article.testimonial-card",
-      "html": "<span class=\"testimonial-card__avatar\" aria-hidden=\"true\">ر</span>"
-    },
-    "clients.158": {
-      "fa": "مهندس رضا کریمیمدیر لجستیک، شرکت تولیدی صنایع غذایی",
-      "kind": "text",
-      "ctx": "div.footer.testimonial-card__author",
-      "html": "<span class=\"testimonial-card__name\">مهندس رضا کریمی</span><span class=\"testimonial-card__role\">مدیر لجستیک، شرکت تولیدی صنایع غذایی</span>"
-    },
-    "clients.083": {
-      "fa": "امتیاز ۵ از ۵ ستاره",
-      "kind": "attr:aria-label",
-      "ctx": "article.div.testimonials__grid"
-    },
-    "clients.084": {
-      "fa": "«از عقد قرارداد تا شروع سرویس همه‌چیز شفاف و مستند پیش رفت؛ پاسخگویی سریع مدیریت، عاملی شد که قراردادمان را تمدید کنیم.»",
-      "kind": "text",
-      "ctx": "article.div.testimonials__grid"
-    },
-    "clients.159": {
-      "fa": "س",
-      "kind": "text",
-      "ctx": "footer.article.testimonial-card",
-      "html": "<span class=\"testimonial-card__avatar\" aria-hidden=\"true\">س</span>"
-    },
-    "clients.160": {
-      "fa": "خانم سارا محمدیمدیر منابع انسانی، هلدینگ صنعتی",
-      "kind": "text",
-      "ctx": "div.footer.testimonial-card__author",
-      "html": "<span class=\"testimonial-card__name\">خانم سارا محمدی</span><span class=\"testimonial-card__role\">مدیر منابع انسانی، هلدینگ صنعتی</span>"
-    },
-    "clients.088": {
-      "fa": "امتیاز ۵ از ۵ ستاره",
-      "kind": "attr:aria-label",
-      "ctx": "article.div.testimonials__grid"
-    },
-    "clients.089": {
-      "fa": "«تأمین وعده‌های غذایی شیفت شب کارخانه سال‌هاست بر عهده تیم قزوین تصویر است؛ کیفیت منو و پایبندی به نکات بهداشتی رضایت پرسنل را جلب کرده است.»",
-      "kind": "text",
-      "ctx": "article.div.testimonials__grid"
-    },
-    "clients.161": {
-      "fa": "م",
-      "kind": "text",
-      "ctx": "footer.article.testimonial-card",
-      "html": "<span class=\"testimonial-card__avatar\" aria-hidden=\"true\">م</span>"
-    },
-    "clients.162": {
-      "fa": "آقای مهدی رستمیمدیر تدارکات، مجتمع صنعتی",
-      "kind": "text",
-      "ctx": "div.footer.testimonial-card__author",
-      "html": "<span class=\"testimonial-card__name\">آقای مهدی رستمی</span><span class=\"testimonial-card__role\">مدیر تدارکات، مجتمع صنعتی</span>"
     },
     "clients.163": {
       "fa": "نمونه‌کار",
@@ -1385,15 +1313,15 @@
       "ctx": "p.div.clients-history",
       "html": "جمع‌اً <strong>۱۰۱ دستگاه خودرو</strong> در قالب این قراردادها به شرکت‌های بالا واگذار شده است."
     },
-    "trust.001": {
+    "trust.023": {
       "fa": "اعتبار و شناسه ثبتی شرکت",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.registry-section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "trust.014": {
+    "trust.024": {
       "fa": "شفافیت و هویت حقوقی",
       "kind": "text",
-      "ctx": "section.section.site-page.registry-section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>شفافیت و هویت حقوقی</span>"
     },
     "trust.003": {
@@ -1466,15 +1394,15 @@
       "ctx": "div.div.container",
       "html": "<strong style=\"color: var(--primary-navy);\">سابقه همکاری با مجموعه‌های پیشرو:</strong><span>نستله (Nestlé) • ال‌جی (LG) • گلدایران • یونیلیور • آسان پک و ده‌ها کارخانه صنعتی کشور</span>"
     },
-    "resume.001": {
+    "resume.084": {
       "fa": "رزومه رسمی شرکت قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "resume.066": {
+    "resume.085": {
       "fa": "رزومه رسمی شرکت",
       "kind": "text",
-      "ctx": "section.section.site-page.section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>رزومه رسمی شرکت</span>"
     },
     "resume.003": {
@@ -1804,15 +1732,15 @@
       "ctx": "div.div.fleet-specs-cta__actions",
       "html": "<a href=\"#contact\" class=\"btn btn-secondary btn-lg\" aria-label=\"تماس و درخواست مشاوره\">تماس و درخواست مشاوره</a>"
     },
-    "legal.001": {
+    "legal.073": {
       "fa": "اعتبارنامه و شناسنامه حقوقی شرکت قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "legal.058": {
+    "legal.074": {
       "fa": "مستندات رسمی و اسناد ثبتی",
       "kind": "text",
-      "ctx": "section.section.site-page.section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>مستندات رسمی و اسناد ثبتی</span>"
     },
     "legal.003": {
@@ -1861,11 +1789,6 @@
       "kind": "text",
       "ctx": "dd.div.spec-row"
     },
-    "legal.012": {
-      "fa": "تاریخ ثبت",
-      "kind": "text",
-      "ctx": "div.dl.spec-card__list"
-    },
     "legal.013": {
       "fa": "مرکز اصلی",
       "kind": "text",
@@ -1891,12 +1814,6 @@
       "fa": "مدیرعامل و عضو هیئت مدیره",
       "kind": "text",
       "ctx": "p.div.legal-person__info"
-    },
-    "legal.062": {
-      "fa": "دارای ۴,۰۰۰,۰۰۰ سهم",
-      "kind": "text",
-      "ctx": "li.li.legal-person",
-      "html": "<span class=\"legal-person__shares\">دارای ۴,۰۰۰,۰۰۰ سهم</span>"
     },
     "legal.063": {
       "fa": "اصغر تقی‌لو",
@@ -2098,15 +2015,15 @@
       "kind": "text",
       "ctx": "li.ul.legal-acc__list"
     },
-    "contact.001": {
+    "contact.142": {
       "fa": "تماس با شرکت قزوین تصویر",
       "kind": "attr:aria-label",
-      "ctx": "section.section.site-page.section"
+      "ctx": "section.body.qt-sidebar-shell"
     },
-    "contact.096": {
+    "contact.143": {
       "fa": "ارتباط با کارشناسان",
       "kind": "text",
-      "ctx": "section.section.site-page.section",
+      "ctx": "section.body.qt-sidebar-shell",
       "html": "<span>ارتباط با کارشناسان</span>"
     },
     "contact.003": {
@@ -2114,8 +2031,8 @@
       "kind": "text",
       "ctx": "h2.div.section-header.reveal"
     },
-    "contact.004": {
-      "fa": "فرم زیر را تکمیل فرمایید تا کارشناسان ما ظرف حداکثر ۲ ساعت کاری با شما تماس بگیرند یا مستقیماً تماس بگیرید.",
+    "contact.144": {
+      "fa": "فرم زیر را تکمیل فرمایید تا در ساعات کاری با شما تماس بگیریم، یا مستقیماً تماس بگیرید.",
       "kind": "text",
       "ctx": "p.div.section-header.reveal"
     },
@@ -2129,23 +2046,41 @@
       "kind": "text",
       "ctx": "p.div.contact-form-header"
     },
-    "contact.007": {
-      "fa": "نام و نام خانوادگی / نام شرکت *",
+    "contact.145": {
+      "fa": "نام و نام خانوادگی *",
       "kind": "text",
       "ctx": "form.div.contact-form-card.reveal"
     },
-    "contact.008": {
-      "fa": "شماره تلفن همراه (مانند ۰۹۱۲...) *",
+    "contact.146": {
+      "fa": "نام شرکت یا سازمان",
+      "kind": "text",
+      "ctx": "p.div.form-group"
+    },
+    "contact.147": {
+      "fa": "شماره تلفن همراه *",
       "kind": "text",
       "ctx": "div.div.contact-form-card.reveal"
     },
-    "contact.009": {
-      "fa": "هر دو حوزه (بازرگانی و ترابری)",
+    "contact.148": {
+      "fa": "مثال: ۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
-      "ctx": "div.div.contact-form-card.reveal"
+      "ctx": "p.div.form-group",
+      "keepVerbatim": [
+        "۰۹۱۲ ۲۸۱ ۵۱۸۹"
+      ]
     },
-    "contact.010": {
-      "fa": "بازرگانی، واردات و صادرات و ترخیص گمرکی",
+    "contact.149": {
+      "fa": "بازرگانی، واردات و صادرات",
+      "kind": "text",
+      "ctx": "p.div.form-group"
+    },
+    "contact.150": {
+      "fa": "ترخیص گمرکی و امور بندری",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.151": {
+      "fa": "تأمین مواد اولیه و تجهیزات",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
@@ -2154,42 +2089,62 @@
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
+    "contact.152": {
+      "fa": "حمل‌ونقل درون‌شهری و سرویس VIP",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.153": {
+      "fa": "سرویس مدارس، ادارات و شرکت‌ها",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
     "contact.012": {
       "fa": "تأمین غذای پرسنل (کیترینگ سازمانی)",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
-    "contact.013": {
-      "fa": "مشاوره تخصصی و امور ارزی",
+    "contact.154": {
+      "fa": "مشاوره بازرگانی و امور ارزی",
       "kind": "text",
       "ctx": "option.select.form-control.form-select"
     },
-    "contact.014": {
+    "contact.155": {
+      "fa": "چند حوزه / سایر",
+      "kind": "text",
+      "ctx": "option.select.form-control.form-select"
+    },
+    "contact.156": {
       "fa": "نوع خدمت مورد نظر",
       "kind": "text",
-      "ctx": "label.div.form-group"
+      "ctx": "label.div.form-group.form-group--select"
     },
-    "contact.015": {
-      "fa": "توضیحات تکمیلی یا جزئیات درخواست...",
+    "contact.157": {
+      "fa": "توضیحات تکمیلی یا جزئیات درخواست",
       "kind": "text",
       "ctx": "div.div.contact-form-card.reveal"
     },
-    "contact.097": {
-      "fa": "ارسال درخواست مشاوره",
+    "contact.158": {
+      "fa": "هرچه جزئیات بیشتری بنویسید، پاسخ دقیق‌تری دریافت می‌کنید.",
+      "kind": "text",
+      "ctx": "p.div.form-group"
+    },
+    "contact.159": {
+      "fa": "آماده‌سازی درخواست در واتساپ",
       "kind": "text",
       "ctx": "button.div.contact-form-card.reveal",
-      "html": "<span>ارسال درخواست مشاوره</span>"
+      "html": "<span>آماده‌سازی درخواست در واتساپ</span>"
     },
-    "contact.098": {
-      "fa": "با کلیک روی دکمه، اطلاعات فرم در واتساپ آمادهٔ ارسال می‌شود.",
+    "contact.160": {
+      "fa": "این فرم اطلاعات را در سرور ذخیره نمی‌کند؛ با زدن دکمه، متن آماده در واتساپ باز می‌شود و ارسال نهایی را خودتان تأیید می‌کنید.",
       "kind": "text",
       "ctx": "svg.button.btn.btn-primary",
-      "html": "<span>با کلیک روی دکمه، اطلاعات فرم در واتساپ آمادهٔ ارسال می‌شود.</span>"
+      "html": "<span>این فرم اطلاعات را در سرور ذخیره نمی‌کند؛ با زدن دکمه، متن آماده در واتساپ باز می‌شود و ارسال نهایی را خودتان تأیید می‌کنید.</span>"
     },
-    "contact.018": {
+    "contact.161": {
       "fa": "تلفن تماس مستقیم و رسمی",
       "kind": "text",
-      "ctx": "div.div.contact__grid"
+      "ctx": "p.div.contact-form-card.reveal"
     },
     "contact.019": {
       "fa": "کپی شماره تماس",
@@ -2237,8 +2192,8 @@
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
-    "contact.028": {
-      "fa": "عملیات ترابری و شیفت شب: ۲۴ ساعته شبانه‌روزی",
+    "contact.168": {
+      "fa": "عملیات ترابری در شیفت‌های روز و شب، طبق برنامهٔ قرارداد",
       "kind": "text",
       "ctx": "div.div.contact-detail-box__item"
     },
@@ -2252,22 +2207,22 @@
       "kind": "text",
       "ctx": "p.div.map-preview-box"
     },
-    "contact.100": {
+    "contact.162": {
       "fa": "شهرک کاسپینشهرک البرزشهرک لیاگمرک قزوین",
       "kind": "text",
       "ctx": "div.div.map-preview-box",
-      "html": "<span style=\"font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);\">شهرک کاسپین</span><span style=\"font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);\">شهرک البرز</span><span style=\"font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);\">شهرک لیا</span><span style=\"font-size: 0.75rem; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: var(--r-full);\">گمرک قزوین</span>"
+      "html": "<span style=\"font-size: 0.75rem; background: var(--qt-glass-tint); padding: 4px 10px; border-radius: var(--r-full);\">شهرک کاسپین</span><span style=\"font-size: 0.75rem; background: var(--qt-glass-tint); padding: 4px 10px; border-radius: var(--r-full);\">شهرک البرز</span><span style=\"font-size: 0.75rem; background: var(--qt-glass-tint); padding: 4px 10px; border-radius: var(--r-full);\">شهرک لیا</span><span style=\"font-size: 0.75rem; background: var(--qt-glass-tint); padding: 4px 10px; border-radius: var(--r-full);\">گمرک قزوین</span>"
     },
-    "contact.035": {
+    "contact.163": {
       "fa": "پاورقی سایت",
       "kind": "attr:aria-label",
-      "ctx": "footer.footer.footer"
+      "ctx": "footer.body.qt-sidebar-shell"
     },
-    "contact.101": {
+    "contact.164": {
       "fa": "شرکت قزوین تصویربا مسئولیت محدود — تأسیس ۱۳۷۴",
       "kind": "text",
-      "ctx": "footer.footer.footer",
-      "html": "<span class=\"brand-logo__title\" style=\"color: #FFFFFF;\">شرکت قزوین تصویر</span><span class=\"brand-logo__subtitle\" style=\"color: #94A3B8;\">با مسئولیت محدود — تأسیس ۱۳۷۴</span>"
+      "ctx": "footer.body.qt-sidebar-shell",
+      "html": "<span class=\"brand-logo__title\" style=\"color: var(--surface-white);\">شرکت قزوین تصویر</span><span class=\"brand-logo__subtitle\" style=\"color: var(--text-light);\">با مسئولیت محدود — تأسیس ۱۳۷۴</span>"
     },
     "contact.038": {
       "fa": "ارائه‌دهنده خدمات تخصصی بازرگانی، واردات و صادرات کالا، ترابری و سرویس ایاب و ذهاب پرسنل و تأمین غذای پرسنل و وعده‌های سازمانی کارخانه‌ها و شرکت‌های صنعتی، با بیش از ۳۱ سال سابقه درخشان و با مدیریت سعید امین‌زاده.",
@@ -2415,20 +2370,20 @@
       "kind": "text",
       "ctx": "div.div.footer__grid"
     },
-    "contact.123": {
+    "contact.165": {
       "fa": "تلفن تماس:۰۹۱۲ ۲۸۱ ۵۱۸۹",
       "kind": "text",
       "ctx": "ul.div.footer__grid",
-      "html": "<span style=\"font-size: 0.8125rem; color: #94A3B8;\">تلفن تماس:</span><a href=\"tel:+989122815189\" class=\"footer__link\" style=\"font-size: 1.1rem; color: var(--amber-light); font-weight: 800; direction: ltr;\">۰۹۱۲ ۲۸۱ ۵۱۸۹</a>",
+      "html": "<span style=\"font-size: 0.8125rem; color: var(--text-light);\">تلفن تماس:</span><a href=\"tel:+989122815189\" class=\"footer__link\" style=\"font-size: 1.1rem; color: var(--amber-light); font-weight: 800; direction: ltr;\">۰۹۱۲ ۲۸۱ ۵۱۸۹</a>",
       "keepVerbatim": [
         "۰۹۱۲ ۲۸۱ ۵۱۸۹"
       ]
     },
-    "contact.124": {
+    "contact.166": {
       "fa": "نشانی دفتر:قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴",
       "kind": "text",
       "ctx": "li.ul.footer__links",
-      "html": "<span style=\"font-size: 0.8125rem; color: #94A3B8;\">نشانی دفتر:</span><span style=\"font-size: 0.875rem; color: #CBD5E1; line-height: 1.7;\">قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴</span>"
+      "html": "<span style=\"font-size: 0.8125rem; color: var(--text-light);\">نشانی دفتر:</span><span style=\"font-size: 0.875rem; color: var(--qt-slate-300); line-height: 1.7;\">قزوین، اول خ فردوسی، مجتمع آبادگران، ط ۶، اتاق ۶۰۴</span>"
     },
     "contact.125": {
       "fa": "پروفایل رسمی در رسمیو ↗",
@@ -2448,11 +2403,11 @@
         "۴۱۱۳۸۶۸۳۷۶۶۵"
       ]
     },
-    "contact.074": {
-      "fa": "© کلیه حقوق مادی و معنوی متعلق به شرکت قزوین تصویر (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶",
+    "contact.167": {
+      "fa": "© کلیه حقوق مادی و معنوی متعلق به شرکت قزوین تصویر (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۵ / ۲۰۲۶",
       "kind": "text",
       "ctx": "div.div.container",
-      "html": "© کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۴ / ۲۰۲۶"
+      "html": "© کلیه حقوق مادی و معنوی متعلق به <strong>شرکت قزوین تصویر</strong> (با مسئولیت محدود — به مدیریت سعید امین‌زاده) می‌باشد — ۱۴۰۵ / ۲۰۲۶"
     },
     "contact.127": {
       "fa": "طراحیوتوسعه:Designed&amp;Developedby",

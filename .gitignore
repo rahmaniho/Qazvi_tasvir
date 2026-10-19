@@ -1,5 +1,8 @@
-
 # Python bytecode from the i18n tooling
 tools/__pycache__/
 __pycache__/
 *.pyc
+
+# Local tooling / OS noise
+node_modules/
+.DS_Store

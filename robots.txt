@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Internal tooling and translation worksheets are not public pages
+Disallow: /tools/
+Disallow: /i18n/
+Disallow: /docs/
+
 Sitemap: https://qazvintasvir.ir/sitemap.xml

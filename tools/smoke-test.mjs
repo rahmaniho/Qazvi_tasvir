@@ -149,7 +149,9 @@ function testNavigation(rel) {
   check(doc.querySelector('.site-nav') !== null, 'site nav missing');
   check(doc.querySelector('.menu-toggle') !== null, 'menu toggle missing');
   check(doc.querySelector('.site-nav__search-input') !== null, 'sidebar search not enhanced');
-  check(doc.querySelector('.site-nav__messages') !== null, 'sidebar messages not enhanced');
+  // The old fake inbox (three message rows linking to #contact) was removed:
+  // it implied a messaging feature that does not exist.
+  check(doc.querySelector('.site-nav__messages') === null, 'fabricated inbox block must not be injected');
   check(doc.querySelector('.site-nav__profile') !== null, 'sidebar profile not enhanced');
   const header = doc.querySelector('.site-header');
   const nav = doc.querySelector('.site-nav');
@@ -196,8 +198,68 @@ function testNavigation(rel) {
   check(!mobileDoc.body.classList.contains('service-nav-open'), 'mobile body lock did not clear');
 }
 
+function testContactForm(rel, lang) {
+  const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const vc = new VirtualConsole();
+  const local = [];
+  vc.on('jsdomError', error => local.push(error.message));
+  const dom = new JSDOM(html, {
+    url: `https://qazvintasvir.ir/${rel}?service=food`,
+    runScripts: 'outside-only',
+    virtualConsole: vc,
+    pretendToBeVisual: true,
+  });
+  const { window } = dom;
+  window.matchMedia = window.matchMedia || (query => ({
+    matches: false, media: query, addEventListener() {}, removeEventListener() {},
+    addListener() {}, removeListener() {}, onchange: null, dispatchEvent: () => false,
+  }));
+  window.HTMLAnchorElement.prototype.click = function () { /* navigation stub */ };
+  try { window.eval(mainJs); } catch (error) {
+    errors.push(`[${rel}] main.js threw: ${error.message}`);
+  }
+  // main.js initialises on DOMContentLoaded; jsdom may already be past it.
+  window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+  const doc = window.document;
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] form: ${message}`); };
+  const form = doc.getElementById('contact-form');
+  check(form !== null, 'contact form missing');
+  if (!form) return;
+
+  const controls = [...form.querySelectorAll('input, select, textarea')];
+  check(controls.every(el => el.getAttribute('name')),
+        'every form control needs a name attribute');
+  check(doc.getElementById('contact-service')?.value === 'food',
+        'service type was not preselected from ?service=food');
+
+  const submit = () => form.dispatchEvent(new window.Event('submit', { cancelable: true, bubbles: true }));
+  submit();
+  check(doc.getElementById('contact-name')?.getAttribute('aria-invalid') === 'true',
+        'empty name did not mark the field invalid');
+  check((doc.getElementById('contact-name-error')?.textContent || '').length > 0,
+        'empty name did not render a readable error message');
+  check(doc.getElementById('contact-name')?.classList.contains('is-invalid'),
+        'invalid field has no visual state');
+
+  const name = doc.getElementById('contact-name');
+  const phone = doc.getElementById('contact-phone');
+  name.value = 'کاربر آزمایشی';
+  name.dispatchEvent(new window.Event('input', { bubbles: true }));
+  phone.value = '۰۹۱۲۱۲۳۴۵۶۷';
+  phone.dispatchEvent(new window.Event('input', { bubbles: true }));
+  submit();
+  check(!name.classList.contains('is-invalid'), 'valid name kept the invalid state');
+  check(phone.getAttribute('aria-invalid') === 'false',
+        'valid Persian-digit phone was rejected');
+
+  check(local.filter(message => !/navigation|not implemented/i.test(message)).length === 0,
+        `runtime errors: ${local.slice(0, 2).join(' | ')}`);
+}
+
 console.log('runtime smoke test:');
 for (const [rel, lang, dir] of pages()) testPage(rel, lang, dir);
+console.log('contact form validation:');
+for (const [rel] of [[ 'index.html', 'fa' ], [ 'en/index.html', 'en' ]]) testContactForm(rel, 'fa');
 console.log('navigation regression check:');
 for (const rel of sharedPages()) testNavigation(rel);
 console.log(errors.length

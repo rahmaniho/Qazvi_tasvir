@@ -1,114 +1,130 @@
 # قزوین تصویر — وب‌سایت رسمی
 
-سایت ریسپانسیو شرکت **قزوین تصویر (با مسئولیت محدود)** برای معرفی خدمات بازرگانی، ترابری و تأمین غذای سازمانی. سایت برای انتشار استاتیک روی GitHub Pages ساخته شده و از HTML، CSS و JavaScript بدون فریم‌ورک استفاده می‌کند.
+سایت رسمی شرکت **قزوین تصویر (با مسئولیت محدود)** برای معرفی خدمات بازرگانی، ترابری و تأمین غذای سازمانی.
 
-> نسخهٔ فعلی، صفحهٔ اصلی را به معرفی و خلاصهٔ خدمات اختصاص می‌دهد و جزئیات اجرایی را در هشت صفحهٔ مستقل خدمات نگه می‌دارد؛ بنابراین محتوای سنگین ناوگان و کیترینگ در صفحهٔ نخست تکرار نمی‌شود.
+سایت کاملاً **استاتیک** است و روی GitHub Pages با دامنهٔ اختصاصی `qazvintasvir.ir` منتشر می‌شود. هیچ فریم‌ورک فرانت‌اند، هیچ فرایند build برای HTML و هیچ وابستگی npm در زمان اجرا وجود ندارد: HTML، CSS و JavaScript ساده در مرورگر اجرا می‌شوند و اسکریپت‌های پایتون فقط محتوای تکراری (صفحات خدمات و نسخهٔ انگلیسی) را تولید می‌کنند.
 
-## معماری اطلاعات
+## ساختار
 
-### صفحه‌های اصلی
+```
+index.html                     صفحهٔ اصلی فارسی (master همهٔ محتوا)
+en/index.html                  نسخهٔ انگلیسی — تولیدشده، دستی ویرایش نشود
+services/index.html            فهرست خدمات
+services/*.html                هشت صفحهٔ مستقل خدمات — تولیدشده
+404.html                       صفحهٔ خطای دوزبانه (noindex)
+assets/css/style.css           سیستم طراحی صفحهٔ اصلی
+assets/css/service-pages.css   طراحی صفحات خدمات
+assets/css/nav/*.css           ناوبری مشترک (توکن، ساختار، ریل دسکتاپ)
+assets/js/main.js              فرم، تم، مسیریابی هش، تعاملات صفحهٔ اصلی
+assets/js/navigation.js        کنترل ناوبری و drawer موبایل
+assets/js/service-pages.js     تعاملات سبک صفحات خدمات
+assets/fonts/                  Vazirmatn و Inter (محلی، بدون CDN)
+i18n/                          منبع ترجمه و ابزار استخراج رشته‌ها
+tools/                         تولیدکننده‌ها و دروازه‌های کیفیت
+.github/workflows/ci.yml       اعتبارسنجی خودکار (بدون دسترسی نوشتن)
+CNAME                          دامنهٔ GitHub Pages
+```
 
-- [`index.html`](index.html) — صفحهٔ اصلی فارسی، راست‌به‌چپ؛ معرفی شرکت، خدمات خلاصه، ناوگان، اعتبار، مشتریان، رزومه و فرم تماس.
-- [`en/index.html`](en/index.html) — نسخهٔ انگلیسی، چپ‌به‌راست.
-- [`services/index.html`](services/index.html) — hub خدمات و نقطهٔ ورود به هشت صفحهٔ مستقل.
-- [`404.html`](404.html) — صفحهٔ خطای دوزبانه.
+## صفحات و معماری اطلاعات
 
-### هشت خدمت مشخص
+| مسیر | زبان | توضیح |
+| --- | --- | --- |
+| `/` | fa | صفحهٔ اصلی: معرفی، خدمات، ناوگان، برندها، سوابق، رزومه، اعتبارنامه و تماس |
+| `/en/` | en | نسخهٔ انگلیسی با همان ساختار بخش‌ها |
+| `/services/` | fa | فهرست هشت خدمت |
+| `/services/import-export.html` | fa | واردات و صادرات کالاهای مجاز |
+| `/services/customs-port.html` | fa | ترخیص گمرکی و امور بندری |
+| `/services/sourcing.html` | fa | تأمین مواد اولیه و تجهیزات |
+| `/services/factory-transport.html` | fa | ترابری پرسنل کارخانجات |
+| `/services/urban-vip.html` | fa | حمل‌ونقل درون‌شهری و سرویس VIP |
+| `/services/school-office.html` | fa | سرویس مدارس، ادارات و شرکت‌ها |
+| `/services/personnel-food.html` | fa | تأمین غذای پرسنل و وعده‌های سازمانی |
+| `/services/trade-consulting.html` | fa | مشاوره بازرگانی و گشایش |
 
-1. [واردات و صادرات کالاهای مجاز](services/import-export.html)
-2. [ترخیص گمرکی و امور بندری](services/customs-port.html)
-3. [تأمین مواد اولیه و تجهیزات](services/sourcing.html)
-4. [ترابری پرسنل کارخانجات](services/factory-transport.html)
-5. [حمل‌ونقل درون‌شهری و سرویس‌های VIP](services/urban-vip.html)
-6. [سرویس مدارس، ادارات و شرکت‌ها](services/school-office.html)
-7. [تأمین غذای پرسنل و وعده‌های سازمانی](services/personnel-food.html) — صفحهٔ کامل غذا با هیرو تصویری، مزایا، فرآیند پنج‌مرحله‌ای، منوی چهار وعده با ۱۶ آیتم تصویری، گالری، فرم قرارداد و FAQ
-8. [مشاوره بازرگانی و گشایش](services/trade-consulting.html)
+بخش‌های صفحهٔ اصلی با hash جابه‌جا می‌شوند (`#about`، `#services`، `#fleet`، `#contact` و…). این رفتار عمداً حفظ شده است: بدون JavaScript همهٔ بخش‌ها به‌صورت یک صفحهٔ بلند دیده می‌شوند و با JavaScript فقط بخش جاری نمایش داده می‌شود.
 
-## ناوبری و تجربهٔ کاربری
+## تولید محتوا
 
-- Sidebar، هدر ناوبری، dropdown خدمات، drawer موبایل و toggle منو از همهٔ صفحات حذف شده‌اند.
-- پیوندهای داخلی در محتوای اصلی و فوتر باقی مانده‌اند تا مسیرهای سایت و SEO حفظ شوند.
-- language switcher فقط به‌صورت utility در فوتر نگه داشته شده و hreflangهای فارسی/انگلیسی بدون تغییر کار می‌کنند.
-- محتوای فارسی با `dir="rtl"` و محتوای انگلیسی با `dir="ltr"` ارائه می‌شود.
+### صفحات خدمات
 
-## طراحی و دارایی‌ها
-
-- [`assets/css/style.css`](assets/css/style.css) — سیستم طراحی، صفحات اصلی و فوتر.
-- [`assets/css/service-pages.css`](assets/css/service-pages.css) — ظاهر صفحات مستقل خدمات.
-- [`assets/js/main.js`](assets/js/main.js) — تم، فرم تماس، رفتار صفحهٔ اصلی و routeهای hash.
-- [`assets/js/service-pages.js`](assets/js/service-pages.js) — اسکرول، reveal و سال فوتر صفحات خدمات.
-- `assets/fonts/` — فونت‌های محلی Vazirmatn و Inter؛ سایت به CDN وابسته نیست.
-- `assets/img/sections/` — تصاویر hero و بخش‌های اصلی.
-- `assets/img/fleet-specs/` — تصاویر واقعی ناوگان و VIP که در صفحهٔ مستقل خدمت VIP قابل استفاده‌اند.
-- `assets/img/personnel-food/` — تصاویر آشپزخانه و وعده‌های سازمانی برای صفحهٔ غذای پرسنل.
-- `assets/images/` و `assets/logos/` — نشان شرکت، آواتار، تصاویر ناوگان و لوگوهای برندها.
-
-تصاویر در صورت وجود، با `<picture>` و WebP/ fallback JPG ارائه می‌شوند و تصاویر غیرضروری lazy-load هستند. تصویر hero اصلی و hero صفحات خدمات preload می‌شوند تا زمان نمایش محتوای اصلی کوتاه بماند.
-
-## تولید صفحه‌های خدمات
-
-محتوای هشت صفحهٔ فارسی و hub در [`tools/build-service-pages.py`](tools/build-service-pages.py) نگهداری می‌شود. پس از تغییر داده‌های خدمات، همهٔ خروجی‌ها را یک‌جا بازتولید کنید:
+محتوای هشت صفحه در `tools/build-service-pages.py` نگهداری می‌شود. پس از هر تغییر:
 
 ```bash
 python3 tools/build-service-pages.py
 ```
 
-صفحات تولیدشده را به‌صورت دستی ویرایش نکنید؛ تغییرات پایدار را در generator اعمال و سپس همین دستور را اجرا کنید.
+خروجی‌ها را دستی ویرایش نکنید؛ تغییر پایدار را در generator بدهید. CTA هر خدمت پارامتر `?service=` را به فرم تماس می‌فرستد تا نوع خدمت از پیش انتخاب شود.
 
-## مسیریابی و لینک‌های قدیمی
+### نسخهٔ انگلیسی
 
-بخش‌های محتوایی صفحهٔ اصلی همچنان با hashهای داخلی مانند `#about`، `#services`، `#fleet` و `#contact` قابل دسترسی‌اند. جزئیات خدمات دیگر hash صفحهٔ اصلی نیستند و مسیر مستقل دارند.
-
-برای سازگاری با لینک‌های قدیمی، `assets/js/main.js` hashهای زیر را به مقصد canonical هدایت می‌کند:
-
-- `#fleet-specs` → `services/urban-vip.html`
-- `#personnel-food`، `#food-menu`، `#food-gallery`، `#food-request` و `#food-faq` → `services/personnel-food.html`
-
-## فرم تماس
-
-فرم تماس صفحهٔ اصلی پس از اعتبارسنجی سمت کاربر، پیام آمادهٔ شامل اطلاعات درخواست را به واتساپ رسمی شرکت هدایت می‌کند. CTAهای صفحات خدمات به فرم تماس مشترک در صفحهٔ اصلی (`../index.html#contact`) می‌رسند و شمارهٔ تلفن/WhatsApp در همان ناحیهٔ تماس در دسترس است.
-
-## تست و بررسی محلی
-
-دستورهای بررسی مورد استفاده در refactor:
+`en/index.html` از `index.html` + `i18n/en.json` ساخته می‌شود:
 
 ```bash
-python3 tools/check-html.py index.html en/index.html services/index.html services/*.html
-python3 tools/check-css-direction.py
-node --check assets/js/main.js
-node --check assets/js/service-pages.js
-python3 -m py_compile tools/build-service-pages.py
-git diff --check
+python3 tools/extract-i18n-strings.py   # پس از تغییر متن فارسی
+python3 tools/build-i18n-site.py        # ساخت fa و en + sitemap
+python3 tools/build-i18n-site.py --check
 ```
 
-برای smoke test زمان اجرا، ابزار [`tools/smoke-test.mjs`](tools/smoke-test.mjs) به `jsdom` نیاز دارد. در محیط توسعه می‌توان آن را موقتاً نصب کرد:
+قواعد تولیدکننده: پوشش کامل ترجمه، حفظ تگ‌های درون‌خطی، حفظ اعداد ثبتی و تلفن، و جلوگیری از حروف فارسی در صفحهٔ انگلیسی. اگر رشته‌ای در فارسی تغییر کند و ترجمهٔ آن به‌روز نشود، `--check` شکست می‌خورد.
+
+## اجرای محلی
+
+```bash
+python3 -m http.server 4173 --bind 0.0.0.0
+```
+
+سپس `http://127.0.0.1:4173/` و `http://127.0.0.1:4173/en/`.
+
+## دروازه‌های کیفیت
+
+همهٔ این دستورها بدون وابستگی خارجی اجرا می‌شوند و در CI هم اجرا می‌شوند:
+
+```bash
+python3 tools/check-html.py index.html en/index.html 404.html services/*.html
+python3 tools/check-site.py              # لینک، لنگر، هدینگ، متادیتا، JSON-LD، hreflang، sitemap، CNAME
+python3 tools/check-css-direction.py      # RTL/LTR
+python3 tools/build-i18n-site.py --check
+python3 -m py_compile tools/*.py
+node --check assets/js/main.js
+node --check assets/js/navigation.js
+node --check assets/js/service-pages.js
+```
+
+`tools/smoke-test.mjs` آزمون زمان اجرا با jsdom است (اختیاری، چون jsdom جزو وابستگی‌های پروژه نیست):
 
 ```bash
 npm install --no-save --no-package-lock jsdom@24
 node tools/smoke-test.mjs
 ```
 
-اجرای محلی:
-
-```bash
-python3 -m http.server 4173 --bind 0.0.0.0
-```
-
-سپس `http://127.0.0.1:4173/` را باز کنید. برای بررسی انتشار GitHub Pages، مسیرهای زیر را نیز مستقیم امتحان کنید:
-
-- `https://rahmaniho.github.io/Qazvi_tasvir/`
-- `https://rahmaniho.github.io/Qazvi_tasvir/services/index.html`
-- یکی از صفحات مستقل مانند `services/import-export.html`
-
-## دسترس‌پذیری و سئو
-
-- ساختار معنایی `header`، `nav`، `main`، `section`، `article` و `footer`.
-- ترتیب heading، متن جایگزین معنادار تصاویر، لینک پرش به محتوا و focus-visible.
-- پشتیبانی از کیبورد و صفحه‌خوان برای drawer، dropdown و CTAها.
-- متادیتای `title`، description، canonical، Open Graph و hreflang فارسی/انگلیسی.
-- JSON-LD سازمان و خدمات با لینک‌های مستقل؛ JSON-LDهای حذف‌شدهٔ مربوط به hashهای قدیمی در صفحهٔ اصلی باقی نمانده‌اند.
-- مسیرهای محلی، fragmentها و JSON-LD باید پیش از انتشار با checkerهای بالا بررسی شوند.
+این آزمون مسیرهای هش، سوییچر زبان، ریل دسکتاپ، drawer موبایل، Escape، فوکوس‌تراپ و اعتبارسنجی فرم را بررسی می‌کند.
 
 ## انتشار
 
-مخزن از ساختار استاتیک ریشه استفاده می‌کند؛ `main` و پوشهٔ root در تنظیمات GitHub Pages کافی است. فایل‌های build‌شده، CSS، JavaScript و دارایی‌های تصویری باید همراه خروجی commit شوند. پس از هر تغییر محتوایی، لینک‌های محلی و مسیرهای deep-link را نیز بررسی کنید.
+- GitHub Pages از شاخهٔ `main` و پوشهٔ ریشه منتشر می‌شود.
+- فایل `CNAME` دامنهٔ `qazvintasvir.ir` را تثبیت می‌کند و `.nojekyll` پردازش Jekyll را خاموش می‌کند.
+- گردش‌کار `.github/workflows/ci.yml` فقط اعتبارسنجی است (`permissions: contents: read`) و هیچ deploy یا secret ندارد. انتشار همان مسیر تنظیمات Pages باقی می‌ماند.
+- پیش از merge، CI باید سبز باشد. اگر ترجمه، لینک، ساختار HTML یا خروجی generator خراب باشد، انتشار نسخهٔ جدید توصیه نمی‌شود.
+
+## فرم تماس و حریم خصوصی
+
+فرم صفحهٔ اصلی داده‌ای را در سرور ذخیره نمی‌کند. پس از اعتبارسنجی سمت مرورگر، متن درخواست در WhatsApp باز می‌شود و کاربر خودش ارسال نهایی را تأیید می‌کند. این رفتار در متن فرم و در پیام موفقیت صریح بیان شده است. شمارهٔ رسمی: `+989122815189`.
+
+هیچ Backend، پایگاه داده، شمارهٔ پیگیری یا ابزار تحلیل وب در پروژه وجود ندارد؛ بنابراین هیچ ادعایی دربارهٔ ثبت درخواست در سرور یا اندازه‌گیری نرخ تبدیل مطرح نمی‌شود.
+
+## سئو و داده‌های ساختاریافته
+
+- هر صفحه `title`، `description`، `canonical` و `robots` مستقل دارد.
+- `hreflang` فارسی/انگلیسی و `x-default` در هر دو نسخه متقابل است.
+- JSON-LD شامل `Organization`/`LocalBusiness` در صفحهٔ اصلی و `Service` + `BreadcrumbList` در صفحات خدمات است. هیچ `Review`، `AggregateRating`، مختصات جغرافیایی یا دادهٔ تأییدنشده در Schema نیست.
+- `sitemap.xml` و `robots.txt` با ساختار واقعی سایت هم‌خوان‌اند.
+
+## نکات محتوایی که نیاز به تأیید شرکت دارد
+
+این موارد در `docs/content-review.md` فهرست شده‌اند: تاریخ/سرمایهٔ ثبتی، تعداد سهام، ادعای عضویت اتاق بازرگانی و پروانهٔ ترابری، آمار مطالعهٔ موردی، و برخی اعداد سوابق. تا تأیید رسمی، از افزودن دادهٔ جدید به Schema یا متن خودداری کنید.
+
+## محدودیت‌ها
+
+- اندازه‌گیری میدانی Core Web Vitals (LCP/INP/CLS) بدون دادهٔ واقعی کاربران انجام نشده است؛ اعداد هدف در گزارش فنی آمده‌اند، نه به‌عنوان نتیجهٔ اندازه‌گیری.
+- GitHub Pages امکان تنظیم هدرهای امنیتی (CSP سمت سرور، HSTS، X-Frame-Options) را نمی‌دهد. هرگونه CSP باید با میزبانی واسط یا ارائه‌دهندهٔ دیگر اعمال شود.
+- صفحات خدمات فقط فارسی هستند؛ نسخهٔ انگلیسی آن‌ها وجود ندارد و `hreflang` آن‌ها نیز همین را منعکس می‌کند.
