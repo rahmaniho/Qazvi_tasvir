@@ -1,0 +1,108 @@
+/**
+ * قزوین تصویر — «QT Hub 9» | فیلتر فهرست خدمات
+ * ---------------------------------------------------------------------------
+ * فقط در services/index.html و بعد از qt-menu.css. فیلتر را جاوااسکریپت
+ * می‌سازد؛ بدون JS همهٔ هشت کارت دیده می‌شوند و چیزی پنهان نمی‌شود.
+ * گروه‌بندی همان سه گروه موجود در منوی سایت است و هیچ دادهٔ تازه‌ای ندارد.
+ */
+
+.qt-hub-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-block: 0 22px;
+}
+
+.qt-hub-filter__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 8px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-raised, #FFFFFF);
+  color: var(--ink, #121B28);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.qt-hub-filter__chip:hover {
+  border-color: var(--accent-strong, #93601A);
+}
+
+.qt-hub-filter__chip[aria-pressed="true"] {
+  border-color: var(--navy-950, #061829);
+  background: var(--navy-950, #061829);
+  color: #FFFFFF;
+}
+
+.qt-hub-filter__chip:focus-visible {
+  outline: 2px solid var(--accent-strong, #93601A);
+  outline-offset: 2px;
+}
+
+.qt-hub-filter__count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.62;
+}
+
+.qt-hub-filter__chip[aria-pressed="true"] .qt-hub-filter__count {
+  opacity: 0.8;
+}
+
+.qt-hub-filter__status {
+  margin: 0;
+  margin-inline-start: auto;
+  color: var(--muted, #56636F);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* انتخاب کاربر نباید چیدمان کارت‌های پنهان را نگه دارد. */
+.service-directory__grid .service-index-card[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .qt-hub-filter {
+    gap: 6px;
+    margin-block-end: 18px;
+  }
+
+  .qt-hub-filter__chip {
+    min-height: 40px;
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+
+  .qt-hub-filter__status {
+    flex-basis: 100%;
+    margin-inline-start: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qt-hub-filter__chip {
+    transition: none;
+  }
+}
+
+@media print {
+  .qt-hub-filter {
+    display: none !important;
+  }
+
+  /* در چاپ همیشه هر هشت کارت دیده شوند، حتی اگر کاربر فیلتر کرده باشد. */
+  .service-directory__grid .service-index-card[hidden] {
+    display: flex !important;
+  }
+}

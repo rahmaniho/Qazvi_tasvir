@@ -586,13 +586,14 @@ def service_bar(service: dict) -> str:
   </nav>'''
 
 
-def shell_head(title: str, description: str, canonical: str, theme: str, hero_webp: str | None = None, food_page: bool = False, detail_page: bool = False) -> str:
+def shell_head(title: str, description: str, canonical: str, theme: str, hero_webp: str | None = None, food_page: bool = False, detail_page: bool = False, hub_page: bool = False) -> str:
     hero_preload = (
         f'  <link rel="preload" href="{escape(hero_webp)}" as="image" type="image/webp" fetchpriority="high">\n'
         if hero_webp else ""
     )
     food_styles = '  <link rel="stylesheet" href="../assets/css/food-service.css">\n' if food_page else ""
     service_styles = '  <link rel="stylesheet" href="../assets/css/qt-service.css">\n' if detail_page else ""
+    hub_styles = '  <link rel="stylesheet" href="../assets/css/qt-hub.css">\n' if hub_page else ""
     body_class = f'food-service-page {escape(theme)}' if food_page else escape(theme)
     canonical_url = (
         "https://qazvintasvir.ir/services/"
@@ -633,7 +634,7 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <link rel="stylesheet" href="../assets/css/nav/nav-sidebar.css">
 {food_styles}  <link rel="stylesheet" href="../assets/css/qt-next.css">
   <link rel="stylesheet" href="../assets/css/nav/qt-menu.css">
-{service_styles}</head>
+{service_styles}{hub_styles}</head>
 <body class="qt-sidebar-shell {body_class}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -875,6 +876,7 @@ def hub_page() -> str:
         "index",
         "theme-trade",
         "../assets/img/sections/hero-graphic.webp",
+        hub_page=True,
     ) + header("index") + f'''
   <main id="main-content">
     <section class="hub-hero" aria-labelledby="services-title">
@@ -931,6 +933,7 @@ def hub_page() -> str:
 {footer()}
   <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/menu.js" defer></script>
+  <script src="../assets/js/hub.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script type="application/ld+json">
   {{

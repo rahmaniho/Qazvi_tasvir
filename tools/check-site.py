@@ -15,6 +15,7 @@ Checks real, user-visible expectations — not just that the build ran:
   * homepages add the QT Editorial and QT Dock layers last; no other page may
     load them
   * service detail pages add the QT Service layer last; no other page may load it
+  * the services hub adds the QT Hub layer and hub.js last; nowhere else
   * homepages ship dock.js (deferred) after menu.js; menu.js is deferred and
     runs after the navigation controller on every page
   * every stylesheet has balanced braces (a broken sheet silently kills the UI)
@@ -133,8 +134,16 @@ def main() -> int:
         )
         is_home = page.name == "index.html" and page.parent in (ROOT, ROOT / "en")
         is_service_detail = page.parent == ROOT / "services" and page.name != "index.html"
+        is_service_hub = page == ROOT / "services/index.html"
         home_sheets = ("qt-home.css", "qt-dock.css")
-        layer_sheets = home_sheets if is_home else (("qt-service.css",) if is_service_detail else ())
+        if is_home:
+            layer_sheets = home_sheets
+        elif is_service_detail:
+            layer_sheets = ("qt-service.css",)
+        elif is_service_hub:
+            layer_sheets = ("qt-hub.css",)
+        else:
+            layer_sheets = ()
         expected_sheets = ("qt-next.css", "nav/qt-menu.css") + layer_sheets
         tail = tuple(stylesheets[-len(expected_sheets):])
         if len(tail) != len(expected_sheets) or not all(
@@ -153,6 +162,10 @@ def main() -> int:
             href.endswith("qt-service.css") for href in stylesheets
         ):
             errors.append(f"{label}: qt-service.css is service-detail-only")
+        if not is_service_hub and any(
+            href.endswith("qt-hub.css") for href in stylesheets
+        ):
+            errors.append(f"{label}: qt-hub.css is services-hub-only")
 
         scripts = re.findall(r'<script[^>]+src="([^"]+)"', html)
         menu_script = next((src for src in scripts if src.endswith("menu.js")), None)
@@ -180,6 +193,19 @@ def main() -> int:
                     errors.append(f"{label}: dock.js must be deferred")
         elif dock_script:
             errors.append(f"{label}: dock.js is homepage-only")
+
+        hub_script = next((src for src in scripts if src.endswith("hub.js")), None)
+        if is_service_hub:
+            if not hub_script:
+                errors.append(f"{label}: assets/js/hub.js is not loaded")
+            else:
+                if menu_script and scripts.index(hub_script) < scripts.index(menu_script):
+                    errors.append(f"{label}: hub.js must load after menu.js")
+                tag = re.search(rf'<script[^>]+src="{re.escape(hub_script)}"[^>]*>', html)
+                if tag and "defer" not in tag.group(0):
+                    errors.append(f"{label}: hub.js must be deferred")
+        elif hub_script:
+            errors.append(f"{label}: hub.js is services-hub-only")
 
         canonical = text_of(html, r'<link\s+rel="canonical"\s+href="([^"]*)"')
         if page.name != "404.html" and not canonical:

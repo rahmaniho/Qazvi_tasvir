@@ -48,6 +48,7 @@ const mainJs = fs.readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8');
 const navigationJs = fs.readFileSync(path.join(ROOT, 'assets/js/navigation.js'), 'utf8');
 const menuJs = fs.readFileSync(path.join(ROOT, 'assets/js/menu.js'), 'utf8');
 const dockJs = fs.readFileSync(path.join(ROOT, 'assets/js/dock.js'), 'utf8');
+const hubJs = fs.readFileSync(path.join(ROOT, 'assets/js/hub.js'), 'utf8');
 
 function testPage(rel, lang, dir) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -227,6 +228,7 @@ function bootMenu(rel, width) {
   window.eval(navigationJs);
   window.eval(menuJs);
   window.eval(dockJs);
+  window.eval(hubJs);
   window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
   return { window, doc: window.document };
 }
@@ -416,6 +418,71 @@ function testServiceBar(rel, expectedService) {
   check(back?.getAttribute('href') === 'index.html', 'back-to-services link is wrong');
 }
 
+/**
+ * فیلتر فهرست خدمات — سه گروه موجود، بدون دادهٔ تازه، فقط روی هاب.
+ */
+function testHubFilter(rel) {
+  const { window, doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] hub: ${message}`); };
+  const filter = doc.querySelector('.qt-hub-filter');
+  const isHub = rel === 'services/index.html';
+
+  if (!isHub) {
+    check(filter === null, 'service filter was rendered outside the services hub');
+    return;
+  }
+
+  check(window.QTHub?.version === '9.0', 'QTHub API missing');
+  check(filter !== null, 'service filter missing');
+  if (!filter) return;
+
+  const chips = Array.from(filter.querySelectorAll('.qt-hub-filter__chip'));
+  check(chips.length === 4, `expected 4 chips (all + 3 groups), found ${chips.length}`);
+  check(chips[0]?.getAttribute('aria-pressed') === 'true', 'the «all» chip is not active by default');
+  check(!/[0-9]/.test(filter.querySelector('.qt-hub-filter__status')?.textContent || ''),
+        'status leaked Latin digits');
+
+  const cards = Array.from(doc.querySelectorAll('.service-index-card'));
+  check(cards.length === 8, `expected 8 service cards, found ${cards.length}`);
+  check(cards.every(card => !card.hidden), 'some cards start hidden');
+
+  const transport = chips.find(chip => chip.dataset.filter === 'transport');
+  check(transport !== undefined, 'transport chip missing');
+  let event = null;
+  const capture = e => { event = e.detail; };
+  doc.addEventListener('qt:hub:filter', capture);
+  transport?.click();
+  doc.removeEventListener('qt:hub:filter', capture);
+
+  const visible = cards.filter(card => !card.hidden);
+  check(visible.length === 3, `transport filter shows ${visible.length} cards (expected 3)`);
+  check(visible.every(card => card.dataset.qtGroup === 'transport'),
+        'transport filter shows a card from another group');
+  check(transport?.getAttribute('aria-pressed') === 'true', 'pressed state did not follow the click');
+  check(chips.filter(chip => chip.getAttribute('aria-pressed') === 'true').length === 1,
+        'more than one chip is pressed');
+  check((filter.querySelector('.qt-hub-filter__status')?.textContent || '').includes('۳'),
+        'status did not announce three services');
+  check(event?.group === 'transport' && event?.visible === 3,
+        'qt:hub:filter detail is wrong');
+
+  const snapshot = window.QTHub.snapshot();
+  check(snapshot.group === 'transport' && snapshot.visible === 3 && snapshot.total === 8,
+        'snapshot does not reflect the active filter');
+
+  chips[0].click();
+  check(cards.every(card => !card.hidden), '«all» did not restore every card');
+  check((filter.querySelector('.qt-hub-filter__status')?.textContent || '').includes('۸'),
+        'status did not announce eight services');
+
+  const byGroup = k => cards.filter(card => card.dataset.qtGroup === k).length;
+  check(byGroup('trade') === 3 && byGroup('transport') === 3 && byGroup('corporate') === 2,
+        'card groups do not match the 3/3/2 service split');
+
+  check(filter.getAttribute('role') === 'group', 'filter is not a labelled group');
+  check(filter.getAttribute('aria-label') === 'فیلتر خدمات', 'filter group label is missing');
+}
+
 function testCommandMenuMobile(rel) {
   const { window, doc } = bootMenu(rel, 375);
   const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
@@ -508,6 +575,10 @@ for (const [rel, service] of [['services/import-export.html', 'trade'],
   ['services/sourcing.html', 'sourcing'], ['services/personnel-food.html', 'food'],
   ['services/index.html', null], ['index.html', null], ['404.html', null]]) {
   testServiceBar(rel, service);
+}
+console.log('services hub filter:');
+for (const rel of ['services/index.html', 'index.html', '404.html', 'services/sourcing.html']) {
+  testHubFilter(rel);
 }
 console.log(errors.length
   ? `\n  ✗ ${errors.length} problem(s):\n    ${errors.slice(0, 12).join('\n    ')}`
