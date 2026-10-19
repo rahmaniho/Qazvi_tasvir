@@ -50,6 +50,7 @@ const menuJs = fs.readFileSync(path.join(ROOT, 'assets/js/menu.js'), 'utf8');
 const dockJs = fs.readFileSync(path.join(ROOT, 'assets/js/dock.js'), 'utf8');
 const hubJs = fs.readFileSync(path.join(ROOT, 'assets/js/hub.js'), 'utf8');
 const contactJs = fs.readFileSync(path.join(ROOT, 'assets/js/contact.js'), 'utf8');
+const recoveryJs = fs.readFileSync(path.join(ROOT, 'assets/js/recovery.js'), 'utf8');
 
 /**
  * jsdom scrolling is a no-op that reports «Not implemented» as a jsdomError.
@@ -220,13 +221,13 @@ function testNavigation(rel) {
 /**
  * منوی نسل‌جدید — جست‌وجوی کل سایت، گروه‌بندی خدمات و اقدام سریع موبایل.
  */
-function bootMenu(rel, width) {
+function bootMenu(rel, width, urlOverride) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const vc = new VirtualConsole();
   vc.on('jsdomError', error => errors.push(`[${rel}] ${error.message}`));
   vc.on('error', (...args) => errors.push(`[${rel}] console.error ${args.join(' ')}`));
   const dom = new JSDOM(html, {
-    url: `https://qazvintasvir.ir/${rel}`,
+    url: urlOverride || `https://qazvintasvir.ir/${rel}`,
     runScripts: 'outside-only',
     virtualConsole: vc,
     pretendToBeVisual: true,
@@ -246,6 +247,7 @@ function bootMenu(rel, width) {
   window.eval(dockJs);
   window.eval(hubJs);
   window.eval(contactJs);
+  window.eval(recoveryJs);
   window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
   return { window, doc: window.document };
 }
@@ -553,6 +555,115 @@ function testContactCounter(rel, lang) {
   }, 10));
 }
 
+/**
+ * پنل بازیابی ۴۰۴ — فهرست از DOM، جست‌وجوی فازی و پیشنهاد بر پایهٔ نشانی.
+ */
+function testRecovery(rel, url) {
+  const { window, doc } = bootMenu(rel, 1440, url);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] recovery: ${message}`); };
+  const panel = doc.querySelector('.qt-recovery');
+  const isErrorPage = rel === '404.html';
+
+  if (!isErrorPage) {
+    check(panel === null, 'recovery panel was rendered outside the 404 page');
+    return;
+  }
+
+  check(window.QTRecovery?.version === '11.0', 'QTRecovery API missing');
+  check(panel !== null, 'recovery panel missing');
+  if (!panel) return;
+
+  check(doc.body.classList.contains('qt-recovery-ready'), 'body flag for the panel is missing');
+  check(panel.getAttribute('aria-labelledby') === 'qt-recovery-label',
+        'panel is not labelled by its own heading');
+  const label = doc.getElementById('qt-recovery-label');
+  check(label?.tagName.toLowerCase() === 'label' && label.getAttribute('for') === 'qt-recovery-q',
+        'search field has no real <label>');
+
+  const input = doc.getElementById('qt-recovery-q');
+  check(input?.type === 'search', 'search input is not type=search');
+  check((input?.getAttribute('aria-describedby') || '') === 'qt-recovery-status',
+        'search field is not described by the status line');
+
+  // the index must come from the page itself, not a hardcoded list
+  const uniqueNav = new Set(Array.from(doc.querySelectorAll('.site-nav a[href]'))
+    .map(link => new window.URL(link.getAttribute('href'), window.location.href).href));
+  const snapshot = window.QTRecovery.snapshot();
+  check(snapshot.total === uniqueNav.size,
+        `index has ${snapshot.total} entries but the nav holds ${uniqueNav.size}`);
+  check(snapshot.visible === snapshot.total, 'empty query must list every destination');
+
+  const services = doc.querySelectorAll('.qt-recovery__link[data-qt-group="service"]');
+  check(services.length === 8, `expected 8 service links, found ${services.length}`);
+  const pages = doc.querySelectorAll('.qt-recovery__link[data-qt-group="page"]');
+  check(pages.length >= 4, `expected at least 4 page links, found ${pages.length}`);
+
+  const first = doc.querySelector('.qt-recovery__link');
+  check(first?.dataset.qtGroup === 'page', 'pages should be listed before services');
+  check(first?.getAttribute('href') === '/', 'the home link should come first');
+  // the quick-action row and the profile card inject their own links; they must
+  // not leak into the recovery index as duplicates
+  check(doc.querySelectorAll('.qt-recovery__link[data-qt-href$="#contact"]').length === 1,
+        'injected quick-contact links leaked into the index');
+  check(doc.querySelectorAll('.qt-recovery__link[data-qt-href$="#about"]').length === 1,
+        'the profile link duplicated the about entry');
+
+  const status = doc.getElementById('qt-recovery-status');
+  check(status?.getAttribute('role') === 'status', 'result count has no live region');
+  check(!/[0-9]/.test(status?.textContent || ''), 'Persian status leaked Latin digits');
+
+  const type = value => {
+    input.value = value;
+    input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  };
+  const hrefs = () => Array.from(doc.querySelectorAll('.qt-recovery__link'))
+    .map(link => link.getAttribute('href'));
+
+  type('گمرک');
+  check(hrefs().some(href => href.includes('customs-port')), 'search did not find the customs page');
+  check(hrefs().length <= 6, `too many results for a query: ${hrefs().length}`);
+  check(doc.querySelector('.qt-recovery__clear')?.hidden === false,
+        'clear button did not appear with a query');
+
+  type('رزومه');
+  check(hrefs().length === 0, 'a word with no destination should return nothing');
+  check(doc.querySelector('.qt-recovery__empty')?.hidden === false, 'empty state did not appear');
+  check((doc.querySelector('.qt-recovery__empty a')?.getAttribute('href') || '').includes('services'),
+        'empty state has no link to the services list');
+
+  type('zzzqqq');
+  check(doc.querySelectorAll('.qt-recovery__item').length === 0, 'nonsense query kept results');
+
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  check(input.value === '', 'Escape did not clear the query');
+  check(window.QTRecovery.snapshot().visible === uniqueNav.size,
+        'clearing the query did not restore the full list');
+
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+  check(doc.activeElement?.classList.contains('qt-recovery__link'),
+        'ArrowDown did not move focus into the results');
+
+  let chosen = null;
+  const capture = event => { chosen = event.detail; };
+  // jsdom would try to navigate away on a real click; cancel the default only.
+  const noNavigate = event => event.preventDefault();
+  doc.addEventListener('click', noNavigate, true);
+  doc.addEventListener('qt:recovery:select', capture);
+  doc.activeElement?.dispatchEvent(
+    new window.MouseEvent('click', { bubbles: true, cancelable: true })
+  );
+  doc.removeEventListener('qt:recovery:select', capture);
+  doc.removeEventListener('click', noNavigate, true);
+  check(chosen !== null && chosen.href, 'selecting a result fired no event');
+
+  if (url && url.includes('/services/customs-port')) {
+    const hint = doc.querySelector('.qt-recovery__hint');
+    check(hint !== null, 'a broken service URL did not produce a "did you mean" hint');
+    check((hint?.querySelector('a')?.getAttribute('href') || '').includes('customs-port'),
+          'the hint does not point at the matching service page');
+  }
+}
+
 function testCommandMenuMobile(rel) {
   const { window, doc } = bootMenu(rel, 375);
   const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
@@ -650,6 +761,12 @@ for (const [rel, service] of [['services/import-export.html', 'trade'],
 console.log('services hub filter:');
 for (const rel of ['services/index.html', 'index.html', '404.html', 'services/sourcing.html']) {
   testHubFilter(rel);
+}
+console.log('404 recovery:');
+testRecovery('404.html', 'https://qazvintasvir.ir/404.html');
+testRecovery('404.html', 'https://qazvintasvir.ir/services/customs-port');
+for (const rel of ['index.html', 'services/index.html', 'services/sourcing.html']) {
+  testRecovery(rel);
 }
 console.log('contact counter:');
 const counterRuns = [];
