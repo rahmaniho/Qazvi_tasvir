@@ -11,6 +11,8 @@ Checks real, user-visible expectations — not just that the build ran:
   * fa/en hreflang is reciprocal and the language switcher points both ways
   * sitemap.xml lists exactly the indexable pages, with matching URLs
   * target="_blank" always ships rel="noopener"
+  * every page loads the QT Next layer as its last stylesheet
+  * every stylesheet has balanced braces (a broken sheet silently kills the UI)
 
 Usage: python3 tools/check-site.py
 Exit code 0 = all checks passed.
@@ -120,6 +122,14 @@ def main() -> int:
             errors.append(f"{label}: missing meta description")
         elif not 60 <= len(desc) <= 200:
             warnings.append(f"{label}: description is {len(desc)} characters")
+
+        stylesheets = re.findall(
+            r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', html
+        )
+        if not stylesheets or not stylesheets[-1].endswith("qt-next.css"):
+            errors.append(
+                f"{label}: qt-next.css must load last (found {stylesheets[-1:] or 'none'})"
+            )
 
         canonical = text_of(html, r'<link\s+rel="canonical"\s+href="([^"]*)"')
         if page.name != "404.html" and not canonical:
@@ -231,6 +241,13 @@ def main() -> int:
     cname = ROOT / "CNAME"
     if not cname.exists() or cname.read_text(encoding="utf-8").strip() != "qazvintasvir.ir":
         errors.append("CNAME: must contain qazvintasvir.ir for GitHub Pages")
+
+    # ---- stylesheet integrity ----
+    for sheet in sorted((ROOT / "assets/css").rglob("*.css")):
+        raw = sheet.read_text(encoding="utf-8")
+        clean = re.sub(r"/\*.*?\*/", "", raw, flags=re.S)
+        if clean.count("{") != clean.count("}"):
+            errors.append(f"{sheet.relative_to(ROOT)}: unbalanced braces")
 
     print(f"checked {len(PAGES)} pages, {len(INDEXABLE)} indexable URLs")
     for warning in warnings:

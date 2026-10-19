@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070D16">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>۴۰۴ — صفحه پیدا نشد | قزوین تصویر</title>
   <meta name="description" content="صفحه‌ای که به دنبال آن بودید پیدا نشد. به صفحه اصلی شرکت قزوین تصویر بازگردید.">
@@ -11,7 +12,9 @@
   <link rel="stylesheet" href="/assets/css/nav/nav-tokens.css">
   <link rel="stylesheet" href="/assets/css/nav/nav-base.css">
   <link rel="stylesheet" href="/assets/css/nav/nav-sidebar.css">
+  <link rel="stylesheet" href="/assets/css/qt-next.css">
   <style>
+    /* صفحهٔ ۴۰۴ — همان زبان نسل پنجم: مرکب، طلایی، خط مویی */
     :root { color-scheme: dark; }
     body {
       min-height: 100vh;
@@ -21,28 +24,29 @@
       padding: 24px;
       font-family: Vazirmatn, Tahoma, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 85% 15%, rgba(14, 165, 233, 0.16) 0%, rgba(14, 165, 233, 0) 45%),
-        radial-gradient(circle at 10% 90%, rgba(245, 158, 11, 0.14) 0%, rgba(245, 158, 11, 0) 45%),
-        linear-gradient(155deg, #061829 0%, #0A2540 55%, #0E4B6E 100%);
-      color: #E2E8F0;
+        radial-gradient(46rem 30rem at 86% -8%, rgba(233, 191, 124, 0.20) 0%, rgba(233, 191, 124, 0) 62%),
+        radial-gradient(40rem 26rem at 4% 106%, rgba(10, 110, 106, 0.16) 0%, rgba(10, 110, 106, 0) 60%),
+        linear-gradient(168deg, #070D16 0%, #0A111C 52%, #101C2B 100%);
+      color: #E7EDF5;
       text-align: center;
     }
-    .box { max-width: 560px; }
+    .box { max-width: 620px; }
     .code {
       font-size: clamp(5rem, 16vw, 8.5rem);
       font-weight: 800;
       line-height: 1;
-      background: linear-gradient(135deg, #FCD34D 10%, #F59E0B 90%);
+      background: linear-gradient(100deg, #F3D8AC 0%, #D9A55C 52%, #B77A2A 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
+      font-variant-numeric: tabular-nums;
     }
-    h1 { font-size: clamp(1.25rem, 4vw, 1.75rem); margin-top: 18px; color: #FFFFFF; }
-    p  { margin-top: 12px; color: #94A3B8; line-height: 2; font-size: 0.95rem; }
+    h1 { font-size: clamp(1.3rem, 4vw, 1.85rem); margin-top: 20px; color: #FFFFFF; font-weight: 900; }
+    p  { margin-top: 12px; color: rgba(231, 237, 245, 0.68); line-height: 2; font-size: 0.95rem; }
     p.en { direction: ltr; font-size: 0.85rem; }
     .actions {
-      margin-top: 28px;
+      margin-top: 30px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -52,31 +56,35 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 26px;
-      border-radius: 14px;
-      font-weight: 700;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 800;
       font-size: 0.95rem;
       text-decoration: none;
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease, border-color 0.25s ease;
     }
     a.btn:hover { transform: translateY(-2px); }
     a.btn-primary {
-      background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
-      color: #061829;
-      box-shadow: 0 10px 30px rgba(245, 158, 11, 0.25);
+      background: #E9BF7C;
+      color: #1C1206;
+      box-shadow: 0 18px 34px -22px rgba(233, 191, 124, 0.9);
     }
+    a.btn-primary:hover { background: #F2D096; }
     a.btn-ghost {
-      color: #E2E8F0;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.07);
+      color: #F2F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.04);
     }
+    a.btn-ghost:hover { border-color: rgba(233, 191, 124, 0.6); background: rgba(233, 191, 124, 0.10); }
     .meta {
-      margin-top: 36px;
+      margin-top: 38px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(233, 191, 124, 0.16);
       font-size: 0.78rem;
-      color: #64748B;
+      color: rgba(231, 237, 245, 0.48);
       line-height: 1.9;
     }
-    .meta strong { color: #94A3B8; }
+    .meta strong { color: rgba(231, 237, 245, 0.72); }
 
     .error-page {
       display: block;
@@ -89,7 +97,7 @@
     }
     .error-page .box {
       min-height: 100vh;
-      max-width: 620px;
+      max-width: 640px;
       margin-inline: auto;
       padding: 96px 24px 32px;
       display: flex;

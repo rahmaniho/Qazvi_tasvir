@@ -1,0 +1,2869 @@
+/* ==========================================================================
+   قزوین تصویر — «QT Next» | نسل پنجم سیستم طراحی
+   --------------------------------------------------------------------------
+   این فایل آخرین شیت هر صفحه است و روی لایه‌های قبلی می‌نشیند:
+     style.css            → صفحهٔ اصلی و /en/
+     service-pages.css    → صفحات خدمات و ۴۰۴
+     food-service.css     → صفحهٔ تأمین غذا
+     nav/*.css            → ریل ناوبری دسکتاپ و کشوی موبایل
+
+   جهت طراحی: از «گلاس‌مورفیسم رنگی» به «سرمایه‌گذاری تحریریه‌ای» —
+   کاغذ گرم، مرکب تیره، خطوط مویی، تیتر بزرگ، طلایی به‌عنوان تنها لهجه.
+   هیچ فونت یا اسکریپت تازه‌ای اضافه نمی‌شود؛ فقط توکن‌ها و لایه‌های بصری.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ۱. توکن‌ها — نسل پنجم
+   -------------------------------------------------------------------------- */
+:root {
+  /* مرکب و کاغذ */
+  --qt-ink: #0A111C;
+  --qt-ink-2: #111C2B;
+  --qt-ink-3: #1B2B40;
+  --qt-ink-surface: #070D16;
+  --qt-paper: #F7F5F0;
+  --qt-surface: #FFFFFF;
+  --qt-surface-2: #FBFAF6;
+
+  /* خطوط */
+  --qt-line: #E6E1D6;
+  --qt-line-strong: #D3CBBB;
+
+  /* متن */
+  --qt-text: #121B28;
+  --qt-muted: #56636F;
+  --qt-subtle: #5F6B7A;
+
+  /* لهجه‌ها */
+  --qt-brass: #96601A;
+  --qt-brass-deep: #6F4409;
+  --qt-brass-bright: #E9BF7C;
+  --qt-brass-tint: rgba(169, 109, 24, 0.10);
+  --qt-teal: #0A6E6A;
+  --qt-teal-bright: #41C3BB;
+  --qt-sky: #1E6C9E;
+
+  /* سطح‌ها */
+  --qt-card-bg: var(--qt-surface);
+  --qt-card-line: var(--qt-line);
+  --qt-heading: var(--qt-ink);
+
+  /* --- نگاشت توکن‌های قدیمی: هر مؤلفه‌ای که از این‌ها استفاده می‌کند
+         بدون تغییر HTML، رنگ نسل پنجم می‌گیرد. --- */
+  --primary-navy: #101A28;
+  --navy-deep: #070D16;
+  --navy-mid: #1B2B40;
+  --teal-industrial: #0F3B45;
+  --amber-accent: #C2842A;
+  --amber-light: #EFC98D;
+  --sky-blue: #2C7FAE;
+  --sky-light: #8DC7E6;
+  --surface-bg: var(--qt-paper);
+  --surface-white: var(--qt-surface);
+  --line-soft: var(--qt-line);
+  --text-primary: var(--qt-text);
+  --text-muted: #56636F;
+  --text-light: #616D7C;
+  --success: #0C7A55;
+  --error: #B3261E;
+  --whatsapp: #11794A;
+  --amber-ink: #93601A;
+  --sky-ink: #1B6497;
+  --whatsapp-ink: #0B7A44;
+  --text-subtle: #56636F;
+
+  /* گرادیان‌ها */
+  --grad-hero:
+    radial-gradient(90rem 44rem at 88% -10%, rgba(169, 109, 24, 0.28), transparent 62%),
+    radial-gradient(70rem 40rem at -8% 108%, rgba(10, 110, 106, 0.26), transparent 60%),
+    linear-gradient(168deg, #070D16 0%, #0A111C 46%, #101C2B 100%);
+  --grad-amber: linear-gradient(135deg, #E9BF7C 0%, #C2842A 100%);
+  --grad-sky: linear-gradient(135deg, #8DC7E6 0%, #2C7FAE 100%);
+  --grad-navy: linear-gradient(160deg, #0A111C 0%, #1B2B40 100%);
+  --grad-glow-amber: radial-gradient(circle at top right, rgba(194, 132, 42, 0.24) 0%, rgba(194, 132, 42, 0) 62%);
+  --grad-glow-sky: radial-gradient(circle at bottom left, rgba(10, 110, 106, 0.22) 0%, rgba(10, 110, 106, 0) 62%);
+  --grad-text: linear-gradient(100deg, #F3D8AC 0%, #D9A55C 52%, #B77A2A 100%);
+  --grad-text-sky: linear-gradient(100deg, #BFE6F5 0%, #6FB6DA 100%);
+
+  /* تایپوگرافی */
+  --fs-display: clamp(2.35rem, 4.3vw, 3.45rem);
+  --fs-h1: clamp(2.1rem, 4.2vw, 3.15rem);
+  --fs-h2: clamp(1.72rem, 3.15vw, 2.6rem);
+  --fs-h3: clamp(1.12rem, 1.5vw, 1.32rem);
+  --fs-body: 1.0625rem;
+
+  /* ریتم و فرم */
+  --container-max: 1320px;
+  --section-padding-block: clamp(72px, 8.4vw, 132px);
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-2xl: 32px;
+
+  /* سایه‌های کم‌عمق و لایه‌ای */
+  --shadow-sm: 0 1px 2px rgba(12, 20, 32, 0.05);
+  --shadow-md: 0 14px 30px -22px rgba(12, 20, 32, 0.42);
+  --shadow-lg: 0 34px 64px -40px rgba(12, 20, 32, 0.55);
+  --shadow-glow-amber: 0 14px 26px -18px rgba(169, 109, 24, 0.7);
+  --shadow-glow-sky: 0 14px 26px -18px rgba(30, 108, 158, 0.6);
+  --qt-card-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 18px 34px -30px rgba(12, 20, 32, 0.55);
+}
+
+/* --- تم تیره: مرکب عمیق‌تر، کاغذ دودی --- */
+[data-theme="dark"] {
+  --qt-ink: #E9EEF5;
+  --qt-ink-2: #DCE5F0;
+  --qt-ink-3: #C3D0E0;
+  --qt-ink-surface: #05090F;
+  --qt-paper: #070C13;
+  --qt-surface: #101823;
+  --qt-surface-2: #141E2B;
+  --qt-line: #23303F;
+  --qt-line-strong: #33445A;
+  --qt-text: #E7EDF5;
+  --qt-muted: #A6B3C4;
+  --qt-subtle: #93A2B5;
+  --qt-brass: #E3B165;
+  --qt-brass-deep: #F0C989;
+  --qt-brass-bright: #F3D09A;
+  --qt-brass-tint: rgba(227, 177, 101, 0.14);
+  --qt-teal: #5FD3CB;
+  --qt-sky: #7CC3EA;
+  --qt-card-bg: var(--qt-surface);
+  --qt-card-line: var(--qt-line);
+  --qt-heading: #F3F7FC;
+  --primary-navy: #E9EEF5;
+  --navy-deep: #05090F;
+  --navy-mid: #16222F;
+  --teal-industrial: #16323A;
+  --amber-accent: #E3B165;
+  --amber-light: #F3D09A;
+  --sky-blue: #7CC3EA;
+  --sky-light: #A9D8F2;
+  --surface-bg: var(--qt-paper);
+  --surface-white: var(--qt-surface);
+  --line-soft: var(--qt-line);
+  --text-primary: var(--qt-text);
+  --text-muted: var(--qt-muted);
+  --text-light: var(--qt-subtle);
+  --amber-ink: #E3B165;
+  --sky-ink: #9FD2EE;
+  --text-subtle: var(--qt-muted);
+  --success: #4ADE9C;
+  --error: #FF8A80;
+  --grad-hero:
+    radial-gradient(80rem 40rem at 90% -12%, rgba(227, 177, 101, 0.16), transparent 60%),
+    radial-gradient(64rem 38rem at -6% 106%, rgba(95, 211, 203, 0.14), transparent 58%),
+    linear-gradient(168deg, #04080E 0%, #070C13 50%, #0B1420 100%);
+  --grad-text: linear-gradient(100deg, #F7E4C2 0%, #E3B165 60%, #C98F3F 100%);
+  --qt-card-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 18px 34px -28px rgba(0, 0, 0, 0.9);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 14px 30px -22px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 34px 64px -40px rgba(0, 0, 0, 0.85);
+  color-scheme: dark;
+}
+
+/* --- تم اقیانوسی --- */
+[data-theme="ocean"] {
+  --qt-ink: #DDF1F2;
+  --qt-ink-2: #CBE7E9;
+  --qt-ink-surface: #041014;
+  --qt-paper: #061319;
+  --qt-surface: #0A1D25;
+  --qt-surface-2: #0D2530;
+  --qt-line: #1B3A44;
+  --qt-line-strong: #27505C;
+  --qt-text: #DCEBEE;
+  --qt-muted: #9FBCC2;
+  --qt-subtle: #8AA9B0;
+  --qt-brass: #E9BF7C;
+  --qt-brass-deep: #F3D2A0;
+  --qt-brass-bright: #F6DCB2;
+  --qt-teal: #4FD6C8;
+  --qt-sky: #6FCBE0;
+  --qt-heading: #ECF7F8;
+  --primary-navy: #DDF1F2;
+  --navy-deep: #041014;
+  --navy-mid: #10323A;
+  --teal-industrial: #0C3436;
+  --amber-accent: #E9BF7C;
+  --amber-light: #F6DCB2;
+  --sky-blue: #6FCBE0;
+  --sky-light: #A6E3EF;
+  --surface-bg: var(--qt-paper);
+  --surface-white: var(--qt-surface);
+  --line-soft: var(--qt-line);
+  --text-primary: var(--qt-text);
+  --text-muted: var(--qt-muted);
+  --text-light: var(--qt-subtle);
+  --amber-ink: #E9BF7C;
+  --sky-ink: #9FE0EE;
+  --text-subtle: var(--qt-muted);
+  --success: #45D6A5;
+  --error: #FF9B90;
+  --grad-hero:
+    radial-gradient(80rem 40rem at 92% -10%, rgba(79, 214, 200, 0.16), transparent 62%),
+    radial-gradient(60rem 36rem at 0% 104%, rgba(111, 203, 224, 0.14), transparent 58%),
+    linear-gradient(168deg, #041014 0%, #061319 52%, #0A2029 100%);
+  --grad-text: linear-gradient(100deg, #D8F7F4 0%, #76DCD0 60%, #3FB4AE 100%);
+  --qt-card-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 18px 34px -28px rgba(0, 0, 0, 0.9);
+  color-scheme: dark;
+}
+
+/* --------------------------------------------------------------------------
+   ۲. پایه — تایپوگرافی و بوم
+   -------------------------------------------------------------------------- */
+html {
+  background-color: var(--qt-paper);
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--qt-paper);
+  color: var(--qt-text);
+  font-size: var(--fs-body);
+  line-height: 1.95;
+  font-feature-settings: "ss01" 1;
+}
+
+h1, h2, h3, h4 {
+  color: var(--qt-heading);
+  font-weight: 800;
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--qt-brass-bright);
+  color: #1A1206;
+}
+
+/* حلقهٔ فوکوس یکدست و پرکنتراست در همهٔ صفحات */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--qt-brass-bright);
+  outline-offset: 3px;
+  border-radius: var(--r-xs);
+}
+
+/* اسکرول‌بار باریک با لهجهٔ طلایی */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--qt-paper);
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid var(--qt-paper);
+  border-radius: 999px;
+  background: var(--qt-line-strong);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--qt-brass);
+}
+
+/* نوار پیشرفت اسکرول: خطی نازک و طلایی */
+#scroll-progress,
+.scroll-progress {
+  height: 2px;
+  background: linear-gradient(90deg, var(--qt-brass) 0%, var(--qt-brass-bright) 55%, var(--qt-teal) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   ۳. ریتم چیدمان
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+.section {
+  padding-block: var(--section-padding-block);
+}
+
+.section--alt {
+  background: var(--qt-surface);
+  border-block: 1px solid var(--qt-line);
+}
+
+/* بوم اصلی در دسکتاپ: کاغذ گرم با دو هالهٔ بسیار ملایم */
+@media (min-width: 1024px) {
+  body.qt-sidebar-shell {
+    background:
+      radial-gradient(52rem 34rem at 88% 4%, rgba(169, 109, 24, 0.09), transparent 66%),
+      radial-gradient(46rem 32rem at 6% 92%, rgba(10, 110, 106, 0.07), transparent 64%),
+      var(--qt-paper);
+  }
+  [data-theme="dark"] body.qt-sidebar-shell {
+    background:
+      radial-gradient(52rem 34rem at 88% 4%, rgba(227, 177, 101, 0.07), transparent 66%),
+      radial-gradient(46rem 32rem at 6% 92%, rgba(95, 211, 203, 0.06), transparent 64%),
+      var(--qt-paper);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ۴. سرصفحهٔ بخش‌ها — چیدمان تحریریه‌ای با شمارهٔ بخش
+   -------------------------------------------------------------------------- */
+.section-header {
+  max-width: 880px;
+  margin-inline: 0;
+  margin-bottom: clamp(34px, 4.2vw, 58px);
+  text-align: start;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--qt-brass);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.section-label::before {
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.section-label--sky {
+  color: var(--qt-teal);
+  background: none;
+  border: 0;
+}
+
+.section-label--onDark {
+  color: var(--qt-brass-bright);
+}
+
+/* شمارهٔ بخش: ۰۱، ۰۲ … فقط برای سرصفحهٔ سطح‌اول هر بخش */
+main {
+  counter-reset: qt-sec;
+}
+main > section {
+  counter-increment: qt-sec;
+}
+main > section > .container > .section-header > .section-label::after {
+  content: counter(qt-sec, persian) " /";
+  order: -1;
+  font-family: var(--font-numbers);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--qt-brass);
+  opacity: 0.85;
+  letter-spacing: 0.04em;
+}
+html[dir="ltr"] main > section > .container > .section-header > .section-label::after {
+  content: counter(qt-sec, decimal-leading-zero) " /";
+}
+.section-label--onDark::after,
+[data-theme="dark"] .section-label::after,
+[data-theme="ocean"] .section-label::after {
+  color: var(--qt-brass-bright);
+}
+
+.section-title {
+  margin-bottom: 16px;
+  font-size: var(--fs-h2);
+  font-weight: 900;
+  line-height: 1.42;
+}
+
+.section-desc {
+  max-width: 68ch;
+  color: var(--qt-muted);
+  font-size: clamp(1rem, 1.15vw, 1.075rem);
+  line-height: 1.98;
+}
+
+/* سکشن تیره: مرکب با خط مویی طلایی */
+.section--dark {
+  background: var(--grad-hero);
+  color: #F2F5F9;
+  border-block: 1px solid rgba(233, 191, 124, 0.16);
+}
+.section--dark .section-desc,
+.section--dark p {
+  color: rgba(233, 239, 246, 0.74);
+}
+.section--dark .section-label {
+  color: var(--qt-brass-bright);
+}
+
+/* --------------------------------------------------------------------------
+   ۵. دکمه‌ها — قرص، آرام، بدون گرادیان تزئینی
+   -------------------------------------------------------------------------- */
+.btn {
+  gap: 10px;
+  padding: 14px 26px;
+  border: 1px solid transparent;
+  border-radius: var(--r-full);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  box-shadow: none;
+  transition:
+    transform var(--dur-base) var(--ease-quint),
+    background-color var(--dur-base) ease,
+    border-color var(--dur-base) ease,
+    color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+
+.btn svg {
+  flex: 0 0 auto;
+  transition: transform var(--dur-base) var(--ease-quint);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:hover svg {
+  transform: translateX(-3px);
+}
+html[dir="ltr"] .btn:hover svg {
+  transform: translateX(3px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--qt-brass-bright);
+  color: #1C1206;
+  box-shadow: 0 16px 30px -20px rgba(169, 109, 24, 0.9);
+}
+.btn-primary:hover {
+  background: #F2D096;
+  box-shadow: 0 20px 34px -18px rgba(169, 109, 24, 0.95);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--qt-line-strong);
+  color: var(--qt-ink);
+}
+.btn-secondary:hover {
+  border-color: var(--qt-ink);
+  background: rgba(18, 27, 40, 0.04);
+}
+
+.btn-sky {
+  background: transparent;
+  border-color: var(--qt-line-strong);
+  color: var(--qt-ink);
+  box-shadow: none;
+}
+.btn-sky:hover {
+  border-color: var(--qt-brass);
+  color: var(--qt-brass-deep);
+  background: var(--qt-brass-tint);
+}
+
+.btn-outline-glass {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: #FFFFFF;
+  backdrop-filter: blur(6px);
+}
+.btn-outline-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(233, 191, 124, 0.65);
+}
+
+.btn--accent {
+  background: var(--qt-brass-bright);
+  color: #1C1206;
+  border-color: transparent;
+}
+.btn--accent:hover {
+  background: #F2D096;
+}
+
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+}
+.btn-lg {
+  padding: 16px 30px;
+  font-size: 1rem;
+}
+
+/* دکمهٔ شبح (۴۰۴) */
+.btn-ghost {
+  background: transparent;
+  border-color: var(--qt-line-strong);
+  color: var(--qt-ink);
+}
+.btn-ghost:hover {
+  border-color: var(--qt-ink);
+  background: rgba(18, 27, 40, 0.04);
+}
+
+/* دکمه‌های آیکونی هدر */
+.theme-switch__btn,
+.lang-switch__btn {
+  border-radius: var(--r-sm);
+  border-color: var(--qt-sidebar-line);
+  background: var(--qt-sidebar-soft);
+  color: #B9C6D8;
+  transition: background-color var(--dur-base) ease, color var(--dur-base) ease, border-color var(--dur-base) ease;
+}
+.theme-switch__btn:hover,
+.lang-switch__btn:hover,
+.theme-switch[open] > .theme-switch__btn,
+.lang-switch[open] > .lang-switch__btn {
+  border-color: rgba(233, 191, 124, 0.45);
+  color: var(--qt-brass-bright);
+}
+
+.theme-switch__panel,
+.lang-switch__panel {
+  border-radius: var(--r-md);
+  border: 1px solid var(--qt-line);
+  background: var(--qt-surface);
+  box-shadow: var(--shadow-lg);
+}
+.theme-option,
+.lang-switch__item {
+  border-radius: var(--r-sm);
+}
+.theme-option[aria-pressed="true"],
+.lang-switch__item[aria-current="true"] {
+  background: var(--qt-brass-tint);
+  color: var(--qt-brass-deep);
+}
+
+/* --------------------------------------------------------------------------
+   ۶. ناوبری — ریل مرکبی با لبهٔ طلایی
+   -------------------------------------------------------------------------- */
+:root {
+  --qt-sidebar-radius: 20px;
+  --qt-sidebar-surface: #0A111C;
+  --qt-sidebar-surface-2: #111C2B;
+  --qt-sidebar-soft: #16212F;
+  --qt-sidebar-ink: #F5F7FA;
+  --qt-sidebar-muted: #B8C5D6;
+  --qt-sidebar-dim: #7E8DA3;
+  --qt-sidebar-line: rgba(233, 191, 124, 0.16);
+  --qt-sidebar-accent: #8A5510;
+  --qt-sidebar-accent-hover: #A96D18;
+  --qt-sidebar-accent-deep: #1A2634;
+  --qt-sidebar-edge: #E9BF7C;
+  --qt-sidebar-shadow: 0 30px 60px -40px rgba(4, 10, 18, 0.9), 0 2px 8px rgba(4, 10, 18, 0.3);
+}
+
+/* ریل دسکتاپ: نام برند بزرگ‌تر و آیتم‌های قرصی‌شکل */
+@media (min-width: 1024px) {
+  .site-header {
+    border-radius: var(--qt-sidebar-radius);
+    background:
+      radial-gradient(22rem 18rem at 100% 0%, rgba(233, 191, 124, 0.09), transparent 62%),
+      var(--qt-sidebar-surface);
+  }
+
+  .site-header .brand-copy strong {
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .site-header .site-nav > .site-nav__link,
+  .site-header .site-nav > .site-nav__item--services > .site-nav__link {
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-weight: 600;
+    transition: background-color var(--dur-base) ease, color var(--dur-base) ease, box-shadow var(--dur-base) ease;
+  }
+
+  .site-header .site-nav > .site-nav__link:hover,
+  .site-header .site-nav > .site-nav__link:focus-visible,
+  .site-header .site-nav > .site-nav__item--services > .site-nav__link:hover,
+  .site-header .site-nav > .site-nav__item--services > .site-nav__link:focus-visible {
+    box-shadow: none;
+  }
+
+  .site-header .site-nav > .site-nav__link:hover,
+  .site-header .site-nav > .site-nav__link:focus-visible,
+  .site-header .site-nav > .site-nav__item--services > .site-nav__link:hover,
+  .site-header .site-nav > .site-nav__item--services > .site-nav__link:focus-visible,
+  .site-header .site-nav > .site-nav__item--services.is-open > .site-nav__link {
+    background: rgba(233, 191, 124, 0.10);
+    color: #F6E3C2;
+  }
+
+  .site-header .site-nav > .site-nav__link.is-active,
+  .site-header .site-nav > .site-nav__link.active,
+  .site-header .site-nav > .site-nav__link[aria-current="page"] {
+    border-radius: 12px;
+    background: rgba(233, 191, 124, 0.14);
+    color: #F8EBD2;
+    box-shadow: inset -3px 0 0 var(--qt-sidebar-edge);
+  }
+  [dir="ltr"] .site-header .site-nav > .site-nav__link.is-active,
+  [dir="ltr"] .site-header .site-nav > .site-nav__link.active,
+  [dir="ltr"] .site-header .site-nav > .site-nav__link[aria-current="page"] {
+    box-shadow: inset 3px 0 0 var(--qt-sidebar-edge);
+  }
+
+  .site-header .site-nav > .site-nav__cta {
+    border-radius: 12px;
+    background: var(--qt-brass-bright);
+    color: #1C1206;
+    font-weight: 800;
+    box-shadow: 0 16px 28px -22px rgba(233, 191, 124, 0.9);
+  }
+
+  .site-header .site-nav__dropdown {
+    border-radius: 14px;
+    border: 1px solid var(--qt-sidebar-line);
+    background: var(--qt-sidebar-surface-2);
+  }
+
+  .site-header .menu-toggle {
+    border-radius: 12px;
+    border-color: var(--qt-sidebar-line);
+    background: var(--qt-sidebar-surface-2);
+    color: var(--qt-sidebar-ink);
+    box-shadow: none;
+  }
+
+  .site-header .site-header__tools .theme-switch__btn,
+  .site-header .site-header__tools .lang-switch__btn {
+    border-radius: 11px;
+  }
+}
+
+/* موبایل: کپسول شیشه‌ای با سایهٔ کم‌عمق */
+@media (max-width: 1023px) {
+  .site-header {
+    border: 1px solid rgba(233, 191, 124, 0.16);
+    border-radius: 18px;
+    background: rgba(10, 17, 28, 0.94);
+    backdrop-filter: blur(18px) saturate(140%);
+    box-shadow: 0 18px 40px -30px rgba(4, 10, 18, 0.9);
+  }
+  .site-header .brand-mark {
+    border-radius: 12px;
+    border-color: rgba(233, 191, 124, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .site-nav.is-open,
+  .site-nav[data-open="true"] {
+    background: var(--qt-sidebar-surface);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ۷. قهرمان صفحه — نور طلایی روی مرکب
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  padding-block: clamp(56px, 6vw, 88px) clamp(48px, 5.4vw, 80px);
+  background: var(--grad-hero);
+  border-block-end: 1px solid rgba(233, 191, 124, 0.14);
+  overflow: hidden;
+}
+
+/* عکس پس‌زمینه: سکوت بصری بیشتر تا تیتر نفس بکشد */
+.hero__photo img {
+  opacity: 0.34;
+  filter: saturate(0.82) contrast(1.06);
+}
+.hero__photo::after {
+  background:
+    linear-gradient(180deg, rgba(7, 13, 22, 0.78) 0%, rgba(7, 13, 22, 0.92) 62%, rgba(7, 13, 22, 0.97) 100%),
+    linear-gradient(90deg, rgba(7, 13, 22, 0.92) 0%, rgba(7, 13, 22, 0.35) 62%, transparent 100%);
+}
+
+.hero__glow-top {
+  width: 720px;
+  height: 720px;
+  filter: blur(90px);
+  opacity: 0.85;
+}
+.hero__glow-bottom {
+  width: 640px;
+  height: 640px;
+  filter: blur(90px);
+  opacity: 0.8;
+}
+
+/* شبکهٔ خطی نازک به‌جای نقطه‌چین */
+.hero__grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 78%);
+}
+
+.hero__particles {
+  opacity: 0.5;
+}
+
+.hero__grid {
+  gap: 44px;
+}
+@media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: 1.02fr 0.98fr;
+    gap: 64px;
+  }
+}
+
+/* بج: برچسب تحریریه‌ای با نقطهٔ طلایی */
+.hero__badge {
+  gap: 10px;
+  margin-bottom: 26px;
+  padding: 7px 16px;
+  border: 1px solid rgba(233, 191, 124, 0.34);
+  border-radius: var(--r-full);
+  background: rgba(233, 191, 124, 0.08);
+  color: #F1D6A8;
+  font-size: 0.79rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  backdrop-filter: none;
+}
+.hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--qt-brass-bright);
+  box-shadow: 0 0 0 4px rgba(233, 191, 124, 0.16);
+  animation: none;
+}
+
+.hero__title {
+  margin-bottom: 18px;
+  font-size: var(--fs-display);
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+.hero__title .gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__lead {
+  max-width: 58ch;
+  margin-bottom: 28px;
+  color: rgba(233, 239, 246, 0.76);
+  font-size: clamp(1.02rem, 1.5vw, 1.16rem);
+  line-height: 2.02;
+}
+
+.hero__actions {
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+/* ریل آمار: سه ستون با خطوط مویی، بدون جعبهٔ شیشه‌ای */
+.hero__stats {
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-block: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+}
+
+.hero__stat-item {
+  padding-block: 20px 18px;
+  padding-inline-end: 20px;
+}
+
+.hero__stat-item:not(:last-child)::after {
+  top: 18%;
+  height: 64%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hero__stat-number {
+  margin-bottom: 6px;
+  font-size: clamp(2.05rem, 3.5vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #F4DBB0;
+}
+
+.hero__stat-label {
+  color: rgba(233, 239, 246, 0.6);
+  font-size: 0.79rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* قاب رسانه: کارت شیشه‌ای پیشین → قاب عکس با لبهٔ طلایی */
+.hero__glass-card {
+  max-width: 520px;
+  padding: 16px;
+  border: 1px solid rgba(233, 191, 124, 0.24);
+  border-radius: var(--r-2xl);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+  box-shadow: 0 50px 90px -60px rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero__showcase-header {
+  margin-bottom: 14px;
+  padding: 4px 6px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero__showcase-badge {
+  border: 1px solid rgba(233, 191, 124, 0.36);
+  border-radius: var(--r-full);
+  background: rgba(233, 191, 124, 0.1);
+  color: #F1D6A8;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.hero__illustration,
+.hero__illustration picture,
+.hero__illustration img {
+  border-radius: 18px;
+}
+.hero__illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* کارت‌های شناور: قرص‌های مطمئن با آیکون طلایی */
+.float-card {
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid rgba(233, 191, 124, 0.24);
+  border-radius: 16px;
+  background: rgba(9, 15, 25, 0.88);
+  box-shadow: 0 26px 44px -34px rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.float-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+.float-card__icon--sky {
+  background: rgba(10, 110, 106, 0.18);
+  color: var(--qt-teal-bright);
+}
+.float-card__icon--amber {
+  background: rgba(233, 191, 124, 0.16);
+  color: var(--qt-brass-bright);
+}
+.float-card__title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #F5F8FC;
+}
+.float-card__sub {
+  font-size: 0.72rem;
+  color: rgba(233, 239, 246, 0.6);
+}
+
+/* خلاصهٔ مدیریتی داخل قاب */
+.hero__showcase-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.8rem;
+  color: rgba(233, 239, 246, 0.72);
+}
+.hero__showcase-meta strong {
+  color: var(--qt-brass-bright);
+  font-weight: 700;
+}
+
+.hero__showcase-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+.hero__showcase-id {
+  font-size: 0.72rem;
+  color: rgba(233, 239, 246, 0.58);
+}
+
+/* --------------------------------------------------------------------------
+   ۸. دربارهٔ شرکت
+   -------------------------------------------------------------------------- */
+.about__lead-title {
+  font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+  font-weight: 800;
+  line-height: 1.6;
+  color: var(--qt-heading);
+}
+
+.about__text {
+  color: var(--qt-muted);
+  line-height: 2.05;
+}
+
+.about__check-item {
+  gap: 12px;
+  color: var(--qt-text);
+  font-size: 0.95rem;
+}
+
+.check-icon {
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(169, 109, 24, 0.28);
+  background: var(--qt-brass-tint);
+  color: var(--qt-brass-deep);
+}
+
+.ceo-card {
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-2xl);
+  background: var(--qt-card-bg);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.ceo-avatar {
+  border-radius: 16px;
+  border: 1px solid var(--qt-card-line);
+  box-shadow: none;
+}
+
+.ceo-info__name {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--qt-heading);
+}
+
+.ceo-info__role {
+  color: var(--qt-brass);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.ceo-quote {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 0;
+  border-inline-start: 2px solid var(--qt-brass);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: var(--qt-surface-2);
+  color: var(--qt-text);
+  font-size: 0.93rem;
+  line-height: 2;
+}
+[dir="ltr"] .ceo-quote {
+  border-radius: var(--r-md) 0 0 var(--r-md);
+}
+
+.registry-glass-box {
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-surface-2);
+  backdrop-filter: none;
+}
+
+.registry-glass-box__title {
+  color: var(--qt-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.registry-grid-mini {
+  gap: 14px 20px;
+}
+
+.registry-item-mini__label {
+  color: var(--qt-subtle);
+  font-size: 0.72rem;
+}
+
+.registry-item-mini__value {
+  color: var(--qt-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   ۹. کارت‌های خدمات — شبکهٔ خودتنظیم با قاب طلایی
+   -------------------------------------------------------------------------- */
+.services-cards__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+@media (min-width: 640px) {
+  .services-cards__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.service-mini-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 0 24px;
+  overflow: hidden;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-card-bg);
+  box-shadow: var(--qt-card-shadow);
+  transition:
+    transform var(--dur-slow) var(--ease-quint),
+    border-color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+
+.service-mini-card::before {
+  display: none;
+}
+
+.service-mini-card:hover,
+.service-mini-card:focus-within {
+  transform: translateY(-6px);
+  border-color: rgba(169, 109, 24, 0.5);
+  box-shadow: 0 34px 54px -38px rgba(12, 20, 32, 0.6);
+}
+
+.service-mini-card__media {
+  margin: 0 0 4px;
+  border-radius: 0;
+  aspect-ratio: 16 / 10;
+  background: var(--qt-surface-2);
+}
+
+.service-mini-card__media img {
+  transition: transform 700ms var(--ease-quint), filter 400ms ease;
+  filter: saturate(0.95);
+}
+
+.service-mini-card:hover .service-mini-card__media img {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
+.service-mini-card__icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: -38px 22px 6px;
+  border: 1px solid rgba(169, 109, 24, 0.35);
+  border-radius: 15px;
+  background: var(--qt-brass-bright);
+  color: #1C1206;
+  box-shadow: 0 12px 22px -14px rgba(169, 109, 24, 0.9);
+}
+
+.service-mini-card__title {
+  margin: 0;
+  padding-inline: 22px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.6;
+  color: var(--qt-heading);
+}
+
+.service-mini-card__desc {
+  padding-inline: 22px;
+  color: var(--qt-muted);
+  font-size: 0.9rem;
+  line-height: 1.95;
+}
+
+.service-mini-card__btn {
+  align-self: flex-start;
+  margin: auto 22px 0;
+  padding: 10px 18px;
+  border: 1px solid var(--qt-line-strong);
+  border-radius: var(--r-full);
+  background: transparent;
+  color: var(--qt-ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.service-mini-card__btn:hover {
+  border-color: var(--qt-brass);
+  background: var(--qt-brass-tint);
+  color: var(--qt-brass-deep);
+}
+
+.services__cta {
+  gap: 12px;
+  margin-top: clamp(30px, 4vw, 46px);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۰. ناوگان
+   -------------------------------------------------------------------------- */
+.fleet-section {
+  border-block: 1px solid var(--qt-line);
+  background: var(--qt-paper);
+}
+
+.fleet-section::before {
+  background:
+    radial-gradient(46% 42% at 94% 2%, rgba(169, 109, 24, 0.1) 0%, transparent 70%),
+    radial-gradient(44% 44% at 2% 98%, rgba(10, 110, 106, 0.08) 0%, transparent 70%);
+}
+
+.fleet-grid {
+  gap: 20px;
+}
+
+.fleet-card {
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-card-bg);
+  box-shadow: var(--qt-card-shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.fleet-card::after {
+  display: none;
+}
+
+.fleet-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(169, 109, 24, 0.5);
+  box-shadow: 0 34px 54px -38px rgba(12, 20, 32, 0.6);
+}
+
+.fleet-card__media {
+  aspect-ratio: 16 / 11;
+  background: var(--qt-surface-2);
+  animation: none;
+}
+
+.fleet-card__tag {
+  border-radius: var(--r-full);
+  border: 1px solid rgba(233, 191, 124, 0.4);
+  background: rgba(10, 17, 28, 0.78);
+  color: #F4DBB0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(10px);
+}
+
+.fleet-card__info {
+  gap: 10px;
+  padding: 22px 22px 26px;
+}
+
+.fleet-card__title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--qt-heading);
+}
+
+.fleet-card__desc {
+  color: var(--qt-muted);
+  font-size: 0.9rem;
+  line-height: 1.95;
+}
+
+.fleet-card__features {
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.fleet-card__features li {
+  color: var(--qt-text);
+  font-size: 0.85rem;
+}
+
+.fleet-card__features li::before {
+  color: var(--qt-brass);
+}
+
+.fleet-strip {
+  gap: 0;
+  margin-top: 22px;
+  padding: 0;
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-surface);
+  overflow: hidden;
+}
+
+.fleet-strip__item {
+  padding: 20px 22px;
+  border-inline-end: 1px solid var(--qt-line);
+  color: var(--qt-text);
+  font-size: 0.88rem;
+}
+.fleet-strip__item:last-child {
+  border-inline-end: 0;
+}
+
+.fleet-strip__item strong {
+  color: var(--qt-brass-deep);
+  font-family: var(--font-numbers);
+  font-size: 1.05rem;
+}
+
+.fleet-specs-cta {
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-surface);
+  box-shadow: var(--qt-card-shadow);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۱. برندهای ناوگان (بخش تیره)
+   -------------------------------------------------------------------------- */
+.brands-section {
+  background:
+    radial-gradient(46rem 26rem at 88% 0%, rgba(169, 109, 24, 0.16), transparent 64%),
+    var(--qt-ink-surface);
+  border-block: 1px solid rgba(233, 191, 124, 0.18);
+}
+
+.brands-section::before {
+  background:
+    radial-gradient(38% 60% at 82% 0%, rgba(233, 191, 124, 0.14) 0%, transparent 70%),
+    radial-gradient(34% 54% at 10% 100%, rgba(10, 110, 106, 0.16) 0%, transparent 70%);
+  opacity: 0.9;
+}
+
+.brands-section .section-desc {
+  color: rgba(233, 239, 246, 0.7);
+}
+
+.brand-item {
+  padding: 22px 16px;
+  border: 1px solid rgba(233, 191, 124, 0.16);
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.brand-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(233, 191, 124, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+.brand-item__logo {
+  filter: grayscale(100%);
+  opacity: 0.62;
+  transition: filter var(--dur-base) ease, opacity var(--dur-base) ease;
+}
+
+.brand-item:hover .brand-item__logo,
+.brand-item:focus-within .brand-item__logo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.brand-item__name {
+  color: rgba(233, 239, 246, 0.62);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.brand-item:hover .brand-item__name {
+  color: #F4DBB0;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۲. چرا ما
+   -------------------------------------------------------------------------- */
+.why-card {
+  position: relative;
+  padding: 26px 24px 28px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-surface-2);
+  box-shadow: var(--qt-card-shadow);
+  counter-increment: qt-why;
+}
+
+.why-us__grid {
+  counter-reset: qt-why;
+}
+
+.why-card::before {
+  content: counter(qt-why, persian);
+  position: absolute;
+  inset-block-start: 20px;
+  inset-inline-end: 22px;
+  font-family: var(--font-numbers);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--qt-brass);
+  opacity: 0.55;
+  letter-spacing: 0.04em;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(169, 109, 24, 0.45);
+  box-shadow: 0 32px 52px -38px rgba(12, 20, 32, 0.55);
+}
+
+.why-card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(169, 109, 24, 0.26);
+  border-radius: 14px;
+  background: var(--qt-brass-tint);
+  color: var(--qt-brass-deep);
+}
+
+.why-card__title {
+  margin-bottom: 8px;
+  font-size: 1.06rem;
+  font-weight: 800;
+  color: var(--qt-heading);
+}
+
+.why-card__text {
+  color: var(--qt-muted);
+  font-size: 0.9rem;
+  line-height: 1.98;
+}
+
+.why-banner {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid var(--qt-line);
+}
+
+.quote-block {
+  padding: clamp(26px, 3.4vw, 40px);
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-2xl);
+  background: var(--qt-surface-2);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.quote-block__quote-icon {
+  color: var(--qt-brass);
+  opacity: 0.4;
+}
+
+.quote-block__text {
+  color: var(--qt-heading);
+  font-size: clamp(1.05rem, 1.7vw, 1.24rem);
+  font-weight: 600;
+  line-height: 1.95;
+}
+
+.quote-block__author {
+  color: var(--qt-muted);
+  font-size: 0.86rem;
+}
+
+.quote-block__author-avatar {
+  border: 1px solid var(--qt-line);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۳. مشتریان و سابقهٔ همکاری
+   -------------------------------------------------------------------------- */
+.clients-section {
+  border-block: 1px solid var(--qt-line);
+  background: var(--qt-paper);
+}
+
+.clients-marquee-wrapper::before,
+.clients-marquee-wrapper::after {
+  display: none;
+}
+
+.clients-marquee {
+  gap: 12px;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.clients-marquee__chip {
+  padding: 10px 18px;
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-full);
+  background: var(--qt-paper);
+  color: var(--qt-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.client-card {
+  padding: 26px 20px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-card-bg);
+  box-shadow: none;
+  transition:
+    transform var(--dur-base) var(--ease-quint),
+    border-color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease,
+    background-color var(--dur-base) ease;
+}
+
+.client-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(169, 109, 24, 0.45);
+  background: var(--qt-card-bg);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.client-card__logo-wrap {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  border: 1px solid var(--qt-line);
+  border-radius: 18px;
+  background: var(--qt-surface-2);
+  box-shadow: none;
+  color: var(--qt-ink);
+}
+
+.client-card:hover .client-card__logo-wrap {
+  background: var(--qt-brass-tint);
+  border-color: rgba(169, 109, 24, 0.35);
+  color: var(--qt-brass-deep);
+  transform: none;
+}
+
+.client-card__name {
+  margin-bottom: 4px;
+  color: var(--qt-heading);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.client-card__name-en {
+  margin-bottom: 10px;
+  color: var(--qt-subtle);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.client-card__tag {
+  color: var(--qt-muted);
+  font-size: 0.76rem;
+}
+
+.case-study {
+  border: 1px solid rgba(233, 191, 124, 0.2);
+  border-radius: var(--r-2xl);
+  background:
+    radial-gradient(30rem 20rem at 100% 0%, rgba(233, 191, 124, 0.14), transparent 60%),
+    var(--qt-ink-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.case-study__badge {
+  border: 1px solid rgba(233, 191, 124, 0.4);
+  background: rgba(233, 191, 124, 0.12);
+  color: #F4DBB0;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.case-study__title {
+  color: #FFFFFF;
+  font-weight: 800;
+}
+
+.case-study__text {
+  color: rgba(233, 239, 246, 0.76);
+  line-height: 2;
+}
+
+.case-study__stat {
+  border: 1px solid rgba(233, 191, 124, 0.2);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.clients-history {
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-surface-2);
+  padding: clamp(18px, 2.4vw, 26px);
+}
+
+.history-table th {
+  color: var(--qt-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--qt-line);
+}
+
+.history-table td {
+  color: var(--qt-text);
+  font-size: 0.86rem;
+  border-bottom: 1px solid var(--qt-line);
+}
+
+.history-table tbody tr:hover {
+  background: var(--qt-brass-tint);
+}
+
+.clients-history__note {
+  color: var(--qt-subtle);
+  font-size: 0.78rem;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۴. نوار اعتبار و شناسهٔ ثبتی — «گویشنامهٔ شرکت»
+   -------------------------------------------------------------------------- */
+.registry-section {
+  padding-block: clamp(46px, 6vw, 74px);
+  border-block: 1px solid var(--qt-line);
+  background: var(--qt-paper);
+}
+
+.registry-header {
+  align-items: flex-end;
+}
+
+.registry-cards-grid {
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.registry-card {
+  padding: 20px 16px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-lg);
+  background: var(--qt-card-bg);
+}
+
+.registry-card:hover {
+  transform: translateY(-3px);
+  background: var(--qt-card-bg);
+  border-color: rgba(169, 109, 24, 0.45);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.registry-card__icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: var(--qt-brass-tint);
+  color: var(--qt-brass-deep);
+}
+
+.registry-card__label {
+  color: var(--qt-subtle);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.registry-card__value {
+  color: var(--qt-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-family: var(--font-numbers);
+}
+
+.registry-footer-bar {
+  padding: 14px 18px;
+  border: 1px dashed var(--qt-line-strong);
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--qt-muted);
+  font-size: 0.8rem;
+}
+
+.registry-footer-bar__item {
+  color: var(--qt-muted);
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۵. رزومه و مشخصات فنی
+   -------------------------------------------------------------------------- */
+.resume-section {
+  background: var(--qt-surface);
+  border-block: 1px solid var(--qt-line);
+}
+
+.resume-card {
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-card-bg);
+  box-shadow: none;
+}
+
+.resume-card:hover {
+  border-color: rgba(169, 109, 24, 0.35);
+}
+
+.resume-card__title {
+  color: var(--qt-heading);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.resume-card__title svg {
+  color: var(--qt-brass);
+}
+
+.resume-card__text {
+  color: var(--qt-muted);
+  font-size: 0.88rem;
+  line-height: 2;
+}
+
+.spec-stats {
+  gap: 12px;
+}
+
+.spec-stat {
+  padding: 18px 16px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-lg);
+  background: var(--qt-surface-2);
+}
+
+.spec-stat__value {
+  color: var(--qt-brass-deep);
+  font-family: var(--font-numbers);
+  font-weight: 800;
+}
+
+.spec-stat__plus {
+  color: var(--qt-brass);
+}
+
+.amenity-chip {
+  padding: 7px 14px;
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-full);
+  background: var(--qt-surface-2);
+  color: var(--qt-text);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.amenity-chip::before {
+  background: var(--qt-brass);
+}
+
+/* --------------------------------------------------------------------------
+   ۱۶. اعتبارنامه و اطلاعات حقوقی
+   -------------------------------------------------------------------------- */
+.legal-section {
+  background: var(--qt-paper);
+  border-block: 1px solid var(--qt-line);
+}
+
+.legal-card {
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-card-bg);
+  box-shadow: none;
+}
+
+.legal-card__title {
+  color: var(--qt-heading);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.legal-card__title svg {
+  color: var(--qt-brass);
+}
+
+.legal-accordion {
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-lg);
+  background: var(--qt-surface-2);
+  overflow: hidden;
+}
+
+.legal-acc__summary {
+  color: var(--qt-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.legal-acc__body {
+  color: var(--qt-muted);
+  font-size: 0.88rem;
+  line-height: 2;
+}
+
+.legal-person {
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-md);
+  background: var(--qt-surface);
+}
+
+.legal-person__name {
+  color: var(--qt-heading);
+  font-weight: 800;
+}
+
+.legal-person__role {
+  color: var(--qt-muted);
+  font-size: 0.78rem;
+}
+
+.legal-person__badge {
+  background: var(--qt-brass-tint);
+  color: var(--qt-brass-deep);
+  border: 1px solid rgba(169, 109, 24, 0.25);
+}
+
+.legal-fields__title {
+  color: var(--qt-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.legal-fields__note {
+  color: var(--qt-subtle);
+  font-size: 0.76rem;
+}
+
+.spec-row {
+  border-bottom: 1px solid var(--qt-line);
+  font-size: 0.86rem;
+}
+
+.spec-row dt {
+  color: var(--qt-subtle);
+}
+
+.spec-row dd {
+  color: var(--qt-heading);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۷. تماس — فرم تمیز و کارت اطلاعات
+   -------------------------------------------------------------------------- */
+.contact-form-card {
+  padding: clamp(26px, 3.6vw, 42px);
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-2xl);
+  background: var(--qt-card-bg);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.contact-form-header {
+  margin-bottom: 30px;
+}
+
+.contact-form-header h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.3rem, 2vw, 1.55rem);
+  font-weight: 900;
+  color: var(--qt-heading);
+}
+
+.contact-form-header p {
+  color: var(--qt-muted);
+  font-size: 0.9rem;
+}
+
+.form-control {
+  padding: 16px 18px;
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-md);
+  background: var(--qt-surface-2);
+  color: var(--qt-text);
+  font-size: 0.95rem;
+  transition: border-color var(--dur-base) ease, box-shadow var(--dur-base) ease, background-color var(--dur-base) ease;
+}
+
+.form-control:hover {
+  border-color: var(--qt-line-strong);
+}
+
+.form-control:focus {
+  border-color: var(--qt-brass);
+  background: var(--qt-surface);
+  box-shadow: 0 0 0 4px var(--qt-brass-tint);
+}
+
+.form-control:focus-visible {
+  outline: 2px solid var(--qt-brass);
+  outline-offset: 2px;
+}
+
+.form-control.is-invalid {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.12);
+}
+
+.form-label {
+  color: var(--qt-subtle);
+  font-size: 0.93rem;
+}
+
+.form-control:not(:placeholder-shown) ~ .form-label,
+.form-control:focus ~ .form-label,
+.form-group--select .form-label {
+  background: var(--qt-surface);
+  color: var(--qt-brass-deep);
+  font-weight: 700;
+}
+
+.form-hint {
+  margin-top: 6px;
+  color: var(--qt-subtle);
+  font-size: 0.76rem;
+}
+
+.form-feedback {
+  margin-top: 6px;
+  color: var(--error);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.form-whatsapp-hint {
+  color: var(--qt-teal);
+  font-size: 0.79rem;
+}
+
+.contact-detail-box {
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-2xl);
+  background: var(--qt-surface-2);
+  box-shadow: none;
+}
+
+.contact-detail-box__item {
+  gap: 14px;
+  padding-block: 15px;
+}
+
+.contact-detail-box__item:not(:last-child) {
+  border-bottom: 1px solid var(--qt-line);
+}
+
+.contact-detail-box__icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(169, 109, 24, 0.22);
+  border-radius: 13px;
+  background: var(--qt-brass-tint);
+  color: var(--qt-brass-deep);
+}
+
+.contact-detail-box__title {
+  color: var(--qt-subtle);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.contact-detail-box__value {
+  color: var(--qt-heading);
+  font-size: 0.97rem;
+  font-weight: 700;
+}
+
+.map-preview-box {
+  padding: 22px;
+  border: 1px solid rgba(233, 191, 124, 0.18);
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(22rem 14rem at 100% 0%, rgba(233, 191, 124, 0.14), transparent 62%),
+    var(--qt-ink-surface);
+}
+
+.map-preview-box__title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.map-preview-box__text {
+  color: rgba(233, 239, 246, 0.7);
+  font-size: 0.85rem;
+  line-height: 1.95;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۸. پاورقی
+   -------------------------------------------------------------------------- */
+.footer {
+  padding-block: clamp(56px, 6vw, 84px) 26px;
+  border-block-start: 1px solid rgba(233, 191, 124, 0.16);
+  background:
+    radial-gradient(60rem 30rem at 82% -20%, rgba(169, 109, 24, 0.16), transparent 62%),
+    var(--qt-ink-surface);
+  color: rgba(233, 239, 246, 0.72);
+}
+
+.footer__grid {
+  gap: clamp(30px, 4vw, 54px);
+  margin-bottom: clamp(34px, 4vw, 52px);
+}
+
+.footer__about-text {
+  max-width: 52ch;
+  color: rgba(233, 239, 246, 0.66);
+  font-size: 0.88rem;
+  line-height: 2.05;
+}
+
+.footer__col-title {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  color: #F5F7FA;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.footer__col-title::after {
+  width: 24px;
+  height: 2px;
+  background: var(--qt-brass-bright);
+}
+
+.footer__link {
+  color: rgba(233, 239, 246, 0.68);
+  font-size: 0.88rem;
+  transition: color var(--dur-base) ease, transform var(--dur-base) ease;
+}
+
+.footer__link:hover {
+  color: var(--qt-brass-bright);
+  transform: translateX(-3px);
+}
+
+.footer__registry-strip {
+  margin-bottom: 32px;
+  padding: 14px 20px;
+  border: 1px dashed rgba(233, 191, 124, 0.26);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(233, 239, 246, 0.66);
+  font-size: 0.8rem;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(233, 191, 124, 0.22);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #F2F5F9;
+  transition: background-color var(--dur-base) ease, border-color var(--dur-base) ease, color var(--dur-base) ease, transform var(--dur-base) ease;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(233, 191, 124, 0.55);
+  background: rgba(233, 191, 124, 0.14);
+  color: var(--qt-brass-bright);
+}
+
+.footer__bottom-bar {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(233, 239, 246, 0.5);
+  font-size: 0.79rem;
+}
+
+.footer__copyright {
+  color: rgba(233, 239, 246, 0.5);
+  font-size: 0.79rem;
+}
+
+/* پاورقی فشردهٔ صفحات خدمات */
+.site-footer {
+  padding-block: 34px 26px;
+  border-block-start: 1px solid rgba(233, 191, 124, 0.16);
+  background: var(--qt-ink-surface);
+  color: rgba(233, 239, 246, 0.66);
+}
+
+.site-footer .footer-brand strong {
+  color: #F5F7FA;
+}
+
+.site-footer .footer-brand span span {
+  color: rgba(233, 239, 246, 0.6);
+}
+
+.site-footer .footer-links a {
+  color: rgba(233, 239, 246, 0.68);
+  font-size: 0.85rem;
+}
+
+.site-footer .footer-links a:hover {
+  color: var(--qt-brass-bright);
+}
+
+.site-footer .footer-copy {
+  color: rgba(233, 239, 246, 0.45);
+  font-size: 0.78rem;
+}
+
+/* --------------------------------------------------------------------------
+   ۱۹. صفحات خدمات — هم‌خانواده‌سازی با نسل پنجم
+   -------------------------------------------------------------------------- */
+:root {
+  /* توکن‌های محلیِ service-pages.css با پالت تازه بازنویسی می‌شوند */
+  --navy-950: #070D16;
+  --navy-900: #0A111C;
+  --navy-800: #16222F;
+  --ink: var(--qt-text);
+  --muted: var(--qt-muted);
+  --muted-dark: rgba(233, 239, 246, 0.72);
+  --surface: var(--qt-paper);
+  --surface-raised: var(--qt-surface);
+  --line: var(--qt-line);
+  --accent: #C2842A;
+  --accent-strong: #93601A;
+  --accent-soft: rgba(169, 109, 24, 0.12);
+  --accent-rgb: 194, 132, 42;
+  --sky: #1E6C9E;
+  --success: #0C7A55;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --container: 1320px;
+}
+
+/* هویت رنگی هر خدمت حفظ می‌شود، فقط اشباع و روشنایی به پالت تازه نزدیک شده است */
+.theme-transport {
+  --accent: #2C7FAE;
+  --accent-strong: #1B6497;
+  --accent-soft: rgba(44, 127, 174, 0.12);
+  --accent-rgb: 44, 127, 174;
+}
+.theme-food {
+  --accent: #6E8F2E;
+  --accent-strong: #4C6A16;
+  --accent-soft: rgba(110, 143, 46, 0.14);
+  --accent-rgb: 110, 143, 46;
+}
+.theme-consulting {
+  --accent: #B0812F;
+  --accent-strong: #8A5510;
+  --accent-soft: rgba(176, 129, 47, 0.14);
+  --accent-rgb: 176, 129, 47;
+}
+.theme-trade {
+  --accent: #C2842A;
+  --accent-strong: #93601A;
+  --accent-soft: rgba(194, 132, 42, 0.13);
+  --accent-rgb: 194, 132, 42;
+}
+
+body {
+  background: var(--qt-paper);
+}
+
+.service-hero {
+  background:
+    radial-gradient(58rem 32rem at 88% -12%, rgba(var(--accent-rgb), 0.24), transparent 62%),
+    radial-gradient(44rem 28rem at 0% 110%, rgba(10, 110, 106, 0.16), transparent 60%),
+    linear-gradient(168deg, #070D16 0%, #0A111C 52%, #101C2B 100%);
+  border-block-end: 1px solid rgba(233, 191, 124, 0.14);
+}
+
+.service-hero::before,
+.service-hero::after {
+  border-color: rgba(233, 191, 124, 0.1);
+}
+
+.page-crumbs {
+  color: rgba(233, 239, 246, 0.55);
+  font-size: 0.75rem;
+}
+
+.page-crumbs a {
+  color: rgba(233, 239, 246, 0.78);
+}
+
+.page-crumbs a:hover {
+  color: var(--qt-brass-bright);
+}
+
+.page-crumbs__separator {
+  color: rgba(233, 191, 124, 0.6);
+}
+
+.eyebrow {
+  padding: 7px 14px;
+  border: 1px solid rgba(233, 191, 124, 0.3);
+  border-radius: var(--r-full);
+  background: rgba(233, 191, 124, 0.08);
+  color: #F1D6A8;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.eyebrow::before {
+  background: var(--qt-brass-bright);
+  box-shadow: 0 0 0 4px rgba(233, 191, 124, 0.14);
+}
+
+.hero-metrics {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-xl);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-metric {
+  min-height: 96px;
+  padding: 20px 24px;
+  background: transparent;
+}
+
+.hero-metric strong {
+  color: #F4DBB0;
+  font-size: 1.4rem;
+  letter-spacing: 0;
+}
+
+.hero-metric span {
+  color: rgba(233, 239, 246, 0.66);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.hero-metric + .hero-metric {
+  border-inline-start: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-section {
+  padding-block: clamp(64px, 7.6vw, 112px);
+}
+
+.content-section--white {
+  background: var(--qt-surface);
+  border-block: 1px solid var(--qt-line);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--qt-brass);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.section-heading h2,
+.directory-heading h2 {
+  color: var(--qt-heading);
+  font-size: var(--fs-h2);
+  font-weight: 900;
+  line-height: 1.38;
+}
+
+.section-heading p,
+.directory-heading p {
+  color: var(--qt-muted);
+  line-height: 2;
+}
+
+.feature-card {
+  overflow: hidden;
+  min-height: 230px;
+  padding: 26px 24px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-card-bg);
+  box-shadow: none;
+}
+
+.feature-card::before {
+  height: 2px;
+  background: linear-gradient(90deg, var(--qt-brass), transparent);
+  opacity: 0;
+  transition: opacity var(--dur-base) ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(169, 109, 24, 0.45);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card__number,
+.process-card__number {
+  color: var(--qt-brass);
+  font-family: var(--font-numbers);
+  font-weight: 800;
+}
+
+.feature-card__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(169, 109, 24, 0.24);
+  border-radius: 12px;
+  background: var(--qt-brass-tint);
+}
+
+.process-card {
+  padding: 24px 22px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-lg);
+  background: var(--qt-surface-2);
+}
+
+.process-card::after {
+  background: linear-gradient(90deg, rgba(169, 109, 24, 0.5), transparent);
+}
+
+.detail-panel {
+  padding: clamp(24px, 4vw, 36px);
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(28rem 18rem at 100% 0%, rgba(233, 191, 124, 0.12), transparent 62%),
+    var(--qt-ink-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.detail-panel p {
+  color: rgba(233, 239, 246, 0.76);
+}
+
+.detail-panel--light {
+  border: 1px solid var(--qt-card-line);
+  background: var(--qt-card-bg);
+  color: var(--qt-text);
+  box-shadow: none;
+}
+
+.detail-panel--light p {
+  color: var(--qt-muted);
+}
+
+.detail-panel--light h3 {
+  color: var(--qt-heading);
+}
+
+.detail-panel--light .detail-list li {
+  color: var(--qt-muted);
+}
+
+.detail-panel h3 {
+  color: #FFFFFF;
+}
+
+.detail-list li {
+  color: rgba(233, 239, 246, 0.8);
+  font-size: 0.88rem;
+}
+
+.photo-story {
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  box-shadow: var(--qt-card-shadow);
+}
+
+.photo-story__copy {
+  background: transparent;
+}
+
+.related-card {
+  padding: 20px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-lg);
+  background: var(--qt-card-bg);
+  box-shadow: none;
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(169, 109, 24, 0.45);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.related-card small {
+  color: var(--qt-brass);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.related-card strong {
+  color: var(--qt-heading);
+}
+
+.related-card span {
+  color: var(--qt-muted);
+  font-size: 0.84rem;
+  line-height: 1.9;
+}
+
+.service-cta {
+  padding-block: clamp(56px, 6.4vw, 88px);
+  border-block-start: 1px solid rgba(233, 191, 124, 0.16);
+  background:
+    radial-gradient(46rem 26rem at 88% 0%, rgba(var(--accent-rgb), 0.18), transparent 64%),
+    radial-gradient(40rem 24rem at 4% 110%, rgba(10, 110, 106, 0.14), transparent 60%),
+    var(--qt-ink-surface);
+}
+
+.service-cta h2 {
+  color: #FFFFFF;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.service-cta p {
+  max-width: 62ch;
+  color: rgba(233, 239, 246, 0.72);
+  font-size: 0.95rem;
+  line-height: 2;
+}
+
+/* --------------------------------------------------------------------------
+   ۲۰. فهرست خدمات (/services/)
+   -------------------------------------------------------------------------- */
+.hub-hero {
+  background:
+    radial-gradient(52rem 30rem at 86% -8%, rgba(233, 191, 124, 0.2), transparent 62%),
+    radial-gradient(44rem 26rem at 0% 108%, rgba(10, 110, 106, 0.16), transparent 60%),
+    linear-gradient(168deg, #070D16 0%, #0A111C 52%, #101C2B 100%);
+  border-block-end: 1px solid rgba(233, 191, 124, 0.14);
+}
+
+.hub-hero h1 {
+  font-size: var(--fs-display);
+  font-weight: 900;
+  line-height: 1.4;
+  color: #FFFFFF;
+}
+
+.hub-copy p {
+  color: rgba(233, 239, 246, 0.76);
+  line-height: 2;
+}
+
+.hub-tags li {
+  padding: 7px 14px;
+  border: 1px solid rgba(233, 191, 124, 0.24);
+  border-radius: var(--r-full);
+  background: rgba(233, 191, 124, 0.08);
+  color: #F1D6A8;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.service-directory {
+  padding-block: clamp(60px, 7vw, 96px) clamp(70px, 8vw, 110px);
+  background: var(--qt-paper);
+}
+
+.service-directory__grid {
+  gap: 18px;
+}
+
+.service-index-card {
+  min-height: 320px;
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-card-bg);
+  box-shadow: var(--qt-card-shadow);
+  overflow: hidden;
+  transition:
+    transform var(--dur-base) var(--ease-quint),
+    border-color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+
+.service-index-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(169, 109, 24, 0.45);
+  box-shadow: 0 34px 54px -38px rgba(12, 20, 32, 0.6);
+}
+
+.service-index-card__media {
+  height: 148px;
+}
+
+.service-index-card__number {
+  color: var(--qt-brass);
+  font-family: var(--font-numbers);
+  font-weight: 800;
+}
+
+.service-index-card__tag {
+  border: 1px solid rgba(233, 191, 124, 0.3);
+  border-radius: var(--r-full);
+  background: rgba(10, 17, 28, 0.7);
+  color: #F4DBB0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.service-index-card__link {
+  color: var(--qt-brass-deep);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.directory-note {
+  color: var(--qt-muted);
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   ۲۱. صفحهٔ تأمین غذا — همان سبز، قاب تازه
+   -------------------------------------------------------------------------- */
+.dish-card,
+.food-benefit,
+.food-faq__item,
+.food-gallery__item,
+.food-request__form-card {
+  border-color: var(--qt-card-line);
+  border-radius: var(--r-xl);
+  box-shadow: none;
+}
+
+.dish-card:hover,
+.food-benefit:hover,
+.food-faq__item[open] {
+  border-color: rgba(110, 143, 46, 0.45);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.food-benefit__title,
+.dish-card__name,
+.food-faq__question {
+  color: var(--qt-heading);
+}
+
+.food-benefit__text,
+.dish-card__desc,
+.food-faq__answer p {
+  color: var(--qt-muted);
+}
+
+.food-gallery__item {
+  border-color: var(--qt-line);
+}
+
+.food-cta__panel {
+  border: 1px solid rgba(233, 191, 124, 0.16);
+  background:
+    radial-gradient(30rem 20rem at 50% -20%, rgba(233, 191, 124, 0.14), transparent 62%),
+    #08261E;
+}
+
+/* --------------------------------------------------------------------------
+   ۲۲. اصلاح تم تیره (قواعد قدیمی specificity بالاتری دارند)
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] .fleet-card,
+[data-theme="ocean"] .fleet-card {
+  background: var(--qt-card-bg);
+  border-color: var(--qt-card-line);
+}
+
+[data-theme="dark"] .fleet-strip,
+[data-theme="ocean"] .fleet-strip {
+  background: var(--qt-surface);
+  border-color: var(--qt-line);
+}
+
+[data-theme="dark"] .section-label,
+[data-theme="ocean"] .section-label,
+[data-theme="dark"] .section-label--sky,
+[data-theme="ocean"] .section-label--sky {
+  border: 0;
+  background: none;
+  color: var(--qt-brass);
+}
+
+[data-theme="dark"] .section-label--onDark,
+[data-theme="ocean"] .section-label--onDark {
+  color: var(--qt-brass-bright);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="ocean"] .form-control:focus {
+  background: var(--qt-surface);
+  border-color: var(--qt-brass);
+}
+
+[data-theme="dark"] .form-control:focus ~ .form-label,
+[data-theme="ocean"] .form-control:focus ~ .form-label,
+[data-theme="dark"] .form-group--select .form-label,
+[data-theme="ocean"] .form-group--select .form-label {
+  background: var(--qt-surface);
+  color: var(--qt-brass);
+}
+
+[data-theme="dark"] .amenity-chip,
+[data-theme="ocean"] .amenity-chip {
+  border-color: var(--qt-line);
+  background: var(--qt-surface-2);
+  color: var(--qt-text);
+}
+
+[data-theme="dark"] .theme-switch__btn,
+[data-theme="dark"] .lang-switch__btn,
+[data-theme="ocean"] .theme-switch__btn,
+[data-theme="ocean"] .lang-switch__btn {
+  background: var(--qt-sidebar-soft);
+  color: var(--qt-sidebar-muted);
+}
+
+/* در تم تیره، سطوح روشنِ چسبیده به مرکب باید کمی روشن‌تر از پس‌زمینه باشند */
+[data-theme="dark"] .hero__glass-card,
+[data-theme="ocean"] .hero__glass-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   ۲۳. حرکت، شفافیت و چاپ
+   -------------------------------------------------------------------------- */
+.reveal {
+  transition: opacity 700ms var(--ease-quint), transform 700ms var(--ease-quint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  .site-header,
+  #scroll-progress,
+  .scroll-progress,
+  .hero__actions,
+  .services__cta,
+  .social-links,
+  .map-preview-box,
+  .site-footer {
+    display: none !important;
+  }
+  body,
+  .section,
+  .section--alt,
+  .hero,
+  .footer {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ۲۴. ریزتنظیم‌های اندازه
+   -------------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .hero__stats {
+    gap: 0;
+  }
+  .hero__stat-item {
+    padding-inline-end: 10px;
+  }
+  .hero__stat-number {
+    font-size: clamp(1.45rem, 7vw, 1.9rem);
+  }
+  .hero__stat-label {
+    font-size: 0.68rem;
+    line-height: 1.65;
+  }
+  .hero__badge {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+  }
+  .section-label {
+    font-size: 0.76rem;
+  }
+  .section-title {
+    font-size: clamp(1.5rem, 7.4vw, 2rem);
+  }
+  .hero__glass-card {
+    padding: 12px;
+    border-radius: var(--r-xl);
+  }
+  .service-mini-card__title,
+  .service-mini-card__desc,
+  .service-mini-card__btn {
+    padding-inline: 18px;
+    margin-inline: 0;
+  }
+  .service-mini-card__btn {
+    margin-inline: 18px;
+  }
+  .service-mini-card__icon {
+    margin-inline: 18px;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 1023px) {
+  .hero__stat-number {
+    font-size: clamp(1.8rem, 4.6vw, 2.4rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ۲۵. جزئیات امضادار نسل پنجم
+   -------------------------------------------------------------------------- */
+/* هالهٔ طلایی هیرو: نفس کشیدن آرام، فقط روی دستگاه‌های توانمند */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+  .hero__glow-top {
+    animation: qtAurora 18s ease-in-out infinite alternate;
+  }
+  .hero__glow-bottom {
+    animation: qtAurora 24s ease-in-out infinite alternate-reverse;
+  }
+}
+
+@keyframes qtAurora {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(-40px, 30px, 0) scale(1.08);
+    opacity: 0.95;
+  }
+}
+
+/* گوشهٔ طلایی قاب رسانه */
+.hero__glass-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -1px;
+  inset-inline-end: -1px;
+  width: 74px;
+  height: 74px;
+  border-start-end-radius: var(--r-2xl);
+  border-block-start: 2px solid var(--qt-brass-bright);
+  border-inline-end: 2px solid var(--qt-brass-bright);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* اعداد لاتین/فارسی با ارقام هم‌عرض برای آمار و جدول‌ها */
+.hero__stat-number,
+.spec-stat__value,
+.registry-card__value,
+.history-table td,
+.section-label::after,
+.why-card::before,
+.service-index-card__number,
+.feature-card__number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* برند در هدر موبایل: حلقهٔ نازک طلایی */
+.site-header .brand-mark img {
+  border-radius: 10px;
+}
+
+/* تصاویر محتوایی: گوشه‌های نرم و قاب مویی */
+.photo-story__media img,
+.service-index-card__media img,
+.dish-card__photo img,
+.resume-card img {
+  border-radius: inherit;
+}
+
+/* جدول تاریخچه: سرصفحهٔ چسبان برای خوانایی روی موبایل */
+.history-table thead th {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: var(--qt-surface-2);
+  backdrop-filter: blur(8px);
+}
+
+/* لینک‌های متنی: زیرخط متحرک */
+.related-card__link,
+.footer__link {
+  text-underline-offset: 4px;
+}
+
+/* در تم تیره، قاب گوشه طلایی کمی درخشان‌تر */
+[data-theme="dark"] .hero__glass-card::before,
+[data-theme="ocean"] .hero__glass-card::before {
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   ۲۶. رفع تعارض‌های specificity با شیت‌های قدیمی
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .site-header .site-nav > .site-nav__item--services > .site-nav__link {
+    border-radius: 12px;
+    padding: 12px 18px;
+  }
+
+  .site-header:not(.is-collapsed) .site-nav__dropdown {
+    border-radius: 14px;
+    border: 1px solid var(--qt-sidebar-line);
+  }
+}
+
+.history-table thead th {
+  color: var(--qt-subtle);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--qt-line);
+  background: var(--qt-surface-2);
+}
+
+.history-table tbody th {
+  color: var(--qt-heading);
+  font-weight: 700;
+}
+
+.history-table tbody tr:nth-child(even) {
+  background: rgba(169, 109, 24, 0.04);
+}
+
+.photo-story__copy .section-kicker {
+  color: var(--qt-brass-bright);
+}
+
+[data-theme="dark"] .form-control:not(:placeholder-shown) ~ .form-label,
+[data-theme="ocean"] .form-control:not(:placeholder-shown) ~ .form-label {
+  background: var(--qt-surface);
+  color: var(--qt-brass);
+}
+
+/* --------------------------------------------------------------------------
+   ۲۷. جزئیات صفحات خدمات
+   -------------------------------------------------------------------------- */
+.intro-aside {
+  border: 1px solid var(--qt-card-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-surface-2);
+  box-shadow: var(--qt-card-shadow);
+}
+
+.section-heading {
+  max-width: 820px;
+  margin-inline: 0;
+  text-align: start;
+}
+
+.directory-note {
+  border: 1px solid var(--qt-line);
+  border-radius: var(--r-xl);
+  background: var(--qt-surface-2);
+}
+
+.hub-visual {
+  border-color: rgba(233, 191, 124, 0.18);
+}
+
+.hero__showcase-meta strong.is-sky {
+  color: var(--sky-light);
+}
+
+html[dir="ltr"] .why-card::before {
+  content: counter(qt-why, decimal-leading-zero);
+}
+
+.footer .brand-logo__title {
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.footer .brand-logo__subtitle {
+  font-size: 0.78rem;
+  color: rgba(233, 239, 246, 0.55);
+}

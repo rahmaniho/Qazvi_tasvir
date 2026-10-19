@@ -595,7 +595,7 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>{escape(title)} | قزوین تصویر</title>
   <meta name="description" content="{escape(description)}">
-  <meta name="theme-color" content="#061829">
+  <meta name="theme-color" content="#070D16">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fa_IR">
   <meta property="og:title" content="{escape(title)} | قزوین تصویر">
@@ -619,7 +619,8 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <link rel="stylesheet" href="../assets/css/nav/nav-tokens.css">
   <link rel="stylesheet" href="../assets/css/nav/nav-base.css">
   <link rel="stylesheet" href="../assets/css/nav/nav-sidebar.css">
-{food_styles}</head>
+{food_styles}  <link rel="stylesheet" href="../assets/css/qt-next.css">
+</head>
 <body class="qt-sidebar-shell {body_class}">
   <a class="skip-link" href="#main-content">پرش به محتوای اصلی صفحه</a>
   <div class="scroll-progress" aria-hidden="true"></div>
