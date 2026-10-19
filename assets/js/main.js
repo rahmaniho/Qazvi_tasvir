@@ -96,12 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const easeOut = 1 - Math.pow(1 - progress, 3);
         const currentVal = Math.floor(easeOut * target);
 
-        stat.textContent = `${suffix}${toPersianDigits(currentVal)}${prefix}`;
+        stat.textContent = `${prefix}${toPersianDigits(currentVal)}${suffix}`;
 
         if (progress < 1) {
           requestAnimationFrame(updateNumber);
         } else {
-          stat.textContent = `${suffix}${toPersianDigits(target)}${prefix}`;
+          stat.textContent = `${prefix}${toPersianDigits(target)}${suffix}`;
         }
       }
       requestAnimationFrame(updateNumber);
@@ -167,72 +167,167 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openWhatsApp(message) {
     // باید مستقیم در ژست کاربر صدا زده شود تا مسدودکنندهٔ پاپ‌آپ جلوی آن را نگیرد
-    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+    const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+    // window.open با noopener مقدار null برمی‌گرداند حتی وقتی پنجره باز شده؛
+    // پس نتیجه را از روی مقدار بازگشتی تشخیص نمی‌دهیم. کلیک روی یک لینک
+    // یو‌آی‌ال، در ژست کاربر، مطمئن‌ترین راه است و مسدودکنندهٔ پاپ‌آپ را هم
+    // درگیر نمی‌کند.
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    return true;
   }
 
   // ۸. اعتبارسنجی و ارسال فرم تماس اصلی (Contact Form)
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
+    const isEnglish = (document.documentElement.lang || 'fa').toLowerCase().indexOf('en') === 0;
+    const COPY = isEnglish ? {
+      nameRequired: 'Please enter your full name.',
+      nameShort: 'Your name must be at least 2 characters.',
+      phoneRequired: 'Please enter a phone number.',
+      phoneInvalid: 'That phone number is not valid. Example: 09122815189',
+      summary: 'Please correct the highlighted fields.',
+      ready: 'Your message is ready in WhatsApp — press send there to deliver it.',
+      buttonReady: '✓ Message ready in WhatsApp',
+      messageTitle: 'Consultation request — Qazvin Tasvir website',
+      name: 'Name', company: 'Company', phone: 'Phone', service: 'Service', notes: 'Details'
+    } : {
+      nameRequired: 'نام و نام خانوادگی را وارد کنید.',
+      nameShort: 'نام باید حداقل ۲ حرف باشد.',
+      phoneRequired: 'شماره تماس را وارد کنید.',
+      phoneInvalid: 'شماره همراه معتبر نیست؛ نمونه: ۰۹۱۲۲۸۱۵۱۸۹',
+      summary: 'لطفاً خطاهای مشخص‌شده را برطرف کنید.',
+      ready: 'پیام شما در واتساپ آماده شد؛ برای ارسال، دکمهٔ ارسال را در همان صفحه بزنید.',
+      buttonReady: '✓ پیام در واتساپ آماده شد',
+      messageTitle: 'درخواست مشاوره — وب‌سایت قزوین تصویر',
+      name: 'نام', company: 'شرکت', phone: 'شماره تماس', service: 'نوع خدمت', notes: 'توضیحات'
+    };
+
+    const nameInput = contactForm.querySelector('#contact-name');
+    const companyInput = contactForm.querySelector('#contact-company');
+    const phoneInput = contactForm.querySelector('#contact-phone');
+    const serviceSelect = contactForm.querySelector('#contact-service');
+    const messageInput = contactForm.querySelector('#contact-message');
+    const submitBtn = contactForm.querySelector('#contact-submit-btn');
+    const statusBox = contactForm.querySelector('#contact-form-status');
+
+    function feedbackFor(input) {
+      return contactForm.querySelector('[data-feedback-for="' + input.id + '"]');
+    }
+
+    function setFieldError(input, message) {
+      const box = feedbackFor(input);
+      if (!box) return;
+      box.textContent = message || '';
+      box.classList.toggle('is-error', Boolean(message));
+      input.classList.toggle('is-invalid', Boolean(message));
+      input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    }
+
+    function normalizePhone(value) {
+      return toLatinDigits(String(value)).replace(/[\s\-().]/g, '');
+    }
+
+    function validPhone(value) {
+      return /^(\+98|0098|0)?9\d{9}$/.test(normalizePhone(value));
+    }
+
+    // اگر کاربر از صفحهٔ یک خدمت آمده باشد، همان خدمت از پیش انتخاب می‌شود.
+    // `#contact` تنها با مسیریابی هش صفحهٔ اصلی جابه‌جا می‌شود، پس query را
+    // نگه می‌داریم و فقط مقدار select را ست می‌کنیم.
+    try {
+      const requested = new URLSearchParams(window.location.search).get('service');
+      if (requested && Array.from(serviceSelect.options).some(o => o.value === requested)) {
+        serviceSelect.value = requested;
+      }
+    } catch (e) { /* URLSearchParams در مرورگرهای قدیمی */ }
+
+    [nameInput, phoneInput].forEach(input => {
+      input.addEventListener('input', () => {
+        if (input.classList.contains('is-invalid')) {
+          setFieldError(input, '');
+        }
+      });
+      input.addEventListener('blur', () => {
+        if (input === phoneInput && phoneInput.value.trim() && !validPhone(phoneInput.value)) {
+          setFieldError(phoneInput, COPY.phoneInvalid);
+        }
+      });
+    });
+
+    let submitting = false;
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (submitting) return;
 
-      const nameInput = contactForm.querySelector('#contact-name');
-      const phoneInput = contactForm.querySelector('#contact-phone');
-      const serviceSelect = contactForm.querySelector('#contact-service');
-      const messageInput = contactForm.querySelector('#contact-message');
-      const submitBtn = contactForm.querySelector('#contact-submit-btn');
-      let isValid = true;
-
-      // اعتبارسنجی نام
-      if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
-        nameInput.classList.add('is-invalid');
-        isValid = false;
+      let firstInvalid = null;
+      const nameValue = nameInput.value.trim();
+      if (!nameValue) {
+        setFieldError(nameInput, COPY.nameRequired);
+        firstInvalid = firstInvalid || nameInput;
+      } else if (nameValue.length < 2) {
+        setFieldError(nameInput, COPY.nameShort);
+        firstInvalid = firstInvalid || nameInput;
       } else {
-        nameInput.classList.remove('is-invalid');
+        setFieldError(nameInput, '');
       }
 
-      // اعتبارسنجی تلفن همراه (شروع با ۰۹ یا +989 یا 09 — ارقام فارسی/عربی هم پذیرفته می‌شود)
-      const phoneVal = toLatinDigits(phoneInput.value.trim()).replace(/[\s\-()]/g, '');
-      const phoneRegex = /^(\+98|0)?9\d{9}$/;
-      if (!phoneRegex.test(phoneVal)) {
-        phoneInput.classList.add('is-invalid');
-        isValid = false;
+      if (!phoneInput.value.trim()) {
+        setFieldError(phoneInput, COPY.phoneRequired);
+        firstInvalid = firstInvalid || phoneInput;
+      } else if (!validPhone(phoneInput.value)) {
+        setFieldError(phoneInput, COPY.phoneInvalid);
+        firstInvalid = firstInvalid || phoneInput;
       } else {
-        phoneInput.classList.remove('is-invalid');
+        setFieldError(phoneInput, '');
       }
 
-      if (!isValid) {
-        showToast('لطفاً فیلدهای الزامی را به درستی تکمیل فرمایید.');
+      if (firstInvalid) {
+        if (statusBox) statusBox.textContent = COPY.summary;
+        firstInvalid.focus({ preventScroll: false });
+        if (typeof firstInvalid.scrollIntoView === 'function') {
+          firstInvalid.scrollIntoView({ block: 'center' });
+        }
         return;
       }
 
-      // ساخت پیام واتساپ از اطلاعات فرم و باز کردن آن
-      const originalBtnText = submitBtn.innerHTML;
       const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text.trim();
-      const whatsappLines = [
-        'درخواست مشاوره — وب‌سایت قزوین تصویر',
+      const lines = [
+        COPY.messageTitle,
         '',
-        'نام / شرکت: ' + nameInput.value.trim(),
-        'شماره تماس: ' + toLatinDigits(phoneInput.value.trim()),
-        'نوع خدمت: ' + serviceText
+        COPY.name + ': ' + nameValue
       ];
-      const extraMessage = messageInput.value.trim();
-      if (extraMessage) whatsappLines.push('توضیحات: ' + extraMessage);
+      if (companyInput && companyInput.value.trim()) lines.push(COPY.company + ': ' + companyInput.value.trim());
+      lines.push(COPY.phone + ': ' + toLatinDigits(phoneInput.value.trim()));
+      lines.push(COPY.service + ': ' + serviceText);
+      if (messageInput && messageInput.value.trim()) lines.push(COPY.notes + ': ' + messageInput.value.trim());
 
-      openWhatsApp(whatsappLines.join('\n'));
+      openWhatsApp(lines.join('\n'));
 
-      submitBtn.innerHTML = '✓ درخواست شما به واتساپ ارسال شد';
+      submitting = true;
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = COPY.buttonReady;
       submitBtn.style.background = '#10B981';
       submitBtn.style.color = '#FFFFFF';
-
-      showToast('درخواست شما در واتساپ آماده شد؛ لطفاً در صفحهٔ باز شده دکمهٔ ارسال را بزنید.');
+      if (statusBox) statusBox.textContent = COPY.ready;
+      showToast(COPY.ready);
 
       setTimeout(() => {
         contactForm.reset();
+        submitting = false;
+        submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnText;
         submitBtn.style.background = '';
         submitBtn.style.color = '';
-      }, 4000);
+        if (statusBox) statusBox.textContent = '';
+      }, 4500);
     });
   }
 
@@ -406,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
       function showFoodFormSuccess() {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = '✓ درخواست شما به واتساپ ارسال شد';
+          submitBtn.innerHTML = '✓ پیام در واتساپ آماده شد';
           submitBtn.style.background = '#10B981';
           submitBtn.style.color = '#FFFFFF';
         }
@@ -479,7 +574,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ksSplitLabel(ksCredit.querySelector('.ks-label--en'), 0.1);
 
     // نام‌گذاری دسترس‌پذیر پیوند + tooltip
-    const ksAriaLabel = ksActiveLabel + ' کارن سافت | KarenSoft — www.karen-soft.ir';
+    const ksAriaLabel = ksActiveLabel + (ksLang === 'en'
+      ? ' KarenSoft — www.karen-soft.ir'
+      : ' کارن سافت | KarenSoft — www.karen-soft.ir');
     ksCredit.setAttribute('aria-label', ksAriaLabel);
     ksCredit.setAttribute('title', ksAriaLabel);
 
@@ -549,8 +646,8 @@ document.addEventListener('DOMContentLoaded', () => {
         desc: 'ناوگان قزوین تصویر از برندهای اسکانیا، ولوو، مرسدس بنز، ایویکو و ایران خودرو دیزل تشکیل شده است.'
       },
       'why-us': {
-        title: 'چرا قزوین تصویر؟ | ۳۱+ سال سابقه، ناوگان ملکی و پشتیبانی ۲۴/۷',
-        desc: 'سابقه از ۱۳۷۴، مدیریت سعید امین‌زاده، ناوگان ملکی مجهز، شبکه تأمین داخلی و خارجی، قراردادهای منعطف و رضایت بالای مشتریان.'
+        title: 'چرا قزوین تصویر؟ | ۳۱+ سال سابقه، ناوگان ملکی و پاسخگویی عملیاتی',
+        desc: 'سابقه از ۱۳۷۴، مدیریت سعید امین‌زاده، ناوگان ملکی مجهز، شبکه تأمین داخلی و خارجی و قراردادهای منعطف.'
       },
       clients: {
         title: 'مشتریان و همکاران تجاری | سوابق همکاری با نستله، ال‌جی، یونیلیور و هنکل — قزوین تصویر',
@@ -570,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       contact: {
         title: 'تماس با قزوین تصویر | درخواست مشاوره، استعلام قیمت و عقد قرارداد',
-        desc: 'تماس مستقیم ۰۹۱۲ ۲۸۱ ۵۱۸۹، واتساپ و فرم درخواست مشاوره رایگان؛ قزوین، اول خیابان فردوسی، مجتمع آبادگران، طبقه ۶، اتاق ۶۰۴.'
+        desc: 'تماس مستقیم ۰۹۱۲ ۲۸۱ ۵۱۸۹، واتساپ و فرم درخواست مشاوره؛ قزوین، اول خیابان فردوسی، مجتمع آبادگران، طبقه ۶، اتاق ۶۰۴.'
       }
     };
 
@@ -807,5 +904,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && themeSwitch) {
       themeSwitch.removeAttribute('open');
     }
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.lang-switch[open]').forEach(el => el.removeAttribute('open'));
+    }
+  });
+})();
+
+// ۱۶. بستن سوییچر زبان با کلیک بیرون — همان الگوی <details> سراسری
+(function () {
+  const switches = Array.from(document.querySelectorAll('.lang-switch'));
+  if (!switches.length) return;
+  document.addEventListener('click', (event) => {
+    switches.forEach(el => {
+      if (!el.contains(event.target)) el.removeAttribute('open');
+    });
   });
 })();

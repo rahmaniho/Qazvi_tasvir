@@ -432,8 +432,7 @@ body.qt-sidebar-shell {
   text-align: center;
 }
 
-.site-nav__section-label,
-.site-nav__messages-heading {
+.site-nav__section-label {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -443,73 +442,6 @@ body.qt-sidebar-shell {
   font-weight: 800;
   letter-spacing: .08em;
   text-transform: uppercase;
-}
-
-.site-nav__message-add {
-  display: inline-grid;
-  place-items: center;
-  width: 22px;
-  height: 22px;
-  border: 1px solid rgba(93, 143, 237, .4);
-  border-radius: 7px;
-  background: rgba(13, 79, 201, .34);
-  color: #a9c8ff;
-  font: 800 1rem/1 var(--font-numbers, Inter, sans-serif);
-  text-decoration: none;
-}
-
-.site-nav__messages {
-  display: grid;
-  gap: 6px;
-  padding-block-start: 12px;
-  border-block-start: 1px solid var(--qt-sidebar-line);
-}
-
-.site-nav__message-list {
-  display: grid;
-  gap: 4px;
-}
-
-.site-nav__message {
-  display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) 5px;
-  align-items: center;
-  gap: 9px;
-  min-height: 42px;
-  padding: 5px 8px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  color: #9eacc3;
-  font-size: .72rem;
-  text-decoration: none;
-}
-
-.site-nav__message:hover,
-.site-nav__message:focus-visible {
-  border-color: var(--qt-sidebar-line);
-  background: rgba(255, 255, 255, .055);
-  color: #fff;
-}
-
-.site-nav__avatar {
-  display: inline-grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: #173d7d;
-  color: #9ec4ff;
-  font: 800 .72rem/1 var(--font-numbers, Inter, sans-serif);
-}
-
-.site-nav__avatar--2 { background: #633052; color: #ffb2ce; }
-.site-nav__avatar--3 { background: #145275; color: #9de4ff; }
-
-.site-nav__message-status {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #5ed0a0;
 }
 
 .site-nav__profile {
@@ -560,8 +492,6 @@ body.qt-sidebar-shell {
 .site-nav__link:focus-visible,
 .site-nav__cta:focus-visible,
 .site-nav__dropdown a:focus-visible,
-.site-nav__message-add:focus-visible,
-.site-nav__message:focus-visible,
 .site-nav__profile:focus-visible,
 .site-header .menu-toggle:focus-visible,
 .site-nav__search-input:focus-visible {
@@ -661,11 +591,7 @@ body.qt-sidebar-shell {
 
   /* فاز ۵-۵: «پیام‌ها» در دراور موبایل شلوغی غیرضروری بود و مخفی می‌ماند؛
      پروفایل به‌عنوان میان‌بر ساده (لینک «درباره ما») حفظ می‌شود. */
-  .site-nav__messages {
-    display: none;
-  }
-
-  .site-nav__profile {
+    .site-nav__profile {
     margin-block-start: 18px;
   }
 }
@@ -690,7 +616,6 @@ body.qt-sidebar-shell {
   .site-nav__item--services > .site-nav__link::after,
   .site-nav__cta,
   .site-nav__dropdown a,
-  .site-nav__message,
   .site-nav__profile,
   body.service-nav-open::before {
     animation: none;
@@ -700,7 +625,6 @@ body.qt-sidebar-shell {
   .site-nav__link:hover,
   .site-nav__cta:hover,
   .site-nav__dropdown a:hover,
-  .site-nav__message:hover,
   .site-nav__profile:hover,
   .site-nav__item--services > .site-nav__link::after {
     transform: none;
@@ -723,4 +647,11 @@ body.qt-sidebar-shell {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* `hidden` must win over component display rules — the sidebar filter and
+   collapsed states rely on it. Without !important, `.site-nav__link {display:
+   inline-flex}` overrides the UA rule and filtered links stay visible. */
+[hidden] {
+  display: none !important;
 }

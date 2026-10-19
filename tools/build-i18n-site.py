@@ -393,11 +393,23 @@ def build_language(lang: str, master: str, strings: dict,
                   "ساختهٔ tools/build-i18n-site.py */\n"
                   "  window.QT_ROUTE_META = "
                   + json.dumps(route_meta, ensure_ascii=False, indent=4) + ";\n</script>\n  ")
-        html = html.replace('<script src="assets/js/main.js"></script>',
-                            script + '<script src="assets/js/main.js"></script>', 1)
+        # The master loads main.js with defer; match both forms so a future
+        # attribute change cannot silently drop the localized route metadata.
+        for needle in ('<script src="assets/js/main.js" defer></script>',
+                       '<script src="assets/js/main.js"></script>'):
+            if needle in html:
+                html = html.replace(needle, script + needle, 1)
+                break
+        else:
+            raise SystemExit("main.js script tag not found — cannot inject route metadata")
 
     # asset paths are relative → one level deeper needs a prefix
     if lang != "fa":
+        # the English page renders Latin text: preload the font it actually uses
+        html = html.replace(
+            '<link rel="preload" href="assets/fonts/vazirmatn-arabic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>',
+            '<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>',
+            1)
         html = re.sub(r'(href|src|srcset)="assets/', rf'\1="../assets/', html)
         # The master page lives at / while the generated language page lives
         # one directory deeper. Service routes must follow the same relative

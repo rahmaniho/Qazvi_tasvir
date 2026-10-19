@@ -2,12 +2,44 @@
 """Build the Persian, standalone service pages under /services/."""
 from __future__ import annotations
 
+import json
+import struct
 from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "services"
 FOOD_DETAIL_TEMPLATE = ROOT / "tools" / "personnel-food-detail.html"
+
+def image_size(rel_path: str) -> tuple[int, int]:
+    """Return the intrinsic pixel size of a JPEG without third-party packages.
+
+    width/height on <img> let the browser reserve the box before the file
+    arrives (CLS); reading the real values avoids inventing an aspect ratio.
+    """
+    path = (OUT / rel_path).resolve()
+    try:
+        data = path.read_bytes()
+    except OSError:
+        return (1200, 800)
+    if data[:2] != b"\xff\xd8":
+        return (1200, 800)
+    i = 2
+    while i + 9 < len(data):
+        if data[i] != 0xFF:
+            i += 1
+            continue
+        marker = data[i + 1]
+        if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+            height, width = struct.unpack(">HH", data[i + 5:i + 9])
+            return (width, height)
+        if marker in (0xD8, 0xD9) or 0xD0 <= marker <= 0xD7:
+            i += 2
+            continue
+        length = struct.unpack(">H", data[i + 2:i + 4])[0]
+        i += 2 + length
+    return (1200, 800)
+
 
 CHECK = '''<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>'''
 ARROW = '''<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>'''
@@ -16,6 +48,7 @@ PHONE = '''<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="c
 SERVICES = [
     {
         "slug": "import-export",
+        "form_service": "trade",
         "theme": "theme-trade",
         "kicker": "بازرگانی بین‌الملل",
         "title": "واردات و صادرات کالاهای مجاز",
@@ -31,7 +64,7 @@ SERVICES = [
         "story_webp": "../assets/img/sections/trade-customs.webp",
         "story_alt": "بارگیری محموله در انبار و هماهنگی اسناد حمل",
         "points": ["بررسی نیاز و مشخصات کالا", "هماهنگی خرید و حمل", "پیگیری اسناد تا تحویل"],
-        "metrics": [("۳۱+", "سال تجربه مجموعه"), ("۰۱", "مسیر روشن پیگیری"), ("۲۴/۷", "دسترسی برای هماهنگی")],
+        "metrics": [("۳۱+", "سال تجربه مجموعه"), ("۰۱", "مسیر روشن پیگیری"), ("۶ روز", "پاسخگویی در روزهای کاری")],
         "aside_title": "تجارت، با تصویر کامل‌تر",
         "aside_text": "پیش از شروع هر پرونده، جزئیات کالا، مقصد، زمان‌بندی و مدارک مورد نیاز را کنار هم می‌گذاریم تا مسیر همکاری شفاف باشد.",
         "aside_items": ["کالاهای مجاز و قانونی", "ارتباط با تأمین‌کنندگان و کارگزاران", "گزارش‌پذیری در مراحل کار"],
@@ -66,6 +99,7 @@ SERVICES = [
     },
     {
         "slug": "customs-port",
+        "form_service": "customs",
         "theme": "theme-trade",
         "kicker": "تشریفات و عملیات بندری",
         "title": "ترخیص گمرکی و امور بندری",
@@ -116,6 +150,7 @@ SERVICES = [
     },
     {
         "slug": "sourcing",
+        "form_service": "sourcing",
         "theme": "theme-trade",
         "kicker": "تدارکات صنعتی",
         "title": "تأمین مواد اولیه و تجهیزات",
@@ -166,6 +201,7 @@ SERVICES = [
     },
     {
         "slug": "factory-transport",
+        "form_service": "transport",
         "theme": "theme-transport",
         "kicker": "ترابری صنعتی",
         "title": "ترابری پرسنل کارخانجات",
@@ -181,7 +217,7 @@ SERVICES = [
         "story_webp": "../assets/images/minibus-fleet.webp",
         "story_alt": "مینی‌بوس سرویس پرسنل برای مسیرهای صنعتی",
         "points": ["پوشش شیفت‌های کاری", "ناوگان اتوبوس و مینی‌بوس", "پشتیبانی و پایش مسیر"],
-        "metrics": [("۳۱+", "سال سابقه مجموعه"), ("۲۴/۷", "پوشش هماهنگی شیفتی"), ("۳", "نوع وسیله نقلیه")],
+        "metrics": [("۳۱+", "سال سابقه مجموعه"), ("۳ شیفت", "پوشش شیفت‌های کاری"), ("۳", "نوع وسیله نقلیه")],
         "aside_title": "هر شیفت، یک برنامه دقیق",
         "aside_text": "سرویس کارخانه باید با ساعت ورود و خروج، پراکندگی محل سکونت پرسنل و ظرفیت ناوگان هماهنگ باشد.",
         "aside_items": ["اتوبوس، مینی‌بوس و ون", "مسیرهای رفت و برگشت شیفتی", "رانندگان و خودروهای آماده سرویس"],
@@ -216,6 +252,7 @@ SERVICES = [
     },
     {
         "slug": "urban-vip",
+        "form_service": "vip",
         "theme": "theme-transport",
         "kicker": "حمل‌ونقل سازمانی",
         "title": "حمل‌ونقل درون‌شهری و سرویس‌های VIP",
@@ -266,6 +303,7 @@ SERVICES = [
     },
     {
         "slug": "school-office",
+        "form_service": "school",
         "theme": "theme-transport",
         "kicker": "سرویس‌های قراردادی",
         "title": "سرویس مدارس، ادارات و شرکت‌ها",
@@ -316,6 +354,7 @@ SERVICES = [
     },
     {
         "slug": "personnel-food",
+        "form_service": "food",
         "theme": "theme-food",
         "kicker": "کیترینگ سازمانی",
         "title": "تأمین غذای پرسنل و وعده‌های سازمانی",
@@ -366,6 +405,7 @@ SERVICES = [
     },
     {
         "slug": "trade-consulting",
+        "form_service": "consulting",
         "theme": "theme-consulting",
         "kicker": "مشاوره و راهبری بازرگانی",
         "title": "مشاوره بازرگانی و گشایش",
@@ -423,10 +463,54 @@ def picture(service: dict, story: bool = False, eager: bool = False) -> str:
     alt = service["story_alt"] if story else service["image_alt"]
     loading = "eager" if eager else "lazy"
     class_name = "photo-story__image" if story else "hero-photo"
+    width, height = image_size(jpg)
+    priority = ' fetchpriority="high"' if eager else ""
     return (
         f'<picture><source srcset="{escape(webp)}" type="image/webp">'
-        f'<img class="{class_name}" src="{escape(jpg)}" alt="{escape(alt)}" loading="{loading}" decoding="async"></picture>'
+        f'<img class="{class_name}" src="{escape(jpg)}" alt="{escape(alt)}" '
+        f'width="{width}" height="{height}" loading="{loading}" decoding="async"{priority}></picture>'
     )
+
+
+def service_jsonld(service: dict, canonical_url: str) -> str:
+    """Service + BreadcrumbList in one @graph block.
+
+    Only facts that are also visible on the page are published: no ratings, no
+    reviews, no coordinates. Breadcrumbs mirror the on-page navigation.
+    """
+    data = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Service",
+                "@id": canonical_url + "#service",
+                "name": service["title"],
+                "url": canonical_url,
+                "description": service["meta"],
+                "serviceType": service["tag"],
+                "provider": {
+                    "@type": "Organization",
+                    "@id": "https://qazvintasvir.ir/#organization",
+                    "name": "شرکت قزوین تصویر",
+                    "url": "https://qazvintasvir.ir/",
+                },
+                "areaServed": {"@type": "Country", "name": "ایران"},
+                "inLanguage": "fa-IR",
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "خانه",
+                     "item": "https://qazvintasvir.ir/"},
+                    {"@type": "ListItem", "position": 2, "name": "خدمات",
+                     "item": "https://qazvintasvir.ir/services/"},
+                    {"@type": "ListItem", "position": 3, "name": service["title"],
+                     "item": canonical_url},
+                ],
+            },
+        ],
+    }
+    return json.dumps(data, ensure_ascii=False, indent=2)
 
 
 def header(current_slug: str = "") -> str:
@@ -453,7 +537,7 @@ def header(current_slug: str = "") -> str:
       <a class="site-nav__link" href="../index.html#about">درباره ما</a>
       <div class="site-nav__item--services">
         <a class="site-nav__link is-active" href="index.html"{trigger_current} aria-haspopup="true" aria-expanded="false" aria-controls="service-pages-menu">خدمات</a>
-        <div id="service-pages-menu" class="site-nav__dropdown" role="menu" aria-label="هشت خدمت تخصصی" aria-hidden="true">
+        <div id="service-pages-menu" class="site-nav__dropdown" role="menu" aria-label="هشت خدمت تخصصی">
           <a role="menuitem" href="index.html"{directory_current}>فهرست هشت خدمت تخصصی</a>
 {service_links}
         </div>
@@ -508,6 +592,7 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>{escape(title)} | قزوین تصویر</title>
   <meta name="description" content="{escape(description)}">
   <meta name="theme-color" content="#061829">
@@ -516,7 +601,16 @@ def shell_head(title: str, description: str, canonical: str, theme: str, hero_we
   <meta property="og:title" content="{escape(title)} | قزوین تصویر">
   <meta property="og:description" content="{escape(description)}">
   <meta property="og:image" content="https://qazvintasvir.ir/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ناوگان و خدمات شرکت قزوین تصویر">
+  <meta property="og:site_name" content="قزوین تصویر">
   <meta property="og:url" content="{canonical_url}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{escape(title)} | قزوین تصویر">
+  <meta name="twitter:description" content="{escape(description)}">
+  <meta name="twitter:image" content="https://qazvintasvir.ir/assets/images/og-image.jpg">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="{canonical_url}">
   <link rel="alternate" hreflang="fa" href="{canonical_url}">
   <link rel="alternate" hreflang="x-default" href="{canonical_url}">
@@ -554,20 +648,7 @@ def detailed_food_page(service: dict) -> str:
   <script src="../assets/js/service-pages.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "{escape(service["title"])}",
-    "url": "https://qazvintasvir.ir/services/personnel-food.html",
-    "description": "{escape(service["meta"])}",
-    "serviceType": "Corporate catering service",
-    "provider": {{
-      "@type": "Organization",
-      "name": "شرکت قزوین تصویر",
-      "url": "https://qazvintasvir.ir/"
-    }},
-    "areaServed": {{"@type": "Country", "name": "ایران"}}
-  }}
+{service_jsonld(service, "https://qazvintasvir.ir/services/personnel-food.html")}
   </script>
 </body>
 </html>
@@ -624,11 +705,11 @@ def service_page(service: dict) -> str:
             <span class="eyebrow">{escape(service["kicker"])}</span>
             <h1 class="hero-title" id="service-title">{escape(service["title"]).replace(escape(service["highlight"]), f'<span class="highlight">{escape(service["highlight"])}</span>')}</h1>
             <p class="hero-lead">{escape(service["description"])}</p>
-            <ul class="hero-points" aria-label="نکات اصلی خدمت">
+            <ul class="hero-points">
 {points}
             </ul>
             <div class="hero-actions">
-              <a class="btn btn--accent" href="../index.html#contact">درخواست بررسی نیاز {ARROW}</a>
+              <a class="btn btn--accent" href="../index.html?service={escape(service["form_service"])}#contact">درخواست بررسی نیاز {ARROW}</a>
               <a class="btn btn--ghost" href="index.html">مشاهده همه خدمات</a>
             </div>
           </div>
@@ -640,7 +721,7 @@ def service_page(service: dict) -> str:
             <div class="hero-float-card"><strong>۳۱+</strong><span>سال تجربه قزوین تصویر</span></div>
           </div>
         </div>
-        <div class="hero-metrics" aria-label="شاخص‌های همکاری">
+        <div class="hero-metrics" role="group" aria-label="شاخص‌های همکاری">
 {metrics}
         </div>
       </div>
@@ -666,7 +747,7 @@ def service_page(service: dict) -> str:
 {intro}
           </div>
         </div>
-        <div class="feature-grid" aria-label="قابلیت‌های خدمت">
+        <div class="feature-grid" role="group" aria-label="قابلیت‌های خدمت">
 {feature_html}
         </div>
       </div>
@@ -689,14 +770,14 @@ def service_page(service: dict) -> str:
       <div class="container">
         <div class="details-layout">
           <article class="detail-panel reveal">
-            <h3 id="details-title">{escape(service["details_title"])}</h3>
+            <h2 id="details-title">{escape(service["details_title"])}</h2>
             <p>{escape(service["details_body"])}</p>
             <ul class="detail-list">
 {detail_items}
             </ul>
           </article>
           <article class="detail-panel detail-panel--light reveal">
-            <h3>{escape(service["note_title"])}</h3>
+            <h2>{escape(service["note_title"])}</h2>
             <p>{escape(service["note_body"])}</p>
             <ul class="detail-list">
 {note_items}
@@ -732,7 +813,7 @@ def service_page(service: dict) -> str:
           <h2 id="cta-title">برای بررسی نیاز مجموعه‌تان گفت‌وگو کنیم</h2>
           <p>مشخصات اولیه، تعداد، زمان‌بندی و مقصد را با ما در میان بگذارید؛ کارشناس قزوین تصویر مسیر مناسب همکاری را با شما بررسی می‌کند.</p>
         </div>
-        <a class="btn btn--accent" href="../index.html#contact">تماس و درخواست مشاوره {PHONE}</a>
+        <a class="btn btn--accent" href="../index.html?service={escape(service["form_service"])}#contact">تماس و درخواست مشاوره {PHONE}</a>
       </div>
     </section>
   </main>
@@ -740,19 +821,7 @@ def service_page(service: dict) -> str:
   <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/service-pages.js" defer></script>
   <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "{escape(service["title"])}",
-    "url": "https://qazvintasvir.ir/services/{escape(service["slug"])}.html",
-    "description": "{escape(service["meta"])}",
-    "provider": {{
-      "@type": "Organization",
-      "name": "شرکت قزوین تصویر",
-      "url": "https://qazvintasvir.ir/"
-    }},
-    "areaServed": {{"@type": "Country", "name": "ایران"}}
-  }}
+{service_jsonld(service, f"https://qazvintasvir.ir/services/{service['slug']}.html")}
   </script>
 </body>
 </html>
@@ -765,7 +834,7 @@ def hub_page() -> str:
         cards.append(f'''        <article class="service-index-card reveal">
           <a href="{escape(service["slug"])}.html" aria-label="مشاهده صفحه {escape(service["title"])}">
             <div class="service-index-card__media">
-              <picture><source srcset="{escape(service["image_webp"])}" type="image/webp"><img src="{escape(service["image"])}" alt="{escape(service["image_alt"])}" loading="lazy" decoding="async"></picture>
+              <picture><source srcset="{escape(service["image_webp"])}" type="image/webp"><img src="{escape(service["image"])}" alt="{escape(service["image_alt"])}" width="{image_size(service["image"])[0]}" height="{image_size(service["image"])[1]}" loading="lazy" decoding="async"></picture>
               <span class="service-index-card__number">{index:02d}</span>
             </div>
             <div class="service-index-card__body">
@@ -800,10 +869,10 @@ def hub_page() -> str:
             <span class="eyebrow">خدمات تخصصی قزوین تصویر</span>
             <h1 id="services-title">راهکارهایی برای اینکه زنجیره عملیات شما <span>روان‌تر</span> پیش برود</h1>
             <p>از بازرگانی و تأمین تا ترابری و غذای سازمانی، هر خدمت را در یک صفحه مستقل با اطلاعات اجرایی، مسیر همکاری و تصاویر مرتبط ببینید.</p>
-            <ul class="hub-tags" aria-label="حوزه‌های خدمات"><li>بازرگانی و تأمین</li><li>ترابری سازمانی</li><li>کیترینگ پرسنل</li></ul>
+            <ul class="hub-tags"><li>بازرگانی و تأمین</li><li>ترابری سازمانی</li><li>کیترینگ پرسنل</li></ul>
           </div>
           <div class="hub-visual reveal">
-            <picture><source srcset="../assets/img/sections/hero-graphic.webp" type="image/webp"><img src="../assets/img/sections/hero-graphic.jpg" alt="ترکیبی از خدمات بازرگانی، ترابری و تأمین غذای سازمانی قزوین تصویر" loading="eager" decoding="async"></picture>
+            <picture><source srcset="../assets/img/sections/hero-graphic.webp" type="image/webp"><img src="../assets/img/sections/hero-graphic.jpg" alt="ترکیبی از خدمات بازرگانی، ترابری و تأمین غذای سازمانی قزوین تصویر" width="1376" height="768" loading="eager" decoding="async" fetchpriority="high"></picture>
             <div class="hub-visual__badge"><strong>۰۸</strong><span>صفحه مستقل خدمت</span></div>
           </div>
         </div>
@@ -822,7 +891,7 @@ def hub_page() -> str:
         <div class="service-directory__grid">
 {card_html}
         </div>
-        <div class="directory-note reveal" aria-label="ویژگی‌های همکاری">
+        <div class="directory-note reveal" role="group" aria-label="ویژگی‌های همکاری">
           <article>{CHECK}<span><strong>بررسی نیاز واقعی</strong><span>پیشنهاد خدمت بر اساس شرایط مجموعه شما شکل می‌گیرد.</span></span></article>
           <article>{CHECK}<span><strong>اطلاعات قابل پیگیری</strong><span>مراحل همکاری و مسئولیت‌ها پیش از شروع روشن می‌شوند.</span></span></article>
           <article>{CHECK}<span><strong>یک نقطه تماس</strong><span>برای هماهنگی بازرگانی، ترابری یا غذای سازمانی همراه شما هستیم.</span></span></article>

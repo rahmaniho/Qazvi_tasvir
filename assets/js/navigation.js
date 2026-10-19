@@ -59,31 +59,17 @@
 
     function pageCopy() {
       return document.documentElement.lang === 'en' ? {
-        searchLabel: 'Search',
-        searchPlaceholder: 'Search site',
+        searchLabel: 'Filter the menu',
+        searchPlaceholder: 'Filter links…',
         main: 'Main',
-        messages: 'Messages',
-        addMessage: 'New message',
         profileRole: 'Managing Director',
-        profileAction: 'Open about section',
-        messagesList: [
-          ['QT', 'Consultation requests'],
-          ['FL', 'Fleet coordination'],
-          ['FO', 'Catering operations']
-        ]
+        profileAction: 'Open about section'
       } : {
-        searchLabel: 'جستجو',
-        searchPlaceholder: 'جستجو در سایت',
+        searchLabel: 'فیلتر منوی سایت',
+        searchPlaceholder: 'فیلتر لینک‌ها…',
         main: 'اصلی',
-        messages: 'پیام‌ها',
-        addMessage: 'پیام جدید',
         profileRole: 'مدیریت شرکت',
-        profileAction: 'رفتن به بخش دربارهٔ ما',
-        messagesList: [
-          ['ق', 'درخواست‌های مشاوره'],
-          ['ن', 'هماهنگی ناوگان'],
-          ['غ', 'عملیات غذای سازمانی']
-        ]
+        profileAction: 'رفتن به بخش دربارهٔ ما'
       };
     }
 
@@ -134,35 +120,6 @@
         else nav.append(label);
       }
 
-      if (!nav.querySelector('.site-nav__messages')) {
-        const messages = document.createElement('section');
-        messages.className = 'site-nav__messages';
-        messages.setAttribute('aria-label', copy.messages);
-        const heading = document.createElement('div');
-        heading.className = 'site-nav__messages-heading';
-        const title = document.createElement('span');
-        title.textContent = copy.messages;
-        const add = document.createElement('a');
-        add.className = 'site-nav__message-add';
-        add.href = contactHref;
-        add.setAttribute('aria-label', copy.addMessage);
-        add.textContent = '+';
-        heading.append(title, add);
-        const list = document.createElement('div');
-        list.className = 'site-nav__message-list';
-        copy.messagesList.forEach(([initials, text], index) => {
-          const message = document.createElement('a');
-          message.className = 'site-nav__message';
-          message.href = contactHref;
-          message.innerHTML = `<span class="site-nav__avatar site-nav__avatar--${index + 1}" aria-hidden="true">${initials}</span>`
-            + `<span class="site-nav__message-text">${text}</span>`
-            + '<span class="site-nav__message-status" aria-hidden="true"></span>';
-          list.append(message);
-        });
-        messages.append(heading, list);
-        nav.append(messages);
-      }
-
       if (!nav.querySelector('.site-nav__profile')) {
         const profile = document.createElement('a');
         profile.className = 'site-nav__profile';
@@ -181,8 +138,6 @@
       const serviceLinks = serviceItem
         ? Array.from(serviceItem.querySelectorAll('.site-nav__dropdown a'))
         : [];
-      const messages = nav.querySelector('.site-nav__messages');
-      const messageLinks = messages ? Array.from(messages.querySelectorAll('a')) : [];
       const profile = nav.querySelector('.site-nav__profile');
 
       const matches = element => element && element.textContent
@@ -212,9 +167,6 @@
             serviceTrigger.setAttribute('aria-expanded', 'false');
             servicePanel.setAttribute('aria-hidden', 'true');
           }
-        }
-        if (messages) {
-          messages.hidden = Boolean(query) && !messageLinks.some(matches);
         }
         if (profile) {
           profile.hidden = Boolean(query) && !matches(profile);

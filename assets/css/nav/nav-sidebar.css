@@ -196,13 +196,7 @@
     font-size: .72rem;
   }
 
-  .site-header .site-nav__messages {
-    margin-block-start: 17px;
-    margin-inline: 14px;
-    padding-block-start: 12px;
-  }
-
-  .site-header .site-nav__profile {
+    .site-header .site-nav__profile {
     margin-block-start: auto;
     margin-inline: 14px;
     margin-block-end: 0;
@@ -487,32 +481,7 @@
     color: #fff;
   }
 
-  .site-header.is-collapsed .site-nav__messages {
-    display: grid;
-    width: 45px;
-    margin-block-start: auto;
-    margin-inline: auto;
-    padding-block-start: 10px;
-  }
-
-  .site-header.is-collapsed .site-nav__messages-heading {
-    display: none;
-  }
-
-  .site-header.is-collapsed .site-nav__message {
-    grid-template-columns: 29px;
-    justify-content: center;
-    width: 45px;
-    min-height: 39px;
-    padding: 4px 2px;
-  }
-
-  .site-header.is-collapsed .site-nav__message-text,
-  .site-header.is-collapsed .site-nav__message-status {
-    display: none;
-  }
-
-  .site-header.is-collapsed .site-nav__profile {
+          .site-header.is-collapsed .site-nav__profile {
     grid-template-columns: 38px;
     justify-content: center;
     width: 45px;

@@ -34,8 +34,15 @@
       reveals.forEach(item => item.classList.add('is-visible'));
     }
 
+    // سال جاری شمسی — با Intl محاسبه می‌شود تا هر سال خودکار به‌روز بماند.
+    let persianYear = '۱۴۰۵';
+    try {
+      persianYear = new Intl.DateTimeFormat('fa-IR', { year: 'numeric' })
+        .format(new Date())
+        .replace(/[\u200e\u200f]/g, '');
+    } catch (e) { /* مرورگرهای بسیار قدیمی */ }
     document.querySelectorAll('[data-year]').forEach(element => {
-      element.textContent = '۱۴۰۵';
+      element.textContent = persianYear;
     });
   }
 

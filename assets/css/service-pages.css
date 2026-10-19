@@ -30,7 +30,7 @@
   --surface-raised: #ffffff;
   --line: #e1eaf3;
   --accent: #f59e0b;
-  --accent-strong: #d97706;
+  --accent-strong: #b45309;
   --accent-soft: rgba(245, 158, 11, 0.14);
   --accent-rgb: 245, 158, 11;
   --sky: #0ea5e9;
@@ -340,6 +340,13 @@ button {
 
 .btn:hover {
   transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+.food-tab:focus-visible,
+.food-meal:focus-within {
+  outline: 3px solid var(--sky);
+  outline-offset: 3px;
 }
 
 .btn--accent {
@@ -771,6 +778,7 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
+.detail-panel h2,
 .detail-panel h3 {
   color: inherit;
   font-size: 1.28rem;
@@ -1037,7 +1045,7 @@ button {
 }
 
 .footer-copy {
-  color: #72879b;
+  color: #8ca2b6;
   font-size: 0.7rem;
   white-space: nowrap;
 }
