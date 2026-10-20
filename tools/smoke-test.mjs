@@ -46,6 +46,24 @@ if (!fs.existsSync(path.join(ROOT, 'index.html'))) {
 const errors = [];
 const mainJs = fs.readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8');
 const navigationJs = fs.readFileSync(path.join(ROOT, 'assets/js/navigation.js'), 'utf8');
+const menuJs = fs.readFileSync(path.join(ROOT, 'assets/js/menu.js'), 'utf8');
+const dockJs = fs.readFileSync(path.join(ROOT, 'assets/js/dock.js'), 'utf8');
+const hubJs = fs.readFileSync(path.join(ROOT, 'assets/js/hub.js'), 'utf8');
+const contactJs = fs.readFileSync(path.join(ROOT, 'assets/js/contact.js'), 'utf8');
+const recoveryJs = fs.readFileSync(path.join(ROOT, 'assets/js/recovery.js'), 'utf8');
+
+/**
+ * jsdom scrolling is a no-op that reports «Not implemented» as a jsdomError.
+ * main.js scrolls inside requestAnimationFrame, so those reports can arrive
+ * after a test finished; stub them in every window we build.
+ */
+function stubScrolling(window) {
+  window.scrollTo = () => {};
+  window.scrollBy = () => {};
+  if (window.Element && window.Element.prototype) {
+    window.Element.prototype.scrollIntoView = function () {};
+  }
+}
 
 function testPage(rel, lang, dir) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -59,6 +77,7 @@ function testPage(rel, lang, dir) {
     pretendToBeVisual: true,
   });
   const { window } = dom;
+  stubScrolling(window);
   window.matchMedia = window.matchMedia || (query => ({
     matches: false, media: query, addEventListener() {}, removeEventListener() {},
     addListener() {}, removeListener() {}, onchange: null, dispatchEvent: () => false,
@@ -143,6 +162,7 @@ function testNavigation(rel) {
     virtualConsole: vc,
     pretendToBeVisual: true,
   });
+  stubScrolling(desktop.window);
   bootNavigation(desktop.window, 1440);
   const doc = desktop.window.document;
   check(doc.querySelector('.site-header') !== null, 'site header missing');
@@ -198,6 +218,464 @@ function testNavigation(rel) {
   check(!mobileDoc.body.classList.contains('service-nav-open'), 'mobile body lock did not clear');
 }
 
+/**
+ * منوی نسل‌جدید — جست‌وجوی کل سایت، گروه‌بندی خدمات و اقدام سریع موبایل.
+ */
+function bootMenu(rel, width, urlOverride) {
+  const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const vc = new VirtualConsole();
+  vc.on('jsdomError', error => errors.push(`[${rel}] ${error.message}`));
+  vc.on('error', (...args) => errors.push(`[${rel}] console.error ${args.join(' ')}`));
+  const dom = new JSDOM(html, {
+    url: urlOverride || `https://qazvintasvir.ir/${rel}`,
+    runScripts: 'outside-only',
+    virtualConsole: vc,
+    pretendToBeVisual: true,
+  });
+  const { window } = dom;
+  const mobile = width < 1024;
+  Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
+  window.matchMedia = query => ({
+    matches: mobile && /max-width/.test(query),
+    media: query,
+    addEventListener() {}, removeEventListener() {},
+    addListener() {}, removeListener() {},
+  });
+  stubScrolling(window);
+  window.eval(navigationJs);
+  window.eval(menuJs);
+  window.eval(dockJs);
+  window.eval(hubJs);
+  window.eval(contactJs);
+  window.eval(recoveryJs);
+  window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+  return { window, doc: window.document };
+}
+
+function testCommandMenu(rel, lang) {
+  const { window, doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
+
+  check(typeof window.QTMenu === 'object', 'QTMenu API missing');
+  if (typeof window.QTMenu !== 'object') return;
+
+  const input = doc.querySelector('.site-nav__search-input');
+  check(input !== null, 'search field missing');
+  check(input?.getAttribute('role') === 'combobox', 'search field is not a combobox');
+  check(input?.getAttribute('aria-controls') === 'qt-cmd-list', 'combobox is not wired to the list');
+  check(input?.getAttribute('aria-expanded') === 'false', 'combobox starts expanded');
+
+  check(doc.querySelectorAll('.qt-menu-group').length === 3,
+        `services panel has ${doc.querySelectorAll('.qt-menu-group').length} groups (expected 3)`);
+  check(doc.querySelectorAll('.qt-menu-group a').length === 8,
+        'service groups do not hold all eight services');
+  check(doc.querySelector('.qt-quick') !== null, 'mobile quick actions missing');
+  const dialable = doc.querySelector('a[href^="tel:"]') !== null;
+  if (dialable) {
+    const call = doc.querySelector('.qt-quick__btn[href^="tel:"]');
+    check(call !== null, 'quick call action is not backed by a real tel: link');
+  } else {
+    const reach = doc.querySelector('.qt-quick__btn[href$="#contact"]');
+    check(reach !== null, 'a page without a phone number should fall back to the contact link');
+  }
+
+  input?.dispatchEvent(new window.FocusEvent('focus'));
+  check(window.QTMenu.isOpen(), 'menu did not open on focus');
+  check(doc.querySelector('.qt-cmd')?.dataset.open === 'true', 'panel is not visible');
+  check(input?.getAttribute('aria-expanded') === 'true', 'combobox aria-expanded did not follow');
+
+  let snapshot = window.QTMenu.snapshot();
+  check(snapshot.items.length > 0 && snapshot.items.length <= 8,
+        `suggestions = ${snapshot.items.length} (expected 1…8)`);
+  const titles = snapshot.items.map(item => item.title).join(' | ');
+
+  const type = value => {
+    input.value = value;
+    input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  };
+  const key = keyName => input.dispatchEvent(
+    new window.KeyboardEvent('keydown', { key: keyName, bubbles: true, cancelable: true })
+  );
+
+  type(lang === 'en' ? 'customs' : 'گمرک');
+  snapshot = window.QTMenu.snapshot();
+  check(snapshot.items.some(item => item.href.includes('customs-port')),
+        `search did not find the customs page: ${snapshot.items.map(i => i.title).join(' | ')}`);
+
+  type(lang === 'en' ? 'catering' : 'غذا');
+  check(window.QTMenu.snapshot().items.some(item => item.href.includes('personnel-food')),
+        'search did not find the staff-catering service');
+
+  type(lang === 'en' ? 'resume' : 'رزومه');
+  check(window.QTMenu.snapshot().items.some(item => item.href.endsWith('#resume'))
+        || rel !== 'index.html',
+        'a homepage section without a rail link is not searchable');
+
+  type('zzzqqq');
+  check(window.QTMenu.snapshot().items.length === 0, 'nonsense query returned results');
+  check(doc.querySelector('.qt-cmd__empty')?.hidden === false, 'empty state did not appear');
+  const status = doc.querySelector('.qt-cmd__status');
+  check(status?.getAttribute('role') === 'status', 'result count has no live region');
+  check((status?.textContent || '').trim().length > 0,
+        'live region stayed silent on an empty result set');
+
+  type('');
+  key('ArrowDown');
+  check(input.getAttribute('aria-activedescendant') !== null,
+        'ArrowDown did not move the active option');
+  check(doc.querySelectorAll('[role="option"][aria-selected="true"]').length === 1,
+        'exactly one option must be selected');
+
+  let chosen = null;
+  const stop = event => { chosen = event.detail; event.preventDefault(); };
+  doc.addEventListener('qt:menu:select', stop);
+  key('Enter');
+  doc.removeEventListener('qt:menu:select', stop);
+  check(chosen !== null, 'Enter did not dispatch qt:menu:select');
+  check(!window.QTMenu.isOpen(), 'menu stayed open after choosing a destination');
+
+  input.dispatchEvent(new window.FocusEvent('focus'));
+  check(window.QTMenu.isOpen(), 'menu did not reopen after closing');
+  key('Escape');
+  check(!window.QTMenu.isOpen(), 'Escape did not close the menu');
+  check(input.getAttribute('aria-expanded') === 'false', 'combobox stayed expanded after Escape');
+
+  if (lang === 'en') {
+    check(/result/.test(doc.querySelector('.qt-cmd__count')?.textContent || ''),
+          'English result count copy missing');
+  } else {
+    check(!/[0-9]/.test(doc.querySelector('.qt-cmd__count')?.textContent || ''),
+          'Persian result count leaked Latin digits');
+  }
+
+  if (rel === 'index.html') {
+    check(titles.length > 0, 'suggestions were empty');
+  }
+}
+
+/**
+ * داک اقدام سریع موبایل — فقط صفحهٔ اصلی، متصل به لینک‌های واقعی همان صفحه.
+ */
+function testDock(rel, lang) {
+  const { window, doc } = bootMenu(rel, 390);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] dock: ${message}`); };
+  const dock = doc.querySelector('.qt-dock');
+  const isHome = rel === 'index.html' || rel === 'en/index.html';
+
+  if (!isHome) {
+    check(dock === null, 'dock was rendered outside the homepage');
+    return;
+  }
+
+  check(window.QTDock?.version === '7.0', 'QTDock API missing');
+  check(dock !== null, 'mobile dock missing');
+  if (!dock) return;
+
+  check(dock.getAttribute('aria-label') === (lang === 'en' ? 'Quick actions' : 'دسترسی سریع'),
+        'dock landmark has no localized label');
+
+  const pagePhone = doc.querySelector('.hero a[href^="tel:"]');
+  const call = dock.querySelector('a[href^="tel:"]');
+  check(pagePhone !== null, 'homepage lost its real phone link');
+  check(call !== null, 'call action missing');
+  if (call && pagePhone) {
+    check(call.getAttribute('href') === pagePhone.getAttribute('href'),
+          'call action does not reuse the real phone number');
+  }
+
+  const wa = dock.querySelector('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+  check(wa !== null, 'WhatsApp action missing');
+  check(wa?.getAttribute('rel')?.includes('noopener'), 'WhatsApp link is not rel=noopener');
+
+  const menu = dock.querySelector('button');
+  check(menu !== null, 'menu action missing');
+  check(menu?.getAttribute('aria-label') === (lang === 'en' ? 'Open the site menu' : 'باز کردن منوی سایت'),
+        'menu button has no localized aria-label');
+
+  const labels = Array.from(dock.querySelectorAll('.qt-dock__item')).map(el => el.textContent.trim());
+  const expected = lang === 'en' ? ['Call', 'WhatsApp', 'Menu'] : ['تماس', 'واتساپ', 'منو'];
+  check(JSON.stringify(labels.slice(0, 3)) === JSON.stringify(expected),
+        `dock labels = ${labels.join(' | ')}`);
+
+  let action = null;
+  const capture = event => { action = event.detail; };
+  doc.addEventListener('qt:dock:action', capture);
+  menu?.click();
+  doc.removeEventListener('qt:dock:action', capture);
+  check(action?.action === 'menu', 'dock did not announce the menu action');
+  check(doc.querySelector('.site-nav')?.classList.contains('is-open'),
+        'dock menu button did not open the drawer');
+  check(doc.body.classList.contains('service-nav-open'),
+        'body did not flag the open drawer (dock would stay visible)');
+}
+
+/**
+ * نوار درخواست چسبان صفحات خدمات — لینک هر صفحه به فرم همان خدمت.
+ */
+function testServiceBar(rel, expectedService) {
+  const { doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] service bar: ${message}`); };
+  const bar = doc.querySelector('.qt-service-bar');
+
+  if (!expectedService) {
+    check(bar === null, 'service bar was rendered outside a service detail page');
+    return;
+  }
+
+  check(bar !== null, 'sticky inquiry bar missing');
+  if (!bar) return;
+
+  check(bar.getAttribute('aria-label') === 'اقدام سریع', 'bar landmark has no label');
+  const cta = bar.querySelector('.qt-service-bar__cta');
+  check(cta !== null, 'primary inquiry action missing');
+  const href = cta?.getAttribute('href') || '';
+  check(href.includes(`?service=${expectedService}#contact`),
+        `inquiry link does not preselect ${expectedService}: ${href}`);
+  check((cta?.textContent || '').includes('درخواست بررسی نیاز'), 'inquiry copy changed');
+
+  const back = bar.querySelector('.qt-service-bar__link');
+  check(back?.getAttribute('href') === 'index.html', 'back-to-services link is wrong');
+}
+
+/**
+ * فیلتر فهرست خدمات — سه گروه موجود، بدون دادهٔ تازه، فقط روی هاب.
+ */
+function testHubFilter(rel) {
+  const { window, doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] hub: ${message}`); };
+  const filter = doc.querySelector('.qt-hub-filter');
+  const isHub = rel === 'services/index.html';
+
+  if (!isHub) {
+    check(filter === null, 'service filter was rendered outside the services hub');
+    return;
+  }
+
+  check(window.QTHub?.version === '9.0', 'QTHub API missing');
+  check(filter !== null, 'service filter missing');
+  if (!filter) return;
+
+  const chips = Array.from(filter.querySelectorAll('.qt-hub-filter__chip'));
+  check(chips.length === 4, `expected 4 chips (all + 3 groups), found ${chips.length}`);
+  check(chips[0]?.getAttribute('aria-pressed') === 'true', 'the «all» chip is not active by default');
+  check(!/[0-9]/.test(filter.querySelector('.qt-hub-filter__status')?.textContent || ''),
+        'status leaked Latin digits');
+
+  const cards = Array.from(doc.querySelectorAll('.service-index-card'));
+  check(cards.length === 8, `expected 8 service cards, found ${cards.length}`);
+  check(cards.every(card => !card.hidden), 'some cards start hidden');
+
+  const transport = chips.find(chip => chip.dataset.filter === 'transport');
+  check(transport !== undefined, 'transport chip missing');
+  let event = null;
+  const capture = e => { event = e.detail; };
+  doc.addEventListener('qt:hub:filter', capture);
+  transport?.click();
+  doc.removeEventListener('qt:hub:filter', capture);
+
+  const visible = cards.filter(card => !card.hidden);
+  check(visible.length === 3, `transport filter shows ${visible.length} cards (expected 3)`);
+  check(visible.every(card => card.dataset.qtGroup === 'transport'),
+        'transport filter shows a card from another group');
+  check(transport?.getAttribute('aria-pressed') === 'true', 'pressed state did not follow the click');
+  check(chips.filter(chip => chip.getAttribute('aria-pressed') === 'true').length === 1,
+        'more than one chip is pressed');
+  check((filter.querySelector('.qt-hub-filter__status')?.textContent || '').includes('۳'),
+        'status did not announce three services');
+  check(event?.group === 'transport' && event?.visible === 3,
+        'qt:hub:filter detail is wrong');
+
+  const snapshot = window.QTHub.snapshot();
+  check(snapshot.group === 'transport' && snapshot.visible === 3 && snapshot.total === 8,
+        'snapshot does not reflect the active filter');
+
+  chips[0].click();
+  check(cards.every(card => !card.hidden), '«all» did not restore every card');
+  check((filter.querySelector('.qt-hub-filter__status')?.textContent || '').includes('۸'),
+        'status did not announce eight services');
+
+  const byGroup = k => cards.filter(card => card.dataset.qtGroup === k).length;
+  check(byGroup('trade') === 3 && byGroup('transport') === 3 && byGroup('corporate') === 2,
+        'card groups do not match the 3/3/2 service split');
+
+  check(filter.getAttribute('role') === 'group', 'filter is not a labelled group');
+  check(filter.getAttribute('aria-label') === 'فیلتر خدمات', 'filter group label is missing');
+}
+
+/**
+ * شمارندهٔ کاراکتر پیام — فقط صفحهٔ اصلی، هم‌خوان با زبان و maxlength.
+ */
+function testContactCounter(rel, lang) {
+  const { window, doc } = bootMenu(rel, 1440);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] counter: ${message}`); };
+  const field = doc.getElementById('contact-message');
+  const counter = doc.querySelector('.qt-form-counter');
+  const isHome = rel === 'index.html' || rel === 'en/index.html';
+
+  if (!isHome) {
+    check(counter === null, 'counter was rendered outside the homepage');
+    return;
+  }
+
+  check(window.QTContact?.version === '10.0', 'QTContact API missing');
+  check(field !== null, 'message field missing');
+  check(counter !== null, 'character counter missing');
+  if (!field || !counter) return;
+
+  check(counter.getAttribute('aria-hidden') === 'true',
+        'counter must stay out of the accessibility tree');
+  const max = Number(field.getAttribute('maxlength'));
+  check(max === 1200, `maxlength changed (${field.getAttribute('maxlength')})`);
+  check(counter.textContent.includes(lang === 'en' ? '1200' : '۱۲۰۰'),
+        `counter does not show the limit: ${counter.textContent}`);
+  check(counter.textContent.trim().startsWith(lang === 'en' ? '0' : '۰'),
+        'counter does not start at zero');
+
+  field.value = 'سلام';
+  field.dispatchEvent(new window.Event('input', { bubbles: true }));
+  check(counter.dataset.qtCount === '4', `counter counted ${counter.dataset.qtCount} instead of 4`);
+  check(counter.textContent.trim().startsWith(lang === 'en' ? '4' : '۴'),
+        `counter did not render four characters: ${counter.textContent}`);
+  check(!counter.classList.contains('is-near'), 'four characters cannot be near the limit');
+
+  field.value = 'x'.repeat(1090);
+  field.dispatchEvent(new window.Event('input', { bubbles: true }));
+  check(counter.classList.contains('is-near'), 'counter did not warn near the limit');
+
+  field.value = 'x'.repeat(max);
+  field.dispatchEvent(new window.Event('input', { bubbles: true }));
+  check(counter.classList.contains('is-max'), 'counter did not flag the hard limit');
+
+  doc.getElementById('contact-form').reset();
+  return new Promise(resolve => window.setTimeout(() => {
+    check(counter.textContent.trim().startsWith(lang === 'en' ? '0' : '۰'),
+          'counter did not return to zero after the form reset');
+    check(window.QTContact.snapshot().count === 0, 'snapshot kept the old count');
+    resolve();
+  }, 10));
+}
+
+/**
+ * پنل بازیابی ۴۰۴ — فهرست از DOM، جست‌وجوی فازی و پیشنهاد بر پایهٔ نشانی.
+ */
+function testRecovery(rel, url) {
+  const { window, doc } = bootMenu(rel, 1440, url);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] recovery: ${message}`); };
+  const panel = doc.querySelector('.qt-recovery');
+  const isErrorPage = rel === '404.html';
+
+  if (!isErrorPage) {
+    check(panel === null, 'recovery panel was rendered outside the 404 page');
+    return;
+  }
+
+  check(window.QTRecovery?.version === '11.0', 'QTRecovery API missing');
+  check(panel !== null, 'recovery panel missing');
+  if (!panel) return;
+
+  check(doc.body.classList.contains('qt-recovery-ready'), 'body flag for the panel is missing');
+  check(panel.getAttribute('aria-labelledby') === 'qt-recovery-label',
+        'panel is not labelled by its own heading');
+  const label = doc.getElementById('qt-recovery-label');
+  check(label?.tagName.toLowerCase() === 'label' && label.getAttribute('for') === 'qt-recovery-q',
+        'search field has no real <label>');
+
+  const input = doc.getElementById('qt-recovery-q');
+  check(input?.type === 'search', 'search input is not type=search');
+  check((input?.getAttribute('aria-describedby') || '') === 'qt-recovery-status',
+        'search field is not described by the status line');
+
+  // the index must come from the page itself, not a hardcoded list
+  const uniqueNav = new Set(Array.from(doc.querySelectorAll('.site-nav a[href]'))
+    .map(link => new window.URL(link.getAttribute('href'), window.location.href).href));
+  const snapshot = window.QTRecovery.snapshot();
+  check(snapshot.total === uniqueNav.size,
+        `index has ${snapshot.total} entries but the nav holds ${uniqueNav.size}`);
+  check(snapshot.visible === snapshot.total, 'empty query must list every destination');
+
+  const services = doc.querySelectorAll('.qt-recovery__link[data-qt-group="service"]');
+  check(services.length === 8, `expected 8 service links, found ${services.length}`);
+  const pages = doc.querySelectorAll('.qt-recovery__link[data-qt-group="page"]');
+  check(pages.length >= 4, `expected at least 4 page links, found ${pages.length}`);
+
+  const first = doc.querySelector('.qt-recovery__link');
+  check(first?.dataset.qtGroup === 'page', 'pages should be listed before services');
+  check(first?.getAttribute('href') === '/', 'the home link should come first');
+  // the quick-action row and the profile card inject their own links; they must
+  // not leak into the recovery index as duplicates
+  check(doc.querySelectorAll('.qt-recovery__link[data-qt-href$="#contact"]').length === 1,
+        'injected quick-contact links leaked into the index');
+  check(doc.querySelectorAll('.qt-recovery__link[data-qt-href$="#about"]').length === 1,
+        'the profile link duplicated the about entry');
+
+  const status = doc.getElementById('qt-recovery-status');
+  check(status?.getAttribute('role') === 'status', 'result count has no live region');
+  check(!/[0-9]/.test(status?.textContent || ''), 'Persian status leaked Latin digits');
+
+  const type = value => {
+    input.value = value;
+    input.dispatchEvent(new window.Event('input', { bubbles: true }));
+  };
+  const hrefs = () => Array.from(doc.querySelectorAll('.qt-recovery__link'))
+    .map(link => link.getAttribute('href'));
+
+  type('گمرک');
+  check(hrefs().some(href => href.includes('customs-port')), 'search did not find the customs page');
+  check(hrefs().length <= 6, `too many results for a query: ${hrefs().length}`);
+  check(doc.querySelector('.qt-recovery__clear')?.hidden === false,
+        'clear button did not appear with a query');
+
+  type('رزومه');
+  check(hrefs().length === 0, 'a word with no destination should return nothing');
+  check(doc.querySelector('.qt-recovery__empty')?.hidden === false, 'empty state did not appear');
+  check((doc.querySelector('.qt-recovery__empty a')?.getAttribute('href') || '').includes('services'),
+        'empty state has no link to the services list');
+
+  type('zzzqqq');
+  check(doc.querySelectorAll('.qt-recovery__item').length === 0, 'nonsense query kept results');
+
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  check(input.value === '', 'Escape did not clear the query');
+  check(window.QTRecovery.snapshot().visible === uniqueNav.size,
+        'clearing the query did not restore the full list');
+
+  input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+  check(doc.activeElement?.classList.contains('qt-recovery__link'),
+        'ArrowDown did not move focus into the results');
+
+  let chosen = null;
+  const capture = event => { chosen = event.detail; };
+  // jsdom would try to navigate away on a real click; cancel the default only.
+  const noNavigate = event => event.preventDefault();
+  doc.addEventListener('click', noNavigate, true);
+  doc.addEventListener('qt:recovery:select', capture);
+  doc.activeElement?.dispatchEvent(
+    new window.MouseEvent('click', { bubbles: true, cancelable: true })
+  );
+  doc.removeEventListener('qt:recovery:select', capture);
+  doc.removeEventListener('click', noNavigate, true);
+  check(chosen !== null && chosen.href, 'selecting a result fired no event');
+
+  if (url && url.includes('/services/customs-port')) {
+    const hint = doc.querySelector('.qt-recovery__hint');
+    check(hint !== null, 'a broken service URL did not produce a "did you mean" hint');
+    check((hint?.querySelector('a')?.getAttribute('href') || '').includes('customs-port'),
+          'the hint does not point at the matching service page');
+  }
+}
+
+function testCommandMenuMobile(rel) {
+  const { window, doc } = bootMenu(rel, 375);
+  const check = (ok, message) => { if (!ok) errors.push(`[${rel}] menu: ${message}`); };
+  const nav = doc.querySelector('.site-nav');
+  check(!nav.classList.contains('is-open'), 'drawer should start closed');
+  window.QTMenu.open();
+  check(nav.classList.contains('is-open'), 'opening the menu on mobile did not open the drawer');
+  check(window.QTMenu.isOpen(), 'menu did not open on mobile');
+  check(doc.querySelector('.qt-quick') !== null, 'quick actions missing on mobile');
+  check(doc.querySelectorAll('.qt-quick__btn').length >= 1, 'quick row is empty');
+}
+
 function testContactForm(rel, lang) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const vc = new VirtualConsole();
@@ -210,6 +688,7 @@ function testContactForm(rel, lang) {
     pretendToBeVisual: true,
   });
   const { window } = dom;
+  stubScrolling(window);
   window.matchMedia = window.matchMedia || (query => ({
     matches: false, media: query, addEventListener() {}, removeEventListener() {},
     addListener() {}, removeListener() {}, onchange: null, dispatchEvent: () => false,
@@ -262,6 +741,40 @@ console.log('contact form validation:');
 for (const [rel] of [[ 'index.html', 'fa' ], [ 'en/index.html', 'en' ]]) testContactForm(rel, 'fa');
 console.log('navigation regression check:');
 for (const rel of sharedPages()) testNavigation(rel);
+console.log('command menu:');
+for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
+  ['404.html', 'fa'], ['services/sourcing.html', 'fa']]) {
+  testCommandMenu(rel, lang);
+}
+testCommandMenuMobile('index.html');
+console.log('mobile dock:');
+for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
+  ['404.html', 'fa'], ['services/sourcing.html', 'fa']]) {
+  testDock(rel, lang);
+}
+console.log('service inquiry bar:');
+for (const [rel, service] of [['services/import-export.html', 'trade'],
+  ['services/sourcing.html', 'sourcing'], ['services/personnel-food.html', 'food'],
+  ['services/index.html', null], ['index.html', null], ['404.html', null]]) {
+  testServiceBar(rel, service);
+}
+console.log('services hub filter:');
+for (const rel of ['services/index.html', 'index.html', '404.html', 'services/sourcing.html']) {
+  testHubFilter(rel);
+}
+console.log('404 recovery:');
+testRecovery('404.html', 'https://qazvintasvir.ir/404.html');
+testRecovery('404.html', 'https://qazvintasvir.ir/services/customs-port');
+for (const rel of ['index.html', 'services/index.html', 'services/sourcing.html']) {
+  testRecovery(rel);
+}
+console.log('contact counter:');
+const counterRuns = [];
+for (const [rel, lang] of [['index.html', 'fa'], ['en/index.html', 'en'],
+  ['404.html', 'fa'], ['services/sourcing.html', 'fa']]) {
+  counterRuns.push(testContactCounter(rel, lang));
+}
+await Promise.all(counterRuns);
 console.log(errors.length
   ? `\n  ✗ ${errors.length} problem(s):\n    ${errors.slice(0, 12).join('\n    ')}`
   : '\n  ✓ routes, shared sidebar and mobile drawer passed');

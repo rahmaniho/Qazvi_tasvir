@@ -11,7 +11,14 @@ Checks real, user-visible expectations — not just that the build ran:
   * fa/en hreflang is reciprocal and the language switcher points both ways
   * sitemap.xml lists exactly the indexable pages, with matching URLs
   * target="_blank" always ships rel="noopener"
-  * every page loads the QT Next layer as its last stylesheet
+  * every page loads the QT Next layer, then the QT Menu layer, as its last sheets
+  * homepages add the QT Editorial, QT Dock and QT Contact layers last; no
+    other page may load them
+  * service detail pages add the QT Service layer last; no other page may load it
+  * the 404 page adds the QT Recovery layer and recovery.js last; nowhere else
+  * the services hub adds the QT Hub layer and hub.js last; nowhere else
+  * homepages ship dock.js (deferred) after menu.js; menu.js is deferred and
+    runs after the navigation controller on every page
   * every stylesheet has balanced braces (a broken sheet silently kills the UI)
 
 Usage: python3 tools/check-site.py
@@ -126,10 +133,113 @@ def main() -> int:
         stylesheets = re.findall(
             r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', html
         )
-        if not stylesheets or not stylesheets[-1].endswith("qt-next.css"):
+        is_home = page.name == "index.html" and page.parent in (ROOT, ROOT / "en")
+        is_service_detail = page.parent == ROOT / "services" and page.name != "index.html"
+        is_service_hub = page == ROOT / "services/index.html"
+        is_404 = page.name == "404.html"
+        home_sheets = ("qt-home.css", "qt-dock.css", "qt-contact.css")
+        if is_home:
+            layer_sheets = home_sheets
+        elif is_service_detail:
+            layer_sheets = ("qt-service.css",)
+        elif is_service_hub:
+            layer_sheets = ("qt-hub.css",)
+        elif is_404:
+            layer_sheets = ("qt-recovery.css",)
+        else:
+            layer_sheets = ()
+        expected_sheets = ("qt-next.css", "nav/qt-menu.css") + layer_sheets
+        tail = tuple(stylesheets[-len(expected_sheets):])
+        if len(tail) != len(expected_sheets) or not all(
+            href.endswith(sheet) for href, sheet in zip(tail, expected_sheets)
+        ):
+            chain = " → ".join(expected_sheets)
             errors.append(
-                f"{label}: qt-next.css must load last (found {stylesheets[-1:] or 'none'})"
+                f"{label}: stylesheet order must end with {chain} "
+                f"(found {tail or 'none'})"
             )
+        if not is_home:
+            for sheet in home_sheets:
+                if any(href.endswith(sheet) for href in stylesheets):
+                    errors.append(f"{label}: {sheet} is homepage-only")
+        if not is_service_detail and any(
+            href.endswith("qt-service.css") for href in stylesheets
+        ):
+            errors.append(f"{label}: qt-service.css is service-detail-only")
+        if not is_service_hub and any(
+            href.endswith("qt-hub.css") for href in stylesheets
+        ):
+            errors.append(f"{label}: qt-hub.css is services-hub-only")
+        if not is_404 and any(
+            href.endswith("qt-recovery.css") for href in stylesheets
+        ):
+            errors.append(f"{label}: qt-recovery.css is 404-only")
+
+        scripts = re.findall(r'<script[^>]+src="([^"]+)"', html)
+        menu_script = next((src for src in scripts if src.endswith("menu.js")), None)
+        nav_script = next((src for src in scripts if src.endswith("navigation.js")), None)
+        if not menu_script:
+            errors.append(f"{label}: assets/js/menu.js is not loaded")
+        if not nav_script:
+            errors.append(f"{label}: navigation.js is not loaded")
+        if menu_script and nav_script:
+            if scripts.index(menu_script) < scripts.index(nav_script):
+                errors.append(f"{label}: menu.js must load after navigation.js")
+            tag = re.search(rf'<script[^>]+src="{re.escape(menu_script)}"[^>]*>', html)
+            if tag and "defer" not in tag.group(0):
+                errors.append(f"{label}: menu.js must be deferred")
+
+        dock_script = next((src for src in scripts if src.endswith("dock.js")), None)
+        if is_home:
+            if not dock_script:
+                errors.append(f"{label}: assets/js/dock.js is not loaded")
+            else:
+                if menu_script and scripts.index(dock_script) < scripts.index(menu_script):
+                    errors.append(f"{label}: dock.js must load after menu.js")
+                tag = re.search(rf'<script[^>]+src="{re.escape(dock_script)}"[^>]*>', html)
+                if tag and "defer" not in tag.group(0):
+                    errors.append(f"{label}: dock.js must be deferred")
+        elif dock_script:
+            errors.append(f"{label}: dock.js is homepage-only")
+
+        contact_script = next((src for src in scripts if src.endswith("contact.js")), None)
+        if is_home:
+            if not contact_script:
+                errors.append(f"{label}: assets/js/contact.js is not loaded")
+            else:
+                if menu_script and scripts.index(contact_script) < scripts.index(menu_script):
+                    errors.append(f"{label}: contact.js must load after menu.js")
+                tag = re.search(rf'<script[^>]+src="{re.escape(contact_script)}"[^>]*>', html)
+                if tag and "defer" not in tag.group(0):
+                    errors.append(f"{label}: contact.js must be deferred")
+        elif contact_script:
+            errors.append(f"{label}: contact.js is homepage-only")
+
+        recovery_script = next((src for src in scripts if src.endswith("recovery.js")), None)
+        if is_404:
+            if not recovery_script:
+                errors.append(f"{label}: assets/js/recovery.js is not loaded")
+            else:
+                if menu_script and scripts.index(recovery_script) < scripts.index(menu_script):
+                    errors.append(f"{label}: recovery.js must load after menu.js")
+                tag = re.search(rf'<script[^>]+src="{re.escape(recovery_script)}"[^>]*>', html)
+                if tag and "defer" not in tag.group(0):
+                    errors.append(f"{label}: recovery.js must be deferred")
+        elif recovery_script:
+            errors.append(f"{label}: recovery.js is 404-only")
+
+        hub_script = next((src for src in scripts if src.endswith("hub.js")), None)
+        if is_service_hub:
+            if not hub_script:
+                errors.append(f"{label}: assets/js/hub.js is not loaded")
+            else:
+                if menu_script and scripts.index(hub_script) < scripts.index(menu_script):
+                    errors.append(f"{label}: hub.js must load after menu.js")
+                tag = re.search(rf'<script[^>]+src="{re.escape(hub_script)}"[^>]*>', html)
+                if tag and "defer" not in tag.group(0):
+                    errors.append(f"{label}: hub.js must be deferred")
+        elif hub_script:
+            errors.append(f"{label}: hub.js is services-hub-only")
 
         canonical = text_of(html, r'<link\s+rel="canonical"\s+href="([^"]*)"')
         if page.name != "404.html" and not canonical:

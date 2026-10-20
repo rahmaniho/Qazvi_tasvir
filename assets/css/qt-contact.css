@@ -1,0 +1,130 @@
+/**
+ * قزوین تصویر — «QT Contact 10» | فرم تماس فشرده و شمارندهٔ کاراکتر
+ * ---------------------------------------------------------------------------
+ * فقط صفحهٔ اصلی (fa/en) و بعد از qt-dock.css. هیچ فیلد، متن یا قاعدهٔ
+ * اعتبارسنجی تازه‌ای اضافه نمی‌کند؛ فقط چیدمان همان فرم موجود را در دسکتاپ
+ * دوستونی می‌کند تا ارتفاع کارت با ستون اطلاعات تماس هم‌تراز شود، و شمارندهٔ
+ * کاراکتر پیام را کنار همان فیلد نشان می‌دهد.
+ *
+ * شمارنده با CSS ساخته نمی‌شود چون به مقدار واقعی textarea نیاز دارد؛
+ * assets/js/contact.js آن را روی DOM موجود می‌گذارد. بدون جاوااسکریپت
+ * فرم دقیقاً مثل قبل کار می‌کند.
+ */
+
+/* --------------------------------------------------------------------------
+   ۱. چیدمان دوستونی فرم در دسکتاپ
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  #contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(14px, 1.6vw, 20px);
+    align-items: start;
+  }
+
+  #contact-form > .form-group {
+    margin-bottom: clamp(14px, 1.7vw, 20px);
+    min-width: 0;
+  }
+
+  /* پیام چندخطی است و تمام عرض می‌خواهد. */
+  #contact-form > .form-group:has(#contact-message) {
+    grid-column: 1 / -1;
+  }
+
+  /* دکمه، یادداشت واتساپ و ناحیهٔ وضعیت هم تمام‌عرض می‌مانند. */
+  #contact-form > :not(.form-group) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* مرورگرهای بدون :has() همان تک‌ستونی قبلی را می‌گیرند، نه شبکهٔ ناقص. */
+@supports not selector(:has(a)) {
+  #contact-form {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ۲. شمارندهٔ کاراکتر — فقط ابزار بصری، با aria-hidden
+   -------------------------------------------------------------------------- */
+.qt-form-counter {
+  display: block;
+  margin-block-start: 6px;
+  text-align: end;
+  color: var(--qt-subtle);
+  font-family: var(--font-numbers);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.qt-form-counter.is-near {
+  color: var(--qt-brass);
+}
+
+.qt-form-counter.is-max {
+  color: var(--error);
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   ۳. جزئیات فرم — لبه، فوکوس و ارتفاع لمسی
+   -------------------------------------------------------------------------- */
+#contact-form .form-control {
+  min-height: 52px;
+  border-radius: var(--r-md);
+}
+
+#contact-form textarea.form-control {
+  min-height: 132px;
+  line-height: 1.9;
+}
+
+#contact-form .form-control:focus-visible {
+  outline: 3px solid var(--qt-sky);
+  outline-offset: 2px;
+}
+
+/* فیلد نامعتبر: خطای رنگی + حلقهٔ ملایم، بدون جابه‌جایی چیدمان. */
+#contact-form .form-control.is-invalid {
+  border-color: var(--error);
+}
+
+#contact-form .form-control.is-invalid:focus-visible {
+  outline-color: var(--error);
+}
+
+#contact-form .form-feedback.is-error {
+  min-height: 1.2em;
+  margin-top: 6px;
+  color: var(--error);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   ۴. دسترس‌پذیری، حرکت و چاپ
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  #contact-form .form-control {
+    transition: none;
+  }
+}
+
+@media print {
+  .qt-form-counter {
+    display: none;
+  }
+
+  #contact-form {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .qt-form-counter {
+    font-size: 0.7rem;
+  }
+}

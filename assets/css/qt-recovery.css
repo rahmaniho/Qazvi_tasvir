@@ -1,0 +1,291 @@
+/**
+ * قزوین تصویر — «QT Recovery 11» | پنل بازیابی صفحهٔ ۴۰۴
+ * ---------------------------------------------------------------------------
+ * فقط در 404.html و بعد از nav/qt-menu.css. صفحهٔ ۴۰۴ تیره است، پس این پنل
+ * هم روی همان بوم مرکبی با خط مویی طلایی می‌نشیند. بدون جاوااسکریپت هیچ‌چیز
+ * از این فایل دیده نمی‌شود و دو دکمهٔ قبلی («بازگشت به صفحه اصلی» و «تماس با
+ * ما») همان‌طور کار می‌کنند.
+ */
+
+/* --------------------------------------------------------------------------
+   ۱. قاب کلی — پنل زیر دکمه‌های بازیابی
+   -------------------------------------------------------------------------- */
+.qt-recovery {
+  width: 100%;
+  margin-block-start: clamp(30px, 4vw, 42px);
+  padding-block-start: clamp(24px, 3vw, 32px);
+  border-block-start: 1px solid rgba(233, 191, 124, 0.18);
+  text-align: start;
+}
+
+/* وقتی پنل باز است، محتوا از بالای صفحه شروع می‌شود تا پنل زیر نوار آدرس
+   نماند؛ بدون جاوااسکریپت همان وسط‌چین قبلی حفظ می‌شود. */
+.error-page.qt-recovery-ready .box {
+  justify-content: flex-start;
+  padding-block: clamp(88px, 11vh, 132px) 56px;
+}
+
+.qt-recovery__label {
+  display: block;
+  margin-block-end: 10px;
+  color: rgba(231, 237, 245, 0.66);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   ۲. فیلد جست‌وجو
+   -------------------------------------------------------------------------- */
+.qt-recovery__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.qt-recovery__input {
+  width: 100%;
+  min-height: 52px;
+  padding-block: 14px;
+  /* دکمهٔ پاک‌کردن در انتهای خط است، پس فاصله هم منطقی نوشته می‌شود */
+  padding-inline: 18px 46px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.qt-recovery__input::placeholder {
+  color: rgba(231, 237, 245, 0.42);
+}
+
+.qt-recovery__input:hover {
+  border-color: rgba(233, 191, 124, 0.34);
+}
+
+.qt-recovery__input:focus {
+  outline: none;
+  border-color: rgba(233, 191, 124, 0.66);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(233, 191, 124, 0.16);
+}
+
+.qt-recovery__input:focus-visible {
+  outline: 2px solid #F1D6A8;
+  outline-offset: 2px;
+}
+
+/* دکمهٔ پاک‌کردن درون فیلد، سمت انتهای خط */
+.qt-recovery__clear {
+  position: absolute;
+  inset-inline-end: 10px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #EAF0F8;
+  font-family: inherit;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.qt-recovery__clear::before {
+  content: "×";
+}
+
+.qt-recovery__clear:hover {
+  background: rgba(233, 191, 124, 0.22);
+  color: #FFF3DF;
+}
+
+.qt-recovery__clear:focus-visible {
+  outline: 2px solid #F1D6A8;
+  outline-offset: 2px;
+}
+
+.qt-recovery__clear[hidden] {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   ۳. پیشنهاد بر پایهٔ نشانی واردشده
+   -------------------------------------------------------------------------- */
+.qt-recovery__hint {
+  margin-block: 14px 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(233, 191, 124, 0.30);
+  border-radius: 12px;
+  background: rgba(233, 191, 124, 0.08);
+  color: rgba(231, 237, 245, 0.76);
+  font-size: 0.84rem;
+  line-height: 1.9;
+}
+
+.qt-recovery__hint a {
+  color: #F1D6A8;
+  font-weight: 800;
+  text-decoration: none;
+  border-block-end: 1px solid rgba(241, 214, 168, 0.4);
+}
+
+.qt-recovery__hint a:hover,
+.qt-recovery__hint a:focus-visible {
+  color: #FFF3DF;
+  border-block-end-color: #FFF3DF;
+}
+
+/* --------------------------------------------------------------------------
+   ۴. وضعیت و فهرست نتیجه‌ها
+   -------------------------------------------------------------------------- */
+.qt-recovery__status {
+  min-height: 1.3em;
+  margin-block: 12px 10px;
+  color: rgba(231, 237, 245, 0.52);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.qt-recovery__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.qt-recovery__item {
+  min-width: 0;
+}
+
+.qt-recovery__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  height: 100%;
+  min-height: 58px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #EAF0F8;
+  text-decoration: none;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.qt-recovery__link:hover,
+.qt-recovery__link:focus-visible {
+  border-color: rgba(233, 191, 124, 0.5);
+  background: rgba(233, 191, 124, 0.10);
+  color: #FFFFFF;
+}
+
+.qt-recovery__link:focus-visible {
+  outline: 2px solid #F1D6A8;
+  outline-offset: 2px;
+}
+
+.qt-recovery__title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.qt-recovery__tag {
+  color: rgba(231, 237, 245, 0.42);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.qt-recovery__link[data-qt-group="service"] .qt-recovery__tag {
+  color: rgba(233, 191, 124, 0.72);
+}
+
+/* --------------------------------------------------------------------------
+   ۵. حالت خالی
+   -------------------------------------------------------------------------- */
+.qt-recovery__empty {
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  color: rgba(231, 237, 245, 0.62);
+  font-size: 0.84rem;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.qt-recovery__empty[hidden] {
+  display: none;
+}
+
+.qt-recovery__all {
+  display: inline-block;
+  margin-block-start: 10px;
+  color: #F1D6A8;
+  font-weight: 800;
+  text-decoration: none;
+  border-block-end: 1px solid rgba(241, 214, 168, 0.4);
+}
+
+.qt-recovery__all:hover,
+.qt-recovery__all:focus-visible {
+  color: #FFF3DF;
+  border-block-end-color: #FFF3DF;
+}
+
+/* --------------------------------------------------------------------------
+   ۶. ریزمقیاس‌ها، حرکت و چاپ
+   -------------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .qt-recovery__list {
+    grid-template-columns: 1fr;
+  }
+
+  .qt-recovery__input {
+    min-height: 50px;
+    font-size: 0.92rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qt-recovery__input,
+  .qt-recovery__clear,
+  .qt-recovery__link {
+    transition: none;
+  }
+}
+
+@media print {
+  .qt-recovery__field,
+  .qt-recovery__status {
+    display: none;
+  }
+
+  .qt-recovery__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .qt-recovery__link {
+    border-color: #999999;
+    color: #000000;
+  }
+
+  .qt-recovery__tag {
+    color: #444444;
+  }
+}
